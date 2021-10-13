@@ -1,0 +1,11 @@
+public class CommandConstants {
+    public static final Set ALL_COMMANDS = new HashSet<>();
+
+    static {
+        ALL_COMMANDS.add("Some random command");
+    }
+
+    public static boolean isCommand(String commandParsed) {
+        return ALL_COMMANDS.contains(commandParsed);
+    }
+}

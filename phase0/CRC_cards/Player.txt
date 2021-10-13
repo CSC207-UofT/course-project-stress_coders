@@ -1,0 +1,6 @@
+Class name: Player
+Parent class:
+
+Responsibilities:
+
+Collaborators:

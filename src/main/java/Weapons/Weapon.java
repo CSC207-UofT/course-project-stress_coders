@@ -1,10 +1,11 @@
 package Weapons;
 
+import Characters.Character;
 import interfaces.Collectable;
 import interfaces.ThrowableObject;
 import Characters.Enemy;
 
-public class Weapon implements ThrowableObject, Collectable {
+public class Weapon implements Collectable {
 
 
     /**
@@ -27,7 +28,7 @@ public class Weapon implements ThrowableObject, Collectable {
     private String name;
     private int damage;
     private boolean inUse;
-    private float hitProb;
+    //private float hitProb;
 
 
     public Weapon(String name, int damage) {
@@ -37,21 +38,30 @@ public class Weapon implements ThrowableObject, Collectable {
     }
 
 
+// we dont use these because Weapon is not neccesarily Throwable.
+//    public void throwObj(float hitProb) {
+//        // The probability of weapon hitting a suceesfully hitting a Character.
+//        this.hitProb = hitProb;
+//    }
 
-    public void throwObj(float hitProb) {
-        // The probability of weapon hitting a suceesfully hitting a Character.
-        this.hitProb = hitProb;
-    }
+//    public float getProb() {
+//        //return the probability of weapon succesfully hitting a character.
+//        return this.hitProb;
+//        //public float getProb() {return 1.0f;}
+//    }
+//
+    // we dont need setProb because it will be set in the constructor of Axe
+//    public void setProb() {
+//
+//    }
 
-    public float getProb() {
-        //return the probability of weapon succesfully hitting a character.
-        return this.hitProb;
-        //public float getProb() {return 1.0f;}
-    }
 
-
-    public int damageEnemy(Enemy enName) {
-        return enName.dealDamage(this.damage);
+    public int damageCharacter(Character charName) {
+        // set the characters HP to its HP after being damaged,
+        // and return the new HP
+        int newHP = charName.getHealthPoints() - this.damage;
+        charName.setHealthPoints(newHP);
+        return newHP;
     }
 
 

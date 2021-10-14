@@ -31,15 +31,5 @@ public class Enemy {
     }
 
 
-    public int dealDamage(int damageAmount) {
-        /**
-         * returns an integer representing the damage dealt
-         * to this object.
-         */
-        if (damageAmount <= this.HP) {
-            return this.HP - damageAmount;
-        } // otherwise damageAmount > this.HP
-        return 0;
-    }
 
 }

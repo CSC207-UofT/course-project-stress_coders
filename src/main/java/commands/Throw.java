@@ -16,6 +16,7 @@ public class Throw extends Action {
         if (this.user.getWeapon() != null){
 
             // Get the weapon's throw hit probability and generate a random number to determine if it was a hit
+            // this doesnt work, and we decided on calculting getProb of hit in Axe
             float throwProb = this.user.getWeapon().getProb();
             Random rand = new Random();
             int hitNum = rand.nextInt(101);
@@ -31,5 +32,11 @@ public class Throw extends Action {
             // TODO: use Exceptions instead
             return "You can't throw that";
         }
+// do this instead:
+//        if obj is throwable then:
+//        obj.throw()
+//        print stuff
+//        else:
+//        raise not throwable
     }
 }

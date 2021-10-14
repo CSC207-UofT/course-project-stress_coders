@@ -34,8 +34,8 @@ public abstract class Character {
     }
 
     public int getHealthPoints() {
-        return healthPoints;
-    } // should be return this.healthPoints
+        return this.healthPoints;
+    }
 
     public Weapon getWeapon() {
         return this.weapon;

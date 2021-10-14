@@ -1,4 +1,6 @@
-import java.util.Random
+package Characters;
+package Weapons;
+import java.util.Random;
 
 public class Throw extends Action{
 
@@ -15,6 +17,7 @@ public class Throw extends Action{
             hitNum = rand.nextIn(101);
 
             // Determine a hit
+            // TODO: Modify the user's inventory
             if (hitnum < (100 * throwProb)) {
                 return "You hit your target";
             } else {

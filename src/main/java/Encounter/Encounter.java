@@ -1,6 +1,10 @@
 package Encounter;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
+import commands.Action;
 import item.Item;
 import Characters.Character;
 
@@ -12,10 +16,15 @@ public class Encounter{
         ArrayList<Item> on_ground;
         ArrayList<Character> characters;
         String startup_text;
+        Set<String> validActions;
 
         public Encounter(String txt){
             this.startup_text = txt;
 
+        }
+        public Encounter(String txt, Set<String> actions){
+            this.startup_text = txt;
+            this.validActions = actions;
         }
 
          public void add_characters(ArrayList<Character> characters){
@@ -34,6 +43,10 @@ public class Encounter{
             return false;
         }
 
+        public boolean isValidCommand(String command) {
+            return this.validActions.contains(command);
+        }
+
         public ArrayList<Item> item_getter() {
             return this.on_ground;
         }
@@ -41,4 +54,6 @@ public class Encounter{
         public ArrayList<Character> char_getter() {
             return this.characters;
         }
+
+        public String dialogue_getter(){return this.startup_text;}
 }

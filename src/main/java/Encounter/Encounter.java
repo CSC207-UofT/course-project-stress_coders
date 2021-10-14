@@ -1,43 +1,44 @@
-import java.util;
+package Encounter;
+
+import java.util.ArrayList;
+import item.Item;
+import Characters.Character;
 
 
-class Encounter{
+
+public class Encounter{
 
         //Instance Variables
-        ArrayList on_ground;
-        ArrayList characters;
-        int size;
+        ArrayList<Item> on_ground;
+        ArrayList<Character> characters;
+        String startup_text;
 
-public Encounter(int tiles){
-        this.size=tiles;
+        public Encounter(String txt){
+            this.startup_text = txt;
 
-        }
-
-public add_characters(Array[] characters){
-        for(int i=0;i<characters.size();i++){
-        this.characters.add(characters.get(i));
-        }
         }
 
-public add_items(Array[] items){
-        for(int i=0;i<items.size();i++){
-        this.on_ground.add(items.get(i));
-        }
+         public void add_characters(ArrayList<Character> characters){
+             this.characters.addAll(characters);
         }
 
-        boolean public picked_up(Object item){
-        if on_ground.contains(item){
-        on_ground.remove(item);
-        return true
-        }
-        return false
+        public void add_items(ArrayList<Item> items){
+            this.on_ground.addAll(items);
         }
 
-        ArrayList public item_getter() {
-        return this.on_ground
+        public boolean pick_up(Item item){
+            if (on_ground.contains(item)){
+                on_ground.remove(item);
+                return true;
+            }
+            return false;
         }
 
-        ArrayList public char_getter() {
-        return this.characters
+        public ArrayList<Item> item_getter() {
+            return this.on_ground;
         }
+
+        public ArrayList<Character> char_getter() {
+            return this.characters;
         }
+}

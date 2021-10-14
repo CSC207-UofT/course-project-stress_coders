@@ -1,4 +1,4 @@
-package Interfaces;
+package interfaces;
 
 /**
  * This interface is for any game object that can be thrown (i.e. an axe)

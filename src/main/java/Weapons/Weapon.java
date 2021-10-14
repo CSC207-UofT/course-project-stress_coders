@@ -1,7 +1,7 @@
 package Weapons;
 
-import Interfaces.Collectable;
-import Interfaces.ThrowableObject;
+import interfaces.Collectable;
+import interfaces.ThrowableObject;
 import Characters.Enemy;
 
 public class Weapon implements ThrowableObject, Collectable {

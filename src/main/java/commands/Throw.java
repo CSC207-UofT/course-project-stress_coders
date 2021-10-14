@@ -14,7 +14,7 @@ public class Throw extends Action{
             // Get the weapon's throw hit probability and generate a random number to determine if it was a hit
             throwProb = this.user.getWeapon().getProb();
             Random rand = new Random();
-            hitNum = rand.nextIn(101);
+            hitNum = rand.nextInt(101);
 
             // Determine a hit
             // TODO: Modify the user's inventory

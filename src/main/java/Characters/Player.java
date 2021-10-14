@@ -13,7 +13,7 @@ public class Player extends Character{
         }
         if(article instanceof Item){
             this.getItems().addItem((Item) article);
-            // ?call here hp restortation?
+            // need to call hp restortation?
         }
     }
     public <T> void throwItem(T article){

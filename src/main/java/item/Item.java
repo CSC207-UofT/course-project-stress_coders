@@ -4,6 +4,7 @@ public abstract class Item {
     private int numOfHealthPoints;
 
     public Item(int numOfHealthPoints){
+
         this.numOfHealthPoints = numOfHealthPoints;
     }
 

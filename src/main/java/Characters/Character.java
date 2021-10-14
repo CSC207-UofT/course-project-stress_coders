@@ -38,6 +38,8 @@ public abstract class Character {
     }
 
     public Weapon getWeapon() {
+
         return weapon;
+
     }
 }

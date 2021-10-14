@@ -6,6 +6,7 @@ public class Items<T> {
     private ArrayList<Item> itemsAvailable;
 
     public Items(ArrayList<Item> items){
+
         this.itemsAvailable = items;
     }
 

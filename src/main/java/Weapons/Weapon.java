@@ -17,7 +17,7 @@ public class Weapon implements ThrowableObject, Collectable {
      * Responsibilities:
      * Enforce that the weapon instance of Weapon has the given attributes.
      * Allow weapon to damage Enemies and ensure that it can be interpreted as a package.
-     *
+     * Allow weapon to be thrown
      * Collaborators: Player
      *
      * **NOTE: For adding weapons,
@@ -27,6 +27,7 @@ public class Weapon implements ThrowableObject, Collectable {
     private String name;
     private int damage;
     private boolean inUse;
+    private float hitProb;
 
 
     public Weapon(String name, int damage) {
@@ -36,9 +37,22 @@ public class Weapon implements ThrowableObject, Collectable {
     }
 
 
+
+    public void throwObj(float hitProb) {
+        // The probability of weapon hitting a suceesfully hitting a Character.
+        this.hitProb = hitProb;
+    }
+
+    public float getProb() {
+        //return the probability of weapon succesfully hitting a character.
+        return this.hitProb;
+        //public float getProb() {return 1.0f;}
+    }
+
+
     public int damageEnemy(Enemy enName) {
         return enName.dealDamage(this.damage);
     }
 
-    public Double getProb() {return 1.0;}
+
 }

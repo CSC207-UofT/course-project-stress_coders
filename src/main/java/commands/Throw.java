@@ -16,7 +16,7 @@ public class Throw extends Action {
         if (this.user.getWeapon() != null){
 
             // Get the weapon's throw hit probability and generate a random number to determine if it was a hit
-            Double throwProb = this.user.getWeapon().getProb();
+            float throwProb = this.user.getWeapon().getProb();
             Random rand = new Random();
             int hitNum = rand.nextInt(101);
 

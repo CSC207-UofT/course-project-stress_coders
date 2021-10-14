@@ -1,12 +1,14 @@
-package Characters;
-package Weapons;
+package commands;
+import Characters.Player;
+import Weapons.Weapon;
+
 
 public abstract class Action{
 
     private final String input;
     private final String output;
     protected final Player user;
-    protected final name;
+    protected final String name;
 
     /**
      * Initialize the action based on the input
@@ -19,6 +21,7 @@ public abstract class Action{
         this.input = input;
         this.user = user;
         this.output = performAction();
+        this.name = name;
     }
 
     public String getInput() {
@@ -29,6 +32,6 @@ public abstract class Action{
         return this.output;
     }
 
-    abstract public performAction();
+    abstract public String performAction();
 
 }

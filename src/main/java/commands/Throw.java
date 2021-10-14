@@ -1,28 +1,34 @@
-import java.util.Random
+package commands;
 
-public class Throw extends Action{
+import Characters.Player;
+import interfaces.ThrowableObject;
+
+
+import java.util.Random;
+
+public class Throw extends Action {
 
     public Throw(String input, String name, Player user){
-        super(input, name, user)
+        super(input, name, user);
     }
 
     public String performAction(){
-        if(this.user.getWeapon() instanceof ThrowableObject){
+        if (this.user.getWeapon() != null){
 
             // Get the weapon's throw hit probability and generate a random number to determine if it was a hit
-            throwProb = this.user.getWeapon().getProb();
+            Double throwProb = this.user.getWeapon().getProb();
             Random rand = new Random();
-            hitNum = rand.nextIn(101);
+            int hitNum = rand.nextInt(101);
 
             // Determine a hit
-            if (hitnum < (100 * throwProb)) {
+            if (hitNum < (100 * throwProb)) {
                 return "You hit your target";
             } else {
                 return "You missed";
             }
 
         } else {
-            // TODO: use Exceptions insted
+            // TODO: use Exceptions instead
             return "You can't throw that";
         }
     }

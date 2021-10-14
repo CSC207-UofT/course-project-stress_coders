@@ -39,4 +39,6 @@ public class Weapon implements ThrowableObject, Collectable {
     public int damageEnemy(Enemy enName) {
         return enName.dealDamage(this.damage);
     }
+
+    public Double getProb() {return 1.0;}
 }

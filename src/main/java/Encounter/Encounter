@@ -4,8 +4,8 @@ import java.util.ArrayList;
 Class Encounter{
 
         //Instance Variables
-        ArrayList[] on_ground;
-        ArrayList[] characters;
+        ArrayList on_ground;
+        ArrayList characters;
         int size;
 
     public Encounter(int tiles){
@@ -27,9 +27,17 @@ Class Encounter{
 
     boolean public picked_up(Object item){
         if on_ground.contains(item){
-            on_ground.remove(item)
+            on_ground.remove(item);
             return true
             }
         return false
         }
-}
+
+    ArrayList public item_getter() {
+        return this.on_ground
+        }
+
+    ArrayList public char_getter() {
+        return this.characters
+        }
+        }

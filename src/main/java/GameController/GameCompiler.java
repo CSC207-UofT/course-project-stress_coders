@@ -8,7 +8,7 @@ public class GameCompiler {
     int currentEncounter = 0;
     ArrayList<Encounter> encounters;
     public GameCompiler() {
-        // This will point to first encounter at some point but for now its a demo
+        // This will point to first encounter at some point but for now it's a demo
         Set<String> commands = new HashSet<>();
         commands.add("Pick Up");
         commands.add("Stab");
@@ -21,14 +21,14 @@ public class GameCompiler {
     }
     public String getDialogue() {
         if (currentEncounter >= this.encounters.size()) {
-            return "Game is over, please exit with the 'exit' command!";
+            return "=== THANK YOU FOR PLAYING ===";
         }
         Encounter current = this.encounters.get(currentEncounter);
         return current.dialogue_getter();
     }
     /**
      * The run method first checks if the command is valid for that encounter, if it is then it prints the prompt for
-     * that command e.g. pcik up sword - You've picked up sword
+     * that command e.g. pick up sword - You've picked up sword
      * It then switches encounter to its next one or switches quest is the encounter is done and stores the info
      * throughout
      */

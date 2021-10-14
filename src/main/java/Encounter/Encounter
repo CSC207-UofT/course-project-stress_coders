@@ -10,6 +10,7 @@ Class Encounter{
 
     public Encounter(int tiles){
         this.size=tiles;
+
         }
 
     public add_characters(Array[] characters){

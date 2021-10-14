@@ -1,4 +1,4 @@
-package main.java.Interfaces;
+package Interfaces;
 
 /**
  * This interface is for any game object that can be thrown (i.e. an axe)

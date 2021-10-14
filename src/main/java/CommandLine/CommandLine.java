@@ -15,6 +15,12 @@ public class CommandLine {
             if (formattedInput.equals("exit")) {
                 running = false;
             }
+            else if (formattedInput.equals("help")) {
+                // Generic help for now
+                for (String s: CommandConstants.allCommands()) {
+                    System.out.println(s + ":" + CommandConstants.getCommandInfo(s));
+                }
+            }
             else if (!CommandConstants.isCommand(formattedInput)) {
                 System.out.println("This is not a command, try again!");
             }

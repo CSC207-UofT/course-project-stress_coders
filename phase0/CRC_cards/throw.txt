@@ -1,0 +1,9 @@
+Class name: Throw
+Parent class: Action
+Subclasses: None 
+Type: Use case
+
+Responsibilities:
+Allows for throwable objects to be thrown, handles the action and the result of the action
+
+Collaborators: Throwable 

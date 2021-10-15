@@ -5,7 +5,7 @@ import interfaces.ThrowableObject;
 import java.util.Random;
 
 public class Axe extends Weapon implements ThrowableObject {
-    // The probability of weapon hitting a suceesfully hitting a Character.
+    // The probability of weapon hitting a successfully hitting a Character.
     private float hitProb;
 
     public Axe(String name, float hitProb) {

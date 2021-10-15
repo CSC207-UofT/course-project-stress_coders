@@ -1,19 +1,19 @@
 package items;
-import java.util.ArrayList;
+import java.util.List;
 import item.Item;
 
-public class Items<T> {
-    private ArrayList<Item> itemsAvailable;
+public class Items {
+    private List<Item> itemsAvailable;
 
-    public Items(ArrayList<Item> items){
+    public Items(List<Item> items){
 
         this.itemsAvailable = items;
     }
 
-    public void setItemsAvailable(ArrayList<Item> items){
+    public void setItemsAvailable(List<Item> items){
         this.itemsAvailable = items;
     }
-    public ArrayList<Item> getItemsAvailable(){
+    public List<Item> getItemsAvailable(){
         return this.itemsAvailable;
     }
     public void addItem(Item item){

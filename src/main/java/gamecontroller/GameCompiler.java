@@ -24,7 +24,7 @@ public class GameCompiler {
             return "=== THANK YOU FOR PLAYING ===";
         }
         Encounter current = this.encounters.get(currentEncounter);
-        return current.dialogue_getter();
+        return current.getDialogue();
     }
     /**
      * The run method first checks if the command is valid for that encounter, if it is then it prints the prompt for

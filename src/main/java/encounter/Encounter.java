@@ -25,15 +25,15 @@ public class Encounter{
             this.validActions = actions;
         }
 
-         public void add_characters(ArrayList<Character> characters){
+         public void addCharacters(ArrayList<Character> characters){
              this.characters.addAll(characters);
         }
 
-        public void add_items(ArrayList<Item> items){
+        public void addItems(ArrayList<Item> items){
             this.on_ground.addAll(items);
         }
 
-        public boolean pick_up(Item item){
+        public boolean pickUp(Item item){
             if (on_ground.contains(item)){
                 on_ground.remove(item);
                 return true;
@@ -45,13 +45,13 @@ public class Encounter{
             return this.validActions.contains(command);
         }
 
-        public ArrayList<Item> item_getter() {
+        public ArrayList<Item> getItem() {
             return this.on_ground;
         }
 
-        public ArrayList<Character> char_getter() {
+        public ArrayList<Character> getChar() {
             return this.characters;
         }
 
-        public String dialogue_getter(){return this.startup_text;}
+        public String getDialogue(){return this.startup_text;}
 }

@@ -1,5 +1,6 @@
 package weapons;
 
+import characters.Player;
 import characters.Character;
 import weaponiteminterfaces.CollectableObject;
 
@@ -34,24 +35,6 @@ public class Weapon implements CollectableObject {
         this.damage = damage;
         this.inUse = false;
     }
-
-
-// we dont use these because Weapon is not neccesarily Throwable.
-//    public void throwObj(float hitProb) {
-//        // The probability of weapon hitting a suceesfully hitting a Character.
-//        this.hitProb = hitProb;
-//    }
-
-//    public float getProb() {
-//        //return the probability of weapon succesfully hitting a character.
-//        return this.hitProb;
-//        //public float getProb() {return 1.0f;}
-//    }
-//
-    // we dont need setProb because it will be set in the constructor of Axe
-//    public void setProb() {
-//
-//    }
 
 
     public int damageCharacter(Character charName) {

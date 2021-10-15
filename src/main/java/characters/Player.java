@@ -13,7 +13,7 @@ public class Player extends Character{
         }
         if(article instanceof Item){
             this.getInventory().addItem((Item) article);
-            // need to call hp restortation?
+            // need to call hp restoration?
         }
     }
     public <T> void disposeItem(T article){

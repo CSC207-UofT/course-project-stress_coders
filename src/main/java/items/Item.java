@@ -1,6 +1,7 @@
 package items;
+import weaponiteminterfaces.CollectableObject;
 
-public abstract class Item {
+public abstract class Item implements CollectableObject{
     private int numOfHealthPoints;
 
     public Item(int numOfHealthPoints){

@@ -1,4 +1,5 @@
 package weaponiteminterfaces;
+import characters.Player;
 
 /**
  * This interface is for any game object that can be thrown (i.e. an axe)
@@ -6,5 +7,5 @@ package weaponiteminterfaces;
 public interface ThrowableObject {
     /** This method throws the object
      */
-    String throwObj();
+    String throwObj(Player player);
 }

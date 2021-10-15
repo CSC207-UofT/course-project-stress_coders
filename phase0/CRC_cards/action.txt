@@ -1,0 +1,8 @@
+Class name: Action
+Parent class: none
+Subclasses: Any action, for instance Throw, equip, block, shoot, dodge, move, move to
+Type: entity
+
+Responsibilities:
+Abstract class that defines appropriate instance variables and methods for action subclasses.
+Collaborators: None

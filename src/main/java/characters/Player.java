@@ -1,18 +1,18 @@
-package Characters;
-import items.Items;
-import item.Item;
-import Weapons.Weapon;
+package characters;
+import playeritems.PlayerItems;
+import items.Item;
+import weapons.Weapon;
 
 public class Player extends Character{
-    public Player(Items items, int healthPoints, Weapon weapon) {
-        super(items, healthPoints, weapon);
+    public Player(PlayerItems inventory, int healthPoints, Weapon weapon) {
+        super(inventory, healthPoints, weapon);
     }
     public <T> void pickUp(T article){
         if (article instanceof Weapon){
             this.setWeapon((Weapon) article);
         }
         if(article instanceof Item){
-            this.getItems().addItem((Item) article);
+            this.getInventory().addItem((Item) article);
             // need to call hp restortation?
         }
     }
@@ -21,7 +21,7 @@ public class Player extends Character{
             this.setWeapon(null);
         }
         if(article instanceof Item){
-            this.getItems().removeItem((Item) article);
+            this.getInventory().removeItem((Item) article);
         }
     }
 

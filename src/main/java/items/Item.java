@@ -1,4 +1,4 @@
-package item;
+package items;
 
 public abstract class Item {
     private int numOfHealthPoints;

@@ -1,7 +1,7 @@
-package CommandLine;
+package commandline;
 import java.util.Scanner;
-import Constants.*;
-import GameController.*;
+import constants.*;
+import gamecontroller.*;
 public class CommandLine {
     public final static GameCompiler mainCompiler = new GameCompiler();
     public static void main(String[] args) {

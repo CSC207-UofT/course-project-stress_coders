@@ -1,11 +1,9 @@
-package Weapons;
+package weapons;
 
-import Characters.Character;
-import interfaces.Collectable;
-import interfaces.ThrowableObject;
-import Characters.Enemy;
+import characters.Character;
+import weaponiteminterfaces.CollectableObject;
 
-public class Weapon implements Collectable {
+public class Weapon implements CollectableObject {
 
 
     /**

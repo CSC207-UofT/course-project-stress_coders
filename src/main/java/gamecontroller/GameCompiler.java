@@ -1,6 +1,6 @@
-package GameController;
+package gamecontroller;
 
-import Encounter.Encounter;
+import encounter.Encounter;
 
 import java.util.*;
 

@@ -1,10 +1,7 @@
 package commands;
 
-import Characters.Player;
-import interfaces.ThrowableObject;
-
-
-import java.util.Random;
+import characters.Player;
+import weaponiteminterfaces.ThrowableObject;
 
 public class Throw extends Action {
 

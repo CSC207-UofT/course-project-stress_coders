@@ -1,11 +1,11 @@
-package items;
+package playeritems;
 import java.util.List;
-import item.Item;
+import items.Item;
 
-public class Items {
+public class PlayerItems {
     private List<Item> itemsAvailable;
 
-    public Items(List<Item> items){
+    public PlayerItems(List<Item> items){
 
         this.itemsAvailable = items;
     }

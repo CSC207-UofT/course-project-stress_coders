@@ -1,6 +1,5 @@
 package commands;
-import Characters.Player;
-import Weapons.Weapon;
+import characters.Player;
 
 
 public abstract class Action{

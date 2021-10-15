@@ -1,12 +1,10 @@
-package Encounter;
+package encounter;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Set;
 
-import commands.Action;
-import item.Item;
-import Characters.Character;
+import items.Item;
+import characters.Character;
 
 
 

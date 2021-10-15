@@ -1,6 +1,6 @@
-package Characters;
+package characters;
 
-import Weapons.Weapon;
+import weapons.Weapon;
 
 public class Enemy {
     /**

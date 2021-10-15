@@ -1,6 +1,6 @@
-package Weapons;
+package weapons;
 
-import interfaces.ThrowableObject;
+import weaponiteminterfaces.ThrowableObject;
 
 import java.util.Random;
 

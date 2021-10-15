@@ -17,7 +17,8 @@ public class Throw extends Action {
             if (this.user.getWeapon() instanceof ThrowableObject) {
                 // player has this object and can throw it
                 // modify the inventory
-                this.user.throwItem(this.user.getWeapon());
+                // TODO: should inventory modification be done here? or in weapon.throw()
+                this.user.disposeItem(this.user.getWeapon());
                 return ((ThrowableObject) this.user.getWeapon()).throwObj();
             } else {
                 return "This object is not throwable";

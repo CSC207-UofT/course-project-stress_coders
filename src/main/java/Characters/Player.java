@@ -16,7 +16,7 @@ public class Player extends Character{
             // need to call hp restortation?
         }
     }
-    public <T> void throwItem(T article){
+    public <T> void disposeItem(T article){
         if (article instanceof Weapon){
             this.setWeapon(null);
         }

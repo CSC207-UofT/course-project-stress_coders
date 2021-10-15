@@ -1,8 +1,11 @@
 package characters;
 
+import items.Item;
 import weapons.Weapon;
 
-public class Enemy {
+import java.util.List;
+
+public class Enemy extends Character{
     /**
      * Weapon of type <entity> is a throwable or collectable item, with
      * Attributes:
@@ -20,14 +23,13 @@ public class Enemy {
      * Collaborators: Character
      */
 
-    // private Items enemyItems;
-    private int HP;
-    private Weapon currentWeapon;
 
+    public Enemy(List<Item> inventory, int healthPoints, Weapon weapon) {
+        super(inventory, healthPoints, weapon);
+    }
 
-    public Enemy(int HP, Weapon currentWeapon) {
-        this.HP = HP;
-        this.currentWeapon = currentWeapon;
+    public Enemy() {
+        super();
     }
 
 

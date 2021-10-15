@@ -1,9 +1,10 @@
 package characters;
-import playeritems.PlayerItems;
+import items.Item;
 import weapons.Weapon;
+import java.util.List;
 
 public abstract class Character {
-    private PlayerItems inventory;
+    private List<Item> inventory;
     private int healthPoints;
     private Weapon weapon;
 
@@ -13,13 +14,13 @@ public abstract class Character {
         this.weapon = null;
     }
 
-    public Character(PlayerItems inventory, int healthPoints, Weapon weapon){
+    public Character(List<Item> inventory, int healthPoints, Weapon weapon){
         this.inventory = inventory;
         this.healthPoints = healthPoints;
         this.weapon = weapon;
 
     }
-    public void setInventory(PlayerItems inventory){
+    public void setInventory(List<Item> inventory){
         this.inventory = inventory;
     }
 
@@ -29,7 +30,7 @@ public abstract class Character {
     public void setWeapon(Weapon weapon){
         this.weapon = weapon;
     }
-    public PlayerItems getInventory(){
+    public List<Item> getInventory(){
         return this.inventory;
     }
 
@@ -40,4 +41,5 @@ public abstract class Character {
     public Weapon getWeapon() {
         return this.weapon;
     }
+
 }

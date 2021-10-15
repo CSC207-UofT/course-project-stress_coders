@@ -1,11 +1,11 @@
 package characters;
-import playeritems.PlayerItems;
 import items.Item;
 import weapons.Weapon;
+import java.util.List;
 
 public class Player extends Character{
 
-    public Player(PlayerItems inventory, int healthPoints, Weapon weapon) {
+    public Player(List<Item> inventory, int healthPoints, Weapon weapon) {
         super(inventory, healthPoints, weapon);
     }
 
@@ -18,7 +18,7 @@ public class Player extends Character{
             this.setWeapon((Weapon) article);
         }
         if(article instanceof Item){
-            this.getInventory().addItem((Item) article);
+            this.getInventory().add((Item) article);
             // need to call hp restoration?
         }
     }
@@ -28,7 +28,7 @@ public class Player extends Character{
             this.setWeapon(null);
         }
         if(article instanceof Item){
-            this.getInventory().removeItem((Item) article);
+            this.getInventory().remove((Item) article);
         }
     }
 

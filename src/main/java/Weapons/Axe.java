@@ -15,9 +15,8 @@ public class Axe extends Weapon implements ThrowableObject {
 
     public float getProb() {return this.hitProb;}
 
-    /** This method throws the object
-     * @param hitProb this is the probability of what you throw hitting the target ahead of it
-     *                (i.e. prob of hitting an enemy)
+    /** This method throws the axe. hitProb is the probability of throwing an axe.
+     *  throwProb is the random quantity that uses hitProb to either successfully hit something or not.
      */
     public String throwObj() {
 

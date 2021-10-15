@@ -14,29 +14,15 @@ public class Throw extends Action {
 
     public String performAction(){
         if (this.user.getWeapon() != null){
-
-            // Get the weapon's throw hit probability and generate a random number to determine if it was a hit
-            // this doesnt work, and we decided on calculting getProb of hit in Axe
-            float throwProb = this.user.getWeapon().getProb();
-            Random rand = new Random();
-            int hitNum = rand.nextInt(101);
-
-            // Determine a hit
-            if (hitNum < (100 * throwProb)) {
-                return "You hit your target";
+            if (this.user.getWeapon() instanceof ThrowableObject) {
+                // player has this object and can throw it
+               return ((ThrowableObject) this.user.getWeapon()).throwObj();
             } else {
-                return "You missed";
+                return "This object is not throwable";
             }
-
         } else {
             // TODO: use Exceptions instead
-            return "You can't throw that";
+            return "No weapon to throw";
         }
-// do this instead:
-//        if obj is throwable then:
-//        obj.throw()
-//        print stuff
-//        else:
-//        raise not throwable
     }
 }

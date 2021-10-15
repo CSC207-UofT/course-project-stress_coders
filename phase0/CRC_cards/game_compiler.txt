@@ -1,0 +1,9 @@
+Class name: GameCompiler
+Parent class: none
+Subclasses: none
+Type: interface adapter
+
+Responsibilities: 
+Compile the list of allowed commands for the given encounter and player combination. Once the encounter is done facilitate the movement to the next one.
+
+Collaborators: Encounter, character

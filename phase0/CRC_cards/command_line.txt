@@ -1,0 +1,9 @@
+Class name: Command Line 
+Parent class: none
+Subclasses: none 
+Type: frameworks and drivers  
+
+Responsibilities: 
+Allow for a user to send commands dictated by the valid commands from the gamecompiler class to play the game.
+
+Collaborators: Gamecompiler

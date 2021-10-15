@@ -1,0 +1,9 @@
+Class name: Map
+Parent class: None
+Subclasses: None
+Type: framework and drivers 
+
+Responsibilities:
+Display the map traverable by the player. Show player location and completed encounters
+
+Collaborators: Node

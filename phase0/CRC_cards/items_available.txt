@@ -1,0 +1,9 @@
+Class name: itemsavailable 
+Parent class: None
+Subclasses: None
+Type: Use case
+
+Responsibilities 
+Defines the items available to the player and allows them to be changed/used 
+
+Collaborators: Player

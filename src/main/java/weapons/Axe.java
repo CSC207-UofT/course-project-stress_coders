@@ -30,7 +30,7 @@ public class Axe extends Weapon implements ThrowableObject, CollectableObject {
         //modify inventory
         player.disposeItem(player.getWeapon());
         // Determine a hit
-        if (this.hitProb < (100 * throwProb)) {
+        if (this.hitProb > throwProb) {
             return "You hit your target";
         } else {
             return "You missed";

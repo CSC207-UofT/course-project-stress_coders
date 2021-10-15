@@ -5,6 +5,7 @@ import weaponiteminterfaces.ThrowableObject;
 
 public class Throw extends Action {
 
+    // TODO: check that the name of the input is the name of the equipped weapon
     public Throw(String input, String name, Player user){
         super(input, name, user);
     }

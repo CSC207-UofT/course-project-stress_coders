@@ -4,9 +4,15 @@ import items.Item;
 import weapons.Weapon;
 
 public class Player extends Character{
+
     public Player(PlayerItems inventory, int healthPoints, Weapon weapon) {
         super(inventory, healthPoints, weapon);
     }
+
+    public Player() {
+        super();
+    }
+
     public <T> void pickUp(T article){
         if (article instanceof Weapon){
             this.setWeapon((Weapon) article);
@@ -16,6 +22,7 @@ public class Player extends Character{
             // need to call hp restoration?
         }
     }
+
     public <T> void disposeItem(T article){
         if (article instanceof Weapon){
             this.setWeapon(null);

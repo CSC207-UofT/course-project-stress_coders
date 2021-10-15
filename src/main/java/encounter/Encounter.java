@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 import items.Item;
+import weaponiteminterfaces.CollectableObject;
 import characters.Character;
 
 
@@ -11,7 +12,7 @@ import characters.Character;
 public class Encounter{
 
         //Instance Variables
-        ArrayList<Item> on_ground;
+        ArrayList<CollectableObject> on_ground;
         ArrayList<Character> characters;
         String startup_text;
         Set<String> validActions;
@@ -29,11 +30,11 @@ public class Encounter{
              this.characters.addAll(characters);
         }
 
-        public void addItems(ArrayList<Item> items){
+        public void addItems(ArrayList<CollectableObject> items){
             this.on_ground.addAll(items);
         }
 
-        public boolean pickUp(Item item){
+        public boolean pickUp(CollectableObject item){
             if (on_ground.contains(item)){
                 on_ground.remove(item);
                 return true;
@@ -45,7 +46,7 @@ public class Encounter{
             return this.validActions.contains(command);
         }
 
-        public ArrayList<Item> getItem() {
+        public ArrayList<CollectableObject> getItem() {
             return this.on_ground;
         }
 

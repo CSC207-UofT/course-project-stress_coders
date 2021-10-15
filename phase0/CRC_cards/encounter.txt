@@ -1,0 +1,11 @@
+Class name: Encounter
+Parent class: none 
+Subclasses: none 
+Type: Use case
+
+Responsibilities:
+Present a set of valid actions for a player to use.
+Dictate when a player has completed the right action to win the encounter’
+Update quest-log if the encounter was required
+
+Collaborators: quest log, character, weapons, etc. any interactable class

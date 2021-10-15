@@ -21,7 +21,7 @@ public class ThrowTest(){
 
     @Test
     @DisplayName("Test throwing the successful axe")
-    public Boolean testThrowAxeSuccess(){
+    public void testThrowAxeSuccess(){
         expected = "You hit your target";
         actual = ((Action) axe_throw_success).getOutput();
         assertEquals(expected, actual);
@@ -29,7 +29,7 @@ public class ThrowTest(){
 
     @Test
     @DisplayName("Test throwing the failing axe")
-    public Boolean testThrowAxeSuccess(){
+    public void testThrowAxeSuccess(){
         expected = "You missed";
         actual = ((Action) axe_throw_failure).getOutput();
         assertEquals(expected, actual);
@@ -37,7 +37,7 @@ public class ThrowTest(){
 
     @Test
     @DisplayName("Test throwing the axe again")
-    public Boolean testThrowAxeSuccess(){
+    public void testThrowAxeSuccess(){
         Throw axe_throw_again = Throw("No Axe", "Throw", player_hit);
         expected = "No weapon to throw";
         actual = ((Action) axe_throw_failure).getOutput();

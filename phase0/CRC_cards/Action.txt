@@ -1,9 +1,9 @@
 Class name: Action
 Parent class: none
-Subclasses: Any action, for instance Throw, equip, block, shoot, dodge, move, move to
-Type: entity
+Subclasses: Throw, Swing, Block, Shoot (I.E. any action that the user can do)
+Type: Use Case
 
 Responsibilities:
 * Abstract class that defines appropriate instance variables and methods for action subclasses.
 
-Collaborators: None
+Collaborators: Player, Weapon

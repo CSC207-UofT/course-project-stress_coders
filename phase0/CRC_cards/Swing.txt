@@ -1,0 +1,12 @@
+Class name: Swing
+Parent class: Action
+Subclasses: None
+Type: Use case
+
+Responsibilities:
+Allows for swingable objects to be shot, handles the result of the action and the text output of the action
+
+Collaborators:
+swingable interface
+Player
+Weapon

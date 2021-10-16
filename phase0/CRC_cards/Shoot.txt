@@ -1,0 +1,12 @@
+Class name: Shoot
+Parent class: Action
+Subclasses: None
+Type: Use case
+
+Responsibilities:
+Allows for shootable objects to be shot, handles the result of the action and the text output of the action
+
+Collaborators:
+Shootable interface
+Player
+Weapon

@@ -1,0 +1,12 @@
+Class name: Block
+Parent class: Action
+Subclasses: None
+Type: Use case
+
+Responsibilities:
+Allows for blockable objects to block, handles the result of the action and the text output of the action
+
+Collaborators:
+Blockable interface
+Player
+Weapon

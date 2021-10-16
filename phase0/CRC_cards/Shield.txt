@@ -1,0 +1,12 @@
+Class name: Shield
+Parent class: Weapon
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Enforce that the shield instance of Shield has the given attribute, block probability
+* getter for block probability
+* block incoming attack using Blockable interface method
+
+
+Collaborators: Character, Weapon (inheritance)

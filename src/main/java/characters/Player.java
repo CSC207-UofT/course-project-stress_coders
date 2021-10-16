@@ -5,9 +5,14 @@ import java.util.List;
 
 public class Player extends Character{
 
+    Weapon previousWeapon;
+
     public Player(List<Item> inventory, int healthPoints, Weapon weapon) {
         super(inventory, healthPoints, weapon);
+        this.previousWeapon = null;
     }
+
+    public Weapon getPreviousWeapon() {return this.previousWeapon;}
 
     public Player() {
         super();
@@ -23,8 +28,10 @@ public class Player extends Character{
         }
     }
 
+
     public <T> void disposeItem(T article){
         if (article instanceof Weapon){
+            previousWeapon = (Weapon) article;
             this.setWeapon(null);
         }
         if(article instanceof Item){

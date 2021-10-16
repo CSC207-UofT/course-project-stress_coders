@@ -1,23 +1,38 @@
 package gamecontroller;
 
 import encounter.Encounter;
-
+import weaponiteminterfaces.ThrowableObject;
+import weapons.*;
+import characters.*;
 import java.util.*;
+import items.*;
 
 public class GameCompiler {
     int currentEncounter = 0;
+    Player player;
     ArrayList<Encounter> encounters;
+    boolean canProceed;
+
     public GameCompiler() {
+        this.canProceed = true;
         // This will point to first encounter at some point but for now it's a demo
         Set<String> commands = new HashSet<>();
-        commands.add("Pick Up");
-        commands.add("Stab");
-        commands.add("Block");
+        Weapon axe = new Axe("Molag Bal", 25);
+        List<Item> fakeItems = new ArrayList<>();
+        this.player = new Player(fakeItems, 500, axe);
+        this.player.setWeapon(axe);
+        commands.add("pick up");
+        commands.add("stab");
+        commands.add("block");
+        commands.add("throw");
         this.encounters = new ArrayList<>();
-        Encounter firstEncounter = new Encounter("Do you want to pickup this axe?", commands);
-        this.encounters.add(firstEncounter);
-        Encounter next_encounter = new Encounter("Do you want to stab the monster?", commands);
+        Encounter first_encounter = new Encounter("Do you want to kill the monster?", commands);
+        this.encounters.add(first_encounter);
+
+        Encounter next_encounter = new Encounter("Do you want to pickup this axe?", commands);
+        Encounter last_encounter = new Encounter("Oh no a new dragon appears, what do you do?", commands);
         this.encounters.add(next_encounter);
+        this.encounters.add(last_encounter);
     }
     public String getDialogue() {
         if (currentEncounter >= this.encounters.size()) {
@@ -34,6 +49,7 @@ public class GameCompiler {
      */
 
     public String run(String command) {
+        Weapon axe = new Axe("Molag Bal", 25);
         if (currentEncounter >= this.encounters.size()) {
             return "Game is over, please exit with the 'exit' command!";
         }
@@ -43,9 +59,42 @@ public class GameCompiler {
         }
         // Hard coded actions for now
         Map<String, String> commandReturns = new HashMap<>();
-        commandReturns.put("Pick Up", "You've picked up the sword, use it to your will!");
-        commandReturns.put("Stab", "You've shanked the monster, smoke his ass!");
-        commandReturns.put("Block", "You've outplayed the monster and blocked his attack!");
+        commandReturns.put("pick up", "You've picked up the sword, use it to your will!");
+        commandReturns.put("stab", "You've shanked the monster, smoke his ass!");
+        commandReturns.put("block", "You've outplayed the monster and blocked his attack!");
+        commandReturns.put("throw", "Nice hit!");
+        if (command.equals("stab") && player.getWeapon() == null) {
+            return "Sorry, mate you've got no weapon";
+        }
+        if (command.equals("pick up") && player.getWeapon() != null) {
+            return "Sorry, inventory is full, cannot pick up!";
+        }
+        if (command.equals("pick up")) {
+            if (canProceed) {
+                player.setWeapon(player.getPreviousWeapon());
+                System.out.println("You've picked up your axe! Chop his legs!");
+            }
+            else {
+                player.setWeapon(player.getPreviousWeapon());
+                return "You've picked up your axe! Chop his legs!";
+            }
+        }
+        if (command.equals("throw")) {
+            if (!(player.getWeapon() instanceof ThrowableObject)) {
+                return "Not a throwable weapon, please choose another action.";
+            }
+            String event = ((ThrowableObject) player.getWeapon()).throwObj(this.player);
+            if (event.equals("You hit your target")) {
+                this.canProceed = true;
+                System.out.println(event);
+                System.out.println("Remember to pick up your weapon!");
+            }
+            else {
+                this.canProceed = false;
+                System.out.println(event);
+                return "Please pick up and try again!";
+            }
+        }
 
         currentEncounter++;
 

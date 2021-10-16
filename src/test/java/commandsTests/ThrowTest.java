@@ -16,7 +16,7 @@ public class ThrowTest{
         Throw axe_throw_success = new Throw("Accurate Axe", "Throw", player_hit);
 
         String expected = "You hit your target";
-        String actual =  axe_throw_success.getOutput();
+        String actual =  axe_throw_success.performAction(110);
         assertEquals(expected, actual);
     }
 
@@ -27,7 +27,7 @@ public class ThrowTest{
         Throw axe_throw_failure = new Throw("Missing Axe", "Throw", player_miss);
 
         String expected = "You missed";
-        String actual = axe_throw_failure.getOutput();
+        String actual =  axe_throw_failure.performAction(0);
         assertEquals(expected, actual);
     }
 
@@ -36,7 +36,7 @@ public class ThrowTest{
         Player player_none = new Player();
         Throw axe_throw_none = new Throw("No Axe", "Throw", player_none);
         String expected = "No weapon to throw";
-        String actual = axe_throw_none.getOutput();
+        String actual = axe_throw_none.performAction(50);
         assertEquals(expected, actual);
     }
 

@@ -10,7 +10,7 @@ public class Weapon implements CollectableObject {
     // === Instance Variables ===
 
     // The name of this Weapon.
-    private String name;
+    protected String name;
     // The damage this Weapon inflicts upon Characters.
     private int damage;
     // Whether this Weapon is in use.

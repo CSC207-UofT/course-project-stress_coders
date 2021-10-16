@@ -1,5 +1,6 @@
 package weapons;
 
+import commands.Throw;
 import weaponiteminterfaces.CollectableObject;
 import weaponiteminterfaces.ThrowableObject;
 import characters.Player;
@@ -41,20 +42,10 @@ public class Axe extends Weapon implements ThrowableObject, CollectableObject {
      * @return the string saying whether the object hit or missed the target.
      */
     public String throwObj(Player player) {
-
-        // Get the weapon's throw hit probability and generate a random number to determine if it was a hit
+        Throw actionPerfomer = new Throw("Throw", this.name, player);
+        String hold = actionPerfomer.performAction(this.hitProb);
         Random rand = new Random();
-        // throwProb is the throwing Probability, which is randomly selected.
-        int throwProb = rand.nextInt(101);
-
-        //modify inventory
-        player.disposeItem(player.getWeapon());
-        // Determine a hit
-        if (this.hitProb > throwProb) {
-            return "You hit your target";
-        } else {
-            return "You missed";
-        }
-
+        this.hitProb = rand.nextInt(101);
+        return hold;
     }
 }

@@ -7,4 +7,4 @@ Responsibilities:
 * interfaces with the user to parse input and print output
 * connects commands to the game compiler
 
-Collaborators: GameCompiler
+Collaborators:GameCompiler

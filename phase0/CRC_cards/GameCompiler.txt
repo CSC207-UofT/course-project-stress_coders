@@ -9,4 +9,4 @@ Responsibilities:
 * validate the command is one of Action subclasses
 * Once the encounter is done facilitate the movement to the next one.
 
-Collaborators: Encounter, Action subclasses
+Collaborators:Encounter, Action subclasses

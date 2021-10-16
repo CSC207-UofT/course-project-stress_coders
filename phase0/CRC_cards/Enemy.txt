@@ -6,4 +6,4 @@ Type: Entity
 Responsibilities:
 * Enforce that each enemy has the appropriate instance variables and methods
 
-Collaborators: Character (inheritance), Item, Weapon
+Collaborators: Item, Weapon

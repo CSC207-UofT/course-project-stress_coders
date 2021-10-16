@@ -10,4 +10,4 @@ Responsibilities:
 * swing axe using Swingable interface method
 
 
-Collaborators: Character, Weapon (inheritance)
+Collaborators: Character

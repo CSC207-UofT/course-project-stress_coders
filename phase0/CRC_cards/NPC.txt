@@ -6,4 +6,4 @@ Type: Entity
 Responsibilities:
 * Enforce that NPCs have appropriate methods and instances
 
-Collaborators: Character (inheritance)
+Collaborators: none

@@ -5,4 +5,4 @@ Responsibilities:
 * collect item or weapon into inventory or weapon
 * dispose of weapon or item from inventory
 
-Collaborators: Character (inheritance), Item, Weapon
+Collaborators: Item, Weapon

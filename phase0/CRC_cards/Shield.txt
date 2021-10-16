@@ -9,4 +9,4 @@ Responsibilities:
 * block incoming attack using Blockable interface method
 
 
-Collaborators: Character, Weapon (inheritance)
+Collaborators: Character

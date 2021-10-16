@@ -1,0 +1,3 @@
+Scenario: Throw an Axe 
+
+This demo is hosted within an Encounter in the GameCompiler The Player has an Axe (assumption).They type in the “throw axe” command into the CLI. The compiler checks that “throw” is a valid command, then uses Throw to throw the axe.  Throw checks that ”axe” is an existing Item/ Weapon subclass and  then calls on Weapon of Character  and checks that it is ThrowableObject.  Then Throw removes Axe from Character through the GameCompiler. The GameConpiler also adds the Weapon to weapons on ground in the Encounter. The result (successful throw, failed throw, or an error) is then returned back to the GameCompiler and printed back to the user in the CLI.  This is all done within the instantiated encounter in the game compiler. 

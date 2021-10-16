@@ -4,6 +4,7 @@ Subclasses: none
 Type: frameworks and drivers  
 
 Responsibilities: 
-Allow for a user to send commands dictated by the valid commands from the gamecompiler class to play the game.
+* interfaces with the user to parse input and print output
+* connects commands to the game compiler
 
-Collaborators: Gamecompiler
+Collaborators: GameCompiler

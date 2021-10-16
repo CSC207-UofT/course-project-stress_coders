@@ -3,7 +3,10 @@ Parent class: none
 Subclasses: none
 Type: interface adapter
 
-Responsibilities: 
-Compile the list of allowed commands for the given encounter and player combination. Once the encounter is done facilitate the movement to the next one.
+Responsibilities:
+* compiles commands CLI sends it
+* modifies game state, and interfaces between commands in CLI (from user) to the actual game and its game objects (players, weapons, etc.)
+* validate the command is one of Action subclasses
+* Once the encounter is done facilitate the movement to the next one.
 
-Collaborators: Encounter, Character
+Collaborators: Encounter, Action subclasses

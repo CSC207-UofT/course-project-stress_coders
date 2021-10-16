@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Player extends Character{
 
+    //Constructs a Player with attributes inventory, healthPoints, and weapon
     public Player(List<Item> inventory, int healthPoints, Weapon weapon) {
         super(inventory, healthPoints, weapon);
     }
@@ -13,7 +14,7 @@ public class Player extends Character{
         super();
     }
 
-        //Picks up an item from the ground and places it in the Player's inventory
+        //Adds an item to the Player's inventory. If it's a weapon, equip it.
     public <T> void pickUp(T article){
         if (article instanceof Weapon){
             this.setWeapon((Weapon) article);

@@ -4,6 +4,7 @@ Subclasses: None
 Type: framework and drivers 
 
 Responsibilities:
-Display the map traverable by the player. Show player location and completed encounters
+* Display the map traversable by the player
+* Show player location and completed encounters
 
 Collaborators: Node

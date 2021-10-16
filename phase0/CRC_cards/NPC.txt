@@ -1,0 +1,9 @@
+Class name: NPC
+Parent class: Character
+Subclasses: Every NPC class, i.e a merchant class
+Type: Entity
+
+Responsibilities:
+* Enforce that NPCs have appropriate methods and instances
+
+Collaborators: Character (inheritance)

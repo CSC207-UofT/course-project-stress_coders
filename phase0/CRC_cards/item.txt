@@ -1,9 +1,0 @@
-Class name: item
-Parent class: None
-Subclasses: Any item, for example a potion
-Type: Entity
-
-Responsibilities 
-Abstract class that defines appropriate instance variables and methods for item subclasses.
-
-Collaborators: None

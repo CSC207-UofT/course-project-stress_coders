@@ -1,6 +1,8 @@
 Class name: Player
-Parent class:
-
+Parent class: Character
+Type: Entity
 Responsibilities:
+* collect item or weapon into inventory or weapon
+* dispose of weapon or item from inventory
 
-Collaborators:
+Collaborators: Character (inheritance), Item, Weapon

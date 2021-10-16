@@ -1,0 +1,13 @@
+Class name: CommandConstant
+Parent class: none
+Subclasses: none
+Type: entity
+
+Responsibilities:
+* define commands
+* check if command in commands map
+* get all commands names
+* get info of a command
+
+
+Collaborators: None

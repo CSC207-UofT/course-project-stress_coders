@@ -1,9 +1,0 @@
-Class name: Enemy
-Parent class: Character
-Subclasses: Any enemy class, for example a thief
-Type: Use Case
-
-Responsibilities:
-Enforce that each enemy has the appropriate instance variables and methods
-
-Collaborators: Character

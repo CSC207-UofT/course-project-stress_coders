@@ -1,9 +1,0 @@
-Class name: Character 
-Parent class: None
-Subclasses: Enemy, NPC, Player
-Type: Use-case
-
-Responsibilities:
-Abstract class that defines necessary methods and instance attributes for all characters 
-
-Collaborators: Player, Enemies, NPC

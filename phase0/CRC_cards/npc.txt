@@ -1,9 +1,0 @@
-Class name: NPC
-Parent class: character 
-Subclasses: Every NPC class, i.e a merchant class
-Type: Use case
-
-Responsibilities:
-Enforce that NPCS have appropriate methods and instances
-
-Collaborators: Character

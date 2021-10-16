@@ -1,0 +1,12 @@
+Class name: Axe
+Parent class: Weapon
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Enforce that the axe instance of Axe has the given attribute, hit probability
+* getter for hit probability
+* throw axe using ThrowableObject interface method
+
+
+Collaborators: Character, Weapon (inheritance)

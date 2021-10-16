@@ -7,28 +7,27 @@ import weaponiteminterfaces.CollectableObject;
 public class Weapon implements CollectableObject {
 
 
-    /**
-     * Weapon of type <entity> is a throwable or collectable item, with
-     * Attributes:
-     * Weapon name (name - String)
-     * Weapon damage (damage - int)
-     * Weapon inUse(isCurrent - bool) false by default.
-     *
-     * Responsibilities:
-     * Enforce that the weapon instance of Weapon has the given attributes.
-     * Allow weapon to damage Enemies and ensure that it can be interpreted as a package.
-     * Allow weapon to be thrown
-     * Collaborators: Player
-     *
-     * **NOTE: For adding weapons,
-     * we make them a subclass of this class and have them implement certain interfaces
-     */
+    // === Instance Variables ===
 
+    // The name of this Weapon.
     private String name;
+    // The damage this Weapon inflicts upon Characters.
     private int damage;
+    // Whether this Weapon is in use.
     private boolean inUse;
-    //private float hitProb;
 
+
+    // === Representation Invariants ===
+    // damage >= 0
+
+    /**
+     * Creates a new Weapon.
+     *
+     * Weapon is a CollectableObject.
+     *
+     * @param name          the name of this Weapon.
+     * @param damage        the damage this Weapon inflicts.
+     */
 
     public Weapon(String name, int damage) {
         this.name = name;
@@ -36,10 +35,15 @@ public class Weapon implements CollectableObject {
         this.inUse = false;
     }
 
+    /**
+     * Sets the new HP of the character after being damaged by the Weapon,
+     * and returns the new HP.
+     *
+     * @param charName  the Character to be damaged.
+     * @return a non negative integer for the Character's HP after being damaged.
+     */
 
     public int damageCharacter(Character charName) {
-        // set the characters HP to its HP after being damaged,
-        // and return the new HP
         int newHP = charName.getHealthPoints() - this.damage;
         charName.setHealthPoints(newHP);
         return newHP;

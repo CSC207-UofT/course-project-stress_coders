@@ -79,6 +79,7 @@ public class GameCompiler {
                 return "You've picked up your axe! Chop his legs!";
             }
         }
+
         if (command.equals("throw")) {
             if (!(player.getWeapon() instanceof ThrowableObject)) {
                 return "Not a throwable weapon, please choose another action.";

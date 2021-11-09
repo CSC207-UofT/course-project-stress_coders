@@ -42,7 +42,7 @@ public class Axe extends Weapon implements ThrowableObject, CollectableObject {
      * @return the string saying whether the object hit or missed the target.
      */
     public String throwObj(Player player) {
-        Throw actionPerfomer = new Throw("Throw", this.name, player);
+        Throw actionPerfomer = new Throw("throw", this.name, player);
         String hold = actionPerfomer.performAction(this.hitProb);
         Random rand = new Random();
         this.hitProb = rand.nextInt(101);

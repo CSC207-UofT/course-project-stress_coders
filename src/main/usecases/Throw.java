@@ -1,8 +1,10 @@
 package usecases;
 
 import entities.*;
-import entities.interfaces.ThrowableTarget;
+import entities.interfaces.*;
 import entities.interfaces.Throwable;
+import entities.Interactable;
+import entities.Command;
 
 import java.util.HashMap;
 

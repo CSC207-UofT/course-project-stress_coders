@@ -1,10 +1,8 @@
 package frameworks;
 
-import entities.Command;
-import entities.CommandConstants;
-import entities.Interactable;
-import interfaceadapters.GameState;
-
+import frameworks.*;
+import entities.*;
+import interfaceadapters.*;
 import java.util.HashMap;
 import java.util.Scanner;
 

@@ -1,5 +1,6 @@
 package entities;
 
+import entities.*;
 import java.util.HashMap;
 
 public abstract class Interactable {

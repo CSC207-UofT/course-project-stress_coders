@@ -1,6 +1,6 @@
 package entities;
 
-import entities.Interactable;
+import entities.*;
 
 public abstract class Character extends Interactable {
     private int healthPoints;

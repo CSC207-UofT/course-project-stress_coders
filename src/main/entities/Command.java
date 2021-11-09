@@ -2,6 +2,7 @@ package entities;
 
 import java.util.HashMap;
 import java.util.List;
+import entities.*;
 
 public abstract class Command {
     private String description = "No description";

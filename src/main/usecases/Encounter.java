@@ -1,8 +1,6 @@
 package usecases;
 
-import entities.Axe;
-import entities.Enemy;
-import entities.Interactable;
+import entities.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +14,7 @@ public class Encounter {
         Enemy enemy = new Enemy("enemy1");
         enemy.setHealthPoints(10);
 
-        addObj(axe);
+        addObj((Interactable) axe);
         addObj(enemy);
     }
 

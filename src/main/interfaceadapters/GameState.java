@@ -1,6 +1,6 @@
 package interfaceadapters;
 
-import usecases.Encounter;
+import usecases.*;
 
 public class GameState {
 

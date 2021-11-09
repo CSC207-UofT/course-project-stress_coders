@@ -1,4 +1,5 @@
 package entities;
+import entities.*;
 
 public enum InteractableProperties {
     HEALTH_RESTORED("hp"),

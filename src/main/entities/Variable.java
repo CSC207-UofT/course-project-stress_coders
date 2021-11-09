@@ -1,5 +1,4 @@
 package entities;
-import entities.*;
 
 public class Variable {
     private boolean bool;

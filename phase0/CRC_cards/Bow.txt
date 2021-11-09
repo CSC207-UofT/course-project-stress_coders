@@ -1,5 +1,5 @@
-Class name: Bow
-Parent class: Weapon
+Class entities.interfaces: Bow
+Parent class: entities.Weapon
 Subclasses: None
 Type: Entity
 
@@ -9,4 +9,4 @@ Responsibilities:
 * shoot Bow using Shootable interface method
 
 
-Collaborators: Character
+Collaborators: entities.Character

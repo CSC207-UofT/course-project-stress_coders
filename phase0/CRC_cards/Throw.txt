@@ -1,4 +1,4 @@
-Class name: Throw
+Class entities.interfaces: usecases.Throw
 Parent class: Action
 Subclasses: None 
 Type: Use case
@@ -8,5 +8,5 @@ Allows for throwable objects to be thrown, handles the result of the action and 
 
 Collaborators:
 ThrowableObject interface
-Player
-Weapon
+entities.Player
+entities.Weapon

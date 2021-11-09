@@ -1,13 +1,13 @@
-Class name: Weapon
+Class entities.interfaces: entities.Weapon
 Parent class: None 
 Subclasses: Every weapon class, i.e the “axe” class
 Type: Entity
 
 Responsibilities:
-* Enforce that the weapon instance of Weapon has the given attributes, name, damage, and is it in use.
+* Enforce that the weapon instance of entities.Weapon has the given attributes, entities.interfaces, damage, and is it in use.
 * Allow weapon to damage Enemies
 * Allow weapon to be thrown
 * setter and getter whether weapon is in use
 
 
-Collaborators: Character
+Collaborators: entities.Character

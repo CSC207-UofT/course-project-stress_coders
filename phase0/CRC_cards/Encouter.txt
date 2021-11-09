@@ -1,4 +1,4 @@
-Class name: Encounter
+Class entities.interfaces: usecases.Encounter
 Parent class: none 
 Subclasses: none 
 Type: Use case
@@ -11,4 +11,4 @@ Responsibilities:
 * Dictate when a player has completed the right action to win the encounter’
 * Update quest-log if the encounter was required
 
-Collaborators: QuestLog, Character, Weapon, Item
+Collaborators: QuestLog, entities.Character, entities.Weapon, entities.Item

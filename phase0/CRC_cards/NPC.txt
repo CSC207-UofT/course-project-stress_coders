@@ -1,5 +1,5 @@
-Class name: NPC
-Parent class: Character
+Class entities.interfaces: NPC
+Parent class: entities.Character
 Subclasses: Every NPC class, i.e a merchant class
 Type: Entity
 

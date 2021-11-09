@@ -1,3 +1,7 @@
+package entities;
+
+import usecases.Throw;
+
 import java.util.HashMap;
 
 public class CommandConstants {

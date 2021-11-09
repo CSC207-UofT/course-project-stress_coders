@@ -1,3 +1,5 @@
+package entities;
+
 public enum InteractableProperties {
     HEALTH_RESTORED("hp"),
     HIT_PROB("hit_prob"),

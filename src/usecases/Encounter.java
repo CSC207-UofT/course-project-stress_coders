@@ -1,3 +1,9 @@
+package usecases;
+
+import entities.Axe;
+import entities.Enemy;
+import entities.Interactable;
+
 import java.util.HashMap;
 import java.util.List;
 

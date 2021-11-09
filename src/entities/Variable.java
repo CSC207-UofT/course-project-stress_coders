@@ -1,3 +1,5 @@
+package entities;
+
 public class Variable {
     private boolean bool;
     private String str;

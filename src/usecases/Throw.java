@@ -1,8 +1,14 @@
+package usecases;
+
+import entities.*;
+import entities.interfaces.ThrowableTarget;
+import entities.interfaces.Throwable;
+
 import java.util.HashMap;
 
-public class Throw extends Command{
+public class Throw extends Command {
 
-    // Params: Throwable weapon, Interactable target
+    // Params: entities.interfaces.Throwable weapon, entities.Interactable target
     @Override
     public String execute(HashMap<String, Interactable> args) {
         String thrownObject = "thrown_obj"; String target = "target";

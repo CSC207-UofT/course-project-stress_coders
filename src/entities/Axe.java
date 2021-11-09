@@ -1,4 +1,8 @@
-public class Axe extends Weapon implements Throwable{
+package entities;
+
+import entities.interfaces.Throwable;
+
+public class Axe extends Weapon implements Throwable {
 
     public Axe(String id) {
         super(id);

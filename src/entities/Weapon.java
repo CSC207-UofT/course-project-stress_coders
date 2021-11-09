@@ -1,4 +1,6 @@
-public class Weapon extends Item{
+package entities;
+
+public class Weapon extends Item {
 
     private int damage = 0;
 

@@ -1,4 +1,4 @@
-Class name: Block
+Class entities.interfaces: Block
 Parent class: Action
 Subclasses: None
 Type: Use case
@@ -8,5 +8,5 @@ Allows for blockable objects to block, handles the result of the action and the 
 
 Collaborators:
 Blockable interface
-Player
-Weapon
+entities.Player
+entities.Weapon

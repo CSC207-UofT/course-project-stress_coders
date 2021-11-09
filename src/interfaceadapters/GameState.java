@@ -1,3 +1,7 @@
+package interfaceadapters;
+
+import usecases.Encounter;
+
 public class GameState {
 
     private Encounter current_encounter = new Encounter();

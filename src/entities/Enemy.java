@@ -1,4 +1,8 @@
-public class Enemy extends Character implements ThrowableTarget{
+package entities;
+
+import entities.interfaces.ThrowableTarget;
+
+public class Enemy extends Character implements ThrowableTarget {
     public Enemy(String id) {
         super(id);
     }

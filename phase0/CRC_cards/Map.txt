@@ -1,4 +1,4 @@
-Class name: Map
+Class entities.interfaces: Map
 Parent class: None
 Subclasses: None
 Type: framework and drivers 

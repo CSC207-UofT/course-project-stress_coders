@@ -1,4 +1,8 @@
-public abstract class Character extends Interactable{
+package entities;
+
+import entities.Interactable;
+
+public abstract class Character extends Interactable {
     private int healthPoints;
 
     public Character(String id) {

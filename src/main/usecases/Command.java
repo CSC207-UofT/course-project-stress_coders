@@ -1,4 +1,4 @@
-package entities;
+package usecases;
 
 import java.util.HashMap;
 import java.util.List;

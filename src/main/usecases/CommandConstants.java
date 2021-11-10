@@ -1,6 +1,4 @@
-package entities;
-
-import usecases.Throw;
+package usecases;
 
 import java.util.HashMap;
 

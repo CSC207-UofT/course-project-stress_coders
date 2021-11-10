@@ -1,8 +1,10 @@
 package frameworks;
 
-import frameworks.*;
 import entities.*;
 import interfaceadapters.*;
+import usecases.Command;
+import usecases.CommandConstants;
+
 import java.util.HashMap;
 import java.util.Scanner;
 

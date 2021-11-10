@@ -4,7 +4,6 @@ import entities.*;
 import entities.interfaces.*;
 import entities.interfaces.Throwable;
 import entities.Interactable;
-import entities.Command;
 
 import java.util.HashMap;
 

@@ -16,4 +16,6 @@ public abstract class Character extends Interactable {
     public int getHealthPoints(){
         return this.healthPoints;
     }
+
+    public boolean isDead() {return this.healthPoints <= 0;}
 }

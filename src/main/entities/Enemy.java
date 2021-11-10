@@ -6,25 +6,29 @@ import java.util.Random;
 public class Enemy extends Character implements ThrowableTarget {
 
     private int damage;
+    private Player player;
 
-    public Enemy(String id) {
+    public Enemy(String id, Player player) {
         super(id);
+        this.player = player;
         Random r = new Random();
         this.damage = r.nextInt(50)+1;
         int hp = r.nextInt(100)+1;
         super.setHealthPoints(hp);
     }
 
-    public Enemy(String id, int damage) {
+    public Enemy(String id, int damage, Player player) {
         super(id);
         Random r = new Random();
+        this.player = player;
         this.damage = damage;
         int hp = r.nextInt(100)+1;
         super.setHealthPoints(hp);
     }
 
-    public Enemy(String id, int damage, int health) {
+    public Enemy(String id, int damage, int health, Player player) {
         super(id);
+        this.player = player;
         this.damage = damage;
         super.setHealthPoints(health);
     }
@@ -36,12 +40,16 @@ public class Enemy extends Character implements ThrowableTarget {
             return "Your "+ throwable.getId() + "hits " + getId() + " for " + weight + " damage! You killed the beast!";
         }
         else {
+            String s = strikeBack();
+            if (player.isDead()) {
+                s = "Oof! " + getId() + " hit a bit blow.. you died!";
+            }
             return "Your " + throwable.getId() + "hits " + getId() + " for " + weight + " damage! They still have some " +
-                    "power left and fight back!" ;
+                    "power left and fight back! " + s;
         }
     }
 
-    public boolean isDead() {return super.getHealthPoints() == 0;}
+
 
     public String strikeBack() {
         Random r = new Random();
@@ -51,6 +59,7 @@ public class Enemy extends Character implements ThrowableTarget {
         }
         else {
             String dmg = ((Integer) this.damage).toString();
+            this.player.setHealthPoints(this.player.getHealthPoints() - this.damage);
             return "Ouch! " + getId() + " hit you for " + dmg + " hp, be careful!";
         }
 

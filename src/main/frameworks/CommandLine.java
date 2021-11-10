@@ -3,12 +3,18 @@ package frameworks;
 import frameworks.*;
 import entities.*;
 import interfaceadapters.*;
+
+import javax.xml.stream.FactoryConfigurationError;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class CommandLine {
 
     private GameState gameState;
+    private static final String[] helpMessage = {"Here is the generic format of commands for any quest:",
+    "action: item, target so, for instance, throw: weapon=axe, target=thief which would throw an axe at the thief",
+    "We will provide more quest specific help for any given quest you're currently in, good luck padawan!"};
+
 
     public CommandLine(){
         this.gameState = new GameState();
@@ -19,11 +25,22 @@ public class CommandLine {
         CommandConstants.loadCommands();
 
         while(running){
-            Scanner input = new Scanner(System.in);
             System.out.println("What do you want to do next? ");
+            System.out.print("$ ");
+            Scanner input = new Scanner(System.in);
             String nextInput = input.nextLine();
-
-            System.out.println(callCommand(nextInput));
+            if (nextInput.equals("exit")) {
+                running = false;
+                input.close();
+            }
+            else if (nextInput.equals("help")) {
+                for (String help : helpMessage) {
+                    System.out.println(help);
+                }
+            }
+            else {
+                System.out.println(callCommand(nextInput));
+            }
         }
     }
 

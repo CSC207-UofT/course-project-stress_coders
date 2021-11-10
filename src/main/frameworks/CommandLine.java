@@ -12,7 +12,7 @@ public class CommandLine {
 
     private GameState gameState;
     private static final String[] helpMessage = {"Here is the generic format of commands for any quest:",
-    "action: item, target so, for instance, throw: weapon=axe, target=thief which would throw an axe at the thief",
+    "action: item, target", "so, for instance, throw: weapon=axe, target=thief which would throw an axe at the thief",
     "We will provide more quest specific help for any given quest you're currently in, good luck padawan!"};
 
 

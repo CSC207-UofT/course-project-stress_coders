@@ -5,8 +5,16 @@ import entities.*;
 import java.util.HashMap;
 import java.util.List;
 
+/*
+Dictate the way a user can interact with the program at any given time. Done so by storing all objects
+that can be interacted to represent a given scenario. I.e a fight scenario can be dictated by storing interactable
+enemy objects in the encounter, a fishing scenario can be dictated by storing an interactable pond etc.
+
+Also handle when the encounter is completed and how to add new objects into the encounter.
+ */
 public class Encounter {
 
+    //Maps Interactable ID to the object itself, 'key 1': KeyObject
     public HashMap<String, Interactable> objIDs = new HashMap<String, Interactable>();
 
     public Encounter(){

@@ -1,7 +1,9 @@
 package entities;
 
-import entities.*;
-
+/*
+Generic character class for shared behaviour between living things.
+I.e. NPCs, Enemies and the player.
+ */
 public abstract class Character extends Interactable {
     private int healthPoints;
 

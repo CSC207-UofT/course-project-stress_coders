@@ -18,8 +18,9 @@ public class Encounter {
     public HashMap<String, Interactable> objIDs = new HashMap<String, Interactable>();
 
     public Encounter(){
+        Player p = new Player("Sugondeez");
         Axe axe = new Axe("axe1");
-        Enemy enemy = new Enemy("enemy1");
+        Enemy enemy = new Enemy("enemy1", p);
         enemy.setHealthPoints(10);
 
         addObj((Interactable) axe);

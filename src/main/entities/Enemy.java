@@ -52,7 +52,7 @@ public class Enemy extends Character implements ThrowableTarget {
 
 
 
-    public String hitBack(Throwable throwable) {
+    private String hitBack(Throwable throwable) {
         Random r = new Random();
         int hit = r.nextInt(2);
         if (hit == -1) {

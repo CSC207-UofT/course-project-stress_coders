@@ -24,7 +24,7 @@ public class TalkTo extends Command {
      */
     @Override
     public String execute(HashMap<String, Interactable> args) {
-        String receiver = "target";
+        String receiver = "receiver";
         if(args.get(receiver) instanceof Talkable) {
             Talkable listener = ((Talkable) args.get(receiver));
             Scanner lineIn = new Scanner(System.in);

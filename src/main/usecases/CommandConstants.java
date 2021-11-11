@@ -11,6 +11,7 @@ public class CommandConstants {
 
     // Load all normal commands into the COMMANDS hashmap
     public static void loadCommands(){
+        COMMANDS.put("talk_to", new TalkTo());
         COMMANDS.put("throw", new Throw());
     }
 

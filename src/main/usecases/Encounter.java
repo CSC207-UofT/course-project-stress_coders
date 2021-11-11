@@ -2,6 +2,7 @@ package usecases;
 
 import entities.*;
 
+import java.awt.geom.GeneralPath;
 import java.util.HashMap;
 import java.util.List;
 
@@ -21,11 +22,14 @@ public class Encounter {
         Player p = new Player("Sugondeez");
         Axe axe = new Axe("axe1");
         Enemy enemy = new Enemy("enemy1", p);
+        Goblin goblin = new Goblin("goblin1", p);
+        goblin.setRiddleInfo("talk to me", "what's the colour of the sky", "blue");
         p.setHealthPoints(100);
         enemy.setHealthPoints(50);
 
         addObj((Interactable) axe);
         addObj(enemy);
+        addObj(goblin);
     }
 
     public Encounter(List<Interactable> interactables) {

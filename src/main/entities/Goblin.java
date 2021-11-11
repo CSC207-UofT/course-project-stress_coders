@@ -9,17 +9,14 @@ import java.util.Scanner;
  * but will only do so with a magic message! The Goblin's reward is up to the specific circumstance.
  */
 public class Goblin extends Enemy implements Talkable {
-    private String magic_message; // This is the message he must hear before he starts the mini-game
-    private String riddle; private String answer;
+    private String magic_message; private String riddle; private String answer;
     /**
      * Constructor
      * @param id
      * @param player
-     * @param magic_message
      */
-    public Goblin(String id, Player player, String magic_message) {
+    public Goblin(String id, Player player) {
         super(id, player);
-        this.magic_message = magic_message;
     }
 
     /**
@@ -27,7 +24,8 @@ public class Goblin extends Enemy implements Talkable {
      * @param riddle
      * @param answer
      */
-    public void setRiddleAnswer(String riddle, String answer){
+    public void setRiddleInfo(String magic_message, String riddle, String answer){
+        this.magic_message = magic_message;
         this.riddle = riddle;
         this.answer = answer;
     }

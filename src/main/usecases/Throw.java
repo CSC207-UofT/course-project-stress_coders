@@ -53,7 +53,7 @@ public class Throw extends Command {
                 return throwTarget.handleHit(args.get(thrownObject));
             }
 
-            return "You missed";
+            return "It missed";
         }
 
         System.out.println(args.get(thrownObject));

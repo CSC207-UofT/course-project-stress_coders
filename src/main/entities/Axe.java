@@ -30,7 +30,7 @@ public class Axe extends Weapon implements Throwable {
      **/
     @Override
     public void addHitProbability() {
-        super.addProperty(InteractableProperties.HIT_PROB.name(), new Variable(50));
+        super.addProperty(InteractableProperties.HIT_PROB.name(), new Variable(100));
     }
 
     @Override

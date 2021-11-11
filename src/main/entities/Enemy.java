@@ -52,7 +52,7 @@ public class Enemy extends Character implements ThrowableTarget {
 
 
 
-    public String hitBack(Throwable throwable) {
+    private String hitBack(Throwable throwable) {
         Random r = new Random();
         int hit = r.nextInt(2);
         if (hit == -1) {
@@ -69,6 +69,8 @@ public class Enemy extends Character implements ThrowableTarget {
             return throwingBack+throwCommand.execute(enemyThrowArgs);
         }
     }
+
+    public Player getPlayer(){ return this.player; }
 
 }
 

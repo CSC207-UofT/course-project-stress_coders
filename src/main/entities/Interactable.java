@@ -8,7 +8,7 @@ An object in an encounter that can be used as an argument for a command
 public abstract class Interactable {
     // ID/name of the obj, Must be unique among encounters
     private String id;
-
+    private boolean completed;
     /**
     properties that the interactable has as a result of its qualities.
     I.e edible, pushable, throwable all require different variables to be accessed when commands are called
@@ -25,6 +25,10 @@ public abstract class Interactable {
     public String getId(){
         return this.id;
     }
+
+    public boolean isCompleted() { return this.completed; }
+
+    public void setCompleted(boolean completed) { this.completed = completed; }
 
     public void addProperty(String name, Variable variable){
         properties.put(name, variable);

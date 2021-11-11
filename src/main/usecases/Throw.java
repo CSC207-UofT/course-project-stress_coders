@@ -33,7 +33,7 @@ public class Throw extends Command {
      */
     @Override
     public String execute(HashMap<String, Interactable> args) {
-        String thrownObject = "thrown_obj"; String target = "target";
+        String thrownObject = "obj"; String target = "target";
         if(args.get(thrownObject) instanceof Throwable && args.get(target) instanceof ThrowableTarget) {
             ThrowableTarget throwTarget = (ThrowableTarget) args.get(target);
             Throwable thrown = (Throwable) args.get(thrownObject);

@@ -45,7 +45,8 @@ public class Enemy extends Character implements ThrowableTarget {
             return "Your "+ throwable.getId() + " hits " + getId() + " for " + weight + " damage! You killed the beast!";
         }
         else {
-            return hitBack((Throwable) throwable);
+            String landedHitString="Your "+ throwable.getId() + " hits " + getId() + " for " + weight + " damage!\n";
+            return landedHitString+hitBack((Throwable) throwable);
         }
     }
 
@@ -59,13 +60,13 @@ public class Enemy extends Character implements ThrowableTarget {
         }
         else {
             //Basic response is to throw back what was thrown. This can be overridden with different (special) enemies
-
+            String throwingBack = getId()+" is throwing it back!\n";
             ((Item) throwable).setHeldBy(this);
             Command throwCommand = CommandConstants.COMMANDS.get("throw");
             HashMap<String, Interactable> enemyThrowArgs = new HashMap<>();
-            enemyThrowArgs.put("thrown_obj", (Interactable) throwable);  // Throwing the axe
+            enemyThrowArgs.put("obj", (Interactable) throwable);  // Throwing the axe
             enemyThrowArgs.put("target", this.player);  // Throwing it at the player
-            return throwCommand.execute(enemyThrowArgs);
+            return throwingBack+throwCommand.execute(enemyThrowArgs);
         }
     }
 

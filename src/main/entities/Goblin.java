@@ -50,14 +50,18 @@ public class Goblin extends Enemy implements Talkable {
     @Override
     public String listenAndRespond(String input){
         if (input.equals(this.magic_message)) {
-            // start mini-game
-            Scanner lineIn = new Scanner(System.in);
-            System.out.println("Answer my riddle!\n" + this.riddle);
-            String userResponse = lineIn.nextLine();
-            if (userResponse.equals(this.answer)) {
-                return "Correct!\n" + this.reward();
+            if (!this.isCompleted()) {
+                // start mini-game
+                Scanner lineIn = new Scanner(System.in);
+                System.out.println("Answer my riddle!\n" + this.riddle);
+                String userResponse = lineIn.nextLine();
+                if (userResponse.equals(this.answer)) {
+                    return "Correct!\n" + this.reward();
+                } else {
+                    return "Wrong! Try Again!";
+                }
             } else {
-                return "Wrong! Try Again!";
+                return "Cannot play again hehe";
             }
         } else {
             return "I don't know what that means hehe";
@@ -71,6 +75,7 @@ public class Goblin extends Enemy implements Talkable {
     private String reward() {
         Player player = this.getPlayer();
         player.setHealthPoints(player.getHealthPoints() + 20);
+        this.setCompleted(true);
         return player.getId() + " health points increase by 20!";
     }
 }

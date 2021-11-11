@@ -55,7 +55,7 @@ public class Enemy extends Character implements ThrowableTarget {
     public String hitBack(Throwable throwable) {
         Random r = new Random();
         int hit = r.nextInt(2);
-        if (hit == -1) {
+        if (hit == 0) {
             return "Nice! " + getId() + " missed their hit.. time to strike!";
         }
         else {

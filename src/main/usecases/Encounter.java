@@ -34,7 +34,7 @@ public class Encounter {
     }
 
     // If object has identical ID either add a number to the end or add some adjective at the beginning
-    // We can have a list of adjectives, so like Big, red etc. So if there are 2 keys, one can be Big the other red etc.
+    // We can have a list of Objectadjectives.txt, so like Big, red etc. So if there are 2 keys, one can be Big the other red etc.
     public void addObj(Interactable interactable){
         this.objIDs.put(interactable.getId(), interactable);
     }

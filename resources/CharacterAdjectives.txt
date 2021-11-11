@@ -1,0 +1,21 @@
+0.33: uninterested, clumsy, defeated, embarrassed, helpless, lazy, miniature, puny, scrawny, teeny, tiny
+0.5: quaint, sparkling, unsightly, wide-eyed, shy, gentle, obedient, relieved, silly, bewildered, grumpy, jealous, nervous, panicky, thoughtless, worried, little, petite, short, small, skinny, cooing, hissing, quiet, whispering
+1: adorable, beautiful, clean, drab, elegant, fancy, plain, ugliest, calm, delightful, eager, faithful, happy, jolly, kind, lively, nice, proud, thankful, witty, itchy, obnoxious, repulsive, uptight, broad, chubby, square, wide, straight, purring, raspy
+2: glamorous, handsome, magnificent, old-fashioned, famous, gifted, important, helpful, rich, tender, agreeable, brave, victorious, zealous, angry, scary, big, fat, huge, immense, large, massive, tall, noisy, screeching
+3: powerful, fierce, mysterious, colossal, gigantic, great, mammoth
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

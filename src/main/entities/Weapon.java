@@ -15,4 +15,11 @@ public abstract class Weapon extends Item {
         super(id);
         this.damage = damage;
     }
+
+    /**
+        returns the damage
+     **/
+    public int getDamage() {
+        return this.getDamage();
+    }
 }

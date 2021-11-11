@@ -1,8 +1,9 @@
 package entities;
 
-import entities.Item;
-
-public class Weapon extends Item {
+/*
+Generic weapon class all weapons extend
+ */
+public abstract class Weapon extends Item {
 
     private int damage = 0;
 

@@ -3,6 +3,11 @@ package entities;
 import entities.interfaces.ThrowableTarget;
 import java.util.Random;
 
+/**
+Interactable that can damage the player
+
+ completed when killed
+ **/
 public class Enemy extends Character implements ThrowableTarget {
 
     private int damage;
@@ -32,6 +37,13 @@ public class Enemy extends Character implements ThrowableTarget {
         this.damage = damage;
         super.setHealthPoints(health);
     }
+
+     /**
+    @see ThrowableTarget for details
+     Damage the enemy by the weight of the object
+
+     return "your axe hits {enemy name} for {weight} damage"
+     **/
     @Override
     public String handleHit(Interactable throwable) {
         int weight = throwable.getProperty(InteractableProperties.WEIGHT.name()).getInteger();

@@ -42,7 +42,7 @@ public class Enemy extends Character implements ThrowableTarget {
         int weight = throwable.getProperty(InteractableProperties.WEIGHT.name()).getInteger();
         setHealthPoints(getHealthPoints() - weight);
         if (isDead()) {
-            return "Your "+ throwable.getId() + "hits " + getId() + " for " + weight + " damage! You killed the beast!";
+            return "Your "+ throwable.getId() + " hits " + getId() + " for " + weight + " damage! You killed the beast!";
         }
         else {
             return hitBack((Throwable) throwable);
@@ -54,11 +54,12 @@ public class Enemy extends Character implements ThrowableTarget {
     public String hitBack(Throwable throwable) {
         Random r = new Random();
         int hit = r.nextInt(2);
-        if (hit == 0) {
+        if (hit == -1) {
             return "Nice! " + getId() + " missed their hit.. time to strike!";
         }
         else {
             //Basic response is to throw back what was thrown. This can be overridden with different (special) enemies
+
             ((Item) throwable).setHeldBy(this);
             Command throwCommand = CommandConstants.COMMANDS.get("throw");
             HashMap<String, Interactable> enemyThrowArgs = new HashMap<>();

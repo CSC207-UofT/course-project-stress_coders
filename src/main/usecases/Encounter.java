@@ -21,7 +21,8 @@ public class Encounter {
         Player p = new Player("Sugondeez");
         Axe axe = new Axe("axe1");
         Enemy enemy = new Enemy("enemy1", p);
-        enemy.setHealthPoints(10);
+        p.setHealthPoints(100);
+        enemy.setHealthPoints(50);
 
         addObj((Interactable) axe);
         addObj(enemy);

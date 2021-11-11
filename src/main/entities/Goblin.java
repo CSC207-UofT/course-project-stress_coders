@@ -55,12 +55,22 @@ public class Goblin extends Enemy implements Talkable {
             System.out.println("Answer my riddle!\n" + this.riddle);
             String userResponse = lineIn.nextLine();
             if (userResponse.equals(this.answer)) {
-                return "Correct! hehe, you may proceed!";
+                return "Correct!\n" + this.reward();
             } else {
                 return "Wrong! Try Again!";
             }
         } else {
             return "I don't know what that means hehe";
         }
+    }
+
+    /**
+     * Reward the player by increasing their health
+     * @return
+     */
+    private String reward() {
+        Player player = this.getPlayer();
+        player.setHealthPoints(player.getHealthPoints() + 20);
+        return player.getId() + " health points increase by 20!";
     }
 }

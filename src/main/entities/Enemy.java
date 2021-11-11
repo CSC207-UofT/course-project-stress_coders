@@ -70,6 +70,14 @@ public class Enemy extends Character implements ThrowableTarget {
         }
     }
 
+    /**
+     * Get the player
+     * @return
+     */
+    public Player getPlayer(){
+        return this.player;
+    }
+
 }
 
 /*

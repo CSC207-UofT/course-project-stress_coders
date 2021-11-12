@@ -11,7 +11,7 @@ public enum InteractableProperties {
     WEIGHT("weight"),
     RES_NAME("resource_name"),
     RES_STORE_NAME("storage"),
-    RES_DIST_NAME("distribution");
+    CHOP_DMG_NAME("chop_damage");
 
 
     private final String name;

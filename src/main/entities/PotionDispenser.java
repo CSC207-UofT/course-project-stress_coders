@@ -34,4 +34,3 @@ public class PotionDispenser extends Interactable implements Spinnable {
         return potions.get(chosen);
     }
 }
-

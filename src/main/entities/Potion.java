@@ -15,13 +15,13 @@ public class Potion extends Item implements Throwable {
     public int strength;
 
     public Potion(String id, int strength) {
-        super(id);
+        super(id, "First call useInventory then [consumable_name]: quantity");
         this.strength = strength;
         this.value = strength * VALUE_COEFFICIENT;
     }
 
     public Potion(String id, int strength, double value) {
-        super(id);
+        super(id, "First call useInventory then [consumable_name]: quantity");
         this.strength = strength;
         this.value = value;
     }

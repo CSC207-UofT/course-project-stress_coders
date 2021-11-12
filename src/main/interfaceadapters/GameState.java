@@ -39,11 +39,19 @@ public class GameState {
         String nextInput = input.nextLine();
         Encounter needed = EncounterConversion.get(nextInput);
         int found = this.encounters.indexOf(needed);
-        if (found == -1) {
-            return "No quest found by that name";
+        while (found == -1) {
+            System.out.println("No quest found by that name");
+            Scanner input2 = new Scanner(System.in);
+            System.out.print("$ ");
+            String nextInput2 = input2.nextLine();
+            Encounter needed2 = EncounterConversion.get(nextInput2);
+            found = this.encounters.indexOf(needed2);
         }
         this.current_encounter = found;
-        return "Quest Selected!";
+        System.out.println("Quest Selected!");
+        System.out.println(this.encounters.get(current_encounter).loadInitial());
+        System.out.println(this.encounters.get(current_encounter).loadFirstInteractable());
+        return "Good Luck!";
     }
 
     public void loadEncounter(Encounter encounter) {
@@ -67,8 +75,6 @@ public class GameState {
             this.completedEncounters.add(encounters.get(current_encounter));
             System.out.println(s);
             s = requestEncounter();
-            s += encounters.get(current_encounter).loadInitial() + "\n";
-            s += encounters.get(current_encounter).loadFirstInteractable();
             return s;
         }
         return s;

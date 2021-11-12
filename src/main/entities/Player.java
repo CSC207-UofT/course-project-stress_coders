@@ -10,7 +10,7 @@ import java.util.List;
 The player character hold their inventory and their stats and handle how those change
  */
 public class Player extends Character implements ThrowableTarget {
-    private HashMap<String, List<Interactable>> inventory = new HashMap<String, List<Interactable>>();
+    private HashMap<String, List<String>> inventory = new HashMap<String, List<String>>();
 
     public Player(String id) {
         super(id);
@@ -27,7 +27,7 @@ public class Player extends Character implements ThrowableTarget {
         }
     }
 
-    public void addInventory(String name, List<Interactable> resources){
+    public void addInventory(String name, List<String> resources){
         this.inventory.put(name, resources);
     }
 }

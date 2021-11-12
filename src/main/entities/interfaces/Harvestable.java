@@ -5,7 +5,7 @@ import entities.Player;
  * Interface for an interactable you can harvest
  */
 public interface Harvestable {
-    String harvest(Player player);
+    String harvest(Player player, int toolDamage);
 
     void addInfo();
 }

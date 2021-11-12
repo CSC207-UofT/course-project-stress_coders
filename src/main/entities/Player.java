@@ -12,10 +12,19 @@ The player character hold their inventory and their stats and handle how those c
 public class Player extends Character implements ThrowableTarget {
     private HashMap<String, Integer> inventory = new HashMap<String, Integer>();
     private int wallet;
+    private Weapon currentWeapon;
 
     public Player(String id) {
         super(id);
+        Axe a = new Axe("Molag Bal");
+        setWeapon(a);
     }
+
+    public void setWeapon(Weapon w) {
+        this.currentWeapon = w;
+    }
+
+    public int getWallet() {return this.wallet;}
 
     @Override
     public String handleHit(Interactable throwable) {
@@ -56,4 +65,6 @@ public class Player extends Character implements ThrowableTarget {
     public void addCurrency(int quantity){ this.wallet = this.wallet + quantity;}
 
     public void subCurrency(int quantity){ this.wallet = this.wallet - quantity;}
+
+
 }

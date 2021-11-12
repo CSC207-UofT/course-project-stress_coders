@@ -13,8 +13,8 @@ public class RiddleGoblin extends Goblin {
      * @param id
      * @param player
      */
-    public RiddleGoblin(String id, Player player) {
-        super(id, player);
+    public RiddleGoblin(String id, Player player, int value) {
+        super(id, player, value);
     }
 
     /**

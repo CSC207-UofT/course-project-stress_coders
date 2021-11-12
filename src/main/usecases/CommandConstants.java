@@ -19,4 +19,6 @@ public class CommandConstants {
     public void add_command(String keyword, Command command){
         COMMANDS.put(keyword, command);
     }
+
+    public Command getCommand(String input) {return COMMANDS.get(input);}
 }

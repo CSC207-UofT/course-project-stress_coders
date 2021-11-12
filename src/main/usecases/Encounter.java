@@ -25,10 +25,12 @@ public class Encounter {
         goblin.setRiddleInfo("talk to me", "what's the colour of the sky", "blue");
         p.setHealthPoints(100);
         enemy.setHealthPoints(50);
+        Tree tree = new Tree("tree1");
 
         addObj((Interactable) axe);
         addObj(enemy);
         addObj(goblin);
+        addObj(tree);
     }
 
     public Encounter(List<Interactable> interactables) {

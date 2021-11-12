@@ -21,6 +21,7 @@ public class Chop extends Command{
         String tool = "tool"; String target = "target";
         if(args.get(target) instanceof Harvestable && anyInstanceOf(args.get(tool)) && args.get(tool) instanceof Item) {
             if(!(((Item) args.get(tool)).getHeldBy() == null)){
+                // harvest the tree using the player that's holding the axe
                 return ((Harvestable) args.get(target)).harvest((Player) ((Item) args.get(tool)).getHeldBy());
             } else {
                 return "You don't hold that";

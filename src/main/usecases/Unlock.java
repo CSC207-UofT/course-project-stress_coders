@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class Unlock extends Command{
 
     /*
+    User input would be like "unlock: door=door1"
     This command would require input of the format {"door": door1}
      */
     @Override

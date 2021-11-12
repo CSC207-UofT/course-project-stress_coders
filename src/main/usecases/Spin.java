@@ -9,8 +9,8 @@ public class Spin extends Command {
 
     @Override
     public String execute(HashMap<String, Interactable> args) {
-        if (args.get("spin") instanceof MysteryBox) {
-            MysteryBox m = ((MysteryBox) args.get("spin"));
+        if (args.get("box") instanceof MysteryBox) {
+            MysteryBox m = ((MysteryBox) args.get("box"));
             Weapon w = m.spin();
 
             if (w instanceof Unafforable) {

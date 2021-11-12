@@ -1,16 +1,18 @@
 package entities;
 
+import entities.interfaces.Spinnable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class MysteryBox extends Interactable {
+public class MysteryBox extends Interactable implements Spinnable {
 
     List<Weapon> weapons;
     Player player;
 
     public MysteryBox(String id, Weapon[] weapons, Player p) {
-        super(id);
+        super(id, "spin: box=[mysterybox_id]}");
         this.weapons = new ArrayList<>();
         loadWeapons(weapons);
         player = p;

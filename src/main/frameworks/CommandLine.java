@@ -1,13 +1,12 @@
 package frameworks;
 
 import entities.*;
+import entities.interfaces.Consumable;
 import interfaceadapters.*;
 import usecases.*;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /*
 Singleton that handles reading user input.
@@ -17,7 +16,10 @@ public class CommandLine {
 
     // Required GameState object. CL must call commands that interact with the Encounter and gameState.
     private GameState gameState;
-
+    private PlayerManager playerState;
+    private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "useInventory",
+            "progress"));
+    private static final String genericHelp = "SOME GENERIC HELP FOR USER>> NEED TO ADD";
     public CommandLine() throws IOException {
         IDreader idReader = new IDreader();
         Encounter[] e = new Encounter[0];
@@ -40,26 +42,54 @@ public class CommandLine {
         while(running) {
             if (firstRun) {
                 firstRun = false;
+                System.out.println("Please choose a player name: ");
+                Scanner input = new Scanner(System.in);
+                System.out.print("$ ");
+                String nextInput = input.nextLine();
+                this.playerState = new PlayerManager(nextInput);
                 System.out.println(this.gameState.requestEncounter());
                 // Print some sort of welcome and instructions here
             } else {
                 Scanner input = new Scanner(System.in);
                 System.out.print("$ ");
                 String nextInput = input.nextLine();
-
                 if (nextInput.equals("exit")) {
                     running = false;
-                } else if (nextInput.equals("progress")) {
-                    for (String s : this.gameState().completedEncounters()) {
-                        System.out.println(s);
-                    }
-                } else {
+                }
+                else if (SPECIAL_INPUTS.contains(nextInput)) {
+                    specialCommand(nextInput);
+                }
+                else {
                     System.out.println(callCommand(nextInput));
                 }
             }
         }
     }
 
+    public void specialCommand(String nextInput) {
+        if (nextInput.equals("progress")) {
+            for (String s : this.gameState().completedEncounters()) {
+                System.out.println(s);
+            }
+        }
+        else if (nextInput.equals("help")) {
+            System.out.println(genericHelp);
+            System.out.println(
+                    this.gameState.getHelp(playerState.getPlayer())
+            );
+        }
+        else if (nextInput.equals("useInventory")) {
+            playerState.listInventory();
+            System.out.println("Select which consumable you want to use and set quantity in the form of " +
+                    "[consumable_name]: quantity");
+            Scanner input = new Scanner(System.in);
+            String nextInput2 = input.nextLine();
+            System.out.print("$ ");
+            String[] formatted = nextInput2.split(":");
+            Consumable found = ConsumableConstants.CONSUMABLES.get(formatted[0]);
+            System.out.println(playerState.use(found, Integer.parseInt(formatted[1])));
+        }
+    }
     /**
     Parses the given @param: input by creating a mapping from argument name to argument value.
     Argument value is an ID of an interactable in the encounter

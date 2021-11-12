@@ -46,4 +46,14 @@ public class Encounter {
     public Interactable getFromID(String ID){
         return objIDs.get(ID);
     }
+    
+    public boolean checkCompletion(){
+        boolean completed = true
+        for (Interactable interactable : objIDs.values()) {
+            if interactable.completed == false {
+            completed = false
+            }
+        }
+        return completed
+    }
 }

@@ -11,6 +11,7 @@ The player character hold their inventory and their stats and handle how those c
  */
 public class Player extends Character implements ThrowableTarget {
     private HashMap<String, Integer> inventory = new HashMap<String, Integer>();
+    private int wallet;
 
     public Player(String id) {
         super(id);
@@ -29,5 +30,11 @@ public class Player extends Character implements ThrowableTarget {
 
     public void addInventory(String name, int quantity){
         this.inventory.put(name, quantity);
+    }
+
+    public void addCurrency(int quantity){ this.wallet = this.wallet + quantity;}
+
+    public void subCurrency(int quantity){
+        this.wallet = this.wallet - quantity;
     }
 }

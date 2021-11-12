@@ -13,6 +13,7 @@ public class CommandConstants {
     public static void loadCommands(){
         COMMANDS.put("talk_to", new TalkTo());
         COMMANDS.put("throw", new Throw());
+        COMMANDS.put("chop", new Chop());
     }
 
     public void add_command(String keyword, Command command){

@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 
 /*
 An object in an encounter that can be used as an argument for a command
@@ -47,5 +48,13 @@ public abstract class Interactable {
 
     public Variable getProperty(String name){
         return properties.get(name);
+    }
+
+    public void setId(String id){
+        this.id = id;
+    }
+
+    public HashMap<String, Variable> getProperties(){
+        return this.properties;
     }
 }

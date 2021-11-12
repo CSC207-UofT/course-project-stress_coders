@@ -17,4 +17,7 @@ public abstract class Item extends Interactable {
     public void setHeldBy(Interactable heldBy) {
         this.heldBy = heldBy;
     }
+    public Interactable getHeldBy() {
+        return this.heldBy;
+    }
 }

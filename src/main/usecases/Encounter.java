@@ -1,11 +1,14 @@
 package usecases;
 
 import entities.*;
+import entities.Character;
+import interfaceadapters.IDreader;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 /*
 Dictate the way a user can interact with the program at any given time. Done so by storing all objects
@@ -27,16 +30,22 @@ public class Encounter {
 
     public Encounter(String initialText){
         Player p = new Player("Sugondeez");
-        Axe axe = new Axe("axe1");
+        Axe axe = new Axe("axe");
+        Axe axe1 = new Axe("axe");
         Enemy enemy = new Enemy("enemy1", p);
         RiddleGoblin goblin = new RiddleGoblin("goblin1", p);
         goblin.setRiddleInfo("talk to me", "what's the colour of the sky", "blue");
         p.setHealthPoints(100);
         enemy.setHealthPoints(50);
+        axe.setHeldBy(p);
+        Tree tree = new Tree("tree1");
 
         addObj((Interactable) axe);
+        addObj((Interactable) axe1);
+        System.out.println(axe1.getId() + " " + axe1.getProperties().get(InteractableProperties.WEIGHT.name()).getInteger());
         addObj(enemy);
         addObj(goblin);
+        addObj(tree);
     }
 
     public Encounter(List<Interactable> interactables) {
@@ -73,10 +82,44 @@ public class Encounter {
     }
 
     // If object has identical ID either add a number to the end or add some adjective at the beginning
-    // We can have a list of adjectives, so like Big, red etc. So if there are 2 keys, one can be Big the other red etc.
+    // We can have a list of ObjectAdjectives.txt, so like Big, red etc. So if there are 2 keys, one can be Big the other red etc.
     public void addObj(Interactable interactable){
+        if(this.objIDs.containsKey(interactable.getId())){
+            addAdjective(interactable);
+        }
         this.objIDs.put(interactable.getId(), interactable);
         this.progression.add(interactable);
+    }
+
+    public void addAdjective(Interactable interactable){
+        String id = interactable.getId();
+        String originalId = interactable.getId();
+
+        Random random = new Random();
+
+        String[] charKeySet = IDreader.CharAdjectives.keySet().toArray(new String[0]);
+        String[] objKeySet = IDreader.ObjAdjectives.keySet().toArray(new String[0]);
+        int index = 0;
+        while(this.objIDs.containsKey(id)){
+            if(interactable instanceof Character) {
+                index = random.nextInt(charKeySet.length);
+                id = charKeySet[index] + " " + originalId;
+            } else {
+                index = random.nextInt(objKeySet.length);
+                id = objKeySet[index] + " " + originalId;
+            }
+        }
+
+        if(interactable instanceof Character interactableChar){
+            interactableChar.addModifier(IDreader.CharAdjectives.get(charKeySet[index]));
+        } else {
+            for(Variable var : interactable.getProperties().values()){
+                float modified_value = var.getInteger() * IDreader.ObjAdjectives.get(objKeySet[index]);
+                var.setInteger((int) modified_value);
+            }
+        }
+
+        interactable.setId(id);
     }
 
     public Interactable getFromID(String ID){

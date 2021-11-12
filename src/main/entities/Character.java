@@ -20,4 +20,8 @@ public abstract class Character extends Interactable {
     }
 
     public boolean isDead() {return this.healthPoints <= 0;}
+
+    public void addModifier(float weight){
+        this.healthPoints *= weight;
+    }
 }

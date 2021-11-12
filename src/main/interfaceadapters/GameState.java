@@ -2,6 +2,8 @@ package interfaceadapters;
 
 import usecases.*;
 
+import java.util.HashSet;
+
 /*
 Singleton
 Store the current state of encounters: The current encounter, the map of available encounters, the
@@ -15,7 +17,6 @@ public class GameState {
     private Encounter current_encounter = new Encounter();
 
     public GameState(){
-
     }
 
     public Encounter getCurrent_encounter(){

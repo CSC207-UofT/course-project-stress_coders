@@ -5,6 +5,7 @@ import interfaceadapters.*;
 import usecases.Command;
 import usecases.CommandConstants;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -17,14 +18,15 @@ public class CommandLine {
     // Required GameState object. CL must call commands that interact with the Encounter and gameState.
     private GameState gameState;
 
-    public CommandLine(){
+    public CommandLine() throws IOException {
+        IDreader idReader = new IDreader();
         this.gameState = new GameState();
     }
 
     /*
      Loop for retrieving user inputs and displaying the results
      */
-    public void start(){
+    public void start() {
         boolean running = true;
         CommandConstants.loadCommands();
 

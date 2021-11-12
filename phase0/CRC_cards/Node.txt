@@ -1,4 +1,4 @@
-Class name: Node
+Class entities.interfaces: Node
 Parent class: None
 Subclasses: Questnode
 Type: interface adapter 
@@ -9,4 +9,4 @@ Responsibilities
 * Specify whether it is part of a quest or not
 * Mark quest as cleared when encounter is cleared
 
-Collaborator: Encounter, Player, QuestLog
+Collaborator: usecases.Encounter, entities.Player, QuestLog

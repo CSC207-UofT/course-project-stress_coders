@@ -1,5 +1,5 @@
-Class name: Shield
-Parent class: Weapon
+Class entities.interfaces: Shield
+Parent class: entities.Weapon
 Subclasses: None
 Type: Entity
 
@@ -9,4 +9,4 @@ Responsibilities:
 * block incoming attack using Blockable interface method
 
 
-Collaborators: Character
+Collaborators: entities.Character

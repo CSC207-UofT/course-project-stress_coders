@@ -1,4 +1,4 @@
-Class name: Shoot
+Class entities.interfaces: Shoot
 Parent class: Action
 Subclasses: None
 Type: Use case
@@ -8,5 +8,5 @@ Allows for shootable objects to be shot, handles the result of the action and th
 
 Collaborators:
 Shootable interface
-Player
-Weapon
+entities.Player
+entities.Weapon

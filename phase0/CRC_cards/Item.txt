@@ -1,4 +1,4 @@
-Class name: Item
+Class entities.interfaces: entities.Item
 Parent class: None
 Subclasses: Any item, for example a potion
 Type: Entity

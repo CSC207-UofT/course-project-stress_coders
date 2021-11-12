@@ -1,5 +1,6 @@
 package entities;
 
+import entities.interfaces.CanChop;
 import entities.interfaces.Throwable;
 
 /**
@@ -12,7 +13,7 @@ Handle unique axe interactions. I.e. chopping a tree.
 
  auto completed
  **/
-public class Axe extends Weapon implements Throwable {
+public class Axe extends Weapon implements Throwable, CanChop {
 
     public Axe(String id) {
         super(id);
@@ -37,4 +38,7 @@ public class Axe extends Weapon implements Throwable {
     public void addWeight() {
         super.addProperty(InteractableProperties.WEIGHT.name(), new Variable(20));
     }
+
+    @Override
+    public void addChopDamage() { super.addProperty(InteractableProperties.CHOP_DMG_NAME.name(), new Variable(20)); };
 }

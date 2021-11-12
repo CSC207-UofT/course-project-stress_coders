@@ -9,6 +9,7 @@ public abstract class Interactable {
     // ID/name of the obj, Must be unique among encounters
     private String id;
     private boolean completed;
+    private final String initialText;
     /**
     properties that the interactable has as a result of its qualities.
     I.e edible, pushable, throwable all require different variables to be accessed when commands are called
@@ -20,10 +21,20 @@ public abstract class Interactable {
 
     public Interactable(String id){
         this.id = id;
+        this.initialText = "";
+    }
+
+    public Interactable(String id, String initial){
+        this.id = id;
+        this.initialText = initial;
     }
 
     public String getId(){
         return this.id;
+    }
+
+    public String getInitialText() {
+        return initialText;
     }
 
     public boolean isCompleted() { return this.completed; }

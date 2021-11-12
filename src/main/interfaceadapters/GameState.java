@@ -12,7 +12,8 @@ Potentially handle saving encounters
  */
 public class GameState {
 
-    private Encounter current_encounter = new Encounter();
+    private Encounter current_encounter = new Encounter("blah");
+
 
     public GameState(){
 

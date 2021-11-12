@@ -33,7 +33,7 @@ public class Encounter {
         goblin.setRiddleInfo("talk to me", "what's the colour of the sky", "blue");
         p.setHealthPoints(100);
         enemy.setHealthPoints(50);
-        this.initialText = initialText;
+
         addObj((Interactable) axe);
         addObj(enemy);
         addObj(goblin);

@@ -11,6 +11,9 @@ public class Tree extends Interactable implements Harvestable {
         addInfo();
     }
 
+    /**
+     * interface method
+     */
     @Override
     public void addInfo() {
         super.addProperty(InteractableProperties.RES_NAME.name(), new Variable("wood"));

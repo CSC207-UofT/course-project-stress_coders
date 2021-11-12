@@ -20,6 +20,8 @@ Also handle when the encounter is completed and how to add new objects into the 
 public class Encounter {
 
     //Maps Interactable ID to the object itself, 'key 1': KeyObject
+    private String encounterName;
+    private String description;
     private HashMap<String, Interactable> objIDs = new HashMap<String, Interactable>();
     private boolean isCompleted;
     private ArrayList<Interactable> progression = new ArrayList<>();
@@ -28,18 +30,20 @@ public class Encounter {
     private ArrayList<Interactable> genericPool = new ArrayList<>();
 
 
-    public Encounter(String initialText){
+    public Encounter(String initialText, String name, String description){
+        this.encounterName = name;
+        this.description = description;
         Player p = new Player("Sugondeez");
         Axe axe = new Axe("axe");
         Axe axe1 = new Axe("axe");
-        Enemy enemy = new Enemy("enemy1", p);
-        RiddleGoblin goblin = new RiddleGoblin("goblin1", p);
+        Enemy enemy = new Enemy("enemy1", p, 25);
+        RiddleGoblin goblin = new RiddleGoblin("goblin1", p, 25);
         goblin.setRiddleInfo("talk to me", "what's the colour of the sky", "blue");
         p.setHealthPoints(100);
         enemy.setHealthPoints(50);
         axe.setHeldBy(p);
         Tree tree = new Tree("tree1");
-
+        this.initialText = initialText;
         addObj((Interactable) axe);
         addObj((Interactable) axe1);
         System.out.println(axe1.getId() + " " + axe1.getProperties().get(InteractableProperties.WEIGHT.name()).getInteger());
@@ -52,6 +56,14 @@ public class Encounter {
         for (Interactable interactable : interactables){
             addObj(interactable);
         }
+    }
+
+    public String getDetails() {
+        return this.encounterName + " : " + this.description;
+    }
+
+    public String getName() {
+        return this.encounterName;
     }
 
     public void addGeneric(Interactable generic) {
@@ -67,18 +79,20 @@ public class Encounter {
         return progression.get(0).getInitialText();
     }
 
-    public String progress(String userInput) {
+    public String progress(HashMap<String, Interactable> userInput, String userCommand) {
+        CommandConstants c = new CommandConstants();
+        Command needed = c.getCommand(userCommand);
+        String s = needed.execute(userInput) + "\n";
+
         if (progression.get(currEncounterIndex).isCompleted()) {
             if (currEncounterIndex == progression.size()-1) {
                 this.isCompleted = true;
-                return "Encounter completed, well done!";
+                return s  + "Encounter completed, well done!";
             }
             currEncounterIndex++;
-            return progression.get(currEncounterIndex).getInitialText();
+            return s+progression.get(currEncounterIndex).getInitialText();
         }
-        CommandConstants c = new CommandConstants();
-        Command needed = c.getCommand(userInput);
-        return needed.execute(objIDs);
+        return s;
     }
 
     // If object has identical ID either add a number to the end or add some adjective at the beginning
@@ -110,8 +124,8 @@ public class Encounter {
             }
         }
 
-        if(interactable instanceof Character interactableChar){
-            interactableChar.addModifier(IDreader.CharAdjectives.get(charKeySet[index]));
+        if(interactable instanceof Character){
+            ((Character) interactable).addModifier(IDreader.CharAdjectives.get(charKeySet[index]));
         } else {
             for(Variable var : interactable.getProperties().values()){
                 float modified_value = var.getInteger() * IDreader.ObjAdjectives.get(objKeySet[index]);

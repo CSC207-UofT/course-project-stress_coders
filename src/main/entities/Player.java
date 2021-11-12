@@ -28,13 +28,32 @@ public class Player extends Character implements ThrowableTarget {
         }
     }
 
+    /***
+     * Modify to the inventory
+     * @param name
+     * @param quantity
+     */
     public void addInventory(String name, int quantity){
-        this.inventory.put(name, quantity);
+        if (!this.inventory.containsKey(name)) {
+            this.inventory.put(name, quantity);
+        } else {
+            int curr = this.inventory.get(name);
+            this.inventory.put(name, curr + quantity);
+        }
     }
 
+    public void subInventory(String name, int quantity){
+        if (this.inventory.containsKey(name)) {
+            int curr = this.inventory.get(name);
+            this.inventory.put(name, curr - quantity);
+        }
+    }
+
+    /**
+     * modify the wallet
+     * @param quantity
+     */
     public void addCurrency(int quantity){ this.wallet = this.wallet + quantity;}
 
-    public void subCurrency(int quantity){
-        this.wallet = this.wallet - quantity;
-    }
+    public void subCurrency(int quantity){ this.wallet = this.wallet - quantity;}
 }

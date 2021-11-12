@@ -8,7 +8,11 @@ package entities;
 public enum InteractableProperties {
     HEALTH_RESTORED("hp"),
     HIT_PROB("hit_prob"),
-    WEIGHT("weight");
+    WEIGHT("weight"),
+    RES_NAME("resource_name"),
+    RES_STORE_NAME("storage"),
+    RES_DIST_NAME("distribution");
+
 
     private final String name;
 

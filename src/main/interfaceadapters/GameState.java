@@ -1,6 +1,7 @@
 package interfaceadapters;
 
 import entities.Interactable;
+import entities.Player;
 import usecases.*;
 
 import java.util.*;
@@ -25,6 +26,7 @@ public class GameState {
         loadEncounters(encounters);
         // will need to populate encounters
     }
+
 
     public String requestEncounter() {
         System.out.println("Please choose a quest:");
@@ -80,5 +82,7 @@ public class GameState {
         return s;
     }
 
-
+    public String getHelp(Player p) {
+        return getCurrent_encounter().getHelp(p);
+    }
 }

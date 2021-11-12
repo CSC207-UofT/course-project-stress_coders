@@ -15,7 +15,7 @@ Handle unique axe interactions. I.e. chopping a tree.
 public class Axe extends Weapon implements Throwable {
 
     public Axe(String id) {
-        super(id);
+        super(id, "throw: thrown_obj=axe1, target=enemy1");
         /*
          adding enforced variables to interactable properties map, if this is not done accessing them
          in the command will throw a propertyNotAddedException

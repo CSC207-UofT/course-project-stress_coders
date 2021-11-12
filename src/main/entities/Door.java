@@ -1,13 +1,15 @@
 package entities;
 
-public abstract class Door extends Interactable {
+import entities.interfaces.Unlockable;
+
+public abstract class Door extends Interactable implements Unlockable {
 
     String[] hints;
     String answer;
     int currentHint;
 
     public Door(String id, String[] hints, String initial, String answer){
-        super(id, initial);
+        super(id, initial, "unlock: door=[door_id]");
         super.setCompleted(false);
         this.hints = hints;
         this.currentHint = 0;
@@ -15,7 +17,8 @@ public abstract class Door extends Interactable {
     }
 
     public Door(String id, String[] hints, String answer){
-        super(id, "You're blocked by a door try to figure out its code using hints.");
+        super(id, "You're blocked by a door try to figure out its code using hints.",
+                "unlock: door=[door_id]");
         super.setCompleted(false);
         this.hints = hints;
         this.currentHint = 0;

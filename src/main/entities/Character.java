@@ -6,15 +6,24 @@ I.e. NPCs, Enemies and the player.
  */
 public abstract class Character extends Interactable {
     private int healthPoints;
+    private int maxHealthPoints = 100;
 
     public Character(String id) {
-        super(id);
+        super(id, "");
     }
 
     public void setHealthPoints(int healthPoints) {
-        this.healthPoints = healthPoints;
+        if (healthPoints <= maxHealthPoints) {
+            this.healthPoints = healthPoints;
+        }
+        else {
+            this.healthPoints = this.maxHealthPoints;
+        }
     }
 
+    public void setMaxHealthPoints(int maxHP) {
+        this.maxHealthPoints = maxHP;
+    }
     public int getHealthPoints(){
         return this.healthPoints;
     }

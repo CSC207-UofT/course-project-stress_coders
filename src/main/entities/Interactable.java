@@ -11,6 +11,8 @@ public abstract class Interactable {
     private String id;
     private boolean completed;
     private final String initialText;
+    private final String commandUse;
+
     /**
     properties that the interactable has as a result of its qualities.
     I.e edible, pushable, throwable all require different variables to be accessed when commands are called
@@ -20,15 +22,19 @@ public abstract class Interactable {
      **/
     private HashMap<String, Variable> properties = new HashMap<>();
 
-    public Interactable(String id){
+    public Interactable(String id, String howToUse){
         this.id = id;
         this.initialText = "";
+        this.commandUse = howToUse;
     }
 
-    public Interactable(String id, String initial){
+    public Interactable(String id, String initial, String howToUse){
         this.id = id;
         this.initialText = initial;
+        this.commandUse = howToUse;
     }
+
+    public String getHelp() {return this.commandUse;}
 
     public String getId(){
         return this.id;

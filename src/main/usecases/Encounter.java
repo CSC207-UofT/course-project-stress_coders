@@ -4,7 +4,6 @@ import entities.*;
 import entities.Character;
 import interfaceadapters.IDreader;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +24,7 @@ public class Encounter {
     private HashMap<String, Interactable> objIDs = new HashMap<String, Interactable>();
     private boolean isCompleted;
     private ArrayList<Interactable> progression = new ArrayList<>();
-    private int currEncounterIndex = 0;
+    private int currInteractableIndex = 0;
     private String initialText;
     private ArrayList<Interactable> genericPool = new ArrayList<>();
 
@@ -33,23 +32,7 @@ public class Encounter {
     public Encounter(String initialText, String name, String description){
         this.encounterName = name;
         this.description = description;
-        Player p = new Player("Sugondeez");
-        Axe axe = new Axe("axe");
-        Axe axe1 = new Axe("axe");
-        Enemy enemy = new Enemy("enemy1", p, 25);
-        RiddleGoblin goblin = new RiddleGoblin("goblin1", p, 25);
-        goblin.setRiddleInfo("talk to me", "what's the colour of the sky", "blue");
-        p.setHealthPoints(100);
-        enemy.setHealthPoints(50);
-        axe.setHeldBy(p);
-        Tree tree = new Tree("tree1");
         this.initialText = initialText;
-        addObj((Interactable) axe);
-        addObj((Interactable) axe1);
-        System.out.println(axe1.getId() + " " + axe1.getProperties().get(InteractableProperties.WEIGHT.name()).getInteger());
-        addObj(enemy);
-        addObj(goblin);
-        addObj(tree);
     }
 
     public Encounter(List<Interactable> interactables) {
@@ -84,13 +67,13 @@ public class Encounter {
         Command needed = c.getCommand(userCommand);
         String s = needed.execute(userInput) + "\n";
 
-        if (progression.get(currEncounterIndex).isCompleted()) {
-            if (currEncounterIndex == progression.size()-1) {
+        if (progression.get(currInteractableIndex).isCompleted()) {
+            if (currInteractableIndex == progression.size()-1) {
                 this.isCompleted = true;
                 return s  + "Encounter completed, well done!";
             }
-            currEncounterIndex++;
-            return s+progression.get(currEncounterIndex).getInitialText();
+            currInteractableIndex++;
+            return s+progression.get(currInteractableIndex).getInitialText();
         }
         return s;
     }
@@ -144,5 +127,11 @@ public class Encounter {
         return isCompleted;
     }
 
+    public String getHelp(Player player) {
+        if (this.progression.get(currInteractableIndex) instanceof Enemy) {
+            return player.getCurrentWeapon().getHelp();
+        }
+        return this.progression.get(currInteractableIndex).getHelp();
+    }
 
 }

@@ -1,16 +1,17 @@
 package entities;
 
 import entities.Character;
+import entities.interfaces.Consumable;
 import entities.interfaces.ThrowableTarget;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /*
 The player character hold their inventory and their stats and handle how those change
  */
 public class Player extends Character implements ThrowableTarget {
     private HashMap<String, Integer> inventory = new HashMap<String, Integer>();
+    private Set<Consumable> items = new HashSet<>();
     private int wallet;
     private Weapon currentWeapon;
 
@@ -23,6 +24,8 @@ public class Player extends Character implements ThrowableTarget {
     public void setWeapon(Weapon w) {
         this.currentWeapon = w;
     }
+
+    public Weapon getCurrentWeapon() {return this.currentWeapon;}
 
     public int getWallet() {return this.wallet;}
 
@@ -43,6 +46,7 @@ public class Player extends Character implements ThrowableTarget {
      * @param quantity
      */
     public void addInventory(String name, int quantity){
+
         if (!this.inventory.containsKey(name)) {
             this.inventory.put(name, quantity);
         } else {
@@ -58,6 +62,13 @@ public class Player extends Character implements ThrowableTarget {
         }
     }
 
+    public void addConsumables(Consumable item, int quantity) {
+        this.items.add(item);
+        addInventory(item.getID(), quantity);
+    }
+
+    public int inventoryAmount(String name) {return this.inventory.get(name);}
+
     /**
      * modify the wallet
      * @param quantity
@@ -66,5 +77,12 @@ public class Player extends Character implements ThrowableTarget {
 
     public void subCurrency(int quantity){ this.wallet = this.wallet - quantity;}
 
-
+    public List<String> listConsumables() {
+        List<String> items = new ArrayList<>();
+        for (Consumable item: this.items) {
+            Integer amount = this.inventoryAmount(item.getID());
+            items.add(item.getID() + " : " + amount.toString());
+        }
+        return items;
+    }
 }

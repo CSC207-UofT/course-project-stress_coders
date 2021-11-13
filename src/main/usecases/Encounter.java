@@ -41,6 +41,14 @@ public class Encounter {
         }
     }
 
+    public String listInteractables() {
+        String out = "";
+        for (String key : this.objIDs.keySet()) {
+            out = out + key + "\n";
+        }
+        return out;
+    }
+
     public String getDetails() {
         return this.encounterName + " : " + this.description;
     }

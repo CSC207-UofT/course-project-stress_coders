@@ -11,10 +11,15 @@ public class CommandConstants {
 
     // Load all normal commands into the COMMANDS hashmap
     public static void loadCommands(){
+        COMMANDS.put("talk_to", new TalkTo());
         COMMANDS.put("throw", new Throw());
+        COMMANDS.put("chop", new Chop());
+        COMMANDS.put("consume", new Consume());
     }
 
     public void add_command(String keyword, Command command){
         COMMANDS.put(keyword, command);
     }
+
+    public Command getCommand(String input) {return COMMANDS.get(input);}
 }

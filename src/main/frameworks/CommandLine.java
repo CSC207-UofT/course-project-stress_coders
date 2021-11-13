@@ -1,12 +1,12 @@
 package frameworks;
 
 import entities.*;
+import entities.interfaces.Consumable;
 import interfaceadapters.*;
-import usecases.Command;
-import usecases.CommandConstants;
+import usecases.*;
 
-import java.util.HashMap;
-import java.util.Scanner;
+import java.io.IOException;
+import java.util.*;
 
 /*
 Singleton that handles reading user input.
@@ -16,27 +16,79 @@ public class CommandLine {
 
     // Required GameState object. CL must call commands that interact with the Encounter and gameState.
     private GameState gameState;
-
-    public CommandLine(){
-        this.gameState = new GameState();
+    private PlayerManager playerState;
+    private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "useInventory",
+            "progress"));
+    private static final String genericHelp = "SOME GENERIC HELP FOR USER>> NEED TO ADD";
+    public CommandLine() throws IOException {
+        IDreader idReader = new IDreader();
+        Encounter[] e = new Encounter[0];
+        this.gameState = new GameState(e);
     }
 
+    public CommandLine(GameState gs) throws IOException{
+        IDreader idReader = new IDreader();
+        this.gameState = gs;
+    }
+
+    // This method is just so we can load encounters and so on upon load, this needs to be done elsewhere
+    // Talk to Shehzaad, have idea but need more details
+    private GameState gameState() {
+        return this.gameState;
+    }
     /*
      Loop for retrieving user inputs and displaying the results
      */
-    public void start(){
+    public void start() {
         boolean running = true;
+        boolean firstRun = true;
         CommandConstants.loadCommands();
 
-        while(running){
-            Scanner input = new Scanner(System.in);
-            System.out.println("What do you want to do next? ");
-            String nextInput = input.nextLine();
-
-            System.out.println(callCommand(nextInput));
+        while(running) {
+            if (firstRun) {
+                firstRun = false;
+                System.out.println("Please choose a player name: ");
+                Scanner input = new Scanner(System.in);
+                System.out.print("$ ");
+                String nextInput = input.nextLine();
+                this.playerState = new PlayerManager(nextInput);
+                System.out.println(this.gameState.requestEncounter());
+                // Print some sort of welcome and instructions here
+            } else {
+                Scanner input = new Scanner(System.in);
+                System.out.print("$ ");
+                String nextInput = input.nextLine();
+                if (nextInput.equals("exit")) {
+                    running = false;
+                }
+                else if (SPECIAL_INPUTS.contains(nextInput)) {
+                    specialCommand(nextInput);
+                }
+                else {
+                    System.out.println(callCommand(nextInput));
+                }
+            }
         }
     }
 
+    public String specialCommand(String nextInput) {
+        if (nextInput.equals("progress")) {
+            for (String s : this.gameState().completedEncounters()) {
+                return s;
+            }
+        } else if (nextInput.equals("help")) {
+            return genericHelp + '\n' + this.gameState.getHelp(playerState.getPlayer());
+        } else if (nextInput.contains("docu")) {
+            /**
+             * Get the documentation on a specific command
+             */
+            nextInput = nextInput.trim();
+            String regex = ":";
+            String[] splitString = nextInput.split(regex);
+            return CommandConstants.COMMANDS.get(splitString[1]).help();
+        }
+        return "";
+    }
     /**
     Parses the given @param: input by creating a mapping from argument name to argument value.
     Argument value is an ID of an interactable in the encounter
@@ -101,10 +153,9 @@ public class CommandLine {
         HashMap<String, Interactable> args = getInteractablesFromID(argToID);
 
         Command command = CommandConstants.COMMANDS.get(splitString[command_id]);
-        if(command != null){
-            return command.execute(args);
-        } else {
+        if(command == null){
             return "Not a command";
         }
+        return this.gameState.callCommand(input, args);
     }
 }

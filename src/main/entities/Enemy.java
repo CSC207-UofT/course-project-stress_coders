@@ -16,19 +16,22 @@ Interactable that can damage the player
 public class Enemy extends Character implements ThrowableTarget {
 
     private Player player;
+    private int valueDefeated;
 
-    public Enemy(String id, Player player) {
+    public Enemy(String id, Player player, int valueDefeated) {
         super(id);
         this.player = player;
         Random r = new Random();
         int hp = r.nextInt(100)+1;
         super.setHealthPoints(hp);
+        this.valueDefeated = valueDefeated;
     }
 
-    public Enemy(String id, int health, Player player) {
+    public Enemy(String id, int health, Player player, int valueDefeated) {
         super(id);
         this.player = player;
         super.setHealthPoints(health);
+        this.valueDefeated = valueDefeated;
     }
 
      /**
@@ -42,6 +45,7 @@ public class Enemy extends Character implements ThrowableTarget {
         int weight = throwable.getProperty(InteractableProperties.WEIGHT.name()).getInteger();
         setHealthPoints(getHealthPoints() - weight);
         if (isDead()) {
+            player.addCurrency(valueDefeated); // Hard coded for now, should add rewards for each monster
             return "Your "+ throwable.getId() + " hits " + getId() + " for " + weight + " damage! You killed the beast!";
         }
         else {
@@ -50,12 +54,10 @@ public class Enemy extends Character implements ThrowableTarget {
         }
     }
 
-
-
-    public String hitBack(Throwable throwable) {
+    private String hitBack(Throwable throwable) {
         Random r = new Random();
         int hit = r.nextInt(2);
-        if (hit == -1) {
+        if (hit == 0) {
             return "Nice! " + getId() + " missed their hit.. time to strike!";
         }
         else {
@@ -69,6 +71,8 @@ public class Enemy extends Character implements ThrowableTarget {
             return throwingBack+throwCommand.execute(enemyThrowArgs);
         }
     }
+
+    public Player getPlayer(){ return this.player; }
 
 }
 

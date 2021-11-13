@@ -6,8 +6,8 @@
 # https://github.com/actions/labeler
 
 name: Labeler
-on: push
-# changed from on [pull_request] to push
+on: [pull_request]
+
 jobs:
   label:
 

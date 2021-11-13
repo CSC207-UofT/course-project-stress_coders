@@ -17,7 +17,7 @@ public class Spin extends Command {
                 return "Sorry, you cannot afford to hit the mystery box, come back later!";
             }
             String message = "Do you want to switch your current weapon to weapon " + w.getId() +
-                    "with damage" + w.getDamage();
+                    "with damage" + ((Integer) w.getDamage()).toString();
 
             System.out.println(message);
             System.out.println("Enter 'yes' to pick up weapon and anything else to not pick up!");
@@ -29,6 +29,26 @@ public class Spin extends Command {
             }
             return "Seems you like your weapon, have at it!";
         }
-        return "Invalid mystery box, please pass in a valid mystery box.";
+        else if (args.get("box") instanceof PotionDispenser) {
+            PotionDispenser p = ((PotionDispenser) args.get("box"));
+            Potion w = p.spin();
+
+            if (w instanceof UnusablePotion) {
+                return "Sorry, you cannot afford to hit the potion dispenser, come back later!";
+            }
+            String message = "Do you want to pick up potion " + w.getId() +
+                    "with restoration " + ((Integer) w.restorationValue()).toString();
+
+            System.out.println(message);
+            System.out.println("Enter 'yes' to pick up potion and anything else to not pick up!");
+            Scanner lineIn = new Scanner(System.in);
+            String choice = lineIn.nextLine();
+            if (choice.equals("yes")) {
+                p.addPotionToPlayer(w);
+                return "Nice, you picked up " + w.getId() + ", enjoy!";
+            }
+            return "Seems you like your weapon, have at it!";
+        }
+        return "Invalid box, please pass in a valid box.";
     }
 }

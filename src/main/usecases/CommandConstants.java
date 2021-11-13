@@ -14,6 +14,7 @@ public class CommandConstants {
         COMMANDS.put("talk_to", new TalkTo());
         COMMANDS.put("throw", new Throw());
         COMMANDS.put("chop", new Chop());
+        COMMANDS.put("consume", new Consume());
     }
 
     public void add_command(String keyword, Command command){

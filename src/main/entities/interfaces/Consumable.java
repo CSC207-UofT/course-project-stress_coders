@@ -1,7 +1,9 @@
 package entities.interfaces;
 
-public interface Consumable {
-    int restorationValue();
+import entities.Player;
 
-    String getID();
+public interface Consumable {
+    void addRestorationValue();
+
+    String consume();
 }

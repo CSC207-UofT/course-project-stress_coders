@@ -11,7 +11,7 @@ The player character hold their inventory and their stats and handle how those c
  */
 public class Player extends Character implements ThrowableTarget {
     private HashMap<String, Integer> inventory = new HashMap<String, Integer>();
-    private Set<Consumable> items = new HashSet<>();
+    private HashMap<Consumable, Integer> items = new HashMap<>();
     private int wallet;
     private Weapon currentWeapon;
 
@@ -62,12 +62,16 @@ public class Player extends Character implements ThrowableTarget {
         }
     }
 
-    public void addConsumables(Consumable item, int quantity) {
-        this.items.add(item);
-        addInventory(item.getID(), quantity);
+    public void addConsumable(Consumable item) {
+        this.items.put(item, 1);
+    }
+
+    public void subConsumable(Consumable item, int quantity) {
+        this.items.put(item, 0);
     }
 
     public int inventoryAmount(String name) {return this.inventory.get(name);}
+    public int itemAmount(Consumable name) {return this.items.get(name);}
 
     /**
      * modify the wallet
@@ -76,13 +80,4 @@ public class Player extends Character implements ThrowableTarget {
     public void addCurrency(int quantity){ this.wallet = this.wallet + quantity;}
 
     public void subCurrency(int quantity){ this.wallet = this.wallet - quantity;}
-
-    public List<String> listConsumables() {
-        List<String> items = new ArrayList<>();
-        for (Consumable item: this.items) {
-            Integer amount = this.inventoryAmount(item.getID());
-            items.add(item.getID() + " : " + amount.toString());
-        }
-        return items;
-    }
 }

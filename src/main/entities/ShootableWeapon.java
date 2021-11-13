@@ -9,7 +9,7 @@ public class ShootableWeapon extends Weapon {
     public int ammoPerShot = 1;
 
     public ShootableWeapon(String id, int ammoCount, float hitProb, int damage) {
-        super((id),"shoot: shoot_obj=shootable1, target=enemy1");
+        super((id),"shoot: obj=shootable1, target=enemy1");
         this.ammoCount = ammoCount;
         this.hitProb = hitProb;
         this.damage = damage;

@@ -39,13 +39,11 @@ public class Potion extends Item implements Throwable, Consumable {
     }
 
 
-    @Override
     public int restorationValue() {
         int v = (int) Math.round(this.value);
         return v;
     }
 
-    @Override
     public String getID() {
         return this.id;
     }

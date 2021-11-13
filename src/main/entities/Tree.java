@@ -3,7 +3,7 @@ package entities;
 import entities.interfaces.Harvestable;
 
 /**
- * Tree interactabole. When harvested it rewards the harvester with the wood reource.
+ * Tree interactible. When harvested it rewards the harvester with the wood resource.
  */
 public class Tree extends Interactable implements Harvestable {
     public Tree(String id){

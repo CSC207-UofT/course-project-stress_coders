@@ -5,16 +5,11 @@ import entities.interfaces.Consumable;
 
 public class UnusablePotion extends Potion implements Consumable {
     public UnusablePotion() {
-        super("broke", 0);
+        super("broke");
     }
 
     @Override
-    public int restorationValue() {
-        return 0;
-    }
-
-    @Override
-    public String getID() {
-        return "never use";
+    public void addRestorationValue() {
+        super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(15));
     }
 }

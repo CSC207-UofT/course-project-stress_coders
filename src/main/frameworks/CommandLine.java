@@ -92,10 +92,12 @@ public class CommandLine {
             if(splitString.length != 2){ return "Unrecognized input"; }
             HashMap<String, Interactable> args = getInteractablesFromID(parseCommand(splitString[1]));
             String itemString = "item";
-            if (args.get(itemString) instanceof Consumable) {
-                this.playerState.getPlayer().addConsumable((Consumable) args.get(itemString));
-            } else if (args.get(itemString) instanceof Item) {
-                ((Item) args.get(itemString)).setHeldBy(this.playerState.getPlayer());
+            if (this.gameState.getCurrent_encounter().containsObj(args.get(itemString))) {
+                if (args.get(itemString) instanceof Consumable && !(args.get(itemString).isCompleted())) {
+                    this.playerState.getPlayer().addConsumable((Consumable) args.get(itemString));
+                } else if (args.get(itemString) instanceof Item) {
+                    ((Item) args.get(itemString)).setHeldBy(this.playerState.getPlayer());
+                }
             }
         }
         return "";

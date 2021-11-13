@@ -18,7 +18,7 @@ public class CommandLine {
     private GameState gameState;
     private PlayerManager playerState;
     private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "useInventory",
-            "progress"));
+            "progress", "docu", "display_objects"));
     private static final String genericHelp = "SOME GENERIC HELP FOR USER>> NEED TO ADD";
     public CommandLine() throws IOException {
         IDreader idReader = new IDreader();

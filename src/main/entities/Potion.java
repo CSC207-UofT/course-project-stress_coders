@@ -48,6 +48,8 @@ public class Potion extends Item implements Throwable, Consumable {
     @Override
     public String getID() {
         return this.id;
+    }
+
 
     @Override
     public void addRestorationValue() { super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(15)); }

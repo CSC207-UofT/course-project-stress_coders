@@ -1,0 +1,24 @@
+package entities;
+
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class WeaponTest {
+
+    @Test
+    public void getDamage() {
+        Weapon testAxe = new Axe("2");
+        testAxe.setDamage(100);
+
+        assertEquals(100, testAxe.getDamage());
+    }
+
+    @Test
+    public void setDamage(){
+        Weapon testAxe = new Axe("2");
+        testAxe.setDamage(100);
+
+        assertEquals(100, testAxe.getDamage());
+    }
+}

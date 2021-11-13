@@ -22,7 +22,7 @@ public class Potion extends Item implements Throwable, Consumable {
         this.strength = strength;
         this.value = strength * VALUE_COEFFICIENT;
     }
-    public String id;
+
 
     public Potion(String id) {
         super(id, "First call useInventory then [consumable_name]: quantity");

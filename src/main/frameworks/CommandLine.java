@@ -74,13 +74,15 @@ public class CommandLine {
         } else if (nextInput.equals("help")) {
             return genericHelp + '\n' + this.gameState.getHelp(playerState.getPlayer());
         } else if (nextInput.contains("docu")) {
-            /**
-             * Get the documentation on a specific command
-             */
+            // View the description of a command
             nextInput = nextInput.trim();
             String regex = ":";
             String[] splitString = nextInput.split(regex);
+            if (splitString.length != 2) { return "Invalid input, see documentation for this command"; }
             return CommandConstants.COMMANDS.get(splitString[1]).help();
+        } else if (nextInput.equals("display_objects")) {
+            // List the interactables available
+            return this.gameState.getCurrent_encounter().listInteractables();
         }
         return "";
     }

@@ -95,9 +95,15 @@ public class CommandLine {
             if (this.gameState.getCurrent_encounter().containsObj(args.get(itemString))) {
                 if (args.get(itemString) instanceof Consumable && !(args.get(itemString).isCompleted())) {
                     this.playerState.getPlayer().addConsumable((Consumable) args.get(itemString));
+                    return "Added " + args.get(itemString).getId() + " to your items";
                 } else if (args.get(itemString) instanceof Item) {
                     ((Item) args.get(itemString)).setHeldBy(this.playerState.getPlayer());
+                    return "Added " + args.get(itemString).getId() + " to your items";
+                } else {
+                    return "Cannot pick that up";
                 }
+            } else {
+                return "Object does not exist";
             }
         }
         return "";

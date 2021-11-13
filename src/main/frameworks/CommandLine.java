@@ -66,29 +66,25 @@ public class CommandLine {
         }
     }
 
-    public void specialCommand(String nextInput) {
+    public String specialCommand(String nextInput) {
         if (nextInput.equals("progress")) {
             for (String s : this.gameState().completedEncounters()) {
-                System.out.println(s);
+                return s;
             }
+        } else if (nextInput.equals("help")) {
+            return genericHelp + '\n' + this.gameState.getHelp(playerState.getPlayer());
+        } else if (nextInput.contains("docu")) {
+            // View the description of a command
+            nextInput = nextInput.trim();
+            String regex = ":";
+            String[] splitString = nextInput.split(regex);
+            if (splitString.length != 2) { return "Invalid input, see documentation for this command"; }
+            return CommandConstants.COMMANDS.get(splitString[1]).help();
+        } else if (nextInput.equals("display_objects")) {
+            // List the interactables available
+            return this.gameState.getCurrent_encounter().listInteractables();
         }
-        else if (nextInput.equals("help")) {
-            System.out.println(genericHelp);
-            System.out.println(
-                    this.gameState.getHelp(playerState.getPlayer())
-            );
-        }
-        else if (nextInput.equals("useInventory")) {
-            playerState.listInventory();
-            System.out.println("Select which consumable you want to use and set quantity in the form of " +
-                    "[consumable_name]: quantity");
-            Scanner input = new Scanner(System.in);
-            String nextInput2 = input.nextLine();
-            System.out.print("$ ");
-            String[] formatted = nextInput2.split(":");
-            Consumable found = ConsumableConstants.CONSUMABLES.get(formatted[0]);
-            System.out.println(playerState.use(found, Integer.parseInt(formatted[1])));
-        }
+        return "";
     }
     /**
     Parses the given @param: input by creating a mapping from argument name to argument value.

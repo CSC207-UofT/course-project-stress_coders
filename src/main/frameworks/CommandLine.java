@@ -17,8 +17,7 @@ public class CommandLine {
     // Required GameState object. CL must call commands that interact with the Encounter and gameState.
     private GameState gameState;
     private PlayerManager playerState;
-    private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "useInventory",
-            "progress", "docu", "display_objects"));
+    private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "progress", "docu", "display_objects"));
     private static final String genericHelp = "SOME GENERIC HELP FOR USER>> NEED TO ADD";
     public CommandLine() throws IOException {
         IDreader idReader = new IDreader();

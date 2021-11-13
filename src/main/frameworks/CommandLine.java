@@ -73,6 +73,14 @@ public class CommandLine {
             }
         } else if (nextInput.equals("help")) {
             return genericHelp + '\n' + this.gameState.getHelp(playerState.getPlayer());
+        } else if (nextInput.contains("docu")) {
+            /**
+             * Get the documentation on a specific command
+             */
+            nextInput = nextInput.trim();
+            String regex = ":";
+            String[] splitString = nextInput.split(regex);
+            return CommandConstants.COMMANDS.get(splitString[1]).help();
         }
         return "";
     }

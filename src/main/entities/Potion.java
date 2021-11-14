@@ -10,9 +10,7 @@ import entities.interfaces.Throwable;
 
 public class Potion extends Item implements Throwable, Consumable {
 
-    double VALUE_COEFFICIENT = 1.5;
 
-    public double value;
     public String id;
     public int strength;
     private Player player;
@@ -20,7 +18,7 @@ public class Potion extends Item implements Throwable, Consumable {
     public Potion(String id, int strength) {
         super(id, "First call useInventory then [consumable_name]: quantity");
         this.strength = strength;
-        this.value = strength * VALUE_COEFFICIENT;
+        this.addRestorationValue();
     }
 
 
@@ -38,19 +36,18 @@ public class Potion extends Item implements Throwable, Consumable {
         super.addProperty(InteractableProperties.WEIGHT.name(), new Variable(0));
     }
 
-
-    public int restorationValue() {
-        int v = (int) Math.round(this.value);
-        return v;
-    }
-
     public String getID() {
         return this.id;
     }
 
+    public int restorationValue() {
+        int v = this.strength;
+        return v;
+    }
+
 
     @Override
-    public void addRestorationValue() { super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(15)); }
+    public void addRestorationValue() { super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(this.strength)); }
     @Override
     public String consume() {
         Player p = (Player) this.getHeldBy();

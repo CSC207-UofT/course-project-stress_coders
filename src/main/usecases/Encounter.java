@@ -250,4 +250,8 @@ public class Encounter {
         return this.progression.get(currInteractableIndex).getHelp();
     }
 
+    public ArrayList<Interactable> getGenericPool(){
+        return this.genericPool;
+    }
+
 }

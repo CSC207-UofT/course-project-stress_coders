@@ -31,6 +31,10 @@ public abstract class Character extends Interactable {
         }
     }
 
+    public int getMaxHealthPoints(){
+        return this.maxHealthPoints;
+    }
+
     /**
      * set the max health points for character
      *

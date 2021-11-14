@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class MysteryBox extends Interactable implements Spinnable {
 
-    List<Weapon> weapons;
+    public List<Weapon> weapons;
     Player player;
 
     public MysteryBox(String id, Weapon[] weapons, Player p) {

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 public class PotionDispenser extends Interactable implements Spinnable {
-    List<Potion> potions;
+    public List<Potion> potions;
     Player player;
 
     public PotionDispenser(String id, Potion[] potions, Player p) {

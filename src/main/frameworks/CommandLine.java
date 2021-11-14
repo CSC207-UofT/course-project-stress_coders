@@ -18,13 +18,18 @@ public class CommandLine {
     private GameState gameState;
     private PlayerManager playerState;
     private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "progress", "docu",
-            "display_objects", "consumeItem", "pick_up));
+            "display_objects", "consumeItem", "pick_up"));
 
     private static final String genericHelp = "SOME GENERIC HELP FOR USER>> NEED TO ADD";
     public CommandLine() throws IOException {
         IDreader idReader = new IDreader();
         Encounter[] e = new Encounter[0];
         this.gameState = new GameState(e);
+    }
+
+    public CommandLine(GameState gs) throws IOException{
+        IDreader idReader = new IDreader();
+        this.gameState = gs;
     }
 
     // This method is just so we can load encounters and so on upon load, this needs to be done elsewhere

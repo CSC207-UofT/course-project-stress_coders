@@ -1,0 +1,14 @@
+Class entities.interfaces: usecases.Encounter
+Parent class: none 
+Subclasses: none 
+Type: Use case
+
+Responsibilities:
+* Present a set of valid actions for a player to use, objects on ground, characters in encounter, and encounter start text.
+* getters for members
+* add characters to encounter
+* add items to encounter
+* Dictate when a player has completed the right action to win the encounter’
+* Update quest-log if the encounter was required
+
+Collaborators: QuestLog, entities.Character, entities.Weapon, entities.Item

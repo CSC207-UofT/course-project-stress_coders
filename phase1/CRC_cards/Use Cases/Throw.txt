@@ -1,0 +1,12 @@
+Class entities.interfaces: usecases.Throw
+Parent class: Action
+Subclasses: None 
+Type: Use case
+
+Responsibilities:
+Allows for throwable objects to be thrown, handles the result of the action and the text output of the action
+
+Collaborators:
+ThrowableObject interface
+entities.Player
+entities.Weapon

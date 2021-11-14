@@ -1,0 +1,12 @@
+Class entities.interfaces: Bow
+Parent class: entities.Weapon
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Enforce that the bow instance of Bow has the given attribute, hit probability
+* getter for hit probability
+* shoot Bow using Shootable interface method
+
+
+Collaborators: entities.Character

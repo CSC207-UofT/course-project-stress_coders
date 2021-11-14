@@ -3,8 +3,8 @@ package entities;
 import java.util.Scanner;
 
 /**
- * entities.Goblin class, an enemy that speaks to you. The entities.Goblin prompts the user to enroll in his mini-game for some reward
- * but will only do so with a magic message! The entities.Goblin's reward is up to the specific circumstance.
+ * entities.Goblin.txt class, an enemy that speaks to you. The entities.Goblin.txt prompts the user to enroll in his mini-game for some reward
+ * but will only do so with a magic message! The entities.Goblin.txt's reward is up to the specific circumstance.
  */
 public class RiddleGoblin extends Goblin {
     private String magic_message; private String riddle; private String answer;
@@ -29,7 +29,7 @@ public class RiddleGoblin extends Goblin {
     }
 
     /**
-     * Speak from Talklable interface, in this case the entities.Goblin does not speak on his own
+     * Speak from Talklable interface, in this case the entities.Goblin.txt does not speak on his own
      * @return
      */
     @Override
@@ -39,7 +39,7 @@ public class RiddleGoblin extends Goblin {
 
     /**
      * Listen and Respond from Talkable interface
-     * The entities.Goblin listens for the magic message, then responds with a mini-game
+     * The entities.Goblin.txt listens for the magic message, then responds with a mini-game
      * @param input
      * @return
      */

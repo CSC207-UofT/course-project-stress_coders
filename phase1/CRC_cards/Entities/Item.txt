@@ -1,0 +1,12 @@
+Class entities.interfaces: entities.Item
+Parent class: None
+Subclasses: Any item, for example a potion
+Type: Entity
+
+Responsibilities:
+* Abstract class that stores health points from item
+* getter for health points
+* setter for  health points
+
+
+Collaborators: None

@@ -6,7 +6,7 @@ public abstract class Food extends Item implements Consumable {
 
     private String id;
     /**
-     * Creates a new Food object.
+     * Creates a new Food.txt object.
      * This constructor takes in a String as the argument.
      *
      * @param id the id of this potato.

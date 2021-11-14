@@ -1,0 +1,13 @@
+Class entities.interfaces: CommandConstant
+Parent class: none
+Subclasses: none
+Type: entities
+
+Responsibilities:
+* define commands
+* check if commands in commands map
+* get all commands names
+* get info of a commands
+
+
+Collaborators: None

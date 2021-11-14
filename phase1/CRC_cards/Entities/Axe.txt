@@ -1,0 +1,14 @@
+Class: entities.Axe
+Parent class: entities.Weapon
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Enforce that the axe instance of entities.Axe has the given attribute, hit probability
+* getter for hit probability
+* throw axe using Throwable interface method
+
+
+Collaborators:
+* entities.interfaces.CanChop;
+* entities.interfaces.Throwable

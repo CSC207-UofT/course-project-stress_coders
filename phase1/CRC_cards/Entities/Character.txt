@@ -1,0 +1,11 @@
+Class entities.interfaces: entities.Character
+Parent class: None
+Subclasses: entities.Enemy, NPC, entities.Player
+Type: Entity
+
+Responsibilities:
+* Abstract class that stores inventory, weapon, and health points for all characters
+* getters for instance variables
+* setters for instance variables
+* constructor sets character attributes
+Collaborators: entities.Item, entities.Weapon

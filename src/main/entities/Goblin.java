@@ -3,7 +3,7 @@ package entities;
 import entities.interfaces.Talkable;
 
 /**
- * Goblin abstract class, every goblin is talkable
+ * Goblin.txt abstract class, every goblin is talkable
  */
 public class Goblin extends Enemy implements Talkable {
     public Goblin(String id, Player player, int value) {
@@ -11,8 +11,8 @@ public class Goblin extends Enemy implements Talkable {
     }
 
     @Override
-    public String speak(){return "";};
+    public String speak(){return "";}
 
     @Override
-    public String listenAndRespond(String input){return "hehe " + input;};
+    public String listenAndRespond(String input){return "hehe " + input;}
 }

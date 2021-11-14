@@ -7,6 +7,13 @@ public class Animal extends Character implements ThrowableTarget {
 
     private Player player;
 
+    /**
+     * Constructs a new Animal object
+     *
+     * @param id the id of the Animal
+     * @param health the number of health points
+     * @param player the player
+     */
     public Animal(String id, int health, Player player) {
         super(id);
         this.player = player;

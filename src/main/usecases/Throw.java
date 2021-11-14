@@ -56,7 +56,6 @@ public class Throw extends Command {
             return "It missed";
         }
 
-        System.out.println(args.get(thrownObject));
         if(!(args.get(thrownObject) instanceof Throwable)){
             return "You cannot throw that";
         }

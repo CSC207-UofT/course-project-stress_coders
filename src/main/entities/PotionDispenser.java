@@ -26,7 +26,7 @@ public class PotionDispenser extends Interactable implements Spinnable {
     }
 
     public void addPotionToPlayer(Potion p) {
-        player.addConsumables((Consumable) p, 1);
+        player.addConsumable((Consumable) p);
     }
 
     public Potion spin() {

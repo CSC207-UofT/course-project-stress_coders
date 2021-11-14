@@ -4,10 +4,7 @@ import entities.*;
 import entities.Character;
 import interfaceadapters.IDreader;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /*
 Dictate the way a user can interact with the program at any given time. Done so by storing all objects
@@ -24,9 +21,11 @@ public class Encounter {
     private HashMap<String, Interactable> objIDs = new HashMap<String, Interactable>();
     private boolean isCompleted;
     private ArrayList<Interactable> progression = new ArrayList<>();
-    private int currInteractableIndex = 0;
+    private int currInteractableIndex = -1;
     private String initialText;
     private ArrayList<Interactable> genericPool = new ArrayList<>();
+    private boolean doingGeneric = false;
+    private int currGenericIndex = -1;
 
 
     public Encounter(String initialText, String name, String description){
@@ -35,16 +34,25 @@ public class Encounter {
         this.initialText = initialText;
     }
 
-    public Encounter(List<Interactable> interactables) {
+    /**
+     * Loads a list of interactables into the encounter
+     * @param interactables the list of interactables to add to this encounter, should be ordered and only main
+     * interactions should be included
+     */
+    public void loadInteractables(List<Interactable> interactables) {
         for (Interactable interactable : interactables){
             addObj(interactable);
         }
     }
 
+    /**
+     * Returns a list of interactables that can be done in this encounter
+     * @returns a list of the interactables as a string of their id's split by \n
+     */
     public String listInteractables() {
         String out = "";
         for (String key : this.objIDs.keySet()) {
-            out = out + key + "\n";
+            out += objIDs.get(key).getId() + "\n";
         }
         return out;
     }
@@ -57,30 +65,117 @@ public class Encounter {
         return this.encounterName;
     }
 
+
+
     public void addGeneric(Interactable generic) {
+        if(this.objIDs.containsKey(generic.getId())){
+            addAdjective(generic);
+        }
         genericPool.add(generic);
-        objIDs.put(generic.getId() ,generic);
+        objIDs.put(generic.getId(),generic);
     }
 
+    /**
+     * Loads the initial text for this encounter
+     * @return String which is this encounter's initial text
+     */
     public String loadInitial() {
         return this.initialText;
     }
 
-    public String loadFirstInteractable() {
-        return progression.get(0).getInitialText();
+    /**
+     * This method is used to ask the user to choose their next desired interactable and to shift attributes
+     * accordingly. It requests this whenever the encounter is first loaded and when an interactable is completed.
+     * This method will run until a valid interaction is chosen, it will increment the main encounter index if one is
+     * chosen or will select a generic otherwise.
+     */
+    public void requestInteractable() {
+        boolean found = false;
+        interactionDisplay();
+        while (!found) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("$ ");
+        String nextInput = input.nextLine();
+        if (progression.contains(objIDs.get(nextInput)) && progression.get(currInteractableIndex+1).getId().equals(nextInput)) {
+            found = true;
+            System.out.println(mainMissionSelect());
+        } else if (genericPool.contains(objIDs.get(nextInput))) {
+            currGenericIndex = genericPool.indexOf(objIDs.get(nextInput));
+            doingGeneric = true;
+            System.out.println("Side Interaction started!");
+            found = true;
+            System.out.println(objIDs.get(nextInput).getInitialText());
+        }
+        else {
+            System.out.println("Invalid selection, please choose another interaction");
+        }
+        }
     }
 
+    /**
+     * Used by requestInteractable() and is used to display all valid interactables to the user before they select
+     */
+
+    public void interactionDisplay() {
+        System.out.println("Main Missions:");
+        int correctDisplay;
+        if (currInteractableIndex == -1) {correctDisplay = 0;}
+        else {correctDisplay = currInteractableIndex + 1;}
+        for (int i = correctDisplay; i < progression.size(); i++) {
+            Interactable s = progression.get(i);
+            System.out.println(s.getId() + s.getInitialText());
+        }
+        System.out.println("Side Interactions:");
+        for (Interactable g: genericPool) {
+            System.out.println(g.getId() + g.getInitialText());
+        }
+        System.out.println("Please select a mission or interaction, if selecting a mission, make sure you choose" +
+                "the first available one!");
+    }
+
+    /**
+     * Used if a main encounter is selected in the requestInteractable section, it will increment the current encounter
+     * index and then return initial test of that interactable to be displayed by requestInteractable()
+     * @return String which is the initial text for the chosen interactable
+     */
+    public String mainMissionSelect() {
+        currInteractableIndex++;
+        System.out.println("Main mission started, enjoy!");
+        return progression.get(currInteractableIndex).getInitialText();
+
+
+    }
+
+    /**
+     * This method is the one used by game state, it directly uses user input to progress through an interactable and
+     * the entire encounter and marks the encounter as completed when needed, it also handles when to request
+     * interactables
+     * @param userInput This is the format for commands and their related objects in this program
+     * @param userCommand the command that the user has chosen to be executed, this method will call on the command
+     *                    execution which will check if it's a valid interaction too
+     * @return A string representing what the command execution returns (fail or not fail) and the progression of this
+     * encounter
+     */
     public String progress(HashMap<String, Interactable> userInput, String userCommand) {
+        // WE may need to add some sort of checking to see if the interactable is valid for this encounter
+        // as of now, this method doesn't do this so the command will run but no progress will be made
         CommandConstants c = new CommandConstants();
         Command needed = c.getCommand(userCommand);
         String s = needed.execute(userInput) + "\n";
-
+        if (doingGeneric) {
+            if (objIDs.get(userCommand).isCompleted()) {
+                doingGeneric = false;
+                currGenericIndex = -1;
+                requestInteractable();
+            }
+            return s;
+        }
         if (progression.get(currInteractableIndex).isCompleted()) {
             if (currInteractableIndex == progression.size()-1) {
                 this.isCompleted = true;
                 return s  + "Encounter completed, well done!";
             }
-            currInteractableIndex++;
+            requestInteractable();
             return s+progression.get(currInteractableIndex).getInitialText();
         }
         return s;
@@ -88,6 +183,7 @@ public class Encounter {
 
     // If object has identical ID either add a number to the end or add some adjective at the beginning
     // We can have a list of ObjectAdjectives.txt, so like Big, red etc. So if there are 2 keys, one can be Big the other red etc.
+    // This method only adds main interactables
     public void addObj(Interactable interactable){
         if(this.objIDs.containsKey(interactable.getId())){
             addAdjective(interactable);
@@ -135,7 +231,15 @@ public class Encounter {
         return isCompleted;
     }
 
+    /**
+     * Provides specific help for the player based off of the interactable they are currently in
+     * @param player Player object that is used throughout program
+     * @return String representing the specific help for this current situation
+     */
     public String getHelp(Player player) {
+        if (doingGeneric) {
+            return this.genericPool.get(currGenericIndex).getHelp();
+        }
         if (this.progression.get(currInteractableIndex) instanceof Enemy) {
             return player.getCurrentWeapon().getHelp();
         }

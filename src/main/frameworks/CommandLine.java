@@ -17,7 +17,8 @@ public class CommandLine {
     // Required GameState object. CL must call commands that interact with the Encounter and gameState.
     private GameState gameState;
     private PlayerManager playerState;
-    private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "progress", "docu", "display_objects"));
+    private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "progress", "docu",
+            "display_objects", "consumeItem"));
     private static final String genericHelp = "SOME GENERIC HELP FOR USER>> NEED TO ADD";
     public CommandLine() throws IOException {
         IDreader idReader = new IDreader();
@@ -30,9 +31,9 @@ public class CommandLine {
     private GameState gameState() {
         return this.gameState;
     }
-    /*
-     Loop for retrieving user inputs and displaying the results
-     */
+    /**
+     Loop for retrieving user inputs and displaying the results, this is the user command line
+     **/
     public void start() {
         boolean running = true;
         boolean firstRun = true;
@@ -56,7 +57,7 @@ public class CommandLine {
                     running = false;
                 }
                 else if (SPECIAL_INPUTS.contains(nextInput)) {
-                    specialCommand(nextInput);
+                    System.out.println(specialCommand(nextInput));
                 }
                 else {
                     System.out.println(callCommand(nextInput));
@@ -64,6 +65,13 @@ public class CommandLine {
             }
         }
     }
+
+    /**
+     * This method executes special commands that do not follow general formatting, such as help
+     *
+     * @param nextInput : input parsed in by the user that is received from start()
+     * @return String indicating the command executed by user
+     */
 
     public String specialCommand(String nextInput) {
         if (nextInput.equals("progress")) {
@@ -83,6 +91,9 @@ public class CommandLine {
             // List the interactables available
             return this.gameState.getCurrent_encounter().listInteractables();
         }
+        else if (nextInput.equals("consumeItem")) {
+            return specialConsumeCall();
+        }
         return "";
     }
     /**
@@ -93,7 +104,6 @@ public class CommandLine {
     The input must be in the following format: "command: arg1=value1, arg2=value2..., argN = valueN"
     @see usecases.Throw
     for an example.
-
     The expected return value is:
     {"arg1": "value1", "arg2": "value2", ..., "argN": "valueN"}
      **/
@@ -116,27 +126,29 @@ public class CommandLine {
         return stringArgs;
     }
 
-    /*
+    /**
     Take the @param: argToID string to string mapping from parseCommand and
     return the corresponding string to interactable mapping.
-
     I.e  {"weapon": "axe1"} returns {"weapon": AxeObj} provided there is an axe in the current encounter,
     return {"weapon": null} otherwise.
-     */
+     **/
     public HashMap<String, Interactable> getInteractablesFromID(HashMap<String, String> argToID){
         HashMap<String, Interactable> idToInteractable = new HashMap<>();
+        if (argToID.containsKey("consumable")) {
+            idToInteractable.put("consumable", playerState.findConsumable(argToID.get("consumable")));
+            return idToInteractable;
+        }
         for(String key : argToID.keySet()){
             idToInteractable.put(key, gameState.getCurrent_encounter().getFromID(argToID.get(key)));
         }
         return idToInteractable;
     }
 
-    /*
+    /**
     Call the command dictated by the @param: user input. Command must be in format described above
-
     return a textual representation of the result of the command or an appropriate error message if the command
     call was invalid.
-     */
+     **/
     public String callCommand(String input) {
         String regex = ":";
         String[] splitString = input.split(regex);
@@ -153,5 +165,20 @@ public class CommandLine {
             return "Not a command";
         }
         return this.gameState.callCommand(input, args);
+    }
+
+    public String specialConsumeCall() {
+        System.out.println("Please enter the consumable of your choice from the given consumables in the format" +
+                "consume, consumable: [consumable_id]");
+        for (Consumable c: playerState.getAllConsumables()) {
+            System.out.println(c.getId());
+        }
+        Scanner input = new Scanner(System.in);
+        System.out.print("$ ");
+        String nextInput2 = input.nextLine();
+        Consume c = new Consume();
+        HashMap<String, String> h = parseCommand(nextInput2);
+        HashMap<String, Interactable> hh = getInteractablesFromID(h);
+        return c.execute(hh);
     }
 }

@@ -15,6 +15,10 @@ public class CommandConstants {
         COMMANDS.put("throw", new Throw());
         COMMANDS.put("chop", new Chop());
         COMMANDS.put("consume", new Consume());
+        COMMANDS.put("unlock", new Unlock());
+        COMMANDS.put("spin", new Spin());
+        COMMANDS.put("shoot", new Shoot());
+
     }
 
     public void add_command(String keyword, Command command){

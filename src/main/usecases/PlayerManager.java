@@ -13,4 +13,12 @@ public class PlayerManager {
     }
 
     public Player getPlayer() {return this.player;}
+
+    public List<Consumable> getAllConsumables() {
+        return player.getConsumables();
+    }
+
+    public Interactable findConsumable(String userInput) {
+        return player.findConsumable(userInput);
+    }
 }

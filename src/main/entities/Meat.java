@@ -9,12 +9,12 @@ Meat object should not be created on it's own, Animal classes create a meat obje
 import entities.interfaces.Consumable;
 
 
-public class Meat extends Item implements Consumable {
+public class Meat extends Food implements Consumable {
 
     private String id;
 
     public Meat(String id) {
-        super(id, "First call useInventory then [consumable_name]: quantity");
+        super(id);
     }
 
     public String getID() {
@@ -23,17 +23,6 @@ public class Meat extends Item implements Consumable {
 
 
     @Override
-    public void addRestorationValue() { super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(15)); }
+    public void addRestorationValue() { super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(20)); }
 
-    @Override
-    public String consume() {
-        Player p = (Player) this.getHeldBy();
-        if (p != null) {
-            p.subConsumable(this, 1);
-            p.setHealthPoints(p.getHealthPoints() + this.getProperty(InteractableProperties.CONSUMABLE_REST_NAME.name()).getInteger());
-            return "You consumed 1" + this.getId();
-        } else {
-            return "You don't have this!";
-        }
-    }
 }

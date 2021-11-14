@@ -67,7 +67,7 @@ public class Player extends Character implements ThrowableTarget {
         ((Item) item).setHeldBy(this);
     }
 
-    public void subConsumable(Consumable item, int quantity) {
+    public void subConsumable(Consumable item) {
         ((Item) item).setHeldBy(null);
         this.items.put(item, 0);
     }

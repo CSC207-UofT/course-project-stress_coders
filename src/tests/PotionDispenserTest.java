@@ -1,4 +1,3 @@
-package tests;
 
 import entities.Player;
 import entities.Potion;

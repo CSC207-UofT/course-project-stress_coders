@@ -1,4 +1,3 @@
-package tests;
 
 import interfaceadapters.GameState;
 import org.junit.Test;

@@ -1,10 +1,11 @@
-package tests;
 
 import entities.*;
 import org.junit.Test;
 import usecases.Spin;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
@@ -22,7 +23,8 @@ public class SpinTest {
 
         Player player = new Player("id");
         Axe testAxe = new Axe("axe1");
-        Weapon[] weapons = {testAxe};
+        List<Weapon> weapons = new ArrayList<>();
+        weapons.add(testAxe);
         MysteryBox mysteryBoxTest = new MysteryBox("I once knew a man named J calv", weapons, player);
         player.addCurrency(100);
 

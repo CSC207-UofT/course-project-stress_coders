@@ -1,5 +1,3 @@
-package tests;
-
 import entities.Axe;
 import entities.InteractableProperties;
 import entities.Variable;

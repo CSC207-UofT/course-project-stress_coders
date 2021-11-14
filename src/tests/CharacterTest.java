@@ -1,5 +1,3 @@
-package tests;
-
 import entities.Character;
 import entities.Player;
 import org.junit.Test;

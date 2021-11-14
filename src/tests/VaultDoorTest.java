@@ -1,4 +1,3 @@
-package tests;
 
 import entities.VaultDoor;
 import org.junit.Test;

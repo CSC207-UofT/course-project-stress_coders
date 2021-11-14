@@ -1,4 +1,3 @@
-package tests;
 
 import entities.Axe;
 import entities.Enemy;

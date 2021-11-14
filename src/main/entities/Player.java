@@ -21,6 +21,19 @@ public class Player extends Character implements ThrowableTarget {
         setWeapon(a);
     }
 
+    public List<Consumable> getConsumables() {
+        return new ArrayList<>(this.items.keySet());
+    }
+
+    public Interactable findConsumable(String input) {
+        for (Consumable c: items.keySet()) {
+            if (c.getId().equals(input)) {
+                return ((Interactable) c);
+            }
+        }
+        return new UnusablePotion();
+    }
+
     public void setWeapon(Weapon w) {
         this.currentWeapon = w;
     }
@@ -42,8 +55,8 @@ public class Player extends Character implements ThrowableTarget {
 
     /***
      * Modify to the inventory
-     * @param name
-     * @param quantity
+     * @param name name of object to be added/removed
+     * @param quantity quantity of the object to be added/removed
      */
     public void addInventory(String name, int quantity){
 

@@ -27,7 +27,11 @@ public class GameState {
         // will need to populate encounters
     }
 
-
+    /**
+     * The function prints all available encounters, line by line using getDetails()
+     * The user is prompted to choose an encounter and the prompt will not pass until a valid quest is parsed
+     * @return Good Luck! but will print user quest selections in the process
+     */
     public String requestEncounter() {
         System.out.println("Please choose a quest:");
         for (Encounter e: encounters) {
@@ -50,36 +54,60 @@ public class GameState {
         this.current_encounter = found;
         System.out.println("Quest Selected!");
         System.out.println(this.encounters.get(current_encounter).loadInitial());
-        System.out.println(this.encounters.get(current_encounter).loadFirstInteractable());
+        this.encounters.get(current_encounter).requestInteractable();
         return "Good Luck!";
     }
 
+    /**
+     * load a single encounter into the game
+     * @param encounter a single Encounter Object
+     */
     public void loadEncounter(Encounter encounter) {
         this.encounters.add(encounter);
         this.EncounterConversion.put(encounter.getName(), encounter);
     }
 
+    /**
+     * load multiple encounters into the game
+     * @param encounters multiple Encounter Objects
+     */
     public void loadEncounters(Encounter[] encounters) {
         for (Encounter e: encounters) {
             loadEncounter(e);
         }
     }
 
+    /**
+     * getter method for the current encounter
+     * @return Encounter Object (current encounter)
+     */
     public Encounter getCurrent_encounter(){
         return this.encounters.get(current_encounter);
     }
 
+    /**
+     * getter method for the current encounter
+     * @return Encounter Object (current encounter)
+     */
     public String callCommand(String input, HashMap<String, Interactable> args) {
         String s = encounters.get(current_encounter).progress(args, input) + "\n";
         if (encounters.get(current_encounter).isCompleted()) {
             this.completedEncounters.add(encounters.get(current_encounter));
             System.out.println(s);
+            if (completedEncounters.size() == encounters.size()) {
+                System.out.println("You've successfully completed all encounters, well done padawan!");
+            }
             s = requestEncounter();
             return s;
         }
         return s;
     }
 
+    /**
+     * This method returns a list of completed encounters details which is needed for special command 'progress'
+     * @return List of string where each string are the details of a completed encounter provided by Encounter's
+     * getDetails() method
+     */
     public List<String> completedEncounters() {
         List<String> s = new ArrayList<>();
         for (Encounter e: this.completedEncounters) {
@@ -88,6 +116,11 @@ public class GameState {
         return s;
     }
 
+    /**
+     * Provides the user with personalised help for the given encounter
+     * @param p Player - this is used to give help for player's current weapon
+     * @return String which is the help message for the user, will be provided by the encounter they are currently in
+     */
     public String getHelp(Player p) {
         return getCurrent_encounter().getHelp(p);
     }

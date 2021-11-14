@@ -1,5 +1,6 @@
 package entities.interfaces;
 
+import entities.Item;
 import entities.Player;
 
 /**
@@ -9,4 +10,6 @@ public interface Consumable {
     void addRestorationValue();
 
     String consume();
+
+    String getId(); // I need this please don't remove
 }

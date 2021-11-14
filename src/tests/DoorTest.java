@@ -1,8 +1,8 @@
-package tests;
-
 import entities.Door;
 import entities.VaultDoor;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 

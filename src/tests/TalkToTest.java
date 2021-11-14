@@ -1,4 +1,3 @@
-package tests;
 
 import entities.Interactable;
 import entities.Player;

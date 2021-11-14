@@ -1,4 +1,3 @@
-package tests;
 
 import entities.Variable;
 import org.junit.Test;

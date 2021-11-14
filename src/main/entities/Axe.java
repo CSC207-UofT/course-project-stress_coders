@@ -15,6 +15,7 @@ Handle unique axe interactions. I.e. chopping a tree.
  **/
 public class Axe extends Weapon implements Throwable, CanChop {
 
+
     public Axe(String id) {
         super(id, "throw: thrown_obj=axe1, target=enemy1");
         /*
@@ -24,7 +25,6 @@ public class Axe extends Weapon implements Throwable, CanChop {
         addHitProbability();
         addWeight();
     }
-
     /**
      @see Throwable
      @see CanChop

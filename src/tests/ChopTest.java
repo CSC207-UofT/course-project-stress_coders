@@ -1,5 +1,3 @@
-package tests;
-
 import entities.*;
 import org.junit.Test;
 import usecases.Chop;

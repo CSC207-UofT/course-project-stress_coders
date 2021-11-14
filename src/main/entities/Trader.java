@@ -16,7 +16,7 @@ public class Trader extends Item implements CanTradeWith {
 
     @Override
     public String trade(Player p, String item){
-        int price = ((Interactable) this.inventory.get(item)).getProperty(InteractableProperties.CONSUMABLE_REST_NAME.name()).getInteger();
+        int price = Math.abs(((Interactable) this.inventory.get(item)).getProperty(InteractableProperties.CONSUMABLE_REST_NAME.name()).getInteger());
         if (price <= p.getWallet()) {
             p.addConsumable(this.inventory.get(item));
             p.subCurrency(price);

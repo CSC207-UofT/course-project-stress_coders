@@ -41,7 +41,7 @@ public class CommandLine {
     /**
      Loop for retrieving user inputs and displaying the results, this is the user command line
      **/
-    public void start() {
+    public void start() throws CloneNotSupportedException {
         boolean running = true;
         boolean firstRun = true;
         CommandConstants.loadCommands();
@@ -54,6 +54,7 @@ public class CommandLine {
                 System.out.print("$ ");
                 String nextInput = input.nextLine();
                 this.playerState = new PlayerManager(nextInput);
+                this.gameState.setPlayerManager(this.playerState);
                 requestAndBuild();
                 System.out.println(this.gameState.requestEncounter());
                 // Print some sort of welcome and instructions here
@@ -74,7 +75,7 @@ public class CommandLine {
         }
     }
 
-    public void requestAndBuild() {
+    public void requestAndBuild() throws CloneNotSupportedException {
         Scanner input = new Scanner(System.in);
         System.out.println("How long would you like the game to be (this will affect the length of the game) " +
                 "select from 'short', 'medium', 'long'");
@@ -114,33 +115,37 @@ public class CommandLine {
             // List the interactables available
             return this.gameState.getCurrent_encounter().listInteractables();
         } else if (nextInput.contains("pick_up")) {
-            /**
-             * We made pick_up a special command since we didn't want to unnecessarily pass in the player
-             * using our current command system.
-             */
-            String[] splitString = nextInput.split(":");
-            if(splitString.length != 2){ return "Unrecognized input"; }
-            HashMap<String, Interactable> args = getInteractablesFromID(parseCommand(splitString[1]));
-            String itemString = "item";
-            if (this.gameState.getCurrent_encounter().containsObj(args.get(itemString))) {
-                if (args.get(itemString) instanceof Consumable && !(args.get(itemString).isCompleted())) {
-                    this.playerState.getPlayer().addConsumable((Consumable) args.get(itemString));
-                    return "Added " + args.get(itemString).getId() + " to your items";
-                } else if (args.get(itemString) instanceof Item) {
-                    ((Item) args.get(itemString)).setHeldBy(this.playerState.getPlayer());
-                    return "Added " + args.get(itemString).getId() + " to your items";
-                } else {
-                    return "Cannot pick that up";
-                }
-            } else {
-                return "Object does not exist";
-            }
+            return specialPickUpCall(nextInput);
         }
         else if (nextInput.equals("consumeItem")) {
             return specialConsumeCall();
         }
         return "";
     }
+    /**
+     * We made pick_up a special command since we didn't want to unnecessarily pass in the player
+     * using our current command system.
+     */
+    private String specialPickUpCall(String nextInput) {
+        String[] splitString = nextInput.split(":");
+        if(splitString.length != 2){ return "Unrecognized input"; }
+        HashMap<String, Interactable> args = getInteractablesFromID(parseCommand(splitString[1]));
+        String itemString = "item";
+        if (this.gameState.getCurrent_encounter().containsObj(args.get(itemString))) {
+            if (args.get(itemString) instanceof Consumable && !(args.get(itemString).isCompleted())) {
+                this.playerState.getPlayer().addConsumable((Consumable) args.get(itemString));
+                return "Added " + args.get(itemString).getId() + " to your items";
+            } else if (args.get(itemString) instanceof Item) {
+                ((Item) args.get(itemString)).setHeldBy(this.playerState.getPlayer());
+                return "Added " + args.get(itemString).getId() + " to your items";
+            } else {
+                return "Cannot pick that up";
+            }
+        } else {
+            return "Object does not exist";
+        }
+    }
+
     /**
     Parses the given @param: input by creating a mapping from argument name to argument value.
     Argument value is an ID of an interactable in the encounter
@@ -162,7 +167,6 @@ public class CommandLine {
         HashMap<String, String> stringArgs = new HashMap<>();
         for(String args : argsWithParams){
             String[] sep = args.split(regexArgs);
-
             if(sep.length != 2){
                 return new HashMap<>();
             }
@@ -184,7 +188,7 @@ public class CommandLine {
             return idToInteractable;
         }
         for(String key : argToID.keySet()){
-            idToInteractable.put(key, gameState.getCurrent_encounter().getFromID(argToID.get(key)));
+            idToInteractable.put(key, gameState.getFromID(argToID.get(key)));
         }
         return idToInteractable;
     }
@@ -209,12 +213,14 @@ public class CommandLine {
         if(command == null){
             return "Not a command";
         }
-        return this.gameState.callCommand(input, args);
+        String comm = splitString[command_id];
+
+        return this.gameState.callCommand(comm, args);
     }
 
     public String specialConsumeCall() {
         System.out.println("Please enter the consumable of your choice from the given consumables in the format" +
-                " consume, consumable: [consumable_id]");
+                " consume: consumable= [consumable_id]");
         for (Consumable c: playerState.getAllConsumables()) {
             System.out.println(c.getId());
         }
@@ -222,10 +228,16 @@ public class CommandLine {
         System.out.print("$ ");
         String nextInput2 = input.nextLine();
         Consume c = new Consume();
-        HashMap<String, String> h = parseCommand(nextInput2);
-        HashMap<String, Interactable> hh = getInteractablesFromID(h);
-        System.out.println(h);
-        System.out.println(hh);
+        String regex = ":";
+        String[] splitString = nextInput2.split(regex);
+        int args_id = 1;
+        if(splitString.length != 2){
+            return "Unrecognized input";
+        }
+        HashMap<String, String> argToID = parseCommand(splitString[args_id]);
+
+        HashMap<String, Interactable> hh = getInteractablesFromID(argToID);
+
         return c.execute(hh);
     }
 }

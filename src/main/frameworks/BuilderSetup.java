@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+import java.lang.Object;
 
 public class BuilderSetup {
     List<Encounter> allGeneratedEncounters;
@@ -61,7 +62,7 @@ public class BuilderSetup {
                 "Show them your true colors!"});
     }
 
-    public List<Encounter> build() {
+    public List<Encounter> build() throws CloneNotSupportedException {
         buildInteractables();
         for (int i = 0; i <= questLengthBound; i++) {
             buildEncounter();
@@ -69,15 +70,17 @@ public class BuilderSetup {
         return this.allGeneratedEncounters;
     }
 
-    public void buildEncounter() {
+    public void buildEncounter() throws CloneNotSupportedException {
         // We should add a smart generator here for type of encounters, will add after we make sure it all works
         Encounter e = encounterDetailGenerator();
         for (int i = 0; i<= questLengthBound; i++) {
             Random r = new Random();
             Interactable mainChoice = allMain.get(r.nextInt(allMain.size()));
             Interactable genericChoice = allGenerics.get(r.nextInt(allGenerics.size()));
-            e.addGeneric(genericChoice);
-            e.addObj(mainChoice);
+            Interactable newMain = (Interactable) mainChoice.clone();
+            Interactable newGeneric = (Interactable) genericChoice.clone();
+            e.addGeneric(newGeneric);
+            e.addObj(newMain);
         }
         allGeneratedEncounters.add(e);
     }
@@ -174,4 +177,6 @@ public class BuilderSetup {
     public String getTypeInitial(String type) {
         return encounterTypeDetails.get(type)[1];
     }
+
+
 }

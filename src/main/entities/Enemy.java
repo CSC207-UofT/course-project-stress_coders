@@ -64,7 +64,8 @@ public class Enemy extends Character implements ThrowableTarget {
         }
         else {
             //Basic response is to throw back what was thrown. This can be overridden with different (special) enemies
-            String throwingBack = getId()+" hits you back for " + ((Interactable) throwable).getId() +" !\n";
+            String throwingBack = getId()+" hits you back for " +
+                    ((Interactable) throwable).getProperty(InteractableProperties.WEIGHT.name()) +" !\n";
             getPlayer().setHealthPoints(getPlayer().getHealthPoints() -
                     ((Interactable) throwable).getProperty(InteractableProperties.WEIGHT.name()).getInteger());
             return throwingBack;

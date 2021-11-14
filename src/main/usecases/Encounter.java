@@ -129,7 +129,7 @@ public class Encounter {
      */
 
     public void interactionDisplay() {
-        System.out.println("Main Missions:");
+        System.out.println("======Main Missions:=====");
         int correctDisplay;
         if (currInteractableIndex == -1) {correctDisplay = 0;}
         else {correctDisplay = currInteractableIndex + 1;}
@@ -142,7 +142,7 @@ public class Encounter {
                 System.out.println(s.getId() + " : " + s.getInitialText());
             }
         }
-        System.out.println("Side Interactions:");
+        System.out.println("=====Side Interactions:=====");
         for (Interactable g: genericPool) {
             if (g.getInitialText().equals("")) {
                 System.out.println(g.getId());

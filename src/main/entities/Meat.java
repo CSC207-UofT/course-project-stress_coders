@@ -11,14 +11,9 @@ import entities.interfaces.Consumable;
 
 public class Meat extends Food implements Consumable {
 
-    private String id;
-
     public Meat(String id) {
         super(id);
-    }
-
-    public String getID() {
-        return this.id;
+        this.addRestorationValue();
     }
 
 

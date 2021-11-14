@@ -19,6 +19,7 @@ public class CommandLine {
     private PlayerManager playerState;
     private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "progress", "docu",
             "display_objects", "consumeItem", "pick_up"));
+    private static final Set<String> GAME_LENGTH_OPTIONS = new HashSet<>(List.of(new String[]{"short", "medium", "long"}));
 
     private static final String genericHelp = "SOME GENERIC HELP FOR USER>> NEED TO ADD";
     public CommandLine() throws IOException {
@@ -53,6 +54,7 @@ public class CommandLine {
                 System.out.print("$ ");
                 String nextInput = input.nextLine();
                 this.playerState = new PlayerManager(nextInput);
+                requestAndBuild();
                 System.out.println(this.gameState.requestEncounter());
                 // Print some sort of welcome and instructions here
             } else {
@@ -70,6 +72,21 @@ public class CommandLine {
                 }
             }
         }
+    }
+
+    public void requestAndBuild() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("How long would you like the game to be (this will affect the length of the game) " +
+                "select from 'short', 'medium', 'long'");
+        System.out.print("$ ");
+        String nextInput2 = input.nextLine();
+        while (!GAME_LENGTH_OPTIONS.contains(nextInput2)) {
+            System.out.println("Not a valid game length, please enter 'short', medium or 'long'");
+            System.out.print("$ ");
+            nextInput2 = input.nextLine();
+        }
+        BuilderSetup b = new BuilderSetup(playerState.getPlayer(), nextInput2);
+        this.gameState.loadEncounters(b.build().toArray(new Encounter[0]));
     }
 
     /**
@@ -197,7 +214,7 @@ public class CommandLine {
 
     public String specialConsumeCall() {
         System.out.println("Please enter the consumable of your choice from the given consumables in the format" +
-                "consume, consumable: [consumable_id]");
+                " consume, consumable: [consumable_id]");
         for (Consumable c: playerState.getAllConsumables()) {
             System.out.println(c.getId());
         }
@@ -207,6 +224,8 @@ public class CommandLine {
         Consume c = new Consume();
         HashMap<String, String> h = parseCommand(nextInput2);
         HashMap<String, Interactable> hh = getInteractablesFromID(h);
+        System.out.println(h);
+        System.out.println(hh);
         return c.execute(hh);
     }
 }

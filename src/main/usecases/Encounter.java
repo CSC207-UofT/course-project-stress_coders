@@ -68,11 +68,17 @@ public class Encounter {
 
 
     public void addGeneric(Interactable generic) {
-        if(this.objIDs.containsKey(generic.getId())){
-            addAdjective(generic);
+        if (generic instanceof Item) {
+            return;
         }
-        genericPool.add(generic);
-        objIDs.put(generic.getId(),generic);
+        String id = generic.getId();
+
+        if(this.objIDs.containsKey(generic.getId())){
+            id = addAdjective(generic);
+        }
+        generic.setId(id);
+        this.genericPool.add(generic);
+        this.objIDs.put(id ,generic);
     }
 
     /**
@@ -96,6 +102,14 @@ public class Encounter {
         Scanner input = new Scanner(System.in);
         System.out.print("$ ");
         String nextInput = input.nextLine();
+
+        System.out.println(objIDs);
+        System.out.println(objIDs.get(nextInput));
+        System.out.println(progression.contains(objIDs.get(nextInput)));
+            System.out.println(progression.get(currInteractableIndex+1));
+            System.out.println(progression.get(currInteractableIndex+1).getId());
+        System.out.println(progression.get(currInteractableIndex+1).getId().equals(nextInput));
+
         if (progression.contains(objIDs.get(nextInput)) && progression.get(currInteractableIndex+1).getId().equals(nextInput)) {
             found = true;
             System.out.println(mainMissionSelect());
@@ -105,6 +119,9 @@ public class Encounter {
             System.out.println("Side Interaction started!");
             found = true;
             System.out.println(objIDs.get(nextInput).getInitialText());
+        }
+        else if (progression.contains(objIDs.get(nextInput))) {
+            System.out.println("When selecting Main mission, please select the next available one!");
         }
         else {
             System.out.println("Invalid selection, please choose another interaction");
@@ -123,11 +140,11 @@ public class Encounter {
         else {correctDisplay = currInteractableIndex + 1;}
         for (int i = correctDisplay; i < progression.size(); i++) {
             Interactable s = progression.get(i);
-            System.out.println(s.getId() + s.getInitialText());
+            System.out.println(s.getId() + " : " +  s.getInitialText());
         }
         System.out.println("Side Interactions:");
         for (Interactable g: genericPool) {
-            System.out.println(g.getId() + g.getInitialText());
+            System.out.println(g.getId() + ": " + g.getInitialText());
         }
         System.out.println("Please select a mission or interaction, if selecting a mission, make sure you choose" +
                 "the first available one!");
@@ -185,10 +202,15 @@ public class Encounter {
     // We can have a list of ObjectAdjectives.txt, so like Big, red etc. So if there are 2 keys, one can be Big the other red etc.
     // This method only adds main interactables
     public void addObj(Interactable interactable){
-        if(this.objIDs.containsKey(interactable.getId())){
-            addAdjective(interactable);
+        if (interactable instanceof Item) {
+            return;
         }
-        this.objIDs.put(interactable.getId(), interactable);
+        String id = interactable.getId();
+        if(this.objIDs.containsKey(interactable.getId())){
+            id = addAdjective(interactable);
+        }
+        interactable.setId(id);
+        this.objIDs.put(id, interactable);
         this.progression.add(interactable);
     }
 
@@ -196,7 +218,7 @@ public class Encounter {
         return this.objIDs.containsKey(item.getId());
     }
 
-    public void addAdjective(Interactable interactable){
+    public String addAdjective(Interactable interactable){
         String id = interactable.getId();
         String originalId = interactable.getId();
 
@@ -224,7 +246,7 @@ public class Encounter {
             }
         }
 
-        interactable.setId(id);
+        return id;
     }
 
     public Interactable getFromID(String ID){

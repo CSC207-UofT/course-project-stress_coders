@@ -27,6 +27,7 @@ public class Axe extends Weapon implements Throwable, CanChop {
 
     /**
      @see Throwable
+     @see CanChop
      for details isntance varaibles
      **/
     @Override

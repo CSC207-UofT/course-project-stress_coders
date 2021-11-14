@@ -11,7 +11,7 @@ public abstract class Door extends Interactable implements Unlockable {
     public int currentHint;
 
     public Door(String id, String[] hints, String initial, String answer){
-        super(id, initial, "unlock: door=[door_id]");
+        super(id, initial, "unlock: door=[door_id], hint: door=[door_id]");
         super.setCompleted(false);
         this.hints = hints;
         this.currentHint = 0;
@@ -32,7 +32,7 @@ public abstract class Door extends Interactable implements Unlockable {
 
     public String provideHint() {
         if (currentHint >= hints.length) {
-            return "Sorry you're out of hints!";
+            currentHint = 0;
         }
         String hint = hints[currentHint];
         currentHint++;

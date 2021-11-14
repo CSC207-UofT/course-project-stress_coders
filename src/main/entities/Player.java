@@ -95,4 +95,6 @@ public class Player extends Character implements ThrowableTarget {
     public void addCurrency(int quantity){ this.wallet = this.wallet + quantity;}
 
     public void subCurrency(int quantity){ this.wallet = this.wallet - quantity;}
+
+    public HashMap<Consumable, Integer> getItems(){return this.items;}
 }

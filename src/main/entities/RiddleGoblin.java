@@ -84,4 +84,15 @@ public class RiddleGoblin extends Goblin {
         this.setCompleted(true);
         return player.getId() + " health points increase by 20!";
     }
+    public String getAnswer() {
+        return answer;
+    }
+
+    public String getMagic_message(){
+        return magic_message;
+    }
+
+    public String getRiddle(){
+        return riddle;
+    }
 }

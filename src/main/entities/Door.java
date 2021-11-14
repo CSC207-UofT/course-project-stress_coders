@@ -6,7 +6,7 @@ public abstract class Door extends Interactable implements Unlockable {
 
     String[] hints;
     String answer;
-    int currentHint;
+    public int currentHint;
 
     public Door(String id, String[] hints, String initial, String answer){
         super(id, initial, "unlock: door=[door_id]");

@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
 
@@ -10,7 +11,7 @@ public abstract class Interactable {
     // ID/name of the obj, Must be unique among encounters
     private String id;
     private boolean completed;
-    private final String initialText;
+    private String initialText;
     private final String commandUse;
 
     /**
@@ -63,4 +64,13 @@ public abstract class Interactable {
     public HashMap<String, Variable> getProperties(){
         return this.properties;
     }
+
+    public void setProperties(HashMap<String, Variable> props){
+        this.properties = props;
+    }
+
+    public void setInitialText(String initialText){
+        this.initialText = initialText;
+    }
+
 }

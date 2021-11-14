@@ -25,6 +25,7 @@ public class Axe extends Weapon implements Throwable, CanChop {
         addHitProbability();
         addWeight();
     }
+
     /**
      @see Throwable
      @see CanChop

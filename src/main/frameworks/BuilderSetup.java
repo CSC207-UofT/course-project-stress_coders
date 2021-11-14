@@ -87,12 +87,12 @@ public class BuilderSetup {
 
     public void buildInteractables() {
         Random r = new Random();
-        this.allPossibleInteractables.add(new Axe(DefaultInteractableIDs.AXE.name()));
-        this.allPossibleInteractables.add(new Animal(DefaultInteractableIDs.ANIMAL.name(), r.nextInt(100),player));
-        this.allPossibleInteractables.add(new Crossbow(DefaultInteractableIDs.CROSSBOW.name(), r.nextInt(30)));
-        this.allPossibleInteractables.add(new HandCannon(DefaultInteractableIDs.HANDCANNON.name(), r.nextInt(30)));
-        this.allPossibleInteractables.add(new Potion(DefaultInteractableIDs.POTION.name()));
-        this.allPossibleInteractables.add(new Tree(DefaultInteractableIDs.TREE.name()));
+        this.allPossibleInteractables.add(new Axe(DefaultInteractableIDs.AXE.getDefaultID()));
+        this.allPossibleInteractables.add(new Animal(DefaultInteractableIDs.ANIMAL.getDefaultID(), r.nextInt(100),player));
+        this.allPossibleInteractables.add(new Crossbow(DefaultInteractableIDs.CROSSBOW.getDefaultID(), r.nextInt(30)));
+        this.allPossibleInteractables.add(new HandCannon(DefaultInteractableIDs.HANDCANNON.getDefaultID(), r.nextInt(30)));
+        this.allPossibleInteractables.add(new Potion(DefaultInteractableIDs.POTION.getDefaultID()));
+        this.allPossibleInteractables.add(new Tree(DefaultInteractableIDs.TREE.getDefaultID()));
         VaultDoor v = generateVaultDoor();
         MysteryBox m = generateMysteryBox();
         PotionDispenser p = generatePotionDispenser();
@@ -135,7 +135,7 @@ public class BuilderSetup {
             generated.append(((Integer) x).toString());
             hints.add("The " + i + " slot of this password is " + x);
         }
-        return new VaultDoor(DefaultInteractableIDs.VAULTDOOR.name(), hints.toArray(new String[0]), generated.toString());
+        return new VaultDoor(DefaultInteractableIDs.VAULTDOOR.getDefaultID(), hints.toArray(new String[0]), generated.toString());
     }
 
     public MysteryBox generateMysteryBox() {
@@ -145,7 +145,7 @@ public class BuilderSetup {
                 weapons.add((Weapon) i);
             }
         }
-        return new MysteryBox(DefaultInteractableIDs.MYSTERYBOX.name(), weapons, player);
+        return new MysteryBox(DefaultInteractableIDs.MYSTERYBOX.getDefaultID(), weapons, player);
     }
 
     public PotionDispenser generatePotionDispenser() {
@@ -155,7 +155,7 @@ public class BuilderSetup {
                 potions.add((Potion) i);
             }
         }
-        return new PotionDispenser(DefaultInteractableIDs.POTIONDISPENSER.name(), potions.toArray(new Potion[0]), player);
+        return new PotionDispenser(DefaultInteractableIDs.POTIONDISPENSER.getDefaultID(), potions.toArray(new Potion[0]), player);
     }
 
     public Encounter encounterDetailGenerator() {

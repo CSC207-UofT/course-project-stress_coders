@@ -135,14 +135,24 @@ public class Encounter {
         else {correctDisplay = currInteractableIndex + 1;}
         for (int i = correctDisplay; i < progression.size(); i++) {
             Interactable s = progression.get(i);
-            System.out.println(s.getId() + " : " +  s.getInitialText());
+            if (s.getInitialText().equals("")) {
+                System.out.println(s.getId());
+            }
+            else {
+                System.out.println(s.getId() + " : " + s.getInitialText());
+            }
         }
         System.out.println("=====Side Interactions:=====");
         for (Interactable g: genericPool) {
-            System.out.println(g.getId() + ": " + g.getInitialText());
+            if (g.getInitialText().equals("")) {
+                System.out.println(g.getId());
+            }
+            else {
+                System.out.println(g.getId() + ": " + g.getInitialText());
+            }
         }
         System.out.println("Please select a mission or interaction, if selecting a mission, make sure you choose" +
-                "the first available one!");
+                " the first available one!");
     }
 
     /**

@@ -41,7 +41,7 @@ public class Shoot extends Command{
         if(!(args.get(shotObject) instanceof ShootableWeapon)){
             return "You cannot shoot that";
         }
-        if(((ShootableWeapon) args.get(shotObject)).getAmmoCount() == 0){
+        if(((ShootableWeapon) args.get(shotObject)).getAmmoCount() <= 0){
             return "You're out of ammunition";
         }
 

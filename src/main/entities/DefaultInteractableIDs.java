@@ -13,8 +13,6 @@ public enum DefaultInteractableIDs {
     POTION("Potion"),
     VAULTDOOR("Vault door");
 
-
-
     private final String defaultID;
 
     DefaultInteractableIDs(String defaultID){

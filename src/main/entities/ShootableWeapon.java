@@ -64,7 +64,7 @@ public abstract class ShootableWeapon extends Weapon {
      *
      * @param cost the amount of ammo released per shot
      */
-    public void changeAmmoPerShot(int cost) {
+    public void setAmmoPerShot(int cost) {
         this.ammoPerShot = cost;
     }
 }

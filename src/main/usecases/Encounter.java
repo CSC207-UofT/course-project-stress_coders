@@ -192,6 +192,10 @@ public class Encounter {
         this.progression.add(interactable);
     }
 
+    public boolean containsObj(Interactable item) {
+        return this.objIDs.containsKey(item.getId());
+    }
+
     public void addAdjective(Interactable interactable){
         String id = interactable.getId();
         String originalId = interactable.getId();

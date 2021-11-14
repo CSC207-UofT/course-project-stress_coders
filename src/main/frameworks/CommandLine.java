@@ -18,7 +18,8 @@ public class CommandLine {
     private GameState gameState;
     private PlayerManager playerState;
     private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "progress", "docu",
-            "display_objects", "consumeItem"));
+            "display_objects", "consumeItem", "pick_up));
+
     private static final String genericHelp = "SOME GENERIC HELP FOR USER>> NEED TO ADD";
     public CommandLine() throws IOException {
         IDreader idReader = new IDreader();
@@ -90,6 +91,28 @@ public class CommandLine {
         } else if (nextInput.equals("display_objects")) {
             // List the interactables available
             return this.gameState.getCurrent_encounter().listInteractables();
+        } else if (nextInput.contains("pick_up")) {
+            /**
+             * We made pick_up a special command since we didn't want to unnecessarily pass in the player
+             * using our current command system.
+             */
+            String[] splitString = nextInput.split(":");
+            if(splitString.length != 2){ return "Unrecognized input"; }
+            HashMap<String, Interactable> args = getInteractablesFromID(parseCommand(splitString[1]));
+            String itemString = "item";
+            if (this.gameState.getCurrent_encounter().containsObj(args.get(itemString))) {
+                if (args.get(itemString) instanceof Consumable && !(args.get(itemString).isCompleted())) {
+                    this.playerState.getPlayer().addConsumable((Consumable) args.get(itemString));
+                    return "Added " + args.get(itemString).getId() + " to your items";
+                } else if (args.get(itemString) instanceof Item) {
+                    ((Item) args.get(itemString)).setHeldBy(this.playerState.getPlayer());
+                    return "Added " + args.get(itemString).getId() + " to your items";
+                } else {
+                    return "Cannot pick that up";
+                }
+            } else {
+                return "Object does not exist";
+            }
         }
         else if (nextInput.equals("consumeItem")) {
             return specialConsumeCall();

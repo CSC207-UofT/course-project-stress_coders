@@ -2,6 +2,7 @@ package usecases;
 
 import entities.*;
 import entities.Character;
+import entities.interfaces.Spinnable;
 import interfaceadapters.IDreader;
 
 import java.util.*;
@@ -69,16 +70,15 @@ public class Encounter {
 
     public void addGeneric(Interactable generic) {
         if (generic instanceof Item) {
+            addAdjective(generic);
             return;
         }
-        String id = generic.getId();
 
         if(this.objIDs.containsKey(generic.getId())){
-            id = addAdjective(generic);
+            addAdjective(generic);
         }
-        generic.setId(id);
         this.genericPool.add(generic);
-        this.objIDs.put(id ,generic);
+        this.objIDs.put(generic.getId() ,generic);
     }
 
     /**
@@ -103,13 +103,6 @@ public class Encounter {
         System.out.print("$ ");
         String nextInput = input.nextLine();
 
-        System.out.println(objIDs);
-        System.out.println(objIDs.get(nextInput));
-        System.out.println(progression.contains(objIDs.get(nextInput)));
-            System.out.println(progression.get(currInteractableIndex+1));
-            System.out.println(progression.get(currInteractableIndex+1).getId());
-        System.out.println(progression.get(currInteractableIndex+1).getId().equals(nextInput));
-
         if (progression.contains(objIDs.get(nextInput)) && progression.get(currInteractableIndex+1).getId().equals(nextInput)) {
             found = true;
             System.out.println(mainMissionSelect());
@@ -118,7 +111,9 @@ public class Encounter {
             doingGeneric = true;
             System.out.println("Side Interaction started!");
             found = true;
-            System.out.println(objIDs.get(nextInput).getInitialText());
+            if (!objIDs.get(nextInput).getInitialText().equals("")) {
+                System.out.println(objIDs.get(nextInput).getInitialText());
+            }
         }
         else if (progression.contains(objIDs.get(nextInput))) {
             System.out.println("When selecting Main mission, please select the next available one!");
@@ -159,8 +154,6 @@ public class Encounter {
         currInteractableIndex++;
         System.out.println("Main mission started, enjoy!");
         return progression.get(currInteractableIndex).getInitialText();
-
-
     }
 
     /**
@@ -178,9 +171,9 @@ public class Encounter {
         // as of now, this method doesn't do this so the command will run but no progress will be made
         CommandConstants c = new CommandConstants();
         Command needed = c.getCommand(userCommand);
-        String s = needed.execute(userInput) + "\n";
+        String s = needed.execute(userInput);
         if (doingGeneric) {
-            if (objIDs.get(userCommand).isCompleted()) {
+            if (objIDs.get(genericPool.get(currGenericIndex).getId()).isCompleted()) {
                 doingGeneric = false;
                 currGenericIndex = -1;
                 requestInteractable();
@@ -188,12 +181,14 @@ public class Encounter {
             return s;
         }
         if (progression.get(currInteractableIndex).isCompleted()) {
+            System.out.println("Here");
+            System.out.println(s);
             if (currInteractableIndex == progression.size()-1) {
                 this.isCompleted = true;
-                return s  + "Encounter completed, well done!";
+                return "Encounter completed, well done!";
             }
             requestInteractable();
-            return s+progression.get(currInteractableIndex).getInitialText();
+            return progression.get(currInteractableIndex).getInitialText();
         }
         return s;
     }
@@ -203,14 +198,14 @@ public class Encounter {
     // This method only adds main interactables
     public void addObj(Interactable interactable){
         if (interactable instanceof Item) {
+            addAdjective(interactable);
             return;
         }
-        String id = interactable.getId();
-        if(this.objIDs.containsKey(interactable.getId())){
-            id = addAdjective(interactable);
+
+        if (this.objIDs.containsKey(interactable.getId())){
+            addAdjective(interactable);
         }
-        interactable.setId(id);
-        this.objIDs.put(id, interactable);
+        this.objIDs.put(interactable.getId(), interactable);
         this.progression.add(interactable);
     }
 
@@ -218,7 +213,7 @@ public class Encounter {
         return this.objIDs.containsKey(item.getId());
     }
 
-    public String addAdjective(Interactable interactable){
+    public void addAdjective(Interactable interactable){
         String id = interactable.getId();
         String originalId = interactable.getId();
 
@@ -246,7 +241,7 @@ public class Encounter {
             }
         }
 
-        return id;
+        interactable.setId(id);
     }
 
     public Interactable getFromID(String ID){
@@ -264,9 +259,13 @@ public class Encounter {
      */
     public String getHelp(Player player) {
         if (doingGeneric) {
+            if (this.genericPool.get(currGenericIndex) instanceof Spinnable) {
+                System.out.println("You currently have " + player.getWallet() + " geld");
+            }
             return this.genericPool.get(currGenericIndex).getHelp();
         }
         if (this.progression.get(currInteractableIndex) instanceof Enemy) {
+            System.out.println("Your current weapon is " + player.getCurrentWeapon().getId());
             return player.getCurrentWeapon().getHelp();
         }
         return this.progression.get(currInteractableIndex).getHelp();

@@ -10,6 +10,16 @@ import java.util.HashMap;
  * Consume a consumable. This is a special command.
  */
 public class Consume extends Command{
+
+    public Consume() {
+        this.setDescription("Consume an object, after having ran consumeItem. This is a special command \n " +
+                "E.g. consumeItem >> consume: consumable=apple1, where >> indicates a new line");
+    }
+    /**
+     * Execute the consuming of an obj.
+     * @param args
+     * @return
+     */
     @Override
     public String execute(HashMap<String, Interactable> args) {
         String consumeObjString = "consumable";

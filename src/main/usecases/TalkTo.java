@@ -14,6 +14,9 @@ TalkTo command talks to a given interactable, that can be spoken to.
 
 public class TalkTo extends Command {
 
+    public TalkTo() {
+        this.setDescription("Talk to an entity that can talk back. E.g. talk_to: receiver=goblin1. the receiver must be able to talk.");
+    }
     /*
     Execute first by determining if the objs are of valid type with the correct arguments
     Call the listening method from the talkable receiver

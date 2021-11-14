@@ -18,8 +18,20 @@ public class Enemy extends Character implements ThrowableTarget {
     private Player player;
     private int valueDefeated;
 
+    /**
+     * We have multiple constructors that allow flexibility in subclasses for what they wish to specify.
+     */
     public Enemy(String id, Player player, int valueDefeated) {
         super(id);
+        this.player = player;
+        Random r = new Random();
+        int hp = r.nextInt(100)+1;
+        super.setHealthPoints(hp);
+        this.valueDefeated = valueDefeated;
+    }
+
+    public Enemy(String id, Player player, int valueDefeated, String howTo) {
+        super(id, howTo);
         this.player = player;
         Random r = new Random();
         int hp = r.nextInt(100)+1;

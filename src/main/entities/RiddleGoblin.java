@@ -14,7 +14,7 @@ public class RiddleGoblin extends Goblin {
      * @param player
      */
     public RiddleGoblin(String id, Player player, int value) {
-        super(id, player, value);
+        super(id, player, value, "This is a riddle goblin. You can talk to it and answer its riddle for a reward!");
     }
 
     /**

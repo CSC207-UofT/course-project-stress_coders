@@ -13,6 +13,10 @@ import java.util.*;
  */
 public class Chop extends Command{
 
+    public Chop() {
+        this.setDescription("chop a harvestable item. E.g. chop: tool=axe1, target=tree. The tool argument must be held by the player (picked up)");
+    }
+
     /**
      * args["tool"] is the tool you chop with
      * args["target"] is the object you are chopping

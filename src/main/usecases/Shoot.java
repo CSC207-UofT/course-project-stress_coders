@@ -7,11 +7,12 @@ import java.util.HashMap;
 
 /**
 Shoot command, shoot an obj to a given target.
-The chance of hitting should be dictated by hitProbability property
-Shot objs must have a damage property
+ Ensure there's enough ammo and reduce ammo
+The chance of hitting should be dictated by hitProbability property.
+Shot objs must have a weight property.
 
 If the shot obj hits:
-An enemy should be damaged by the damage of the shootableWeapon
+An enemy should be damaged by the weight of the shootableWeapon
 
  **/
 
@@ -25,11 +26,10 @@ public class Shoot extends Command{
             ShootableWeapon shot = (ShootableWeapon) args.get(shotObject);
             if(shot.getAmmoCount() > 0) {
                 shot.spendAmmo(1);
+                Variable hitProbVar = shot.getProperty(InteractableProperties.HIT_PROB.name());
+                int hitProb = hitProbVar.getInteger();
 
-                float hitProbVar = shot.getHitProb();
-                int hitProb = Math.round(hitProbVar);
-
-                if (hitProb / 100.0 > Math.random()) {
+                if(hitProb / 100.0 > Math.random()){
                     return throwTarget.handleHit(args.get(shotObject));
                 }
 

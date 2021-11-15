@@ -3,7 +3,6 @@ package usecases;
 import entities.Door;
 import entities.Interactable;
 
-import javax.lang.model.type.UnionType;
 import java.util.HashMap;
 import java.util.Scanner;
 

@@ -26,7 +26,7 @@ public class PlayerTest {
         Player testPlayer = new Player("id");
         Axe testAxe = new Axe("id");
 
-        assertNull(testPlayer.getCurrentWeapon());
+        assertNotNull(testPlayer.getCurrentWeapon());
         testPlayer.setWeapon(testAxe);
         assertEquals(testAxe, testPlayer.getCurrentWeapon());
     }
@@ -110,7 +110,7 @@ public class PlayerTest {
         testPlayer.addConsumable(potion);
         testPlayer.addConsumable(potion);
 
-        assertEquals(3, testPlayer.itemAmount(potion));
+        assertEquals(1, testPlayer.itemAmount(potion));
     }
 
     @Test

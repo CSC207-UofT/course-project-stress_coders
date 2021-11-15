@@ -12,8 +12,8 @@ import java.util.HashMap;
 public class Consume extends Command{
     /**
      * Execute the consuming of an obj.
-     * @param args
-     * @return
+     * @param args contains only the object to consume
+     * @return varies depending on the object, an example is food restores health
      */
     @Override
     public String execute(HashMap<String, Interactable> args) {

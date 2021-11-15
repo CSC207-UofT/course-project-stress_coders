@@ -1,6 +1,5 @@
 package entities;
 
-import entities.Interactable;
 import entities.interfaces.Consumable;
 
 public class UnusablePotion extends Potion implements Consumable {

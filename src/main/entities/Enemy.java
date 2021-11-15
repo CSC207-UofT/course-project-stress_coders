@@ -2,10 +2,6 @@ package entities;
 
 import entities.interfaces.Throwable;
 import entities.interfaces.ThrowableTarget;
-import usecases.Command;
-import usecases.CommandConstants;
-
-import java.util.HashMap;
 import java.util.Random;
 
 /**
@@ -15,8 +11,8 @@ Interactable that can damage the player
  **/
 public class Enemy extends Character implements ThrowableTarget {
 
-    private Player player;
-    private int valueDefeated;
+    private final Player player;
+    private final int valueDefeated;
     private int defaultDamage;
 
     /**
@@ -65,8 +61,7 @@ public class Enemy extends Character implements ThrowableTarget {
 
     public void setDefaultDamage() {
         Random r = new Random();
-        int defaultDmg = r.nextInt(75) + 24;
-        this.defaultDamage = defaultDmg;
+        this.defaultDamage = r.nextInt(75) + 24;
     }
      /**
     @see ThrowableTarget for details
@@ -141,9 +136,3 @@ public class Enemy extends Character implements ThrowableTarget {
     public Player getPlayer(){ return this.player; }
 
 }
-
-/*
-Interactions
-
-
- */

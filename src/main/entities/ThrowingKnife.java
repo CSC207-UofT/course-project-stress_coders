@@ -2,8 +2,6 @@ package entities;
 
 import entities.interfaces.Throwable;
 
-import java.util.Random;
-
 /*
 A throwing knife that has high hit prob and low damage.
  */

@@ -4,16 +4,13 @@ package entities;
 A default potion class, doesn't actually do anything as opposed to its specialized subclasses
  */
 
-import java.lang.Math;
 import entities.interfaces.Consumable;
 import entities.interfaces.Throwable;
 
 public class Potion extends Item implements Throwable, Consumable {
 
-
     public String id;
     public int strength;
-    private Player player;
 
     public Potion(String id, int strength) {
         super(id, "First call useInventory then [consumable_name]: quantity");
@@ -47,13 +44,14 @@ public class Potion extends Item implements Throwable, Consumable {
     }
 
     public int restorationValue() {
-        int v = this.strength;
-        return v;
+        return this.strength;
     }
 
 
     @Override
-    public void addRestorationValue() { super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(this.strength)); }
+    public void addRestorationValue() {
+        super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(this.strength));
+    }
     @Override
     public String consume() {
         Player p = (Player) this.getHeldBy();

@@ -5,7 +5,7 @@ import entities.interfaces.ThrowableTarget;
 
 public class Animal extends Character implements ThrowableTarget {
 
-    private Player player;
+    private final Player player;
 
     /**
      * Constructs a new Animal object

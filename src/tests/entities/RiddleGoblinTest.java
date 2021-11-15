@@ -4,6 +4,8 @@ import entities.Player;
 import entities.RiddleGoblin;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class RiddleGoblinTest {
@@ -31,12 +33,13 @@ public class RiddleGoblinTest {
     public void listenAndRespond() {
         RiddleGoblin riddleGoblinTest = new RiddleGoblin("riddle", new Player("j"));
         riddleGoblinTest.setRiddleInfo("a", "b", "c");
+        List<String> hints = new ArrayList<>();
+        hints.add("hint");
+        riddleGoblinTest.setHints(hints);
 
-
-        assertEquals("That is not my magic word, say my magic word!", riddleGoblinTest.listenAndRespond());
         riddleGoblinTest.setCompleted(true);
         // Im not sure how to test the stuff with the scanner.
-        assertEquals("Cannot play again hehe", riddleGoblinTest.listenAndRespond());
+        assertEquals("Congrats on solving the riddle!", riddleGoblinTest.listenAndRespond());
 
     }
 

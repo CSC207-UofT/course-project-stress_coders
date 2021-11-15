@@ -19,8 +19,8 @@ public class Chop extends Command{
      *          this way, we don't use an unnecessary method in Axe and keep it simple.
      * NOTE: we did not use interfaces for objects that "can chop" because this would be an empty interface, as there is
      *       no method it needs to enforce.
-     * @param args
-     * @return
+     * @param args described above
+     * @return The result of chopping varies based on the target, one example is a tree adds wood to a players inventory
      */
     @Override
     public String execute(HashMap<String, Interactable> args) {

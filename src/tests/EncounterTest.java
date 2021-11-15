@@ -3,7 +3,10 @@ import entities.Interactable;
 import entities.Potion;
 import org.junit.Test;
 import usecases.Encounter;
+import usecases.IDreader;
+import entities.Tree;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
@@ -38,20 +41,6 @@ public class EncounterTest {
         assertEquals("init_text", testEncounter.loadInitial());
     }
 
-    // This method was removed, leaving this here for the time being in case its readded
-//    @Test
-//    public void loadFirstInteractable() {
-//        Encounter testEncounter = new Encounter("init_text", "name", "description");
-//        Interactable axe = new Axe("id");
-//        axe.setInitialText("Init TEXT");
-//        Interactable axe2 = new Axe("id2");
-//
-//        testEncounter.addGeneric(axe);
-//        testEncounter.addGeneric(axe2);
-//
-//        assertEquals(axe.getInitialText(), testEncounter.loadFirstInteractable());
-//    }
-
     @Test
     public void progress() {
         // Add test here Im not sure how to test this
@@ -60,13 +49,15 @@ public class EncounterTest {
     @Test
     public void addObj() {
         Encounter testEncounter = new Encounter("init_text", "name", "description");
-        Interactable axe = new Axe("id");
+        Interactable axe = new Axe("id22");
         testEncounter.addObj(axe);
-        assertEquals(axe, testEncounter.getFromID("id"));
+        assertNull(testEncounter.getFromID("id22"));
     }
 
     @Test
-    public void addAdjective() {
+    public void addAdjective() throws IOException {
+        IDreader idReader = new IDreader();
+        idReader.initAdjectives();
         Encounter testEncounter = new Encounter("init_text", "name", "description");
         Interactable axe = new Axe("id");
         Interactable axe2 = new Axe("id");
@@ -79,8 +70,15 @@ public class EncounterTest {
     public void getFromID() {
         Encounter testEncounter = new Encounter("init_text", "name", "description");
         Interactable potion = new Potion("id22");
+        Interactable axe = new Axe("id3333");
+        Tree treeTest = new Tree("ah");
         testEncounter.addObj(potion);
-        assertEquals(potion, testEncounter.getFromID("id22"));
+        testEncounter.addObj(axe);
+        testEncounter.addObj(treeTest);
+        //Both are items
+        assertNull(testEncounter.getFromID("id22"));
+        assertNull(testEncounter.getFromID("id3333"));
+        assertEquals(treeTest, testEncounter.getFromID("ah"));
     }
 
     @Test
@@ -104,6 +102,9 @@ public class EncounterTest {
         ArrayList<Interactable> testPool = new ArrayList<>();
         testPool.add(axe);
 
-        assertEquals(testPool, testEncounter.getGenericPool());
+        // since axe is an entity it wont get added to the pool
+        ArrayList<Interactable> testPoolActual = new ArrayList<>();
+
+        assertEquals(testPoolActual, testEncounter.getGenericPool());
     }
 }

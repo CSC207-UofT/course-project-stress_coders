@@ -8,7 +8,6 @@ import usecases.Command;
 
 import java.util.HashMap;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class CommandTest {
@@ -26,6 +25,6 @@ public class CommandTest {
         args.put("target", testTree);
         testAxe.setHeldBy(testPlayer);
 
-        assertEquals("Added 20 wood to name inventory", testCommand.execute(args));
+        assertEquals("Added 20 wood to id1 inventory", testCommand.execute(args));
     }
 }

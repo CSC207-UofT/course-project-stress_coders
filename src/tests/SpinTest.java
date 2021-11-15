@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class SpinTest {
@@ -19,7 +18,7 @@ public class SpinTest {
         testArgs.put("box", testTree);
 
         Spin spinCommand = new Spin();
-        assertEquals("Invalid mystery box, please pass in a valid mystery box.", spinCommand.execute(testArgs));
+        assertEquals("Invalid box, please pass in a valid box.", spinCommand.execute(testArgs));
 
         Player player = new Player("id");
         Axe testAxe = new Axe("axe1");

@@ -9,7 +9,7 @@ import java.util.HashMap;
  * This is a gameobject that allows the user to trade currency for consumables (like an apple or potion)
  */
 public class Trader extends Item implements CanTradeWith {
-    private HashMap<String, Consumable> inventory = new HashMap<String, Consumable>();
+    private final HashMap<String, Consumable> inventory = new HashMap<>();
     public Trader(String id) {
         super(id, "Trade with this to gain consumables");
     }

@@ -1,12 +1,8 @@
 package usecases;
 
-import entities.*;
 import entities.interfaces.*;
-import entities.interfaces.Throwable;
 import entities.Interactable;
-
 import java.util.HashMap;
-import java.util.Scanner;
 
 /*
 TalkTo command talks to a given interactable, that can be spoken to.

@@ -4,7 +4,6 @@ public enum DefaultInteractableIDs {
     AXE("Axe"),
     ANIMAL("Animal"),
     CROSSBOW("Crossbow"),
-    DOOR("Door"),
     HANDCANNON("Hand cannon"),
     MYSTERYBOX("Mystery Box"),
     POTIONDISPENSER("Potion Dispenser"),

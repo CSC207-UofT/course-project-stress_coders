@@ -7,7 +7,6 @@ import usecases.Consume;
 
 import java.util.HashMap;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class ConsumeTest {

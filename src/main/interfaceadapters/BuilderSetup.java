@@ -3,7 +3,6 @@ package interfaceadapters;
 import entities.*;
 import entities.Interactable;
 import entities.Player;
-import entities.interfaces.Consumable;
 import usecases.Encounter;
 
 import java.util.ArrayList;
@@ -13,14 +12,13 @@ import java.util.Random;
 
 public class BuilderSetup {
     List<Encounter> allGeneratedEncounters;
-    List<Interactable> allPossibleInteractables = new ArrayList<>(); // WILL ADD userGenre input later
+    List<Interactable> allPossibleInteractables; // WILL ADD userGenre input later
     List<Interactable> allGenerics = new ArrayList<>();
     List<Interactable> allMain = new ArrayList<>();
     HashMap<String, Integer> usedEncounterTypes= new HashMap<>();
     HashMap<String, String[]> encounterTypeDetails = new HashMap<>(); // Each value is stored as a list of
     // {description, initial_text}
     Player player;
-    String userGenre;
     int questLengthBound;
 
     // First we create an instance of each interactable, possibly set certain ones by genre, then from valid ones
@@ -31,17 +29,11 @@ public class BuilderSetup {
         this.player = player;
         this.allPossibleInteractables = new ArrayList<>();
         this.allGeneratedEncounters = new ArrayList<>();
-        if (questLength.equals("short")) {
-            this.questLengthBound = 5;
-        }
-        else if (questLength.equals("medium")) {
-            this.questLengthBound = 10;
-        }
-        else if (questLength.equals("test")) {
-            this.questLengthBound = 1;
-        }
-        else {
-            this.questLengthBound = 15;
+        switch (questLength) {
+            case "short" -> this.questLengthBound = 5;
+            case "medium" -> this.questLengthBound = 10;
+            case "test" -> this.questLengthBound = 1;
+            default -> this.questLengthBound = 15;
         }
         loadEncounterGenerator();
     }
@@ -130,16 +122,6 @@ public class BuilderSetup {
         Berries blueberry = new Berries("blueberry");
         Nuts peanut = new Nuts("peanut");
         Meat cookedBeef = new Meat("cooked beef");
-        // Will add trader when its command is done
-        //        Trader t = new Trader("Minecraft Trader");
-//        HashMap<String, Consumable> forTrader = new HashMap<>();
-//        forTrader.put(healthPotion.getId(), healthPotion);
-//        forTrader.put(blueberry.getId(), blueberry);
-//        forTrader.put(peanut.getId(), peanut);
-//        forTrader.put(cookedBeef.getId(), cookedBeef);
-//        t.addConsumablesToStore(forTrader);
-        //allPossibleInteractables.add(t);
-        //allGenerics.add(t);
 
         for (int i = 0; i <= 5; i++) {
             player.addConsumable(healthPotion);
@@ -163,7 +145,7 @@ public class BuilderSetup {
         StringBuilder generated = new StringBuilder();
         for (int i = 0; i <= 6; i++) {
             int x = r.nextInt(9);
-            generated.append(((Integer) x).toString());
+            generated.append(((Integer) x));
             hints.add("The " + i + " slot of this password is " + x);
         }
         return new VaultDoor(DefaultInteractableIDs.VAULTDOOR.getDefaultID(), hints.toArray(new String[0]), generated.toString());

@@ -23,8 +23,8 @@ public class Tree extends Interactable implements Harvestable {
 
     /**
      * Add to the players inventory, the new resources
-     * @param player
-     * @return
+     * @param player the harvesting player
+     * @return the harvested resources
      */
     public String harvest(Player player, int toolDamage){
         if (!(this.isCompleted())) {

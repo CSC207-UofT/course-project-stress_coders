@@ -5,7 +5,6 @@ import entities.VaultDoor;
 import org.junit.Test;
 
 import java.util.ArrayList;
-
 import static org.junit.Assert.*;
 
 public class DoorTest {
@@ -28,7 +27,7 @@ public class DoorTest {
         Door doorTest = new VaultDoor("door", hints, "answer!");
 
         assertEquals("How are you doing Mr wonderful. also known as Shouer Wang!", doorTest.provideHint());
-        assertEquals("Sorry you're out of hints!", doorTest.provideHint());
+        assertEquals("How are you doing Mr wonderful. also known as Shouer Wang!", doorTest.provideHint());
 
     }
 

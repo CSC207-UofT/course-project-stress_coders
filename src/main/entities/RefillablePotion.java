@@ -4,7 +4,6 @@ package entities;
 A potion subclass that can be used multiple times, and refilled
 By default, a refillable potion has 3 charges but that can be changed through a constructor
  */
-
 public class RefillablePotion extends Potion{
 
     int uses = 3;
@@ -37,17 +36,5 @@ public class RefillablePotion extends Potion{
         } else {
             return "You don't hold this!";
         }
-    }
-
-    public void addCharge(int charge) {
-        this.uses += charge;
-    }
-
-    public int getCharges() {
-        return this.uses;
-    }
-
-    public void setCharges(int charges) {
-        this.uses = charges;
     }
 }

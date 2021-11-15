@@ -5,6 +5,8 @@ import entities.Player;
 import entities.RiddleGoblin;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class GoblinTest {
@@ -18,9 +20,13 @@ public class GoblinTest {
 
     @Test
     public void listenAndRespond() {
-        Goblin goblinTest = new RiddleGoblin("id", new Player("j"));
+        RiddleGoblin goblinTest = new RiddleGoblin("id", new Player("j"));
         goblinTest.listenAndRespond();
+        List<String> hints = new ArrayList<>();
+        hints.add("hint");
+        goblinTest.setHints(hints);
+        goblinTest.setCompleted(true);
 
-        assertEquals("hehe test", goblinTest.speak());
+        assertEquals("Congrats on solving the riddle!", goblinTest.speak());
     }
 }

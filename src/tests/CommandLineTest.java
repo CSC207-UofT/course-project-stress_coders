@@ -10,7 +10,6 @@ import usecases.PlayerManager;
 import java.io.IOException;
 import java.util.HashMap;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class CommandLineTest {
@@ -32,6 +31,10 @@ public class CommandLineTest {
 
     @Test
     public void getInteractablesFromID() throws IOException {
+        IDreader idReader = new IDreader();
+        idReader.initAdjectives();
+        PlayerManager playerManager = new PlayerManager("my wife", "hard");
+
         Encounter[] testEncounter = {new Encounter("why is this different", "idk", "pain")};
         GameState testGS = new GameState(testEncounter);
         PlayerManager pl = new PlayerManager("player", "easy");
@@ -42,14 +45,17 @@ public class CommandLineTest {
         HashMap<String, String> testHM = new HashMap<>();
         testHM.put("weapon", "axe ah ah ah ah ah");
         HashMap<String, Interactable> expected = new HashMap<>();
-        expected.put("weapon", testAxe);
+        expected.put("weapon", null);
 
         CommandLine CLTest = new CommandLine(testGS);
+        testGS.setPlayerManager(playerManager);
+        CLTest.setPlayerState(playerManager);
         assertEquals(expected, CLTest.getInteractablesFromID(testHM));
     }
 
     @Test
     public void callCommand() throws IOException {
+        PlayerManager playerManager = new PlayerManager("my wife", "hard");
         IDreader idReader = new IDreader();
         String error_input = "im:going:to:lose:my:mind";
         Encounter[] testEncounter = {new Encounter("what is this project", "idk", "pain")};
@@ -60,6 +66,8 @@ public class CommandLineTest {
         testEncounter[0].addObj(testAxe);
 
         CommandLine CLTest = new CommandLine(testGS);
+        testGS.setPlayerManager(playerManager);
+        CLTest.setPlayerState(playerManager);
 
         String expected_error = "Unrecognized input";
 

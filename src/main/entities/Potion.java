@@ -19,11 +19,16 @@ public class Potion extends Item implements Throwable, Consumable {
         super(id, "First call useInventory then [consumable_name]: quantity");
         this.strength = strength;
         this.addRestorationValue();
+        addHitProbability();
+        addWeight();
     }
 
 
     public Potion(String id) {
         super(id, "First call useInventory then [consumable_name]: quantity");
+        addRestorationValue();
+        addHitProbability();
+        addWeight();
     }
 
 

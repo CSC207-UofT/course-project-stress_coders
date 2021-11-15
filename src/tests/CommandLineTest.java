@@ -4,6 +4,8 @@ import frameworks.CommandLine;
 import interfaceadapters.GameState;
 import org.junit.Test;
 import usecases.Encounter;
+import usecases.IDreader;
+import usecases.PlayerManager;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -32,7 +34,9 @@ public class CommandLineTest {
     public void getInteractablesFromID() throws IOException {
         Encounter[] testEncounter = {new Encounter("why is this different", "idk", "pain")};
         GameState testGS = new GameState(testEncounter);
+        PlayerManager pl = new PlayerManager("player", "easy");
         Axe testAxe = new Axe("axe ah ah ah ah ah");
+        pl.getPlayer().setWeapon(testAxe);
         testEncounter[0].addObj(testAxe);
 
         HashMap<String, String> testHM = new HashMap<>();
@@ -46,10 +50,13 @@ public class CommandLineTest {
 
     @Test
     public void callCommand() throws IOException {
+        IDreader idReader = new IDreader();
         String error_input = "im:going:to:lose:my:mind";
         Encounter[] testEncounter = {new Encounter("what is this project", "idk", "pain")};
         GameState testGS = new GameState(testEncounter);
         Axe testAxe = new Axe("axe ah ah ah ah ah");
+        PlayerManager p = new PlayerManager("player", "easy");
+        p.getPlayer().setWeapon(testAxe);
         testEncounter[0].addObj(testAxe);
 
         CommandLine CLTest = new CommandLine(testGS);

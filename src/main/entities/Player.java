@@ -114,7 +114,14 @@ public class Player extends Character implements ThrowableTarget {
     }
 
     public void addConsumable(Consumable item) {
-        this.items.put(item, 1);
+        int i;
+        if (this.items.get(item) != null) {
+            i = this.items.get(item);
+        }
+        else {
+            i = 0;
+        }
+        this.items.put(item, i+1);
         ((Item) item).setHeldBy(this);
     }
 

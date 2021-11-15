@@ -11,6 +11,7 @@ public class Nuts extends Food implements Consumable {
      */
     public Nuts(String id) {
         super(id);
+        this.addRestorationValue();
     }
 
     /**

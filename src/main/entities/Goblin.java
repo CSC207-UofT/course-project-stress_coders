@@ -5,19 +5,16 @@ import entities.interfaces.Talkable;
 /**
  * Goblin abstract class, every goblin is talkable
  */
-public class Goblin extends Enemy implements Talkable {
-    public Goblin(String id, Player player, int value) {
-        super(id, player, value);
-    }
+public class Goblin extends Interactable implements Talkable {
 
     // Extra constructor for the howTo message
-    public Goblin(String id, Player player, int value, String howTo) {
-        super(id, player, value, howTo);
+    public Goblin(String id, String initial, String howTo) {
+        super(id, initial, howTo);
     }
 
     @Override
-    public String speak(){return "";};
+    public String speak(){return "";}
 
     @Override
-    public String listenAndRespond(String input){return "hehe " + input;};
+    public String listenAndRespond(){return "hehe";}
 }

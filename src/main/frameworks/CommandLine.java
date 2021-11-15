@@ -2,6 +2,7 @@ package frameworks;
 
 import entities.*;
 import entities.interfaces.Consumable;
+import usecases.Command;
 import interfaceadapters.*;
 import usecases.*;
 
@@ -17,7 +18,7 @@ public class CommandLine {
     // Required GameState object. CL must call commands that interact with the Encounter and gameState.
     private GameState gameState;
     private PlayerManager playerState;
-    private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "progress", "docu",
+    private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "progress",
             "display_objects", "consumeItem", "pick_up"));
     private static final Set<String> GAME_LENGTH_OPTIONS = new HashSet<>(List.of(new String[]{"short", "medium", "long"}));
 
@@ -103,15 +104,9 @@ public class CommandLine {
                 return s;
             }
         } else if (nextInput.equals("help")) {
-            return genericHelp + '\n' + this.gameState.getHelp(playerState.getPlayer());
-        } else if (nextInput.contains("docu")) {
-            // View the description of a command
-            nextInput = nextInput.trim();
-            String regex = ":";
-            String[] splitString = nextInput.split(regex);
-            if (splitString.length != 2) { return "Invalid input, see documentation for this command"; }
-            return CommandConstants.COMMANDS.get(splitString[1]).help();
-        } else if (nextInput.equals("display_objects")) {
+            return genericHelp + '\n' + this.gameState.getHelp();
+        }
+        else if (nextInput.equals("display_objects")) {
             // List the interactables available
             return this.gameState.getCurrent_encounter().listInteractables();
         } else if (nextInput.contains("pick_up")) {

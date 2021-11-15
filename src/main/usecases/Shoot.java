@@ -20,7 +20,7 @@ public class Shoot extends Command{
 
     @Override
     public String execute(HashMap<String, Interactable> args) {
-        String shotObject = "obj"; String target = "target";
+        String shotObject = "shoot_obj"; String target = "target";
         if(args.get(shotObject) instanceof ShootableWeapon && args.get(target) instanceof ThrowableTarget) {
             ThrowableTarget throwTarget = (ThrowableTarget) args.get(target);
             ShootableWeapon shot = (ShootableWeapon) args.get(shotObject);

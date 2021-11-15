@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -7,14 +8,25 @@ import java.util.Scanner;
  * but will only do so with a magic message! The entities.Goblin's reward is up to the specific circumstance.
  */
 public class RiddleGoblin extends Goblin {
-    private String magic_message; private String riddle; private String answer;
+    private String magic_message; private String riddle; private String answer; private Player player;
+    private List<String> hints;
+    private int currHint = 0;
+
     /**
      * Constructor
      * @param id
-     * @param player
+     * @param p
+     *
      */
-    public RiddleGoblin(String id, Player player, int value) {
-        super(id, player, value, "This is a riddle goblin. You can talk to it and answer its riddle for a reward!");
+    public RiddleGoblin(String id, Player p) {
+        super(id, "This is a riddle goblin. You can talk to it and answer its riddle for a reward!",
+                "To use this command use talk_to: receiver=[receiver_name]");
+        this.player = p;
+    }
+
+    // To not make testing a pain, I split up the methods for settings hints and answer
+    public void setHints(List<String> hints) {
+        this.hints = hints;
     }
 
     /**
@@ -40,40 +52,41 @@ public class RiddleGoblin extends Goblin {
     /**
      * Listen and Respond from Talkable interface
      * The entities.Goblin listens for the magic message, then responds with a mini-game
-     * @param input
      * @return
      */
     @Override
-    public String listenAndRespond(String input){
-        return minigame(input);
+    public String listenAndRespond(){
+        return minigame();
     }
 
     /**
      * This is the goblin's minigame. To play, you tell him is magic message, then correctly answer his riddle
      * to reap the rewards.
-     * @param input
      * @return
      */
-    private String minigame(String input) {
-        if (input.equals(this.magic_message)) {
-            if (!this.isCompleted()) {
-                // start mini-game
-                Scanner lineIn = new Scanner(System.in);
-                System.out.println("Answer my riddle!\n" + this.riddle);
-                String userResponse = lineIn.nextLine();
-                if (userResponse.equals(this.answer)) {
-                    return "Correct!\n" + this.reward();
-                } else {
-                    return "Wrong! Try Again!";
-                }
-            } else {
-                return "Cannot play again hehe";
+    private String minigame() {
+        System.out.println("Answer my riddle!\n" + this.riddle);
+        while (!this.isCompleted()) {
+            // start mini-game
+            Scanner lineIn = new Scanner(System.in);
+            System.out.println("Here's a hint: " + hints.get(currHint));
+            currHint++;
+            if (currHint == hints.size()) {
+                currHint = 0;
             }
-        } else {
-            return "That is not my magic word, say my magic word!";
+            String userResponse = lineIn.nextLine();
+            if (userResponse.equals(this.answer)) {
+                System.out.println("Correct!\n" + this.reward());
+            } else {
+                System.out.println("Wrong! Try Again!");
+            }
         }
+        return "Congrats on solving the riddle!";
     }
 
+    private Player getPlayer() {
+        return this.player;
+    }
     /**
      * Reward the player by increasing their health
      * @return

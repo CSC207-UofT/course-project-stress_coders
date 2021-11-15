@@ -5,5 +5,5 @@ package entities.interfaces;
  */
 public interface Talkable {
     String speak();
-    String listenAndRespond(String input);
+    String listenAndRespond();
 }

@@ -1,3 +1,4 @@
+package entities;
 
 import entities.InteractableProperties;
 import entities.UnusablePotion;

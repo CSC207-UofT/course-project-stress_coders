@@ -1,3 +1,4 @@
+package entities;
 
 import entities.VaultDoor;
 import org.junit.Test;

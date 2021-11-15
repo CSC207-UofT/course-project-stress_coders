@@ -1,3 +1,5 @@
+package entities;
+
 import entities.Axe;
 import entities.Enemy;
 import entities.Player;

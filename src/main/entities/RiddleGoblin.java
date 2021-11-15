@@ -12,6 +12,9 @@ public class RiddleGoblin extends Goblin {
     private String magic_message;
     private String riddle;
     private String answer;
+    private Player player;
+    private List<String> hints;
+    private int currHint = 0;
 
     /**
      * Construct a RiddleGoblin
@@ -64,7 +67,6 @@ public class RiddleGoblin extends Goblin {
      * Listen and Respond from Talkable interface
      * The entities.Goblin listens for the magic message, then responds with a mini-game
      *
-     * @param input the input to listen to
      * @return the proper response
 
      */

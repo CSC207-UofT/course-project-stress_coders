@@ -1,4 +1,4 @@
-package frameworks;
+package interfaceadapters;
 
 import entities.*;
 import entities.Interactable;
@@ -21,7 +21,6 @@ public class BuilderSetup {
     Player player;
     String userGenre;
     int questLengthBound;
-
 
     // First we create an instance of each interactable, possibly set certain ones by genre, then from valid ones
     // randomly choose some premade MAIN interactions and some generics using randint and asking user to choose from

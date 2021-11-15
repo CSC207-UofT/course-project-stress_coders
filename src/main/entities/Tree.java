@@ -7,7 +7,7 @@ import entities.interfaces.Harvestable;
  */
 public class Tree extends Interactable implements Harvestable {
     public Tree(String id){
-        super(id, "Some command message");
+        super(id, "Chop this down for wood resource.");
         addInfo();
     }
 

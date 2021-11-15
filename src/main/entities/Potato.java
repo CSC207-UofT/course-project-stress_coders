@@ -10,6 +10,7 @@ public class Potato extends Food implements Consumable {
      */
     public Potato(String id) {
         super(id);
+        this.addRestorationValue();
     }
 
     /**

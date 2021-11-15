@@ -22,6 +22,9 @@ Throwable objs must implement the properties hitProb and Weight
 
 public class Throw extends Command {
 
+    public Throw(){
+        this.setDescription("Throw a throwable object at something. E.g. throw: throw_obj=axe1, target=tree");
+    }
     /*
     Execute first by determining if the objs are of valid type with the correct arguments
     Use the hitProb to determine if the throwable hits its target
@@ -33,14 +36,14 @@ public class Throw extends Command {
      */
     @Override
     public String execute(HashMap<String, Interactable> args) {
-        String thrownObject = "obj"; String target = "target";
+        String thrownObject = "throw_obj"; String target = "target";
         if(args.get(thrownObject) instanceof Throwable && args.get(target) instanceof ThrowableTarget) {
             ThrowableTarget throwTarget = (ThrowableTarget) args.get(target);
             Throwable thrown = (Throwable) args.get(thrownObject);
 
             if (thrown instanceof Item){
                 Item thrownItem = (Item) thrown;
-                thrownItem.setHeldBy(null);
+//                thrownItem.setHeldBy(null);
             }
             /*
              The param that is the value of the thrown_obj arg for the throw command must have a hitProb
@@ -56,7 +59,6 @@ public class Throw extends Command {
             return "It missed";
         }
 
-        System.out.println(args.get(thrownObject));
         if(!(args.get(thrownObject) instanceof Throwable)){
             return "You cannot throw that";
         }

@@ -80,9 +80,9 @@ public class Player extends Character implements ThrowableTarget {
         ((Item) item).setHeldBy(this);
     }
 
-    public void subConsumable(Consumable item) {
+    public void subConsumable(Consumable item, int quantity) {
         ((Item) item).setHeldBy(null);
-        this.items.put(item, 0);
+        this.items.put(item, this.items.get(item)-quantity);
     }
 
     public int inventoryAmount(String name) {return this.inventory.get(name);}

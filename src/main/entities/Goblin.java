@@ -10,6 +10,11 @@ public class Goblin extends Enemy implements Talkable {
         super(id, player, value);
     }
 
+    // Extra constructor for the howTo message
+    public Goblin(String id, Player player, int value, String howTo) {
+        super(id, player, value, howTo);
+    }
+
     @Override
     public String speak(){return "";};
 

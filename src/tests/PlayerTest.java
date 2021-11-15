@@ -89,7 +89,7 @@ public class PlayerTest {
         testPlayer.addConsumable(potion);
         testPlayer.addConsumable(potion);
 
-        testPlayer.subConsumable(potion);
+        testPlayer.subConsumable(potion, 1);
         assertEquals(0, (int) testPlayer.getItems().get(potion));
     }
 

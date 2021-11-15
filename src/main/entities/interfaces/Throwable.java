@@ -26,4 +26,5 @@ public interface Throwable {
     void addHitProbability();
 
     void addWeight();
+
 }

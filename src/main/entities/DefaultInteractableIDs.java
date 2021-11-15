@@ -18,4 +18,8 @@ public enum DefaultInteractableIDs {
     DefaultInteractableIDs(String defaultID){
         this.defaultID = defaultID;
     }
+
+    public String getDefaultID() {
+        return defaultID;
+    }
 }

@@ -1,5 +1,8 @@
-DEMO
+CommandQuest - A Stress Coders Game
 
-To run the demo run Commandline.java.
+To play the game, run Commandline.java. Select your desired player name, the length of the adventure you want to experience, and then choose where to start your quest.
 
-Valid commands will be: pick up, throw, stab, block, help, and exit 
+If you are stuck at any point of the process, type 'help' in the command line to display currently available commands.
+
+This program is a text-based adventure game that is controlled through the command line. 
+Encounters with enemies and friendlies, as well as events are randomly generated. Have fun!

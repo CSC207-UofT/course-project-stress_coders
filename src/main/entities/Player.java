@@ -83,9 +83,11 @@ public class Player extends Character implements ThrowableTarget {
         int damageDone = throwable.getProperty(InteractableProperties.WEIGHT.name()).getInteger();
         this.setHealthPoints(this.getHealthPoints() - damageDone);
         if (this.isDead()) {
+            System.out.println("You died");
             return "You died";
         } else {
-            return "Your damage has decreased by " + damageDone + ", you have " + this.getHealthPoints() + " health points";
+            System.out.println("Your health has decreased by " + damageDone + ", you have " + this.getHealthPoints() + " health points");
+            return "Your health has decreased by " + damageDone + ", you have " + this.getHealthPoints() + " health points";
         }
     }
 

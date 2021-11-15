@@ -1,8 +1,8 @@
 # Progress Report
-##Questions
+## Questions
 Throughout this project we found ourselves struggling to functionally implement the control flow of this project, while still upholding CA. Originally, we were going to go from the utmost layer (CLI), take commands through game state, send in the player and encounter the commands, then execute them underneath with the entities. This upheld CA but did not support any interactions and responses between game objects which is a fatal restriction on our project’s expandability. So instead we structured it by taking the command, going through game state, and drawing entities from the encounter and executing it as needed. While this upholds CA, these don’t allow for CA friendly special commands, such as picking things up, or consuming items. We did our best, truly did, but would like help as to how to approach this for phase 2 / any possible fixes. Have any ideas?
 
-##Worked well so far:
+## Worked well so far:
 Command design pattern worked well, we utilized layering and clean architecture to properly parse, process, and execute commands
 
 Our encounter system turned out to be a great choice in design. We could easily implement linear progression and allow for effective game flow.
@@ -13,7 +13,7 @@ Codebase restructuring:
 2. A great example is the interactable class. This made processing commands and execution of them very simple.
 
 ## Work Split up:
-###Devan
+### Devan
 #### Worked on:
 1. Restructuring the whole codebase with Conrad
 
@@ -40,7 +40,7 @@ Codebase restructuring:
   
 3. Add more interactables that can be harvested (rock for metal), and add a builder interactable so one can build weapons
 
-###Shezaad
+### Shezaad
 #### Worked on:
 1. Created a bunch of interactables including Door and VaultDoor and their related commands and interfaces
 
@@ -70,7 +70,7 @@ Codebase restructuring:
 
 4. Make better riddles and passcodes for VaultDoor and RiddleGoblin to make game more interesting
 
-###Riyan
+### Riyan
 #### Worked on:
 1. Github actions
 
@@ -85,7 +85,7 @@ Codebase restructuring:
 
 2. Do more coding on the project directly by adding more interactables (we wanted 100 interactables in the game) 
 
-###Henri
+### Henri
 #### Worked on:
 1. Code documentation for various classes
 
@@ -113,7 +113,7 @@ Codebase restructuring:
 
 4. Status effects for characters
 
-###Tomas
+### Tomas
 #### Worked on:
 1. Function and format of how the game would work (what would cause success)
 

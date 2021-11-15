@@ -95,7 +95,7 @@ And this document that describes a key and complex instance variable.
 
 We tried not to over document parts of our code that were simple and under document the complex part. As evident from the above picture, even though the comment is only documenting one instance variable since it is very complex and plays a large part in our command system we added an extensive comment describing it. For other more self explanatory properties like an Id we simply add a line specifying its role.
 
-##Testing
+## Testing
 We have unit tests for many methods in our program, over 100 spanning 35 test files. Our code coverage is:<Get from sheezad>. One thing we’d like to note is that our tests are extensive for each method and each test is not testing the bare minimum to get our code coverage number up. The tests we have for our program test all possible returns and test behaviour too, for example in our chopTest:
 ![](/Users/michellechernyi/Documents/pic4.png)
 ![](/Users/michellechernyi/Documents/pic5.png)
@@ -128,7 +128,7 @@ We organized our codebase in terms of its logical layers in its design. We have 
 ## Functionality
 In the specifications file
 
-#Design Decisions Summary
+## Design Decisions Summary
 1. Make all objects that can be interacted with, Interactable
 
 2. Have commands take in the string arguments as parameters rather than the player and encounter

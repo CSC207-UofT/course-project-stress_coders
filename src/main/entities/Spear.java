@@ -17,7 +17,7 @@ public class Spear extends Weapon implements Throwable {
     in the command will throw a propertyNotAddedException
     **/
     public Spear(String id) {
-        super(id, "throw: thrown_obj=spear1, target=enemy1");
+        super(id, "throw: throw_obj=spear1, target=enemy1");
 
         addHitProbability();
         addWeight();
@@ -25,7 +25,7 @@ public class Spear extends Weapon implements Throwable {
 
     /**
      * @see Throwable
-     * for details for instance varaibles
+     * for details for instance variables
      **/
     @Override
     public void addHitProbability() {

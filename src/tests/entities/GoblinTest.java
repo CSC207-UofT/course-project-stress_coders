@@ -1,3 +1,4 @@
+package entities;
 
 import entities.Goblin;
 import entities.Player;

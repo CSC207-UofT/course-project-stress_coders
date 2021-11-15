@@ -1,3 +1,4 @@
+package entities;
 
 import entities.Axe;
 import entities.Item;

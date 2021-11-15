@@ -1,3 +1,4 @@
+package entities;
 
 import entities.Player;
 import entities.RiddleGoblin;

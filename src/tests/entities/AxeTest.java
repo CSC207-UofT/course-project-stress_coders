@@ -1,3 +1,5 @@
+package entities;
+
 import entities.Axe;
 import entities.InteractableProperties;
 import org.junit.Test;

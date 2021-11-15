@@ -20,7 +20,7 @@ public class Trader extends Item implements CanTradeWith {
         if (price <= p.getWallet()) {
             p.addConsumable(this.inventory.get(item));
             p.subCurrency(price);
-            return "Bought " + item + " for $" + price;
+            return "Bought " + item + " for " + price + " geld";
         } else { return "Cannot afford that"; }
     }
 

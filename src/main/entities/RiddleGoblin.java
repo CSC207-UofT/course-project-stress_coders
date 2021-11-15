@@ -7,11 +7,16 @@ import java.util.Scanner;
  * but will only do so with a magic message! The entities.Goblin.txt's reward is up to the specific circumstance.
  */
 public class RiddleGoblin extends Goblin {
-    private String magic_message; private String riddle; private String answer;
+
+    private String magic_message;
+    private String riddle;
+    private String answer;
+
     /**
-     * Constructor
-     * @param id
-     * @param player
+     * Construct a RiddleGoblin
+     *
+     * @param id the RiddleGoblin object's id
+     * @param player the player the riddle goblin is interacting with
      */
     public RiddleGoblin(String id, Player player, int value) {
         super(id, player, value);
@@ -19,8 +24,9 @@ public class RiddleGoblin extends Goblin {
 
     /**
      * Set the riddle and answer
-     * @param riddle
-     * @param answer
+     *
+     * @param riddle the riddle to be solved
+     * @param answer the answer to the riddle
      */
     public void setRiddleInfo(String magic_message, String riddle, String answer){
         this.magic_message = magic_message;
@@ -29,8 +35,9 @@ public class RiddleGoblin extends Goblin {
     }
 
     /**
-     * Speak from Talklable interface, in this case the entities.Goblin.txt does not speak on his own
-     * @return
+     * Speak from Talklable interface, in this case the entities.Goblin does not speak on his own
+     *
+     * @return the empty string since the
      */
     @Override
     public String speak(){
@@ -39,9 +46,10 @@ public class RiddleGoblin extends Goblin {
 
     /**
      * Listen and Respond from Talkable interface
-     * The entities.Goblin.txt listens for the magic message, then responds with a mini-game
-     * @param input
-     * @return
+     * The entities.Goblin listens for the magic message, then responds with a mini-game
+     *
+     * @param input the input to listen to
+     * @return the proper response
      */
     @Override
     public String listenAndRespond(String input){
@@ -49,7 +57,7 @@ public class RiddleGoblin extends Goblin {
     }
 
     /**
-     * This is the goblin's minigame. To play, you tell him is magic message, then correctly answer his riddle
+     * This is the goblin's minigame. To play, you tell him his magic message, then correctly answer his riddle
      * to reap the rewards.
      * @param input
      * @return
@@ -75,8 +83,9 @@ public class RiddleGoblin extends Goblin {
     }
 
     /**
-     * Reward the player by increasing their health
-     * @return
+     * Reward the player for solving the puzzle by increasing their health
+     *
+     * @return a string containing the reward for solving the puzzle
      */
     private String reward() {
         Player player = this.getPlayer();
@@ -84,14 +93,30 @@ public class RiddleGoblin extends Goblin {
         this.setCompleted(true);
         return player.getId() + " health points increase by 20!";
     }
+
+    /**
+     * Get the answer for the puzzle
+     *
+     * @return the answer
+     */
     public String getAnswer() {
         return answer;
     }
 
+    /**
+     * Get the magic message needed to start the puzzle
+     *
+     * @return the magic message
+     */
     public String getMagic_message(){
         return magic_message;
     }
 
+    /**
+     * Get the riddle to be solved
+     *
+     * @return the riddle
+     */
     public String getRiddle(){
         return riddle;
     }

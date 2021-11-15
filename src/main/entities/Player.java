@@ -15,16 +15,32 @@ public class Player extends Character implements ThrowableTarget {
     private int wallet;
     private Weapon currentWeapon;
 
+    /**
+     * Construct a Player
+     *
+     * @param id the appropriate id for the player
+     */
     public Player(String id) {
         super(id);
         Axe a = new Axe("Molag Bal");
         setWeapon(a);
     }
 
+    /**
+     * Get the player's Consumables
+     *
+     * @return list of consumables the player has
+     */
     public List<Consumable> getConsumables() {
         return new ArrayList<>(this.items.keySet());
     }
 
+    /**
+     * Find and Return a specific consumable
+     *
+     * @param input the consumable to find
+     * @return the consumable if found, and an UnusablePotion otherwise
+     */
     public Interactable findConsumable(String input) {
         for (Consumable c: items.keySet()) {
             if (c.getId().equals(input)) {
@@ -34,14 +50,35 @@ public class Player extends Character implements ThrowableTarget {
         return new UnusablePotion();
     }
 
+    /**
+     * Set the player's current weapon
+     *
+     * @param w the player's new weapon
+     */
     public void setWeapon(Weapon w) {
         this.currentWeapon = w;
     }
 
+    /**
+     * Get the player's current weapon
+     *
+     * @return the player's current weapon
+     */
     public Weapon getCurrentWeapon() {return this.currentWeapon;}
 
+    /**
+     * Get the amount of currency the player has
+     *
+     * @return amount of currency in wallet
+     */
     public int getWallet() {return this.wallet;}
 
+    /**
+     * Handle a hit against the player
+     *
+     * @param throwable the thrown object
+     * @return what occured when the player was hit
+     */
     @Override
     public String handleHit(Interactable throwable) {
         int damageDone = throwable.getProperty(InteractableProperties.WEIGHT.name()).getInteger();
@@ -54,7 +91,7 @@ public class Player extends Character implements ThrowableTarget {
     }
 
     /***
-     * Modify to the inventory
+     * Modify the inventory
      * @param name name of object to be added/removed
      * @param quantity quantity of the object to be added/removed
      */

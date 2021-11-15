@@ -1,0 +1,10 @@
+Class: entities.Variable
+Parent class: None
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Create a Variable that is either an int, String, or Bool
+
+Collaborators:
+* None

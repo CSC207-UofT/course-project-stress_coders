@@ -1,12 +1,12 @@
-Class entities.interfaces: entities.Item
-Parent class: None
-Subclasses: Any item, for example a potion
+Class: entities.Item
+Parent class: entities.Interactable
+Subclasses: entities.Food, entities.Potion, entities.Trader, entities.Weapon
 Type: Entity
 
 Responsibilities:
-* Abstract class that stores health points from item
-* getter for health points
-* setter for  health points
+* Construct an Item with an attribute for who it is held by
+* Getter and setter the person holding the item
 
 
-Collaborators: None
+Collaborators:
+* None

@@ -1,0 +1,15 @@
+Class: entities.Trader
+Parent class: entities.Item
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Construct a Trader
+* Buy items from the store and add it to the players inventory while removing currency
+* Add items from the stor
+
+Collaborators:
+* entities.Variable
+* entities.interfaces.Harvestable
+* entities.InteractableProperties
+* entities.Player

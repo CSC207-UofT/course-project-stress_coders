@@ -18,6 +18,13 @@ public class Enemy extends Character implements ThrowableTarget {
     private Player player;
     private int valueDefeated;
 
+    /**
+     * Construct an Enemy
+     *
+     * @param id the Enemy id
+     * @param player the Player that the Enemy is interacting with
+     * @param valueDefeated the amount of currency you get by defeating the Enemy
+     */
     public Enemy(String id, Player player, int valueDefeated) {
         super(id);
         this.player = player;
@@ -27,6 +34,14 @@ public class Enemy extends Character implements ThrowableTarget {
         this.valueDefeated = valueDefeated;
     }
 
+    /**
+     * Construct an Enemy
+     *
+     * @param id the Enemy id
+     * @param health the amount of health the Enemy has
+     * @param player the Player that the Enemy is interacting with
+     * @param valueDefeated the amount of currency you get by defeating the Enemy
+     */
     public Enemy(String id, int health, Player player, int valueDefeated) {
         super(id);
         this.player = player;
@@ -38,7 +53,7 @@ public class Enemy extends Character implements ThrowableTarget {
     @see ThrowableTarget for details
      Damage the enemy by the weight of the object
 
-     return "your axe hits {enemy name} for {weight} damage"
+     @return "your axe hits {enemy name} for {weight} damage"
      **/
     @Override
     public String handleHit(Interactable throwable) {
@@ -54,7 +69,13 @@ public class Enemy extends Character implements ThrowableTarget {
         }
     }
 
-
+    /**
+     * Throw the throwable weapon back at the character if they missed
+     * and return a string of what happened
+     *
+     * @param throwable the throwable weapon the Enemy may throwing back
+     * @return a string with the result
+     */
 
     private String hitBack(Throwable throwable) {
         Random r = new Random();
@@ -74,6 +95,11 @@ public class Enemy extends Character implements ThrowableTarget {
         }
     }
 
+    /**
+     * Get the player that the Enemy is facing
+     *
+     * @return the Player object the Enemy is facing
+     */
     public Player getPlayer(){ return this.player; }
 
 }

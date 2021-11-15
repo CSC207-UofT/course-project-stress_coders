@@ -1,0 +1,12 @@
+Class: entities.Berries
+Parent class: entities.Food
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Add Restoration Value to the berries (aka restore health based on its restoration value)
+
+Collaborators:
+* entities.interfaces.Consumables
+* entities.InteractableProperties
+* entities.Variable

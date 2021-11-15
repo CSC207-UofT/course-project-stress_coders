@@ -1,13 +1,11 @@
-Class entities.interfaces: entities.Weapon
+Class: entities.Weapon
 Parent class: None 
-Subclasses: Every weapon class, i.e the “axe” class
+Subclasses: entities.Axe, entities.Crossbow, entities.HandCanon, entities.ShootableWeapon, entities.Spear
 Type: Entity
 
 Responsibilities:
-* Enforce that the weapon instance of entities.Weapon has the given attributes, entities.interfaces, damage, and is it in use.
-* Allow weapon to damage Enemies
-* Allow weapon to be thrown
-* setter and getter whether weapon is in use
+* Construct a Weapon
+* Setter and Getter for the Damage
 
-
-Collaborators: entities.Character
+Collaborators:
+* entities.Character

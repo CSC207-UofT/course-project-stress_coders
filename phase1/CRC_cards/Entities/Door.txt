@@ -1,0 +1,16 @@
+Class: entities.Door
+Parent class: entities.Interactable
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Construct a Door object
+* Determine whether a user's input unlocks the door or not
+* Contain and keep track of the current hint that the user is on
+* Return the next hint
+* Return the list of all hints as a string
+* Determine if the door is unlocked
+
+
+Collaborators:
+* entities.interfaces.Unlockable

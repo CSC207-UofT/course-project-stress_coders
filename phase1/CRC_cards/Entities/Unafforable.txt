@@ -1,0 +1,11 @@
+Class: entities.Unaffordable
+Parent class: entities.Weapon
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Create a broken weapon that is unusable
+
+Collaborators:
+* entities.InteractableProperties
+* entities.Variable

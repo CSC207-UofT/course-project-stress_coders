@@ -1,12 +1,14 @@
-Class entities.interfaces: Bow
+Class: entities.Crossbow
 Parent class: entities.Weapon
 Subclasses: None
 Type: Entity
 
 Responsibilities:
-* Enforce that the bow instance of Bow has the given attribute, hit probability
-* getter for hit probability
-* shoot Bow using Shootable interface method
+* construct a CrossBow object with an id and an amount of ammunition
+* Assign a hit probability to the Crossbow
+* Assign a randomized weight/damage value to the Crossbow
 
 
-Collaborators: entities.Character
+Collaborators:
+* entities.InteractableProperties
+* entities.Variable

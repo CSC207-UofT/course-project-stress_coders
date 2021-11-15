@@ -1,0 +1,14 @@
+Class: entities.Tree
+Parent class: entities.Interactable
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Construct a Tree
+* Harvest the tree and add the resources to the players inventory
+
+Collaborators:
+* entities.Variable
+* entities.interfaces.Harvestable
+* entities.InteractableProperties
+* entities.Player

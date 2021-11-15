@@ -1,8 +1,21 @@
 Class entities.interfaces: entities.Player
 Parent class: entities.Character
+Subclasses: None
 Type: Entity
-Responsibilities:
-* collect item or weapon into inventory or weapon
-* dispose of weapon or item from inventory
 
-Collaborators: entities.Item, entities.Weapon
+Responsibilities:
+* Getter and Setter for current Weapon
+* Getter and Setter for
+* Modify the player's inventory
+* Modify the player's wallet
+* Getter for the player's inventory
+* Getter for the player's wallet
+
+* Handle an attack against the player
+
+Collaborators:
+* entities.Item
+* entities.Weapon
+* entities.interactable
+* entities.interfaces.Consumable
+* entities.interfaces.ThrowableTarget

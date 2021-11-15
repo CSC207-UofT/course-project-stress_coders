@@ -1,0 +1,15 @@
+Class: entities.MysteryBox
+Parent class: entities.Interactable
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Construct a MysteryBox with an attribute for who it is held by
+* Give the player a random weapon, if they have 950 currency or more
+* Change the player's weapon to the new weapon
+
+
+Collaborators:
+* entities.interfaces.Spinnable
+* entities.Weapon
+* entities.Player

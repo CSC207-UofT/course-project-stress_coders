@@ -1,0 +1,14 @@
+Class: entities.Potion
+Parent class: entities.Item
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Add hit probability to potion
+* Add weight to Potion
+* Add Restoration Value to Potion
+
+Collaborators:
+* entities.interfaces.Consumable
+* entities.interfaces.Throwable
+* entities.Variable

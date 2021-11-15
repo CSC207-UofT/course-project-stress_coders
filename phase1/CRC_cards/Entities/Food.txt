@@ -1,0 +1,13 @@
+Class: entities.Food
+Parent class: entities.Item
+Subclasses: entities.Berries, entities.Meat, entities.Nuts, entities.Potato,
+Type: Entity
+
+Responsibilities:
+* Create a new Food object
+* Getter for its ID
+* Process and Return what happens when it is consumed
+
+Collaborators:
+* entities.Player
+* entities.interfaces.Consumable

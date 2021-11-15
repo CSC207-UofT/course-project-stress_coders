@@ -1,6 +1,5 @@
 package entities;
 
-import entities.Character;
 import entities.interfaces.Consumable;
 import entities.interfaces.ThrowableTarget;
 
@@ -10,8 +9,8 @@ import java.util.*;
 The player character hold their inventory and their stats and handle how those change
  */
 public class Player extends Character implements ThrowableTarget {
-    private HashMap<String, Integer> inventory = new HashMap<String, Integer>();
-    private HashMap<Consumable, Integer> items = new HashMap<>();
+    private final HashMap<String, Integer> inventory = new HashMap<>();
+    private final HashMap<Consumable, Integer> items = new HashMap<>();
     private int wallet;
     private Weapon currentWeapon;
     /**
@@ -76,7 +75,7 @@ public class Player extends Character implements ThrowableTarget {
      * Handle a hit against the player
      *
      * @param throwable the thrown object
-     * @return what occured when the player was hit
+     * @return what occurred when the player was hit
      */
     @Override
     public String handleHit(Interactable throwable) {
@@ -128,7 +127,7 @@ public class Player extends Character implements ThrowableTarget {
 
     /**
      * modify the wallet
-     * @param quantity
+     * @param quantity the quantity of money to add to the wallet
      */
     public void addCurrency(int quantity){ this.wallet = this.wallet + quantity;}
 

@@ -7,7 +7,6 @@ I.e. NPCs, Enemies and the player.
 public abstract class Character extends Interactable {
     private int healthPoints;
     private int maxHealthPoints = 100;
-    private int mana = 100;
 
     /**
      * Constructs a Character object
@@ -27,12 +26,7 @@ public abstract class Character extends Interactable {
      * @param healthPoints the health points of character
      */
     public void setHealthPoints(int healthPoints) {
-        if (healthPoints <= maxHealthPoints) {
-            this.healthPoints = healthPoints;
-        }
-        else {
-            this.healthPoints = this.maxHealthPoints;
-        }
+        this.healthPoints = Math.min(healthPoints, maxHealthPoints);
     }
 
     public int getMaxHealthPoints(){
@@ -72,17 +66,5 @@ public abstract class Character extends Interactable {
      */
     public void addModifier(float weight){
         this.healthPoints *= weight;
-    }
-
-    public int getMana() {
-        return this.mana;
-    }
-
-    public void setMana(int mana) {
-        this.mana = mana;
-    }
-
-    public void spendMana(int spentMana) {
-        this.mana -= spentMana;
     }
 }

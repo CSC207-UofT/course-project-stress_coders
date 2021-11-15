@@ -16,9 +16,9 @@ Potentially handle saving encounters
 public class GameState {
 
     private int current_encounter;
-    private ArrayList<Encounter> encounters = new ArrayList<>();
-    private HashMap<String, Encounter> EncounterConversion = new HashMap<>();
-    private List<Encounter> completedEncounters = new ArrayList<>();
+    private final ArrayList<Encounter> encounters = new ArrayList<>();
+    private final HashMap<String, Encounter> EncounterConversion = new HashMap<>();
+    private final List<Encounter> completedEncounters = new ArrayList<>();
     private PlayerManager playerState;
 
 

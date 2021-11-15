@@ -1,6 +1,5 @@
 package entities;
 
-import entities.interfaces.Consumable;
 import entities.interfaces.Spinnable;
 
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ public class PotionDispenser extends Interactable implements Spinnable {
     }
 
     public void addPotionToPlayer(Potion p) {
-        player.addConsumable((Consumable) p);
+        player.addConsumable(p);
     }
 
     public Potion spin() {

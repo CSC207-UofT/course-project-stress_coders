@@ -1,8 +1,6 @@
 package entities;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Hashtable;
 
 /*
 An object in an encounter that can be used as an argument for a command

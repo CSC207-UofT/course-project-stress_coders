@@ -4,7 +4,6 @@ import usecases.Chop;
 
 import java.util.HashMap;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class ChopTest {
@@ -30,6 +29,6 @@ public class ChopTest {
 
         testAxe.setHeldBy(testPlayer);
 
-        assertEquals("Added 20 wood to name inventory", chopCommand.execute(args));
+        assertEquals("Added 20 wood to id1 inventory", chopCommand.execute(args));
     }
 }

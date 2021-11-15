@@ -2,8 +2,6 @@ package entities;
 
 import entities.interfaces.Unlockable;
 
-import java.util.List;
-
 public abstract class Door extends Interactable implements Unlockable {
 
     String[] hints;

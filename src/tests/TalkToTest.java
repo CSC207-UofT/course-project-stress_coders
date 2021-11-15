@@ -1,7 +1,5 @@
 
 import entities.Interactable;
-import entities.Player;
-import entities.RiddleGoblin;
 import entities.Tree;
 import org.junit.Test;
 import usecases.TalkTo;
@@ -22,7 +20,7 @@ public class TalkToTest {
 
         assertEquals("They cannot talk!", talkToCommand.execute(testArgs));
 
-        RiddleGoblin riddleGoblin = new RiddleGoblin("id2", new Player("j"));
+//        RiddleGoblin riddleGoblin = new RiddleGoblin("id2", new Player("j"));
         // Cannot test the rest because there is a scanner
     }
 }

@@ -2,7 +2,6 @@
 import entities.InteractableProperties;
 import entities.Player;
 import entities.Tree;
-import entities.Variable;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -14,7 +13,7 @@ public class TreeTest {
     @Test
     public void addInfo() {
         Tree treeTest = new Tree("Tree");
-        treeTest.setProperties(new HashMap<String, Variable>());
+        treeTest.setProperties(new HashMap<>());
         treeTest.addInfo();
 
         assertTrue(treeTest.getProperties().containsKey(InteractableProperties.RES_NAME.name()));

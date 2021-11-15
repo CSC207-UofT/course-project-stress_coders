@@ -1,6 +1,5 @@
 package entities;
 
-import entities.interfaces.CanChop;
 import entities.interfaces.Throwable;
 
 /**

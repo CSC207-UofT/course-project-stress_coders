@@ -15,26 +15,35 @@ Contain the loop for receiving input, parse the input and call the appropriate c
 public class CommandLine {
 
     // Required GameState object. CL must call commands that interact with the Encounter and gameState.
-    private GameState gameState;
+    private final GameState gameState;
     private PlayerManager playerState;
     private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "progress",
             "display_objects", "consumeItem", "pick_up"));
     private static final Set<String> GAME_LENGTH_OPTIONS = new HashSet<>(List.of(new String[]{"short", "medium",
             "long", "test"}));
 
-    private static final String genericHelp = "Some special commands you can call : \n" + "help : get help for your " +
-            "current situation \n" + "progress : returns your completed encounters \n" + "display_objects : " +
-            "list all the interactables in your current encounter \n" + "consumeItem : brings up your inventory to let you" +
-            " consume consumables \n" + "pick_up : starts pick up prompt to pick up a weapon";
+    private static final String genericHelp = """
+            Some special commands you can call :\s
+            help : get help for your current situation\s
+            progress : returns your completed encounters\s
+            display_objects : list all the interactables in your current encounter\s
+            consumeItem : brings up your inventory to let you consume consumables\s
+            pick_up : starts pick up prompt to pick up a weapon""";
     public CommandLine() throws IOException {
         IDreader idReader = new IDreader();
+        idReader.initAdjectives();
         Encounter[] e = new Encounter[0];
         this.gameState = new GameState(e);
     }
 
     public CommandLine(GameState gs) throws IOException{
         IDreader idReader = new IDreader();
+        idReader.initAdjectives();
         this.gameState = gs;
+    }
+
+    public void setPlayerState(PlayerManager ps){
+        this.playerState = ps;
     }
 
     // This method is just so we can load encounters and so on upon load, this needs to be done elsewhere
@@ -96,9 +105,7 @@ public class CommandLine {
         Scanner input = new Scanner(System.in);
         System.out.print("$ ");
         String nextInput = input.nextLine();
-        if (nextInput.equals("restart")) {return true;}
-
-        return false;
+        return nextInput.equals("restart");
 
     }
 

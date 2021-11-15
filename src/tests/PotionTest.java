@@ -14,7 +14,7 @@ public class PotionTest {
     @Test
     public void addHitProbability() {
         Potion potionTest = new Potion("id");
-        potionTest.setProperties(new HashMap<String, Variable>());
+        potionTest.setProperties(new HashMap<>());
         potionTest.addHitProbability();
 
         assertTrue(potionTest.getProperties().containsKey(InteractableProperties.HIT_PROB.name()));
@@ -23,7 +23,7 @@ public class PotionTest {
     @Test
     public void addWeight() {
         Potion potionTest = new Potion("id");
-        potionTest.setProperties(new HashMap<String, Variable>());
+        potionTest.setProperties(new HashMap<>());
         potionTest.addWeight();
 
         assertTrue(potionTest.getProperties().containsKey(InteractableProperties.WEIGHT.name()));
@@ -32,7 +32,7 @@ public class PotionTest {
     @Test
     public void addRestorationValue() {
         Potion potionTest = new Potion("id");
-        potionTest.setProperties(new HashMap<String, Variable>());
+        potionTest.setProperties(new HashMap<>());
         potionTest.addRestorationValue();
 
         assertTrue(potionTest.getProperties().containsKey(InteractableProperties.CONSUMABLE_REST_NAME.name()));

@@ -23,7 +23,8 @@ public class SuspiciousMushroom extends Food implements Consumable {
     Random r = new Random();
     int chosen = (r.nextInt(15) - 5);
 
-    public void addRestorationValue() { super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(chosen)); }
-
+    public void addRestorationValue() {
+        super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(chosen));
+    }
 }
 

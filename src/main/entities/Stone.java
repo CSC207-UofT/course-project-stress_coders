@@ -25,5 +25,7 @@ public class Stone extends Weapon implements Throwable, CanChop {
     }
 
     @Override
-    public void addChopDamage() { super.addProperty(InteractableProperties.CHOP_DMG_NAME.name(), new Variable(4)); };
+    public void addChopDamage() {
+        super.addProperty(InteractableProperties.CHOP_DMG_NAME.name(), new Variable(4));
+    }
 }

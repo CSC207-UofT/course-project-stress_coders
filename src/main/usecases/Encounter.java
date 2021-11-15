@@ -17,14 +17,14 @@ Also handle when the encounter is completed and how to add new objects into the 
 public class Encounter {
 
     //Maps Interactable ID to the object itself, 'key 1': KeyObject
-    private String encounterName;
-    private String description;
-    private HashMap<String, Interactable> objIDs = new HashMap<String, Interactable>();
+    private final String encounterName;
+    private final String description;
+    private final HashMap<String, Interactable> objIDs = new HashMap<>();
     private boolean isCompleted;
-    private ArrayList<Interactable> progression = new ArrayList<>();
+    private final ArrayList<Interactable> progression = new ArrayList<>();
     private int currInteractableIndex = -1;
-    private String initialText;
-    private ArrayList<Interactable> genericPool = new ArrayList<>();
+    private final String initialText;
+    private final ArrayList<Interactable> genericPool = new ArrayList<>();
     private boolean doingGeneric = false;
     private int currGenericIndex = -1;
 
@@ -51,11 +51,11 @@ public class Encounter {
      * @returns a list of the interactables as a string of their id's split by \n
      */
     public String listInteractables() {
-        String out = "";
+        StringBuilder out = new StringBuilder();
         for (String key : this.objIDs.keySet()) {
-            out += objIDs.get(key).getId() + "\n";
+            out.append(objIDs.get(key).getId()).append("\n");
         }
-        return out;
+        return out.toString();
     }
 
     public String getDetails() {
@@ -65,8 +65,6 @@ public class Encounter {
     public String getName() {
         return this.encounterName;
     }
-
-
 
     public void addGeneric(Interactable generic) {
         if (generic instanceof Item) {
@@ -239,6 +237,11 @@ public class Encounter {
                 index = random.nextInt(objKeySet.length);
                 id = objKeySet[index] + " " + originalId;
             }
+        }
+
+        if(interactable instanceof Item){
+            index = random.nextInt(charKeySet.length);
+            id = charKeySet[index] + " " + originalId;
         }
 
         if(interactable instanceof Character){

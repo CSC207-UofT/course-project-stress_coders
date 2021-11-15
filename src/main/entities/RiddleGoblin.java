@@ -12,7 +12,7 @@ public class RiddleGoblin extends Goblin {
     private String magic_message;
     private String riddle;
     private String answer;
-    private Player player;
+    private final Player player;
     private List<String> hints;
     private int currHint = 0;
 
@@ -26,12 +26,17 @@ public class RiddleGoblin extends Goblin {
 
     /**
      * Constructor
-     * @param id
-     * @param p
-     *
+     * @param p The player interacting with it
      */
     public RiddleGoblin(String id, Player p) {
         super(id, "This is a riddle goblin. You can talk to it and answer its riddle for a reward!",
+                "To use this command use talk_to: receiver=[receiver_name]");
+        this.player = p;
+    }
+
+    public RiddleGoblin(Player p){
+        super(DefaultInteractableIDs.RIDDLEGOBLIN.name(),
+                "This is a riddle goblin. You can talk to it and answer its riddle for a reward!",
                 "To use this command use talk_to: receiver=[receiver_name]");
         this.player = p;
     }
@@ -78,7 +83,7 @@ public class RiddleGoblin extends Goblin {
     /**
      * This is the goblin's minigame. To play, you tell him his magic message, then correctly answer his riddle
      * to reap the rewards.
-     * @return
+     * @return a reward if the player wins the minigame and fail message otherwise
      */
     private String minigame() {
         System.out.println("Answer my riddle!\n" + this.riddle);

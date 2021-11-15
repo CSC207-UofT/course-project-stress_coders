@@ -38,10 +38,6 @@ public class Throw extends Command {
             ThrowableTarget throwTarget = (ThrowableTarget) args.get(target);
             Throwable thrown = (Throwable) args.get(thrownObject);
 
-            if (thrown instanceof Item){
-                Item thrownItem = (Item) thrown;
-//                thrownItem.setHeldBy(null);
-            }
             /*
              The param that is the value of the thrown_obj arg for the throw command must have a hitProb
              in its properties hashmap

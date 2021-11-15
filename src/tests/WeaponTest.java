@@ -3,7 +3,6 @@ import entities.Axe;
 import entities.Weapon;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class WeaponTest {

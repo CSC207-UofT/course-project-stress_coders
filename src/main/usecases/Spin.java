@@ -17,7 +17,7 @@ public class Spin extends Command {
                 return "Sorry, you cannot afford to hit the mystery box, come back later!";
             }
             String message = "Do you want to switch your current weapon to weapon " + w.getId() +
-                    "with damage" + ((Integer) w.getDamage()).toString();
+                    "with damage" + w.getDamage();
 
             System.out.println(message);
             System.out.println("Enter 'yes' to pick up weapon and anything else to not pick up!");
@@ -37,7 +37,7 @@ public class Spin extends Command {
                 return "Sorry, you cannot afford to hit the potion dispenser, come back later!";
             }
             String message = "Do you want to pick up potion " + w.getId() +
-                    "with restoration " + ((Integer) w.restorationValue()).toString();
+                    "with restoration " + w.restorationValue();
 
             System.out.println(message);
             System.out.println("Enter 'yes' to pick up potion and anything else to not pick up!");

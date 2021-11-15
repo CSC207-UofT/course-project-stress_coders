@@ -16,7 +16,9 @@ public class Potato extends Food implements Consumable {
     /**
      * Adds property CONSUMABLE_REST_NAME with the restoration value
      */
-    public void addRestorationValue() { super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(10)); }
+    public void addRestorationValue() {
+        super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(10));
+    }
 
 }
 

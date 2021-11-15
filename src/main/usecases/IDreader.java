@@ -6,16 +6,23 @@ import java.io.IOException;
 import java.util.HashMap;
 
 /*
-Singleton
+Singleton reads the adjectives from the adjectives files and puts them in the appropriate maps
  */
 public class IDreader {
-    public static HashMap<String, Float> ObjAdjectives = new HashMap<String, Float>();
-    public static HashMap<String, Float> CharAdjectives = new HashMap<String, Float>();
+    public static HashMap<String, Float> ObjAdjectives = new HashMap<>();
+    public static HashMap<String, Float> CharAdjectives = new HashMap<>();
 
     public IDreader() throws IOException{
         initAdjectives();
     }
 
+    /*
+    Read an adjective file in the format:
+    weight1: adjective1, adjective2, ..., adjectiveN
+    weight1: adjective1, adjective2, ..., adjectiveN
+
+    create a mapping between adjectives and weights to return.
+     */
     private HashMap<String, Float> readAdjectiveFile(String fileName) throws IOException {
         BufferedReader in = new BufferedReader(new FileReader(fileName));
         String line = in.readLine();
@@ -39,7 +46,10 @@ public class IDreader {
         return adjectiveToWeight;
     }
 
-    private void initAdjectives() throws IOException{
+    /*
+     Load the 2 adjective files.
+     */
+    public void initAdjectives() throws IOException{
         String CHAR_FILE = "resources/CharacterAdjectives.txt";
         IDreader.CharAdjectives = readAdjectiveFile(CHAR_FILE);
         String OBJ_FILE = "resources/ObjectAdjectives.txt";

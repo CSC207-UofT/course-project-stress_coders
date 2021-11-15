@@ -13,6 +13,9 @@ public class HandCannon extends ShootableWeapon{
     public HandCannon(String id, int ammoCount) {
         super(id);
         this.addAmmo(ammoCount);
+
+        addHitProbability();
+        addWeight();
     }
 
     /**

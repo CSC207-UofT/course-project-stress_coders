@@ -33,14 +33,14 @@ public class Throw extends Command {
      */
     @Override
     public String execute(HashMap<String, Interactable> args) {
-        String thrownObject = "obj"; String target = "target";
+        String thrownObject = "throw_obj"; String target = "target";
         if(args.get(thrownObject) instanceof Throwable && args.get(target) instanceof ThrowableTarget) {
             ThrowableTarget throwTarget = (ThrowableTarget) args.get(target);
             Throwable thrown = (Throwable) args.get(thrownObject);
 
             if (thrown instanceof Item){
                 Item thrownItem = (Item) thrown;
-                thrownItem.setHeldBy(null);
+//                thrownItem.setHeldBy(null);
             }
             /*
              The param that is the value of the thrown_obj arg for the throw command must have a hitProb
@@ -56,7 +56,6 @@ public class Throw extends Command {
             return "It missed";
         }
 
-        System.out.println(args.get(thrownObject));
         if(!(args.get(thrownObject) instanceof Throwable)){
             return "You cannot throw that";
         }

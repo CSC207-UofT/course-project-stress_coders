@@ -20,10 +20,7 @@ public class Meat extends Food implements Consumable {
      */
     public Meat(String id) {
         super(id);
-    }
-
-    public String getID() {
-        return this.id;
+        this.addRestorationValue();
     }
 
 

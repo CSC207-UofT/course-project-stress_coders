@@ -1,7 +1,6 @@
 package interfaceadapters;
 
 import entities.Interactable;
-import entities.Player;
 import usecases.*;
 
 import java.util.*;
@@ -20,6 +19,7 @@ public class GameState {
     private ArrayList<Encounter> encounters = new ArrayList<>();
     private HashMap<String, Encounter> EncounterConversion = new HashMap<>();
     private List<Encounter> completedEncounters = new ArrayList<>();
+    private PlayerManager playerState;
 
 
     public GameState(Encounter[] encounters){
@@ -27,6 +27,9 @@ public class GameState {
         // will need to populate encounters
     }
 
+    public void setPlayerManager(PlayerManager p) {
+        this.playerState = p;
+    }
     /**
      * The function prints all available encounters, line by line using getDetails()
      * The user is prompted to choose an encounter and the prompt will not pass until a valid quest is parsed
@@ -34,10 +37,19 @@ public class GameState {
      */
     public String requestEncounter() {
         System.out.println("Please choose a quest:");
+        System.out.println("==TO DO==");
         for (Encounter e: encounters) {
+            if (!completedEncounters.contains(e)) {
+                String enc = e.getDetails();
+                System.out.println(enc);
+            }
+        }
+        System.out.println("==COMPLETED==");
+        for (Encounter e: completedEncounters) {
             String enc = e.getDetails();
             System.out.println(enc);
         }
+
         Scanner input = new Scanner(System.in);
         System.out.print("$ ");
         String nextInput = input.nextLine();
@@ -90,7 +102,7 @@ public class GameState {
      * @return Encounter Object (current encounter)
      */
     public String callCommand(String input, HashMap<String, Interactable> args) {
-        String s = encounters.get(current_encounter).progress(args, input) + "\n";
+        String s = encounters.get(current_encounter).progress(args, input) ;
         if (encounters.get(current_encounter).isCompleted()) {
             this.completedEncounters.add(encounters.get(current_encounter));
             System.out.println(s);
@@ -118,10 +130,16 @@ public class GameState {
 
     /**
      * Provides the user with personalised help for the given encounter
-     * @param p Player - this is used to give help for player's current weapon
      * @return String which is the help message for the user, will be provided by the encounter they are currently in
      */
-    public String getHelp(Player p) {
-        return getCurrent_encounter().getHelp(p);
+    public String getHelp() {
+        return getCurrent_encounter().getHelp(playerState.getPlayer());
+    }
+
+    public Interactable getFromID(String s) {
+        if (playerState.getPlayer().getCurrentWeapon().getId().equals(s)) {
+            return playerState.getPlayer().getCurrentWeapon();
+        }
+        return this.encounters.get(current_encounter).getFromID(s);
     }
 }

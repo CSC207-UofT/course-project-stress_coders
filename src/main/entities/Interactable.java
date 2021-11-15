@@ -7,7 +7,7 @@ import java.util.Hashtable;
 /*
 An object in an encounter that can be used as an argument for a command
  */
-public abstract class Interactable {
+public abstract class Interactable implements Cloneable{
     // ID/name of the obj, Must be unique among encounters
     private String id;
     private boolean completed;
@@ -143,4 +143,8 @@ public abstract class Interactable {
         this.initialText = initialText;
     }
 
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }

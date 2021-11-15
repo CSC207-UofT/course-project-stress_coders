@@ -12,7 +12,6 @@ import java.util.*;
  * Chop command. Uses a tool to chop the target, assuming all is possible. Only for harvesting.
  */
 public class Chop extends Command{
-
     /**
      * args["tool"] is the tool you chop with
      * args["target"] is the object you are chopping

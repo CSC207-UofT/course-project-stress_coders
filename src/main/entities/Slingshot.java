@@ -12,6 +12,8 @@ public class Slingshot extends ShootableWeapon{
     public Slingshot(String id, int ammoCount) {
         super(id);
         this.addAmmo(ammoCount);
+        this.addWeight();
+        this.addHitProbability();
     }
     /**
      * Adds property hit probability with the probability value

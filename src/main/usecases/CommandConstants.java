@@ -18,7 +18,7 @@ public class CommandConstants {
         COMMANDS.put("unlock", new Unlock());
         COMMANDS.put("spin", new Spin());
         COMMANDS.put("shoot", new Shoot());
-
+        COMMANDS.put("hint", new Hint());
     }
 
     public void add_command(String keyword, Command command){

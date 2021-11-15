@@ -11,6 +11,7 @@ public class Berries extends Food implements Consumable {
      */
     public Berries(String id) {
         super(id);
+        this.addRestorationValue();
     }
 
     /**

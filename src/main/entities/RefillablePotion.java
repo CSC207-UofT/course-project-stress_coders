@@ -12,13 +12,11 @@ public class RefillablePotion extends Potion{
     public RefillablePotion(String id, int strength) {
         super(id);
         this.strength = strength;
-        this.value = strength * VALUE_COEFFICIENT;
     }
 
     public RefillablePotion(String id, int strength, int uses) {
         super(id);
         this.strength = strength;
-        this.value = strength * VALUE_COEFFICIENT;
         this.uses = uses;
     }
 
@@ -27,7 +25,7 @@ public class RefillablePotion extends Potion{
         Player p = (Player) this.getHeldBy();
 
         if ((p != null) & (this.uses > 0)) {
-            p.subConsumable(this,1);
+            p.subConsumable(this, 1);
             p.setHealthPoints(p.getHealthPoints() + this.getProperty(InteractableProperties.CONSUMABLE_REST_NAME.name()).getInteger());
             this.uses = this.uses - 1;
             return "You consumed 1" + this.getId();

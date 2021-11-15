@@ -22,7 +22,6 @@ public class BuilderSetup {
     String userGenre;
     int questLengthBound;
 
-
     // First we create an instance of each interactable, possibly set certain ones by genre, then from valid ones
     // randomly choose some premade MAIN interactions and some generics using randint and asking user to choose from
     // quests of length (short, medium, long) which affects the bound

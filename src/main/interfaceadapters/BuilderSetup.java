@@ -3,6 +3,7 @@ package interfaceadapters;
 import entities.*;
 import entities.Interactable;
 import entities.Player;
+import entities.interfaces.Consumable;
 import usecases.Encounter;
 
 import java.util.ArrayList;
@@ -124,10 +125,22 @@ public class BuilderSetup {
                 allGenerics.add(i);
             }
         }
+
         Potion healthPotion = new Potion("health potion", 20);
         Berries blueberry = new Berries("blueberry");
         Nuts peanut = new Nuts("peanut");
         Meat cookedBeef = new Meat("cooked beef");
+        // Will add trader when its command is done
+        //        Trader t = new Trader("Minecraft Trader");
+//        HashMap<String, Consumable> forTrader = new HashMap<>();
+//        forTrader.put(healthPotion.getId(), healthPotion);
+//        forTrader.put(blueberry.getId(), blueberry);
+//        forTrader.put(peanut.getId(), peanut);
+//        forTrader.put(cookedBeef.getId(), cookedBeef);
+//        t.addConsumablesToStore(forTrader);
+        //allPossibleInteractables.add(t);
+        //allGenerics.add(t);
+
         for (int i = 0; i <= 5; i++) {
             player.addConsumable(healthPotion);
             player.addConsumable(blueberry);

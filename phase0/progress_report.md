@@ -64,7 +64,14 @@ Henri Langlois :
 usecases.Encounter class implementation
 Code documentation for various classes
 Code design
-Next Step: creating new encounters and quests
+Implementing a Shootable Weapon Archetype
+Implementing variations for generic shootable weapons like the crossbow
+Implementing a RefillablePotion variation to Potion
+Implementing the Shoot usecase
+Added mana to character
+Various fixes on preexisting code
+Implementing SuspiciousMushroom
+Implementing the Stone
 
 Conrad Stanek:
 Code design and restructuring

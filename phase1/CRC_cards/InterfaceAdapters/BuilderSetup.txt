@@ -1,7 +1,7 @@
 Class: BuilderSetup
 Parent class: None
 Subclasses: None
-Type: Framework
+Type: Interface Adapters
 
 Responsibilities:
 * Generate an instance of each interactable

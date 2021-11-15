@@ -83,7 +83,7 @@ Our program is also documented extensively, methods and classes both have header
 
 instance in the following comment
 
-![](/Users/michellechernyi/Documents/pic1.png)
+![](MdRes/MD res/pic1.png)
 
 One thing to note is that we used a mix of regular comments and javadocs. For comments describing methods with obvious return values and parameters we used regular comments to simply define the functionality, for more complex methods that interact with more of our code we used javadoc to aid in the understanding using the @param, @return and the @see decorators.  For instance:
 

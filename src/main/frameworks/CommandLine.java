@@ -49,19 +49,11 @@ public class CommandLine {
         boolean running = true;
         boolean firstRun = true;
         CommandConstants.loadCommands();
-
+        // fixed player death sequence bug and added defificulty
         while(running) {
             if (firstRun) {
                 firstRun = false;
-                System.out.println("Please choose a player name: ");
-                Scanner input = new Scanner(System.in);
-                System.out.print("$ ");
-                String nextInput = input.nextLine();
-                this.playerState = new PlayerManager(nextInput);
-                this.gameState.setPlayerManager(this.playerState);
-                requestAndBuild();
-                System.out.println(this.gameState.requestEncounter());
-                // Print some sort of welcome and instructions here
+                firstRunSequence();
             } else {
                 Scanner input = new Scanner(System.in);
                 System.out.print("$ ");
@@ -82,6 +74,20 @@ public class CommandLine {
                 }
             }
         }
+    }
+
+    private void firstRunSequence() throws CloneNotSupportedException {
+        System.out.println("Please choose a player name: ");
+        Scanner input = new Scanner(System.in);
+        System.out.print("$ ");
+        String nextInput = input.nextLine();
+        System.out.println("Please choose a difficulty (easy, medium, hard -- any other input will select easy too) : ");
+        System.out.print("$ ");
+        String nextInput2 = input.nextLine();
+        this.playerState = new PlayerManager(nextInput, nextInput2);
+        this.gameState.setPlayerManager(this.playerState);
+        requestAndBuild();
+        System.out.println(this.gameState.requestEncounter());
     }
 
     private boolean playerDeathSeqence() {

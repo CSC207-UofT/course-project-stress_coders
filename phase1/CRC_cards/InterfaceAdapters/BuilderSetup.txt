@@ -5,7 +5,6 @@ Type: Interface Adapters
 
 Responsibilities:
 * Generate an instance of each interactable
-*
 
 Collaborators:
 entities package

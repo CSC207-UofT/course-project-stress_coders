@@ -58,7 +58,7 @@ public class BuilderSetup {
 
     public List<Encounter> build() throws CloneNotSupportedException {
         buildInteractables();
-        for (int i = 0; i <= questLengthBound; i++) {
+        for (int i = 0; i < questLengthBound; i++) {
             buildEncounter();
         }
         return this.allGeneratedEncounters;
@@ -67,7 +67,7 @@ public class BuilderSetup {
     public void buildEncounter() throws CloneNotSupportedException {
         // We should add a smart generator here for type of encounters, will add after we make sure it all works
         Encounter e = encounterDetailGenerator();
-        for (int i = 0; i<= questLengthBound; i++) {
+        for (int i = 0; i < questLengthBound; i++) {
             Random r = new Random();
             Interactable mainChoice = allMain.get(r.nextInt(allMain.size()));
             Interactable genericChoice = allGenerics.get(r.nextInt(allGenerics.size()));

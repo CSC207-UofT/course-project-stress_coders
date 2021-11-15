@@ -37,7 +37,9 @@ public class CommandLineTest {
 
         Encounter[] testEncounter = {new Encounter("why is this different", "idk", "pain")};
         GameState testGS = new GameState(testEncounter);
+        PlayerManager pl = new PlayerManager("player", "easy");
         Axe testAxe = new Axe("axe ah ah ah ah ah");
+        pl.getPlayer().setWeapon(testAxe);
         testEncounter[0].addObj(testAxe);
 
         HashMap<String, String> testHM = new HashMap<>();
@@ -54,10 +56,13 @@ public class CommandLineTest {
     @Test
     public void callCommand() throws IOException {
         PlayerManager playerManager = new PlayerManager("my wife", "hard");
+        IDreader idReader = new IDreader();
         String error_input = "im:going:to:lose:my:mind";
         Encounter[] testEncounter = {new Encounter("what is this project", "idk", "pain")};
         GameState testGS = new GameState(testEncounter);
         Axe testAxe = new Axe("axe ah ah ah ah ah");
+        PlayerManager p = new PlayerManager("player", "easy");
+        p.getPlayer().setWeapon(testAxe);
         testEncounter[0].addObj(testAxe);
 
         CommandLine CLTest = new CommandLine(testGS);

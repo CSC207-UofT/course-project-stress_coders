@@ -24,6 +24,7 @@ public class ConsumeTest {
         Potion potionTest = new Potion("id2");
         Player testPlayer = new Player("id3");
         potionTest.setHeldBy(testPlayer);
+        testPlayer.addConsumable(potionTest);
         testArgs.put("consumable", potionTest);
         assertEquals("You consumed 1 id2", testConsume.execute(testArgs));
     }

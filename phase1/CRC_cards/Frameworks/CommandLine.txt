@@ -1,4 +1,4 @@
-Class entities.interfaces: usecases.Command Line
+Class: Command Line
 Parent class: none
 Subclasses: none 
 Type: frameworks and drivers  
@@ -7,4 +7,6 @@ Responsibilities:
 * interfaceadapters with the user to parse input and print output
 * connects commands to the game compiler
 
-Collaborators:GameCompiler
+Collaborators:
+* BuilderSetup
+* Main

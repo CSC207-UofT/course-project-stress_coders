@@ -1,0 +1,10 @@
+Class entities.interfaces: Unlock
+Parent class: Command
+Subclasses: None
+Type: Use case
+
+Responsibilities:
+Perform the Unlock action when called
+
+Collaborators:
+Consumable interface

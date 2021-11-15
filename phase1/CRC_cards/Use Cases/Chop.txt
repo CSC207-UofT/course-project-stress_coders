@@ -1,10 +1,10 @@
-Class entities.interfaces: Shoot
+Class entities.interfaces: Chop
 Parent class: Command
 Subclasses: None
 Type: Use case
 
 Responsibilities:
-Perform the Shoot action when called
+Perform the Chop action when called
 
 Collaborators:
-Shootable interface
+Chopable interface

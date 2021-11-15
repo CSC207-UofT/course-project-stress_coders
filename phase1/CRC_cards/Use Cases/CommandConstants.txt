@@ -1,4 +1,4 @@
-Class entities.interfaces: CommandConstant
+Class: CommandConstant
 Parent class: none
 Subclasses: none
 Type: entities

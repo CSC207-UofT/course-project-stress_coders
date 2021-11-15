@@ -1,0 +1,12 @@
+Class: Main
+Parent class: None
+Subclasses: None
+Type: Framework
+
+Responsibilities:
+* Generate an instance of each interactable
+*
+
+Collaborators:
+entities package
+usecases.Encounter

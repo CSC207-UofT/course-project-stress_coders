@@ -1,0 +1,15 @@
+Class entities.interfaces: GameState
+Parent class: None
+Subclasses: None
+Type: Adapter
+
+Responsibilities:
+* Store the current state of encounters: The current encounter, the map of available encounters, the
+completed encounters and the required encounters.
+* Also handle moving between encounters
+* Handle saving encounters and loading encounters
+* Call commands
+
+Collaborators:
+Consumable interface
+entities.Player

@@ -1,4 +1,4 @@
-Class entities.interfaces: usecases.Encounter
+Class: usecases.Encounter
 Parent class: none 
 Subclasses: none 
 Type: Use case

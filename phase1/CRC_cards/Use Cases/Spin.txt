@@ -1,10 +1,10 @@
-Class entities.interfaces: Shoot
+Class entities.interfaces: Spin
 Parent class: Command
 Subclasses: None
 Type: Use case
 
 Responsibilities:
-Perform the Shoot action when called
+Perform the Spin action when called
 
 Collaborators:
-Shootable interface
+Spinnable interface

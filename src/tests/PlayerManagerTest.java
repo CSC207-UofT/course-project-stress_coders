@@ -11,7 +11,7 @@ public class PlayerManagerTest {
     @Test
     public void getPlayer() {
         Player testPlayer = new Player("id");
-        PlayerManager playerManager = new PlayerManager("id");
+        PlayerManager playerManager = new PlayerManager("id", "easy");
         assertEquals(testPlayer, playerManager.getPlayer());
     }
 }

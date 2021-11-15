@@ -8,8 +8,13 @@ import java.util.List;
 
 public class PlayerManager {
     Player player;
-    public PlayerManager(String p) {
+    public PlayerManager(String p, String difficulty) {
         player = new Player(p);
+        if (difficulty.equals("hard")) {player.setHealthPoints(300);}
+        else if (difficulty.equals("medium")) {player.setHealthPoints(200);}
+        else {player.setHealthPoints(300);}
+
+
     }
 
     public Player getPlayer() {return this.player;}

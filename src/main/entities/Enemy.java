@@ -75,6 +75,7 @@ public class Enemy extends Character implements ThrowableTarget {
             if (weapon instanceof Throwable) {
                 return landedHitString+hitBack((Throwable) weapon);
             }
+            System.out.println(landedHitString);
             return defaultHitBack();
         }
     }

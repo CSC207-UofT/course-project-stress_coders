@@ -37,6 +37,9 @@ public class BuilderSetup {
         else if (questLength.equals("medium")) {
             this.questLengthBound = 10;
         }
+        else if (questLength.equals("test")) {
+            this.questLengthBound = 1;
+        }
         else {
             this.questLengthBound = 15;
         }

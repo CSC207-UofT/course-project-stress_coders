@@ -20,7 +20,8 @@ public class CommandLine {
     private PlayerManager playerState;
     private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "progress",
             "display_objects", "consumeItem", "pick_up"));
-    private static final Set<String> GAME_LENGTH_OPTIONS = new HashSet<>(List.of(new String[]{"short", "medium", "long"}));
+    private static final Set<String> GAME_LENGTH_OPTIONS = new HashSet<>(List.of(new String[]{"short", "medium",
+            "long", "test"}));
 
     private static final String genericHelp = "SOME GENERIC HELP FOR USER>> NEED TO ADD";
     public CommandLine() throws IOException {

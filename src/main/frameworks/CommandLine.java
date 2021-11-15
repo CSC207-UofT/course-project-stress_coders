@@ -63,6 +63,11 @@ public class CommandLine {
                 System.out.println(this.gameState.requestEncounter());
                 // Print some sort of welcome and instructions here
             } else {
+                if (playerState.getPlayer().isDead()) {
+                    boolean result = playerDeathSeqence();
+                    if (result) {firstRun=true;}
+                    else {running=false;}
+                }
                 Scanner input = new Scanner(System.in);
                 System.out.print("$ ");
                 String nextInput = input.nextLine();
@@ -77,6 +82,18 @@ public class CommandLine {
                 }
             }
         }
+    }
+
+    private boolean playerDeathSeqence() {
+        System.out.println("You've died so the game is now done, enter restart to start over or anything else to close " +
+                "the game");
+        Scanner input = new Scanner(System.in);
+        System.out.print("$ ");
+        String nextInput = input.nextLine();
+        if (nextInput.equals("restart")) {return true;}
+
+        return false;
+
     }
 
     public void requestAndBuild() throws CloneNotSupportedException {

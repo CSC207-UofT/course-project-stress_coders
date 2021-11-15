@@ -14,7 +14,6 @@ public class Player extends Character implements ThrowableTarget {
     private HashMap<Consumable, Integer> items = new HashMap<>();
     private int wallet;
     private Weapon currentWeapon;
-
     /**
      * Construct a Player
      *

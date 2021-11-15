@@ -21,6 +21,7 @@ public class BuilderSetup {
     Player player;
     String userGenre;
     int questLengthBound;
+    List<String> classNames = new ArrayList<>();
 
 
     // First we create an instance of each interactable, possibly set certain ones by genre, then from valid ones

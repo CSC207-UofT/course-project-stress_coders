@@ -34,6 +34,29 @@ public class Encounter {
         this.initialText = initialText;
     }
 
+    public Encounter(){
+        Axe axe = new Axe("axe");
+        Axe axe2 = new Axe("axe");
+        Axe axe3 = new Axe("axe");
+
+        Enemy enemy = new Enemy("enemy", new Player("test"), 1);
+        Enemy enemy2 = new Enemy("enemy", new Player("test"), 1);
+
+        addObj(axe);
+        addObj(axe2);
+        addObj(axe3);
+
+        addObj(enemy);
+        addObj(enemy2);
+
+        System.out.println(axe.getId());
+        System.out.println(axe2.getId());
+        System.out.println(axe3.getId());
+
+        System.out.println(enemy.getId());
+        System.out.println(enemy2.getId());
+    }
+
     /**
      * Loads a list of interactables into the encounter
      * @param interactables the list of interactables to add to this encounter, should be ordered and only main
@@ -74,11 +97,11 @@ public class Encounter {
         String id = generic.getId();
 
         if(this.objIDs.containsKey(generic.getId())){
-            id = addAdjective(generic);
+            addAdjective(generic);
         }
-        generic.setId(id);
+//        generic.setId(id);
         this.genericPool.add(generic);
-        this.objIDs.put(id ,generic);
+        this.objIDs.put(generic.getId() ,generic);
     }
 
     /**
@@ -202,15 +225,10 @@ public class Encounter {
     // We can have a list of ObjectAdjectives.txt, so like Big, red etc. So if there are 2 keys, one can be Big the other red etc.
     // This method only adds main interactables
     public void addObj(Interactable interactable){
-        if (interactable instanceof Item) {
-            return;
-        }
-        String id = interactable.getId();
         if(this.objIDs.containsKey(interactable.getId())){
-            id = addAdjective(interactable);
+            addAdjective(interactable);
         }
-        interactable.setId(id);
-        this.objIDs.put(id, interactable);
+        this.objIDs.put(interactable.getId(), interactable);
         this.progression.add(interactable);
     }
 
@@ -218,7 +236,7 @@ public class Encounter {
         return this.objIDs.containsKey(item.getId());
     }
 
-    public String addAdjective(Interactable interactable){
+    public void addAdjective(Interactable interactable){
         String id = interactable.getId();
         String originalId = interactable.getId();
 
@@ -246,7 +264,7 @@ public class Encounter {
             }
         }
 
-        return id;
+        interactable.setId(id);
     }
 
     public Interactable getFromID(String ID){

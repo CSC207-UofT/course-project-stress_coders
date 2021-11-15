@@ -26,6 +26,6 @@ public class ThrowTest {
 
         testEnemy.setHealthPoints(100);
 
-        assertTrue(throwCommand.execute(args).contains("Your axe hits enemy for 20 damage!"));
+        assertTrue(throwCommand.execute(args).contains("Your axe hits enemy for 20 damage!") || throwCommand.execute(args).contains("It missed"));
     }
 }

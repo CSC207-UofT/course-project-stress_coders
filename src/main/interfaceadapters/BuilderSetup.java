@@ -1,4 +1,4 @@
-package frameworks;
+package interfaceadapters;
 
 import entities.*;
 import entities.Interactable;

@@ -16,6 +16,9 @@ public abstract class Character extends Interactable {
     public Character(String id) {
         super(id, "");
     }
+    public Character(String id, String howTo) {
+        super(id, howTo);
+    }
 
     /**
      * set the health points of character

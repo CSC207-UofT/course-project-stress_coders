@@ -27,7 +27,7 @@ public class RefillablePotion extends Potion{
         Player p = (Player) this.getHeldBy();
 
         if ((p != null) & (this.uses > 0)) {
-            p.subConsumable(this);
+            p.subConsumable(this,1);
             p.setHealthPoints(p.getHealthPoints() + this.getProperty(InteractableProperties.CONSUMABLE_REST_NAME.name()).getInteger());
             this.uses = this.uses - 1;
             return "You consumed 1" + this.getId();

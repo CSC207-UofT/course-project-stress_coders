@@ -1,0 +1,10 @@
+Class entities.interfaces: Spin
+Parent class: Command
+Subclasses: None
+Type: Use case
+
+Responsibilities:
+Perform the Spin action when called
+
+Collaborators:
+Spinnable interface

@@ -1,0 +1,14 @@
+Class: entities.Crossbow
+Parent class: entities.Weapon
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* construct a CrossBow object with an id and an amount of ammunition
+* Assign a hit probability to the Crossbow
+* Assign a randomized weight/damage value to the Crossbow
+
+
+Collaborators:
+* entities.InteractableProperties
+* entities.Variable

@@ -1,0 +1,16 @@
+Class: entities.Axe
+Parent class: entities.Weapon
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Add Hit probability to the axe
+* Add Weight to the axe
+* Add Chop Damage to the axe
+
+
+Collaborators:
+* entities.interfaces.CanChop
+* entities.interfaces.Throwable
+* entities.InteractableProperties
+* entities.Variable

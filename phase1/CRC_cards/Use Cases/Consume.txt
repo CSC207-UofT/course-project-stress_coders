@@ -1,0 +1,10 @@
+Class entities.interfaces: Consume
+Parent class: Command
+Subclasses: None
+Type: Use case
+
+Responsibilities:
+Perform the Consume action when called
+
+Collaborators:
+Consumable interface

@@ -1,0 +1,13 @@
+Class: entities.Spear
+Parent class: entities.Weapon
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Add Hit probability to the Spear
+* Add Weight to the Spear
+
+Collaborators:
+* entities.interfaces.Throwable
+* entities.InteractableProperties
+* entities.Variable

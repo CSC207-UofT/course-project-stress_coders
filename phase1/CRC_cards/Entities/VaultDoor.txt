@@ -1,0 +1,11 @@
+Class: entities.VaultDoor
+Parent class: entities.Door
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Construct a VaultDoor object
+    * This is a more difficult version of door since the answer is more difficult
+
+Collaborators:
+* None

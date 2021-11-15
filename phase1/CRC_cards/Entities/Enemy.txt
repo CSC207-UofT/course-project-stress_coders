@@ -1,0 +1,19 @@
+Class: entities.Enemy
+Parent class: entities.Character
+Subclasses: entities.Goblin, entities.RiddleGoblin
+Type: Entity
+
+Responsibilities:
+* Construct an Enemy with its appropriate ID, health, player, and defeat value attributes
+* Get the player that the Enemy is facing
+* Hit the player back
+* Damage the enemy by the weight of the object
+*
+
+Collaborators:
+* entities.Player
+* entities.Weapon
+* entities.interfaces.Throwable
+* entities.interfaces.ThrowableTarget
+* usecases.Command
+* usecases.CommandConstants

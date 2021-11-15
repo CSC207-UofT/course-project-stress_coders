@@ -1,0 +1,11 @@
+Class: entities.Weapon
+Parent class: None 
+Subclasses: entities.Axe, entities.Crossbow, entities.HandCanon, entities.ShootableWeapon, entities.Spear
+Type: Entity
+
+Responsibilities:
+* Construct a Weapon
+* Setter and Getter for the Damage
+
+Collaborators:
+* entities.Character

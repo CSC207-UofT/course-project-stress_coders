@@ -1,0 +1,12 @@
+Class: entities.ShootableWeapon
+Parent class: entities.Weapon
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Construct the ShootableWeapon object
+* Add, get, and use the ammunition
+* Change the amount of ammo used per shot
+
+Collaborators:
+* None

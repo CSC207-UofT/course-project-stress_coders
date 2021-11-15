@@ -1,0 +1,10 @@
+Class entities.interfaces: Shoot
+Parent class: Command
+Subclasses: None
+Type: Use case
+
+Responsibilities:
+Perform the Shoot action when called
+
+Collaborators:
+Shootable interface

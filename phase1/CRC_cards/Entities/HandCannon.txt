@@ -1,0 +1,14 @@
+Class: entities.HandCannon
+Parent class: entities.Weapon
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* construct a HandCannon object with an id and an amount of ammunition
+* Assign a hit probability to the HandCannon
+* Assign a randomized weight/damage value to the HandCannon
+
+
+Collaborators:
+* entities.InteractableProperties
+* entities.Variable

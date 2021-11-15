@@ -1,0 +1,17 @@
+Class: entities.RiddleGoblin
+Parent class: entities.Goblin
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Construct a RiddleGoblin with its appropriate ID, health, player, and defeat value attributes
+* Create and set the RiddleGoblin's riddle
+* Return what the RiddleGoblin says either in response or spontaneously
+* Play the RiddleGoblin's game (the riddle)
+* Give the player a reward for solving the riddle
+* Getter for the riddle, the riddle answer, and
+the magic message needed to start playing the riddle
+
+Collaborators:
+* entities.Player
+* entities.interfaces.Talkable

@@ -1,0 +1,13 @@
+Class: entities.Character
+Parent class: entities.Interactable
+Subclasses: entities.Animal, entities.Enemy, entities.Player
+Type: Entity
+
+Responsibilities:
+* Get and set maxHealthPoints
+* Get and set healthPoints
+* Determine if Character is dead
+* Modify Health points based on weight
+
+Collaborators:
+* None

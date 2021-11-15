@@ -1,0 +1,15 @@
+Class: entities.PotionDispenser
+Parent class: entities.Interactable
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Construct a potion dispenser
+* Add and load potions
+* Randomly give the player a potion if they can afford it. Otherwise, they get an unusable potion
+
+Collaborators:
+* entities.Player
+* entities.interfaces.Consumable
+* entities.interfaces.Throwable
+* entities.Variable

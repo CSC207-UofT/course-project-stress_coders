@@ -1,0 +1,13 @@
+Class entities.interfaces: PlayerManager
+Parent class: None
+Subclasses: None
+Type: Use case
+
+Responsibilities:
+Get the player being managed
+Get the players consumables
+Find a consumable in the players inventory
+
+Collaborators:
+Consumable interface
+entities.Player

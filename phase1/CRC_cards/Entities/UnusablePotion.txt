@@ -1,0 +1,11 @@
+Class: entities.UnusablePotion
+Parent class: entities.Potion
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Create a broken potion that is unusable
+
+Collaborators:
+* entities.InteractableProperties
+* entities.Variable

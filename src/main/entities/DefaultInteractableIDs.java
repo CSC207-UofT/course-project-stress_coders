@@ -8,7 +8,7 @@ public enum DefaultInteractableIDs {
     HANDCANNON("Hand cannon"),
     MYSTERYBOX("Mystery Box"),
     POTIONDISPENSER("Potion Dispenser"),
-    RIDDLEGOBLIN("Riddle Goblin"),
+    RIDDLEGOBLIN("Riddle Goblin.txt"),
     TREE("Tree"),
     POTION("Potion"),
     VAULTDOOR("Vault door");

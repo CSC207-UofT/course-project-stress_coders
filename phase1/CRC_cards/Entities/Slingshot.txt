@@ -1,0 +1,12 @@
+Class: entities.Slingshot
+Parent class: entities.ShootableWeapon
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Add Hit probability to the Slingshot
+* Add Weight to the Slingshot
+
+Collaborators:
+* entities.InteractableProperties
+* entities.Variable

@@ -1,0 +1,10 @@
+Class entities.interfaces: TalkTo
+Parent class: Command
+Subclasses: None
+Type: Use case
+
+Responsibilities:
+Perform the TalkTo action when called
+
+Collaborators:
+Consumable interface

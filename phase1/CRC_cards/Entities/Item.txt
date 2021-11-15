@@ -1,0 +1,12 @@
+Class: entities.Item
+Parent class: entities.Interactable
+Subclasses: entities.Food, entities.Potion, entities.Trader, entities.Weapon
+Type: Entity
+
+Responsibilities:
+* Construct an Item with an attribute for who it is held by
+* Getter and setter the person holding the item
+
+
+Collaborators:
+* None

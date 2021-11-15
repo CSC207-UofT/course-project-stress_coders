@@ -5,9 +5,10 @@ import java.lang.Math;
 public class HandCannon extends ShootableWeapon{
 
     /**
-     * constructs a CrossBow object
-     * @param id the id of the crossbow
-     * @param ammoCount the amount of ammo (arrows) the crossbow comes with
+     * Construct a HandCannon object
+     *
+     * @param id the id of the handcannon
+     * @param ammoCount the amount of ammo the handcannon comes with
      */
     public HandCannon(String id, int ammoCount) {
         super(id);
@@ -16,6 +17,7 @@ public class HandCannon extends ShootableWeapon{
         addHitProbability();
         addWeight();
     }
+
     /**
      * Adds property hit probability with the probability value
      */

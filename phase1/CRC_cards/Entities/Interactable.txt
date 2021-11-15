@@ -1,0 +1,19 @@
+Class: entities.Interactable
+Parent class: None
+Subclasses: entities.Character, entities.Door, entities.Food, entities.Item,
+entities.MysteryBox, entities.PotionDispenser, entities.Tree
+Type: Entity
+
+Responsibilities:
+* Construct an Interactable with an ID, a completion status, an initial message,
+instructions on how to use, and properties
+* Getter and Setter for the ID
+* Getter and Setter for the Completion Status
+* Getter and Setter for the properties
+* Getter and Setter for the initial text
+* Getter for the Variables of a property
+* Getter for the how to use instructions
+* Add properties to an Interactable
+
+Collaborators:
+* entities.Variable

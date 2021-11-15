@@ -1,0 +1,12 @@
+Class: entities.Goblin
+Parent class: entities.Enemy
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Construct a Goblin with its appropriate ID, health, player, and defeat value attributes
+* Return what the Goblin says either in response or spontaneously
+
+Collaborators:
+* entities.Player
+* entities.interfaces.Talkable

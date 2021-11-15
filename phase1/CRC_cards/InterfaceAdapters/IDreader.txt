@@ -1,0 +1,10 @@
+Class: IDreader
+Parent class: None
+Subclasses: None
+Type: Adapter
+
+Responsibilities:
+* Read ID's and adjectives from the file and put them into String Lists
+
+Collaborators:
+* None

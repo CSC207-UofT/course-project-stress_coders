@@ -1,6 +1,6 @@
 package entities;
 
-/*
+/**
 Represents an interactable that can be held by a Character. Can be added to the players inventory
 but does not need to be.
 

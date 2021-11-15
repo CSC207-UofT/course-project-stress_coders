@@ -1,0 +1,10 @@
+Class entities.interfaces: Chop
+Parent class: Command
+Subclasses: None
+Type: Use case
+
+Responsibilities:
+Perform the Chop action when called
+
+Collaborators:
+Chopable interface

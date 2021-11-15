@@ -1,0 +1,12 @@
+Class: entities.Animal
+Parent class: entities.Character
+Subclasses:
+Type: Entity
+
+Responsibilities:
+* Process a hit against the Animal using handleHit
+    * Give the player meat if the Animal dies
+    * Return the damage of the hit given
+
+Collaborators:
+* entities.interfaces.ThrowableTarget

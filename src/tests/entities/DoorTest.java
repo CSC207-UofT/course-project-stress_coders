@@ -35,7 +35,7 @@ public class DoorTest {
     public void viewAllHints() {
         String[] hints = {"hint1", "hint2"};
         Door doorTest = new VaultDoor("door", hints, "answer!");
-        assertEquals("hint1" + "\n" + "hint2", doorTest.viewAllHints());
+        assertEquals("hint1" + "\n" + "hint2" + "\n", doorTest.viewAllHints());
     }
 
     @Test

@@ -34,7 +34,7 @@ public class PotionDispenser extends Interactable implements Spinnable {
         }
         player.subCurrency(950);
         Random r = new Random();
-        int chosen = r.nextInt(this.potions.size() + 1);
+        int chosen = r.nextInt(this.potions.size());
         this.setCompleted(true);
         return potions.get(chosen);
     }

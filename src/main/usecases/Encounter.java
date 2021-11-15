@@ -240,8 +240,8 @@ public class Encounter {
         }
 
         if(interactable instanceof Item){
-            index = random.nextInt(charKeySet.length);
-            id = charKeySet[index] + " " + originalId;
+            index = random.nextInt(objKeySet.length);
+            id = objKeySet[index] + " " + originalId;
         }
 
         if(interactable instanceof Character){

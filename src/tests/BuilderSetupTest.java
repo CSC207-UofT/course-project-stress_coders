@@ -1,5 +1,3 @@
-import entities.Character;
-import entities.Player;
 import interfaceadapters.BuilderSetup;
 import org.junit.Test;
 import usecases.Encounter;
@@ -19,6 +17,7 @@ public class BuilderSetupTest {
         PlayerManager p = new PlayerManager("sh", "easy");
         BuilderSetup b = new BuilderSetup(p.getPlayer(), "short");
         List<Encounter> encounters = b.build();
+        System.out.println(encounters.size());
         assertTrue(encounters.size() <= 10);
         for (Encounter e: encounters) {
             assertTrue(e.getGenericPool().size() <= 5);}
@@ -30,6 +29,7 @@ public class BuilderSetupTest {
         PlayerManager p = new PlayerManager("sh", "easy");
         BuilderSetup b = new BuilderSetup(p.getPlayer(), "medium");
         List<Encounter> encounters = b.build();
+        System.out.println(encounters.size());
         assertTrue(encounters.size() <= 20);
         for (Encounter e: encounters) {assertTrue(e.getGenericPool().size() <= 10);}
     }

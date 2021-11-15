@@ -21,12 +21,10 @@ public class GoblinTest {
     @Test
     public void listenAndRespond() {
         RiddleGoblin goblinTest = new RiddleGoblin("id", new Player("j"));
-        goblinTest.listenAndRespond();
         List<String> hints = new ArrayList<>();
         hints.add("hint");
         goblinTest.setHints(hints);
         goblinTest.setCompleted(true);
-
-        assertEquals("Congrats on solving the riddle!", goblinTest.speak());
+        assertEquals("Congrats on solving the riddle!", goblinTest.listenAndRespond());
     }
 }

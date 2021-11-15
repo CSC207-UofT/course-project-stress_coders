@@ -6,9 +6,9 @@ import entities.interfaces.Throwable;
 /*
 A rock that serves as a basic tool that can be found very commonly. High hitProb, low weight and chopDamage
  */
-public class Rock extends Weapon implements Throwable, CanChop {
+public class Stone extends Weapon implements Throwable, CanChop {
 
-    public Rock(String id) {
+    public Stone(String id) {
         super(id, "throw: thrown_obj=rock1, target=enemy1");
         addHitProbability();
         addWeight();

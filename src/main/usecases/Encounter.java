@@ -3,7 +3,6 @@ package usecases;
 import entities.*;
 import entities.Character;
 import entities.interfaces.Spinnable;
-import interfaceadapters.IDreader;
 
 import java.util.*;
 

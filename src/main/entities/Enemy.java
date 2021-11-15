@@ -18,6 +18,9 @@ public class Enemy extends Character implements ThrowableTarget {
     private Player player;
     private int valueDefeated;
 
+    /**
+     * We have multiple constructors that allow flexibility in subclasses for what they wish to specify.
+     */
     public Enemy(String id, Player player, int valueDefeated) {
         super(id);
         this.player = player;

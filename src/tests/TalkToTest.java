@@ -8,7 +8,6 @@ import usecases.TalkTo;
 
 import java.util.HashMap;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class TalkToTest {
@@ -23,7 +22,7 @@ public class TalkToTest {
 
         assertEquals("They cannot talk!", talkToCommand.execute(testArgs));
 
-        RiddleGoblin riddleGoblin = new RiddleGoblin("id2", new Player("1"), 1);
+        RiddleGoblin riddleGoblin = new RiddleGoblin("id2", new Player("j"));
         // Cannot test the rest because there is a scanner
     }
 }

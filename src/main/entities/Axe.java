@@ -17,7 +17,8 @@ public class Axe extends Weapon implements Throwable, CanChop {
 
 
     public Axe(String id) {
-        super(id, "this is an axe. it can be used to chop or throw.");
+        super(id, "to throw use throw: throw_obj:[weapon_id], target=[enemy_id] and to chop use " +
+                "chop: tool=[weapon_id], target=[resource_id]");
         /*
          adding enforced variables to interactable properties map, if this is not done accessing them
          in the command will throw a propertyNotAddedException

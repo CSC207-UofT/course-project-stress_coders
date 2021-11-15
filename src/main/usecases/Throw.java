@@ -22,9 +22,6 @@ Throwable objs must implement the properties hitProb and Weight
 
 public class Throw extends Command {
 
-    public Throw(){
-        this.setDescription("Throw a throwable object at something. E.g. throw: throw_obj=axe1, target=tree");
-    }
     /*
     Execute first by determining if the objs are of valid type with the correct arguments
     Use the hitProb to determine if the throwable hits its target

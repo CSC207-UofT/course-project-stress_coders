@@ -28,18 +28,4 @@ public class CommandTest {
 
         assertEquals("Added 20 wood to name inventory", testCommand.execute(args));
     }
-
-    @Test
-    public void help() {
-        Command testCommand = new Chop();
-        // This will need to be changed, for now this is fine.
-        assertEquals("No description", testCommand.help());
-    }
-
-    @Test
-    public void setDescription() {
-        Command testCommand = new Chop();
-        testCommand.setDescription("here is a new description");
-        assertEquals("here is a new description", testCommand.help());
-    }
 }

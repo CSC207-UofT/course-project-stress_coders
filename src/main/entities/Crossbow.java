@@ -15,8 +15,10 @@ public class Crossbow extends ShootableWeapon{
     public Crossbow(String id, int ammoCount) {
         super(id);
         this.addAmmo(ammoCount);
-        this.addWeight();
-        this.addHitProbability();
+
+        addHitProbability();
+        addWeight();
+
     }
     /**
      * Adds property hit probability with the probability value

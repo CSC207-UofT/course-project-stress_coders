@@ -9,7 +9,6 @@ Framework for all commands same implementation as the command design pattern.
  */
 public abstract class Command {
     // describes command function and valid syntax/parameters for the command
-    private String description = "No description";
     /*
     Valid params that this function can be called with, stored in this format:
      {"thrown_obj": ["entities.interfaces.Throwable"],
@@ -32,11 +31,4 @@ public abstract class Command {
     /*
     Return the command description
      */
-    public String help(){
-        return this.description;
-    }
-
-    public void setDescription(String description){
-        this.description = description;
-    }
 }

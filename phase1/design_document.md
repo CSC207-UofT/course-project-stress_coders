@@ -87,18 +87,18 @@ instance in the following comment
 
 One thing to note is that we used a mix of regular comments and javadocs. For comments describing methods with obvious return values and parameters we used regular comments to simply define the functionality, for more complex methods that interact with more of our code we used javadoc to aid in the understanding using the @param, @return and the @see decorators.  For instance:
 
-![](/Users/michellechernyi/Documents/pic2.png)
+![](/phase1/MdRes/MD%20res/pic2.png)
 
 And this document that describes a key and complex instance variable.
 
-![](/Users/michellechernyi/Documents/pic3.png)
+![](/phase1/MdRes/MD%20res/pic3.png)
 
 We tried not to over document parts of our code that were simple and under document the complex part. As evident from the above picture, even though the comment is only documenting one instance variable since it is very complex and plays a large part in our command system we added an extensive comment describing it. For other more self explanatory properties like an Id we simply add a line specifying its role.
 
 ## Testing
 We have unit tests for many methods in our program, over 100 spanning 35 test files. Our code coverage is:<Get from sheezad>. One thing we’d like to note is that our tests are extensive for each method and each test is not testing the bare minimum to get our code coverage number up. The tests we have for our program test all possible returns and test behaviour too, for example in our chopTest:
-![](/Users/michellechernyi/Documents/pic4.png)
-![](/Users/michellechernyi/Documents/pic5.png)
+![](/phase1/MdRes/MD%20res/pic4.png)
+![](/phase1/MdRes/MD%20res/pic5.png)
 
 Notice that our test checks all possible return statements and for return statements that  provide variable output depending on the input object we create a sample object and trace the correct output through its respective class to test the method.
 

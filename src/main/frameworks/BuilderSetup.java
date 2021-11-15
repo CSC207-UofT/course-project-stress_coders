@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
-import java.lang.Object;
 
 public class BuilderSetup {
     List<Encounter> allGeneratedEncounters;
@@ -37,6 +36,9 @@ public class BuilderSetup {
         }
         else if (questLength.equals("medium")) {
             this.questLengthBound = 10;
+        }
+        else if (questLength.equals("test")) {
+            this.questLengthBound = 1;
         }
         else {
             this.questLengthBound = 15;
@@ -78,6 +80,9 @@ public class BuilderSetup {
             Interactable mainChoice = allMain.get(r.nextInt(allMain.size()));
             Interactable genericChoice = allGenerics.get(r.nextInt(allGenerics.size()));
             Interactable newMain = (Interactable) mainChoice.clone();
+            if (newMain instanceof Door) {
+                newMain = generateVaultDoor();
+            }
             Interactable newGeneric = (Interactable) genericChoice.clone();
             e.addGeneric(newGeneric);
             e.addObj(newMain);
@@ -96,7 +101,15 @@ public class BuilderSetup {
         VaultDoor v = generateVaultDoor();
         MysteryBox m = generateMysteryBox();
         PotionDispenser p = generatePotionDispenser();
-        RiddleGoblin riddleGoblin = new RiddleGoblin("riddler", player, 10);
+        RiddleGoblin riddleGoblin = new RiddleGoblin("riddler", player);
+        riddleGoblin.setRiddleInfo("", "What do you always face yet is always behind you?",
+                "Your past");
+        List<String> hints = new ArrayList<>();
+        hints.add("This is a very metaphorical one maybe consider not wasting *time*");
+        hints.add("Answer starts with Your");
+        hints.add("Causes a lot of suffering but helps you grow");
+        hints.add("Just type 'Your past");
+        riddleGoblin.setHints(hints);
         Enemy enemy = new Enemy("Random Enemy", player, 25); // Should generate enemy names
         this.allPossibleInteractables.add(v);
         this.allPossibleInteractables.add(m);
@@ -122,8 +135,14 @@ public class BuilderSetup {
             player.addConsumable(peanut);
             player.addConsumable(cookedBeef);
         }
-        Axe a = new Axe("Big Boi");
-        player.setWeapon(a);
+        List<Weapon> weapons = new ArrayList<>();
+        weapons.add(new Axe("Big Boi"));
+        weapons.add(new Spear("Trident"));
+        weapons.add(new Crossbow("Nut Slinger", 30));
+        weapons.add(new HandCannon("Pirate Cannon", 30));
+        weapons.add(new Slingshot("pew pew", 30));
+        int chosenWeapon = r.nextInt(weapons.size());
+        player.setWeapon(weapons.get(chosenWeapon));
     }
 
     public VaultDoor generateVaultDoor() {

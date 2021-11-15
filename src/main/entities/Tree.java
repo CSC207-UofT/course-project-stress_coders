@@ -7,7 +7,8 @@ import entities.interfaces.Harvestable;
  */
 public class Tree extends Interactable implements Harvestable {
     public Tree(String id){
-        super(id, "Chop this down for wood resource.");
+        super(id, "Chop this tree to collect wood.",
+                "Use command in form chop: tool=axe1, target=tree. The tool argument must be held by the player (picked up)");
         addInfo();
     }
 

@@ -20,7 +20,7 @@ public class Shoot extends Command{
 
     @Override
     public String execute(HashMap<String, Interactable> args) {
-        String shotObject = "obj"; String target = "target";
+        String shotObject = "shoot_obj"; String target = "target";
         if(args.get(shotObject) instanceof ShootableWeapon && args.get(target) instanceof ThrowableTarget) {
             ThrowableTarget throwTarget = (ThrowableTarget) args.get(target);
             ShootableWeapon shot = (ShootableWeapon) args.get(shotObject);
@@ -41,7 +41,7 @@ public class Shoot extends Command{
         if(!(args.get(shotObject) instanceof ShootableWeapon)){
             return "You cannot shoot that";
         }
-        if(((ShootableWeapon) args.get(shotObject)).getAmmoCount() == 0){
+        if(((ShootableWeapon) args.get(shotObject)).getAmmoCount() <= 0){
             return "You're out of ammunition";
         }
 

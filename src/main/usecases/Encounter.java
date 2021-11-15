@@ -161,8 +161,8 @@ public class Encounter {
      */
     public String mainMissionSelect() {
         currInteractableIndex++;
-        System.out.println("Main mission started, enjoy!");
-        return progression.get(currInteractableIndex).getInitialText();
+        return "Main mission started, enjoy!";
+
     }
 
     /**
@@ -190,7 +190,6 @@ public class Encounter {
             return s;
         }
         if (progression.get(currInteractableIndex).isCompleted()) {
-            System.out.println("Here");
             System.out.println(s);
             if (currInteractableIndex == progression.size()-1) {
                 this.isCompleted = true;

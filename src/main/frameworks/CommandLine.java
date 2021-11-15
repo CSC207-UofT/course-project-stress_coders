@@ -22,13 +22,13 @@ public class CommandLine {
     private static final Set<String> GAME_LENGTH_OPTIONS = new HashSet<>(List.of(new String[]{"short", "medium",
             "long", "test"}));
 
-    private static final String genericHelp = """
-            Some special commands you can call :\s
-            help : get help for your current situation\s
-            progress : returns your completed encounters\s
-            display_objects : list all the interactables in your current encounter\s
-            consumeItem : brings up your inventory to let you consume consumables\s
-            pick_up : starts pick up prompt to pick up a weapon""";
+    private static final String genericHelp =
+            "Some special commands you can call :\n" +
+            "help : get help for your current situation\n"+
+            "progress : returns your completed encounters\n"+
+            "display_objects : list all the interactables in your current encounter\n"+
+            "consumeItem : brings up your inventory to let you consume consumables\n"+
+            "pick_up : starts pick up prompt to pick up a weapon";
     public CommandLine() throws IOException {
         IDreader idReader = new IDreader();
         idReader.initAdjectives();

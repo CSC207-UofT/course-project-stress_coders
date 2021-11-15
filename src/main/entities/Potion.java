@@ -58,7 +58,7 @@ public class Potion extends Item implements Throwable, Consumable {
         if (p != null) {
             p.subConsumable(this, 1);
             p.setHealthPoints(p.getHealthPoints() + this.getProperty(InteractableProperties.CONSUMABLE_REST_NAME.name()).getInteger());
-            return "You consumed 1" + this.getId();
+            return "You consumed 1 " + this.getId();
         } else {
             return "You don't hold this!";
         }

@@ -28,11 +28,11 @@ public class EncounterTest {
     @Test
     public void addGeneric() {
         Encounter testEncounter = new Encounter("init_text", "name", "description");
-        Interactable axe = new Axe("id");
+        Interactable tree = new Tree("Oak");
 
-        testEncounter.addGeneric(axe);
+        testEncounter.addGeneric(tree);
 
-        assertTrue(testEncounter.getGenericPool().contains(axe));
+        assertTrue(testEncounter.getGenericPool().contains(tree));
     }
 
     @Test

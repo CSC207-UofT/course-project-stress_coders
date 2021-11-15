@@ -30,10 +30,16 @@ public class BuilderSetup {
         this.allPossibleInteractables = new ArrayList<>();
         this.allGeneratedEncounters = new ArrayList<>();
         switch (questLength) {
-            case "short" -> this.questLengthBound = 5;
-            case "medium" -> this.questLengthBound = 10;
-            case "test" -> this.questLengthBound = 1;
-            default -> this.questLengthBound = 15;
+            case "short":
+                this.questLengthBound = 5;
+                break;
+            case "medium":
+                this.questLengthBound = 10;
+                break;
+            case "test":
+                this.questLengthBound = 1;
+                break;
+            default: this.questLengthBound = 15;
         }
         loadEncounterGenerator();
     }

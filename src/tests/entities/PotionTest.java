@@ -49,6 +49,6 @@ public class PotionTest {
 
         player.addConsumable(potionTest);
         assertEquals("You consumed 1 id2", potionTest.consume());
-        assertEquals(player.getHealthPoints(), initHP + 15);
+        assertEquals(player.getHealthPoints(), initHP + 10);
     }
 }

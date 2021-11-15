@@ -31,7 +31,7 @@ public class MysteryBox extends Interactable implements Spinnable {
         }
         player.subCurrency(950);
         Random r = new Random();
-        int chosen = r.nextInt(this.weapons.size() + 1);
+        int chosen = r.nextInt(this.weapons.size());
         this.setCompleted(true);
         return weapons.get(chosen);
     }

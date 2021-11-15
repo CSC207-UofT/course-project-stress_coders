@@ -91,7 +91,7 @@ public class PlayerTest {
         testPlayer.addConsumable(potion);
 
         testPlayer.subConsumable(potion, 1);
-        assertEquals(0, (int) testPlayer.getItems().get(potion));
+        assertEquals(2, (int) testPlayer.getItems().get(potion));
     }
 
     @Test
@@ -110,7 +110,7 @@ public class PlayerTest {
         testPlayer.addConsumable(potion);
         testPlayer.addConsumable(potion);
 
-        assertEquals(1, testPlayer.itemAmount(potion));
+        assertEquals(3, testPlayer.itemAmount(potion));
     }
 
     @Test

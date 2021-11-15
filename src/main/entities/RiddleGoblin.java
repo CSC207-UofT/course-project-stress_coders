@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,7 +14,7 @@ public class RiddleGoblin extends Goblin {
     private String riddle;
     private String answer;
     private final Player player;
-    private List<String> hints;
+    private List<String> hints = new ArrayList<>();
     private int currHint = 0;
 
     /**
@@ -89,12 +90,14 @@ public class RiddleGoblin extends Goblin {
         System.out.println("Answer my riddle!\n" + this.riddle);
         while (!this.isCompleted()) {
             // start mini-game
-            Scanner lineIn = new Scanner(System.in);
-            System.out.println("Here's a hint: " + hints.get(currHint));
-            currHint++;
+            if (hints.size() != 0) {
+                System.out.println("Here's a hint: " + hints.get(currHint));
+                currHint++;
+            }
             if (currHint == hints.size()) {
                 currHint = 0;
             }
+            Scanner lineIn = new Scanner(System.in);
             String userResponse = lineIn.nextLine();
             if (userResponse.equals(this.answer)) {
                 System.out.println("Correct!\n" + this.reward());

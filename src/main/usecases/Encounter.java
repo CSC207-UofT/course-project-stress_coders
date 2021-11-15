@@ -3,6 +3,7 @@ package usecases;
 import entities.*;
 import entities.Character;
 import entities.interfaces.Spinnable;
+import entities.interfaces.Target;
 
 import java.util.*;
 
@@ -270,9 +271,13 @@ public class Encounter {
             if (this.genericPool.get(currGenericIndex) instanceof Spinnable) {
                 System.out.println("You currently have " + player.getWallet() + " geld");
             }
+            else if (this.genericPool.get(currGenericIndex) instanceof Target) {
+                System.out.println("Your current weapon is " + player.getCurrentWeapon().getId());
+                return player.getCurrentWeapon().getHelp();
+            }
             return this.genericPool.get(currGenericIndex).getHelp();
         }
-        if (this.progression.get(currInteractableIndex) instanceof Enemy) {
+        if (this.progression.get(currInteractableIndex) instanceof Target) {
             System.out.println("Your current weapon is " + player.getCurrentWeapon().getId());
             return player.getCurrentWeapon().getHelp();
         }

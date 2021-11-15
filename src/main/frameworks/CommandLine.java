@@ -2,7 +2,6 @@ package frameworks;
 
 import entities.*;
 import entities.interfaces.Consumable;
-import usecases.Command;
 import interfaceadapters.*;
 import usecases.*;
 
@@ -23,7 +22,10 @@ public class CommandLine {
     private static final Set<String> GAME_LENGTH_OPTIONS = new HashSet<>(List.of(new String[]{"short", "medium",
             "long", "test"}));
 
-    private static final String genericHelp = "SOME GENERIC HELP FOR USER>> NEED TO ADD";
+    private static final String genericHelp = "Some special commands you can call : \n" + "help : get help for your " +
+            "current situation \n" + "progress : returns your completed encounters \n" + "display_objects : " +
+            "list all the interactables in your current encounter \n" + "consumeItem : brings up your inventory to let you" +
+            " consume consumables \n" + "pick_up : starts pick up prompt to pick up a weapon";
     public CommandLine() throws IOException {
         IDreader idReader = new IDreader();
         Encounter[] e = new Encounter[0];
@@ -105,7 +107,7 @@ public class CommandLine {
                 return s;
             }
         } else if (nextInput.equals("help")) {
-            return genericHelp + '\n' + this.gameState.getHelp();
+            return genericHelp + '\n' + "Current encounter help: \n"+ this.gameState.getHelp();
         }
         else if (nextInput.equals("display_objects")) {
             // List the interactables available

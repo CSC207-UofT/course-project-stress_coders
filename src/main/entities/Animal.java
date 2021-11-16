@@ -36,6 +36,7 @@ public class Animal extends Character implements ThrowableTarget {
             Meat meat = new Meat(getId() + " meat");
             meat.addRestorationValue();
             player.addConsumable(meat);
+            this.setCompleted(true);
             return "Your "+ throwable.getId() + " hits " + getId() + " for " + weight + " damage! You killed the beast " +
                     "and received " + getId() + " meat";
         }

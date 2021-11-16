@@ -243,7 +243,8 @@ public class CommandLine {
         }
         String comm = splitString[command_id];
 
-        return this.gameState.callCommand(comm, args);
+        System.out.println(this.gameState.callCommand(comm, args));
+        return this.gameState().getHelp();
     }
 
     public String specialConsumeCall() {

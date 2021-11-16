@@ -67,7 +67,8 @@ public class GameState {
         System.out.println("Quest Selected!");
         System.out.println(this.encounters.get(current_encounter).loadInitial());
         this.encounters.get(current_encounter).requestInteractable();
-        return "Good Luck!";
+        System.out.println("Good luck!");
+        return getHelp();
     }
 
     /**

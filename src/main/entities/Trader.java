@@ -40,4 +40,8 @@ public class Trader extends Item implements CanTradeWith {
             this.inventory.put(key, itemsToAdd.get(key));
         }
     }
+
+    public HashMap<String, Consumable> getInventory() {
+        return this.inventory;
+    }
 }

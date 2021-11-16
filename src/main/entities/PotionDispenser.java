@@ -30,6 +30,7 @@ public class PotionDispenser extends Interactable implements Spinnable {
 
     public Potion spin() {
         if (player.getWallet() < 950) {
+            this.setCompleted(true);
             return new UnusablePotion();
         }
         player.subCurrency(950);

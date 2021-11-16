@@ -149,7 +149,7 @@ public class Encounter {
                 System.out.println(g.getId() + ": " + g.getInitialText());
             }
         }
-        System.out.println("Please select a mission or interaction, if selecting a mission, make sure you choose" +
+        System.out.println("Please select a mission or interaction by entering its name, if selecting a mission, make sure you choose" +
                 " the first available one!");
     }
 
@@ -275,14 +275,14 @@ public class Encounter {
                 System.out.println("You currently have " + player.getWallet() + " geld");
             }
             else if (this.genericPool.get(currGenericIndex) instanceof Target) {
-                System.out.println("Your current weapon is " + player.getCurrentWeapon().getId());
-                return player.getCurrentWeapon().getHelp();
+                String s = "Your current weapon is " + player.getCurrentWeapon().getId() + "\n";
+                return s+player.getCurrentWeapon().getHelp();
             }
             return this.genericPool.get(currGenericIndex).getHelp();
         }
         if (this.progression.get(currInteractableIndex) instanceof Target) {
-            System.out.println("Your current weapon is " + player.getCurrentWeapon().getId());
-            return player.getCurrentWeapon().getHelp();
+            String s = "Your current weapon is " + player.getCurrentWeapon().getId() + "\n";
+            return s+player.getCurrentWeapon().getHelp();
         }
         return this.progression.get(currInteractableIndex).getHelp();
     }

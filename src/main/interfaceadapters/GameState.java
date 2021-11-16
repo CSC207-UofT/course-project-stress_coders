@@ -36,7 +36,7 @@ public class GameState {
      * @return Good Luck! but will print user quest selections in the process
      */
     public String requestEncounter() {
-        System.out.println("Please choose a quest:");
+        System.out.println("Please choose a quest (enter its name):");
         System.out.println("==TO DO==");
         for (Encounter e: encounters) {
             if (!completedEncounters.contains(e)) {

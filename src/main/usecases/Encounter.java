@@ -1,5 +1,6 @@
 package usecases;
 
+import Style.ColorConstants;
 import entities.*;
 import entities.Character;
 import entities.interfaces.Spinnable;
@@ -59,7 +60,8 @@ public class Encounter {
     }
 
     public String getDetails() {
-        return this.encounterName + " : " + this.description;
+        return ColorConstants.getColorCode("BLUE") + this.encounterName + ColorConstants.getColorCode("RESET")+ " : " +
+                ColorConstants.getColorCode("GREEN") + this.description + ColorConstants.getColorCode("RESET");
     }
 
     public String getName() {
@@ -134,22 +136,26 @@ public class Encounter {
         for (int i = correctDisplay; i < progression.size(); i++) {
             Interactable s = progression.get(i);
             if (s.getInitialText().equals("")) {
-                System.out.println(s.getId());
+                System.out.println(ColorConstants.getColorCode("BLUE") + s.getId() + ColorConstants.getColorCode("RESET"));
             }
             else {
-                System.out.println(s.getId() + " : " + s.getInitialText());
+                System.out.println(ColorConstants.getColorCode("BLUE") + s.getId() + ColorConstants.getColorCode("RESET")
+                        + " : " + s.getInitialText());
             }
         }
         System.out.println("=====Side Interactions:=====");
         for (Interactable g: genericPool) {
             if (g.getInitialText().equals("")) {
-                System.out.println(g.getId());
+                System.out.println(ColorConstants.getColorCode("BLUE")+g.getId()+ColorConstants.getColorCode("RESET"));
             }
             else {
-                System.out.println(g.getId() + ": " + g.getInitialText());
+                System.out.println(ColorConstants.getColorCode("BLUE")+g.getId()+ColorConstants.getColorCode("RESET")
+                        + ": " + g.getInitialText());
             }
         }
-        System.out.println("Please select a mission or interaction by entering its name, if selecting a mission, make sure you choose" +
+        System.out.println("Please select a mission or interaction by entering its name marked in " +
+                ColorConstants.getColorCode("BLUE") + "blue" + ColorConstants.getColorCode("RESET") +
+                ", if selecting a mission, make sure you choose" +
                 " the first available one!");
     }
 

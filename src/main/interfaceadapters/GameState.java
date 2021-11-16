@@ -1,5 +1,6 @@
 package interfaceadapters;
 
+import Style.ColorConstants;
 import entities.Interactable;
 import usecases.*;
 
@@ -36,7 +37,8 @@ public class GameState {
      * @return Good Luck! but will print user quest selections in the process
      */
     public String requestEncounter() {
-        System.out.println("Please choose a quest (enter its name):");
+        System.out.println("Please choose a quest (enter its name marked in " + ColorConstants.getColorCode("BLUE") +
+                "blue color "+ ColorConstants.getColorCode("RESET")+"):");
         System.out.println("==TO DO==");
         for (Encounter e: encounters) {
             if (!completedEncounters.contains(e)) {
@@ -68,7 +70,7 @@ public class GameState {
         System.out.println(this.encounters.get(current_encounter).loadInitial());
         this.encounters.get(current_encounter).requestInteractable();
         System.out.println("Good luck!");
-        return getHelp();
+        return ColorConstants.getColorCode("GREEN")+ getHelp() + ColorConstants.getColorCode("RESET");
     }
 
     /**

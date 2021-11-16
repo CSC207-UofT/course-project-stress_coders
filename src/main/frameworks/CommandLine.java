@@ -1,5 +1,6 @@
 package frameworks;
 
+import Style.ColorConstants;
 import entities.*;
 import entities.interfaces.Consumable;
 import interfaceadapters.*;
@@ -57,7 +58,6 @@ public class CommandLine {
     public void start() throws CloneNotSupportedException {
         boolean running = true;
         boolean firstRun = true;
-        CommandConstants.loadCommands();
         // fixed player death sequence bug and added defificulty
         while(running) {
             if (firstRun) {
@@ -134,10 +134,13 @@ public class CommandLine {
     public String specialCommand(String nextInput) {
         if (nextInput.equals("progress")) {
             for (String s : this.gameState().completedEncounters()) {
-                return s;
+                System.out.println(s);
             }
+            return "Well Done!";
         } else if (nextInput.equals("help")) {
-            return genericHelp + '\n' + "Current encounter help: \n"+ this.gameState.getHelp();
+            return ColorConstants.getColorCode("PURPLE") + genericHelp +ColorConstants.getColorCode("RESET")+ '\n'
+                    + ColorConstants.getColorCode("GREEN") + "Current encounter help: \n"+ this.gameState.getHelp()
+                    + ColorConstants.getColorCode("RESET");
         }
         else if (nextInput.equals("display_objects")) {
             // List the interactables available
@@ -248,8 +251,8 @@ public class CommandLine {
     }
 
     public String specialConsumeCall() {
-        System.out.println("Please enter the consumable of your choice from the given consumables in the format" +
-                " consume: consumable= [consumable_id]");
+        System.out.println(ColorConstants.getColorCode("CYAN")+"Please enter the consumable of your choice from the given consumables in the format" +
+                " consume: consumable= [consumable_id]"+ ColorConstants.getColorCode("RESET"));
         for (Consumable c: playerState.getAllConsumables()) {
             System.out.println(c.getId());
         }
@@ -261,7 +264,7 @@ public class CommandLine {
         String[] splitString = nextInput2.split(regex);
         int args_id = 1;
         if(splitString.length != 2){
-            return "Unrecognized input";
+            return ColorConstants.getColorCode("RED")+"Unrecognized input"+ColorConstants.getColorCode("RESET");
         }
         HashMap<String, String> argToID = parseCommand(splitString[args_id]);
 

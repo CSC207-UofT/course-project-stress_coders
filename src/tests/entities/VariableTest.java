@@ -1,3 +1,4 @@
+package entities;
 
 import entities.Variable;
 import org.junit.Test;

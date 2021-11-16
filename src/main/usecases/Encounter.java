@@ -270,21 +270,22 @@ public class Encounter {
      * @return String representing the specific help for this current situation
      */
     public String getHelp(Player player) {
+        System.out.println("All commands will be of the form -- command: [param_type]=[param_name]");
         if (doingGeneric) {
             if (this.genericPool.get(currGenericIndex) instanceof Spinnable) {
                 System.out.println("You currently have " + player.getWallet() + " geld");
             }
             else if (this.genericPool.get(currGenericIndex) instanceof Target) {
                 String s = "Your current weapon is " + player.getCurrentWeapon().getId() + "\n";
-                return s+player.getCurrentWeapon().getHelp();
+                return s+ "Current command(s) - " + player.getCurrentWeapon().getHelp();
             }
-            return this.genericPool.get(currGenericIndex).getHelp();
+            return "Current command(s) - " + this.genericPool.get(currGenericIndex).getHelp();
         }
         if (this.progression.get(currInteractableIndex) instanceof Target) {
             String s = "Your current weapon is " + player.getCurrentWeapon().getId() + "\n";
-            return s+player.getCurrentWeapon().getHelp();
+            return s+ "Current command(s) - " + player.getCurrentWeapon().getHelp();
         }
-        return this.progression.get(currInteractableIndex).getHelp();
+        return "Current command(s) - " + this.progression.get(currInteractableIndex).getHelp();
     }
 
     public ArrayList<Interactable> getGenericPool(){

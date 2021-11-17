@@ -25,11 +25,14 @@ public class Trader extends Item implements CanTradeWith {
             if (price <= this.player.getWallet()) {
                 this.player.addConsumable(this.inventory.get(item));
                 this.player.subCurrency(price);
+                this.setCompleted(true);
                 return "Bought " + item + " for " + price + " geld";
             } else {
+                this.setCompleted(true);
                 return "Cannot afford that";
             }
         } else {
+            this.setCompleted(true);
             return "I don't sell that in my store, sorry";
         }
     }

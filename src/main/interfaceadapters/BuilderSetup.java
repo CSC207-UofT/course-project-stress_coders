@@ -3,12 +3,10 @@ package interfaceadapters;
 import entities.*;
 import entities.Interactable;
 import entities.Player;
+import entities.interfaces.Consumable;
 import usecases.Encounter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class BuilderSetup {
     List<Encounter> allGeneratedEncounters;
@@ -128,7 +126,15 @@ public class BuilderSetup {
         Berries blueberry = new Berries("blueberry");
         Nuts peanut = new Nuts("peanut");
         Meat cookedBeef = new Meat("cooked beef");
-
+        Trader t = new Trader("Devan the trader", player);
+        Map<String, Consumable> forTrader = new HashMap<>();
+        forTrader.put("Health Potion", healthPotion);
+        forTrader.put("Blueberry", blueberry);
+        forTrader.put("Peanut", peanut);
+        forTrader.put("Cooked Beef", cookedBeef);
+        allGenerics.add(t);
+        allPossibleInteractables.add(t);
+        t.addConsumablesToStore(forTrader);
         for (int i = 0; i <= 5; i++) {
             player.addConsumable(healthPotion);
             player.addConsumable(blueberry);

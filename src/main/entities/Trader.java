@@ -6,6 +6,7 @@ import usecases.Trade;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 /**
  * This is a gameobject that allows the user to trade currency for consumables (like an apple or potion)
@@ -14,13 +15,15 @@ public class Trader extends Item implements CanTradeWith {
     private final HashMap<String, Consumable> inventory = new HashMap<>();
     Player player;
     public Trader(String id, Player p) {
-        super(id, "Trade with this to gain consumables");
+        super(id, "Trade with this to gain consumables.E.G. trade: trader=[some trader], item=[some consumable]");
         this.player = p;
     }
 
     @Override
-    public String trade(Consumable itemObj){
-        String item = itemObj.getId();
+    public String trade(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("What would you like to buy: ");
+        String item = input.nextLine();
         if (this.inventory.containsKey(item)) {
             int price = Math.abs(((Interactable) this.inventory.get(item)).getProperty(InteractableProperties.CONSUMABLE_REST_NAME.name()).getInteger());
             if (price <= this.player.getWallet()) {

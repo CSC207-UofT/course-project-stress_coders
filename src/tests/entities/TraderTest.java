@@ -18,8 +18,12 @@ public class TraderTest {
         HashMap<String, Consumable> inventoryToAdd = new HashMap<String, Consumable>();
         inventoryToAdd.put(nut.getId(), nut);
         t.addConsumablesToStore(inventoryToAdd);
-        t.trade(nut);
-        assertEquals(nut.getId(), p.getConsumables().get(0).getId());
+        // t.trade();
+
+        // how do i make the user ask to trade 'nutty'
+
+
+        // assertEquals(nut.getId(), p.getConsumables().get(0).getId());
     }
 
     @Test

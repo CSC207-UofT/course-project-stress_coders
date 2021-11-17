@@ -5,6 +5,7 @@ import entities.interfaces.Consumable;
 import usecases.Trade;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This is a gameobject that allows the user to trade currency for consumables (like an apple or potion)
@@ -38,7 +39,7 @@ public class Trader extends Item implements CanTradeWith {
     }
 
     // Populate the trader with consumables
-    public void addConsumablesToStore(HashMap<String, Consumable> itemsToAdd){
+    public void addConsumablesToStore(Map<String, Consumable> itemsToAdd){
         for (String key : itemsToAdd.keySet()) {
             this.inventory.put(key, itemsToAdd.get(key));
         }

@@ -17,9 +17,9 @@ public class Trade extends Command{
 
     @Override
     public String execute(HashMap<String, Interactable> args) {
-        String traderString = "trader"; String itemString = "item";
+        String traderString = "trader";
         if (args.get(traderString) instanceof Trader){
-            return ((Trader) args.get(traderString)).trade((Consumable) args.get(itemString));
+            return ((Trader) args.get(traderString)).trade();
         } else {
             return "Cannot trade with that";
         }

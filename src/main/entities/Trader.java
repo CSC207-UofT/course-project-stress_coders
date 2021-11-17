@@ -2,6 +2,7 @@ package entities;
 
 import entities.interfaces.CanTradeWith;
 import entities.interfaces.Consumable;
+import usecases.Trade;
 
 import java.util.HashMap;
 
@@ -10,18 +11,30 @@ import java.util.HashMap;
  */
 public class Trader extends Item implements CanTradeWith {
     private final HashMap<String, Consumable> inventory = new HashMap<>();
-    public Trader(String id) {
+    Player player;
+    public Trader(String id, Player p) {
         super(id, "Trade with this to gain consumables");
+        this.player = p;
     }
 
     @Override
-    public String trade(Player p, String item){
-        int price = Math.abs(((Interactable) this.inventory.get(item)).getProperty(InteractableProperties.CONSUMABLE_REST_NAME.name()).getInteger());
-        if (price <= p.getWallet()) {
-            p.addConsumable(this.inventory.get(item));
-            p.subCurrency(price);
-            return "Bought " + item + " for " + price + " geld";
-        } else { return "Cannot afford that"; }
+    public String trade(Consumable itemObj){
+        String item = itemObj.getId();
+        if (this.inventory.containsKey(item)) {
+            int price = Math.abs(((Interactable) this.inventory.get(item)).getProperty(InteractableProperties.CONSUMABLE_REST_NAME.name()).getInteger());
+            if (price <= this.player.getWallet()) {
+                this.player.addConsumable(this.inventory.get(item));
+                this.player.subCurrency(price);
+                this.setCompleted(true);
+                return "Bought " + item + " for " + price + " geld";
+            } else {
+                this.setCompleted(true);
+                return "Cannot afford that";
+            }
+        } else {
+            this.setCompleted(true);
+            return "I don't sell that in my store, sorry";
+        }
     }
 
     // Populate the trader with consumables
@@ -29,5 +42,9 @@ public class Trader extends Item implements CanTradeWith {
         for (String key : itemsToAdd.keySet()) {
             this.inventory.put(key, itemsToAdd.get(key));
         }
+    }
+
+    public HashMap<String, Consumable> getInventory() {
+        return this.inventory;
     }
 }

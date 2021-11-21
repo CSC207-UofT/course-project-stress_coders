@@ -12,7 +12,7 @@ public class MysteryBox extends Interactable implements Spinnable {
     Player player;
 
     public MysteryBox(String id, List<Weapon> weapons, Player p) {
-        super(id, "spin: box=[mysterybox_id]}"); // is the } a typo?
+        super(id, "spin: box=[mysterybox_id]"); // is the } a typo?
         this.weapons = new ArrayList<>();
         loadWeapons(weapons);
         player = p;

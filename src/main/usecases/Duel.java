@@ -32,6 +32,7 @@ public class Duel extends Command {
                 }
 
             }
+            j.setCompleted(true);
             return "You forfeitted the joust!";
 
         }

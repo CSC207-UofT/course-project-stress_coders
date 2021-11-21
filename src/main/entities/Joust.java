@@ -8,8 +8,13 @@ import java.util.Random;
 public class Joust extends Interactable implements Duelable {
 
     Player player;
-    Character joustOpponent;
 
+    /**
+     * Construct a Joust
+     *
+     * @param id the Joust object's id
+     * @param p The current player participating in the joust
+     */
     public Joust(String id, Player p) {
         super(id, "duel: joust=[joust_id]");
         player = p;

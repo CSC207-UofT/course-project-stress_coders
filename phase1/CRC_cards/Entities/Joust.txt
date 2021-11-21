@@ -4,10 +4,8 @@ Subclasses: None
 Type: Entity
 
 Responsibilities:
-* Construct a Joust tournament, where Player plays against Character
+* Construct a Joust, where its determined if the Player won or lost the joust
 
 Collaborators:
-* entities.interfaces.Target
-* entities.Character
+* entities.interfaces.Duelable
 * entities.Player
-* entities.Weapon

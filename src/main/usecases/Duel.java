@@ -22,6 +22,8 @@ public class Duel extends Command {
             System.out.println("Enter 'yes' to continue  and anything else to forfeit the joust!");
             Scanner lineIn = new Scanner(System.in);
             String choice = lineIn.nextLine();
+
+
             if (choice.equals("yes")) {
                 boolean result = j.playerWon();
                 if (result == true) {
@@ -32,6 +34,9 @@ public class Duel extends Command {
                 }
 
             }
+
+
+
             j.setCompleted(true);
             return "You forfeitted the joust!";
 

@@ -23,16 +23,18 @@ public class Joust extends Interactable implements Duelable {
 
     @Override
     public boolean playerWon() {
+
         Random r = new Random();
-
         int chosen = r.nextInt(2);
-        this.setCompleted(true);
 
-        if(chosen == 0) { // chosing the winner randomly.
-            return true;  // player wonthe Joust
-        } else {
-            return false; // player lost the Joust
+        if (chosen == 0) {
+            this.setCompleted(true);
+            return false;  // player lost the Joust
         }
+
+        this.setCompleted(true);
+        return true;  // player won the Joust
+
 
     }
 }

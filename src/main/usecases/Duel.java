@@ -1,16 +1,24 @@
 package usecases;
 
+import entities.*;
 import entities.Character;
-import entities.Interactable;
-import entities.Joust;
+import entities.Enemy;
 
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Duel extends Command {
 
+    private Player player;
+
     @Override
     public String execute(HashMap<String, Interactable> args) {
+
+        /**
+         * Execute the following to play the Joust or other Duel interactables.
+         *
+         * @return a valid output string depending on the result of the user input or joust.
+         */
 
         if (args.get("joust") instanceof Joust) {
             Joust j = ((Joust) args.get("joust"));
@@ -25,19 +33,17 @@ public class Duel extends Command {
 
 
             if (choice.equals("yes")) {
-                boolean result = j.playerWon();
-                if (result == true) {
-                    return "Nice, you won the joust!";
+                Character result = j.playerWon();
+                if (result == player) {
+                    return "Nice, you won the joust and got " + j.getValueDefeated() + " !";
                 }
                 else {
-                    return "You lost the joust and died!!";
+                    return "You lost the joust to " + ((Enemy) result).getId() +" and died!!";
+
                 }
 
             }
 
-
-
-            j.setCompleted(true);
             return "You forfeitted the joust!";
 
         }

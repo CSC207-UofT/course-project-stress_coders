@@ -2,6 +2,7 @@ package entities;
 
 import entities.interfaces.Raceable;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -35,7 +36,8 @@ public class HorseRace extends Interactable implements Raceable {
     private int[] racers;
     private int numRacers;
     private Character[] output;
-    private HashMap<Character, Integer> yahToCharacter;
+   // private HashMap<Character, Integer> yahToCharacter;
+    private ArrayList<Character> arr = new ArrayList<>();
     private int yahCount;
     private int numYahsNeeded;
 
@@ -46,19 +48,20 @@ public class HorseRace extends Interactable implements Raceable {
         this.numRacers = numRacers;
         this.racers = new int[this.numRacers];
         this.output = new Character[this.numRacers];
-        this.yahToCharacter = new HashMap<Character, Integer>();
+        // this.yahToCharacter = new HashMap<Character, Integer>();
         // We set 0 to represent
 
-        for(int i=0; i<this.numRacers; i++) {
-            this.racers[i] = i;
-        }
-
+//        for(int i=0; i<this.numRacers; i++) {
+//            this.arr.add(i);
+//        }
+        this.arr.add(p);
         // Populate the HashMap and Character array
         for(int i=1; i <this.numRacers; i++) {
             Character x;
             x = new Enemy(Integer.toString(i), p, 50);
-            this.output[i] = x;
-            yahToCharacter.put(x, 0);
+            this.arr.add(x);
+            // this.output[i] = x;
+            // yahToCharacter.put(x, 0);
         }
 
 
@@ -70,13 +73,13 @@ public class HorseRace extends Interactable implements Raceable {
 
 
     @Override
-    public Character[] getOutput() {
-        return this.output;
+    public ArrayList<Character> getOutput() {
+        return this.arr;
     }
 
     @Override
     public Character getRaceWinner() {
-        return this.getOutput()[0];
+        return this.getOutput().get(0);
     }
 
     public String getIdRaceWinner() {

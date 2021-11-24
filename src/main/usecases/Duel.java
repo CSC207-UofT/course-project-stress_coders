@@ -5,7 +5,9 @@ import entities.Character;
 import entities.Enemy;
 
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.Scanner;
+import java.util.Optional;
 
 public class Duel extends Command {
 
@@ -23,26 +25,29 @@ public class Duel extends Command {
         if (args.get("joust") instanceof Joust) {
             Joust j = ((Joust) args.get("joust"));
 
+
             String message = "Are you sure you want to Joust?";
 
             System.out.println(message);
 
             System.out.println("Enter 'yes' to continue  and anything else to forfeit the joust!");
             Scanner lineIn = new Scanner(System.in);
-            String choice = lineIn.nextLine();
+            String check = lineIn.nextLine();
 
 
-            if (choice.equals("yes")) {
-                Character result = j.playerWon();
-                if (result == player) {
-                    return "Nice, you won the joust and got " + j.getValueDefeated() + " !";
+            if (!Objects.equals(j.playerWon(check), Optional.empty())) {
+                Optional<Character> result = j.playerWon(check);
+                // this must not be Optional.empty, so its either Enemy or Player
+
+                if (result.get().equals(player)) {
+                    return "Nice, you won the joust and got " + (j.getValueDefeated()) + " !";
                 }
-                else {
-                    return "You lost the joust to " + ((Enemy) result).getId() +" and died!!";
+                else { // otherwise it must be the Enemy, since its not Optional.empty
+                    return "You lost the joust to " + ((Enemy) result.get()).getId() +" and died!!";
 
                 }
 
-            }
+            } // otherwise j.playerWon(check) is Optional.empty()
 
             return "You forfeitted the joust!";
 

@@ -98,7 +98,10 @@ public class HorseRace extends Interactable implements Raceable {
      * A horse race is a race between several characters,
      * where they race on horses.
      *
-     * The player has to press 'w' more than
+     * The player has to press 'w' greater than or equal the
+     * numYahsNeeded to end the race.
+     *
+     * The interactable is setCompleted only when this happens
      *
      */
 
@@ -121,7 +124,6 @@ public class HorseRace extends Interactable implements Raceable {
             this.setCompleted(true);
             return true;
         }
-        this.setCompleted(true);
         return false;
     }
 

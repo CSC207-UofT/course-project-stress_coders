@@ -1,0 +1,11 @@
+Class: entities.Joust
+Parent class: entities.Interactable
+Subclasses: None
+Type: Entity
+
+Responsibilities:
+* Construct a Joust, where its determined if the Player won or lost the joust
+
+Collaborators:
+* entities.interfaces.Duelable
+* entities.Player

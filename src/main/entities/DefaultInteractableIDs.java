@@ -10,7 +10,8 @@ public enum DefaultInteractableIDs {
     RIDDLEGOBLIN("Riddle Goblin.txt"),
     TREE("Tree"),
     POTION("Potion"),
-    VAULTDOOR("Vault door");
+    VAULTDOOR("Vault door"); // should be changed to , if JOUST used
+    // JOUST("Joust");
 
     private final String defaultID;
 

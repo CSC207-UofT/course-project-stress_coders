@@ -6,7 +6,7 @@ import entities.interfaces.Talkable;
  * Goblin.txt abstract class, every goblin is talkable
  */
 
-public class Goblin extends Interactable implements Talkable {
+public abstract class Goblin extends Interactable implements Talkable {
 
     /**
      * Construct a Goblin

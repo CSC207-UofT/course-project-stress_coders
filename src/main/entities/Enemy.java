@@ -11,9 +11,9 @@ Interactable that can damage the player
  **/
 public class Enemy extends Character implements ThrowableTarget {
 
-    private final Player player;
-    private final int valueDefeated;
-    private int defaultDamage;
+    public final Player player;
+    public final int valueDefeated;
+    public int defaultDamage;
 
     /**
      * Construct an Enemy

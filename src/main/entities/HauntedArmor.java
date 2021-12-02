@@ -4,21 +4,20 @@ import entities.interfaces.Throwable;
 
 import java.util.Random;
 
-public class Dragon extends Enemy {
+public class HauntedArmor extends Enemy {
     //An enemy that takes reduced damage until his thick skin is damaged enough (at 60% health)
-    private int defaultDamage;
     private final int valueDefeated;
     private final Player player;
     private final double skin_piercing_threshold;
 
-    public Dragon(String id, int health, Player player, int valueDefeated) {
+    public HauntedArmor(String id, int health, Player player, int valueDefeated) {
         super(id, health, player, valueDefeated);
         this.valueDefeated = valueDefeated;
         this.player = player;
         this.skin_piercing_threshold = health*0.6;
     }
 
-    public Dragon(String id, Player player, int valueDefeated) {
+    public HauntedArmor(String id, Player player, int valueDefeated) {
         super(id, player, valueDefeated);
         Random r = new Random();
         int hp = r.nextInt(11) + 59;
@@ -27,7 +26,7 @@ public class Dragon extends Enemy {
         this.skin_piercing_threshold = hp*0.6;
     }
 
-    public Dragon(String id, Player player, int valueDefeated, String howTo) {
+    public HauntedArmor(String id, Player player, int valueDefeated, String howTo) {
         super(id, player, valueDefeated, howTo);
         Random r = new Random();
         int hp = r.nextInt(71) + 24;
@@ -36,24 +35,16 @@ public class Dragon extends Enemy {
         this.skin_piercing_threshold = hp*0.6;
     }
 
-    private double getResistanceMultiplier() {
-        if (this.getHealthPoints() < this.skin_piercing_threshold) {
-            return 1;
-        } else {
-            return 0.5;
-        }
+        private double getResistanceMultiplier() {
+        return 0.8;
     }
 
-    private String armorStatus() {
-        if (this.getHealthPoints() < this.skin_piercing_threshold) {
-            return "The beast has thick skin, you deal reduced damage until you damage it enough ! \n";
-        } else {
-            return "";
-        }
+        private String armorStatus() {
+            return "The monster is heavily armored, you deal reduced damage ! \n";
     }
 
-    @Override
-    public String handleHit(Interactable weapon) {
+        @Override
+        public String handleHit(Interactable weapon) {
         int weight = (int) (weapon.getProperty(InteractableProperties.WEIGHT.name()).getInteger()*getResistanceMultiplier());
         setHealthPoints(getHealthPoints() - weight);
         if (isDead()) {
@@ -70,10 +61,5 @@ public class Dragon extends Enemy {
         }
     }
 
-    @Override
-    public void setDefaultDamage() {
-        Random r = new Random();
-        this.defaultDamage = r.nextInt(14) + 29;
-    }
 
 }

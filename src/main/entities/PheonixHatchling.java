@@ -7,17 +7,14 @@ import java.util.Random;
 public class PheonixHatchling extends Enemy {
     //An enemy type that is healed to full hp once upon "death"
     private int lives_remaining = 1;
-    private int defaultDamage;
     private final int valueDefeated;
     private final Player player;
-    private int hit_points;
     private final int max_hit_points;
 
     public PheonixHatchling(String id, int health, Player player, int valueDefeated) {
         super(id, health, player, valueDefeated);
         this.valueDefeated = valueDefeated;
         this.player = player;
-        this.hit_points = health;
         this.max_hit_points = health;
     }
 
@@ -27,7 +24,6 @@ public class PheonixHatchling extends Enemy {
         int hp = r.nextInt(31)+19;
         this.valueDefeated = valueDefeated;
         this.player = player;
-        this.hit_points = hp;
         this.max_hit_points = hp;
     }
 
@@ -37,12 +33,11 @@ public class PheonixHatchling extends Enemy {
         int hp = r.nextInt(71)+24;
         this.valueDefeated = valueDefeated;
         this.player = player;
-        this.hit_points = hp;
         this.max_hit_points = hp;
     }
 
     private void revive(){
-        this.hit_points = this.max_hit_points;
+        this.setHealthPoints(this.max_hit_points);
         this.lives_remaining -= 1;
     }
 

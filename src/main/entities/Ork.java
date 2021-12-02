@@ -8,14 +8,10 @@ public class Ork extends Enemy{
     //an ork that enrages at 30% hp
     private final double enrage_hp;
     private int defaultDamage;
-    private final int valueDefeated;
-    private final Player player;
 
     public Ork(String id, int health, Player player, int valueDefeated) {
         super(id, health, player, valueDefeated);
         this.enrage_hp = health*0.3;
-        this.valueDefeated = valueDefeated;
-        this.player = player;
     }
 
     public Ork(String id, Player player, int valueDefeated) {
@@ -23,8 +19,6 @@ public class Ork extends Enemy{
         Random r = new Random();
         int hp = r.nextInt(71)+24;
         this.enrage_hp = hp*0.3;
-        this.valueDefeated = valueDefeated;
-        this.player = player;
     }
 
     public Ork(String id, Player player, int valueDefeated, String howTo) {
@@ -32,8 +26,6 @@ public class Ork extends Enemy{
         Random r = new Random();
         int hp = r.nextInt(71)+24;
         this.enrage_hp = hp*0.3;
-        this.valueDefeated = valueDefeated;
-        this.player = player;
     }
 
     public String defaultHitBack() {
@@ -43,7 +35,7 @@ public class Ork extends Enemy{
             return "Nice! " + getId() + " missed their hit.. time to strike!";
         }
         else {
-            String throwingBack = getId()+" is enraged and hits you back for " +
+            String throwingBack = getId()+ getEnrageStatus() + " hits you back for " +
                     (int) (this.defaultDamage * this.getDamageMultiplier()) +" !\n";
             getPlayer().setHealthPoints((int)(getPlayer().getHealthPoints() -
                     (defaultDamage*this.getDamageMultiplier())));
@@ -58,7 +50,7 @@ public class Ork extends Enemy{
             return "Nice! " + getId() + " missed their hit.. time to strike!";
         }
         else {
-            String throwingBack = getId()+" is enraged and hits you back for " +
+            String throwingBack = getId()+ getEnrageStatus() + " hits you back for " +
                     ((Interactable) throwable).getProperty(InteractableProperties.WEIGHT.name()).getInteger() +" !";
             getPlayer().setHealthPoints((int) (getPlayer().getHealthPoints() -
                     ((Interactable) throwable).getProperty(InteractableProperties.WEIGHT.name()).getInteger()*this.getDamageMultiplier()));
@@ -80,22 +72,11 @@ public class Ork extends Enemy{
         }
     }
 
-    @Override
-    public String handleHit(Interactable weapon) {
-        int weight = weapon.getProperty(InteractableProperties.WEIGHT.name()).getInteger();
-        setHealthPoints(getHealthPoints() - weight);
-        if (isDead()) {
-            this.setCompleted(true);
-            player.addCurrency(valueDefeated); // Hard coded for now, should add rewards for each monster
-            return "Your "+ weapon.getId() + " hits " + getId() + " for " + weight + " damage! You killed the beast!";
-        }
-        else {
-            String landedHitString="Your "+ weapon.getId() + " hits " + getId() + " for " + weight + " damage!\n";
-            if (weapon instanceof Throwable) {
-                return landedHitString+hitBack((Throwable) weapon);
-            }
-            System.out.println(landedHitString);
-            return defaultHitBack();
+    private String getEnrageStatus() {
+        if (this.enrage_hp >= this.getHealthPoints()) {
+            return " is enranged and";
+        } else {
+            return "";
         }
     }
 

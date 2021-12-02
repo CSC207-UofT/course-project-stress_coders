@@ -36,7 +36,7 @@ public class Ork extends Enemy{
         this.player = player;
     }
 
-    private String defaultHitBack() {
+    public String defaultHitBack() {
         Random r = new Random();
         int hit = r.nextInt(2);
         if (hit == 0) {
@@ -51,7 +51,7 @@ public class Ork extends Enemy{
         }
     }
 
-    private String hitBack(Throwable throwable) {
+    public String hitBack(Throwable throwable) {
         Random r = new Random();
         int hit = r.nextInt(2);
         if (hit == 0) {

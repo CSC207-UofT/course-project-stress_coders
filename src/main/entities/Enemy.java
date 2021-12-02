@@ -89,7 +89,7 @@ public class Enemy extends Character implements ThrowableTarget {
     }
 
     
-    private String defaultHitBack() {
+    public String defaultHitBack() {
         Random r = new Random();
         int hit = r.nextInt(2);
         if (hit == 0) {
@@ -112,7 +112,7 @@ public class Enemy extends Character implements ThrowableTarget {
      * @param throwable the throwable weapon the Enemy may throwing back
      * @return a string with the result
      **/
-    private String hitBack(Throwable throwable) {
+    public String hitBack(Throwable throwable) {
         Random r = new Random();
         int hit = r.nextInt(2);
         if (hit == 0) {

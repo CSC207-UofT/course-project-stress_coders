@@ -13,13 +13,15 @@ public class Maze extends Interactable implements Moveable {
     private final String solutionPath;
     private String traveledPath;
     private final Timer timer;
+    private final Player player;
 
     /**
      * Construct a new Maze which is randomized
      *
      * @param id the Maze's name ID
+     * @param p the Player
      */
-    public Maze(String id){
+    public Maze(String id, Player p){
         super(id, "move: next=[direction(left, right, up, down)]");
         Random r = new Random();
         this.mazeLength = r.nextInt(6) + 5;
@@ -27,37 +29,42 @@ public class Maze extends Interactable implements Moveable {
         this.solutionPath = createPathRegex(this.mazeLength);
         this.traveledPath = "";
         this.timer = new Timer(0, mazeLength * 30000);
+        this.player = p;
     }
 
     /**
      * Construct a new Maze whose length is set
      *
      * @param id the Maze's name ID
+     * @param p the Player
      * @param length the length of the maze which must be at least 5
      */
-    public Maze(String id, int length){
+    public Maze(String id, Player p, int length){
         super(id, "move: next=[direction(left, right, up, down)]");
         this.mazeLength = length;
         this.moveNum = 0;
         this.solutionPath = createPathRegex(this.mazeLength);
         this.traveledPath = "";
         this.timer = new Timer(0, mazeLength * 30000);
+        this.player = p;
     }
 
     /**
      * Construct a new Maze whose length and path is set
      *
      * @param id the Maze's name ID
+     * @param p the Player
      * @param length the length of the maze, which must be at least 5
      * @param solutionPath the path to escape the maze, which must be a regex
      */
-    public Maze(String id, int length, String solutionPath){
-        super(id, "move: next=[direction(left, right, up, down)]");
+    public Maze(String id, Player p, int length, String solutionPath){
+        super(id, "move: maze=[maze_id]");
         this.mazeLength = length;
         this.moveNum = 0;
         this.solutionPath = solutionPath;
         this.traveledPath = "";
         this.timer = new Timer(0, mazeLength * 30000);
+        this.player = p;
     }
 
     private String createPathRegex(int mazeLength){
@@ -84,6 +91,7 @@ public class Maze extends Interactable implements Moveable {
     }
 
     private boolean hasTravelledDistance() {
+        this.setCompleted(true);
         return this.moveNum == this.mazeLength;
     }
 
@@ -98,6 +106,15 @@ public class Maze extends Interactable implements Moveable {
             return "path";
         }
         return Boolean.toString(hasTravelledDistance());
+    }
+
+    public void playerLossesWeapon(){
+        Weapon w = new Unafforable();
+        this.player.setWeapon(w);
+    }
+
+    public void playerGainsMoney(){
+        this.player.addCurrency(1000);
     }
 
 }

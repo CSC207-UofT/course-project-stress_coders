@@ -2,7 +2,7 @@
 import entities.Interactable;
 import entities.Tree;
 import org.junit.Test;
-import interfaceadapters.UnlockCommand;
+import interfaceadapters.commands.UnlockCommand;
 
 import java.util.HashMap;
 

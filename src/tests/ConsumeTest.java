@@ -3,7 +3,7 @@ import entities.characters.Player;
 import entities.food.Potion;
 import entities.Tree;
 import org.junit.Test;
-import usecases.Consume;
+import interfaceadapters.commands.ConsumeCommand;
 
 import java.util.HashMap;
 
@@ -17,7 +17,7 @@ public class ConsumeTest {
         Tree testTree = new Tree("id");
 
         testArgs.put("consumable", testTree);
-        Consume testConsume = new Consume();
+        ConsumeCommand testConsume = new ConsumeCommand();
 
         assertEquals("Can't consume that", testConsume.execute(testArgs));
 

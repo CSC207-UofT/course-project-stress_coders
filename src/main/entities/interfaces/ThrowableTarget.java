@@ -1,7 +1,7 @@
 package entities.interfaces;
 
 import entities.Interactable;
-import interfaceadapters.ThrowCommand;
+import interfaceadapters.commands.ThrowCommand;
 
 public interface ThrowableTarget extends Target {
     /**

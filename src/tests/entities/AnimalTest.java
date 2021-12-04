@@ -6,7 +6,7 @@ import entities.food.Meat;
 import entities.interfaces.Consumable;
 import entities.weapons.Axe;
 import org.junit.Test;
-import interfaceadapters.ThrowCommand;
+import interfaceadapters.commands.ThrowCommand;
 
 import java.util.HashMap;
 

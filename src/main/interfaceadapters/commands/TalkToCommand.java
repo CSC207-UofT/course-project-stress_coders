@@ -1,4 +1,4 @@
-package interfaceadapters;
+package interfaceadapters.commands;
 
 import entities.Interactable;
 import usecases.Command;

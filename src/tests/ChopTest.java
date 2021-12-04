@@ -2,8 +2,8 @@ import entities.*;
 import entities.characters.Enemy;
 import entities.characters.Player;
 import entities.weapons.Axe;
+import interfaceadapters.commands.ChopCommand;
 import org.junit.Test;
-import usecases.Chop;
 
 import java.util.HashMap;
 
@@ -20,7 +20,7 @@ public class ChopTest {
         args.put("tool", enemyTest);
         args.put("target", enemyTest);
 
-        Chop chopCommand = new Chop();
+        ChopCommand chopCommand = new ChopCommand();
         Axe testAxe = new Axe("id3");
 
         assertEquals("You cannot harvest that!", chopCommand.execute(args));

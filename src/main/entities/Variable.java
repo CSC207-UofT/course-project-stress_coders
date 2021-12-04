@@ -1,7 +1,7 @@
 package entities;
 
 import entities.weapons.Axe;
-import interfaceadapters.ThrowCommand;
+import interfaceadapters.commands.ThrowCommand;
 
 /**
 params of commands require variables to be executed. I.e. a throwable object that is the thrown_obj parameter

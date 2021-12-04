@@ -4,7 +4,7 @@ import entities.characters.Player;
 import entities.characters.Trader;
 import entities.interfaces.Consumable;
 import org.junit.Test;
-import interfaceadapters.TradeCommand;
+import interfaceadapters.commands.TradeCommand;
 
 import java.util.HashMap;
 

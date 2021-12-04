@@ -4,6 +4,8 @@ import Style.ColorConstants;
 import entities.*;
 import entities.interfaces.Consumable;
 import interfaceadapters.*;
+import interfaceadapters.commands.ConsumeCommand;
+import interfaceadapters.commands.ThrowCommand;
 import usecases.*;
 
 import java.io.IOException;
@@ -259,7 +261,7 @@ public class CommandLine {
         Scanner input = new Scanner(System.in);
         System.out.print("$ ");
         String nextInput2 = input.nextLine();
-        Consume c = new Consume();
+        ConsumeCommand c = new ConsumeCommand();
         String regex = ":";
         String[] splitString = nextInput2.split(regex);
         int args_id = 1;

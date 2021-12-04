@@ -2,8 +2,8 @@ import entities.weapons.Axe;
 import entities.Interactable;
 import entities.characters.Player;
 import entities.Tree;
+import interfaceadapters.commands.ChopCommand;
 import org.junit.Test;
-import usecases.Chop;
 import usecases.Command;
 
 import java.util.HashMap;
@@ -17,7 +17,7 @@ public class CommandTest {
         Player testPlayer = new Player("id1");
         HashMap<String, Interactable> args = new HashMap<>();
 
-        Command testCommand = new Chop();
+        Command testCommand = new ChopCommand();
         Axe testAxe = new Axe("id3");
 
         args.put("tool", testAxe);

@@ -1,5 +1,6 @@
 package entities;
 
+import entities.food.Nuts;
 import org.junit.Test;
 
 import java.util.HashMap;

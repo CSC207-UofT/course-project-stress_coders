@@ -1,5 +1,5 @@
-Class: entities.HandCannon
-Parent class: entities.Weapon
+Class: entities.weapons.HandCannon
+Parent class: entities.weapons.Weapon
 Subclasses: None
 Type: Entity
 

@@ -10,4 +10,4 @@ Find a consumable in the players inventory
 
 Collaborators:
 Consumable interface
-entities.Player
+entities.characters.Player

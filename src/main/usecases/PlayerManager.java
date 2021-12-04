@@ -1,7 +1,7 @@
 package usecases;
 
 import entities.Interactable;
-import entities.Player;
+import entities.characters.Player;
 import entities.interfaces.Consumable;
 
 import java.util.List;

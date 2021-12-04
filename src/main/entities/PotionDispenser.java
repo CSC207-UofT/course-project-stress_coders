@@ -1,5 +1,8 @@
 package entities;
 
+import entities.characters.Player;
+import entities.food.Potion;
+import entities.food.UnusablePotion;
 import entities.interfaces.Spinnable;
 
 import java.util.ArrayList;

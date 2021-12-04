@@ -1,5 +1,6 @@
 package entities;
 
+import entities.weapons.Crossbow;
 import org.junit.Test;
 
 import java.util.HashMap;

@@ -1,5 +1,8 @@
 package entities;
 
+import entities.characters.Player;
+import entities.characters.Trader;
+import entities.food.Nuts;
 import entities.interfaces.Consumable;
 import org.junit.Test;
 

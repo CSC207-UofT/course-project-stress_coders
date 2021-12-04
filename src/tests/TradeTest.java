@@ -1,11 +1,10 @@
 import entities.Interactable;
-import entities.Nuts;
-import entities.Player;
-import entities.Trader;
+import entities.food.Nuts;
+import entities.characters.Player;
+import entities.characters.Trader;
 import entities.interfaces.Consumable;
 import org.junit.Test;
-import usecases.Trade;
-import static org.junit.Assert.*;
+import interfaceadapters.TradeCommand;
 
 import java.util.HashMap;
 
@@ -20,7 +19,7 @@ public class TradeTest {
         inventoryToAdd.put(nut.getId(), nut);
         t.addConsumablesToStore(inventoryToAdd);
 
-        Trade tradeCmd = new Trade();
+        TradeCommand tradeCmd = new TradeCommand();
         HashMap<String, Interactable> args = new HashMap<>();
         args.put("trader", t);
         // String res = tradeCmd.execute(args);

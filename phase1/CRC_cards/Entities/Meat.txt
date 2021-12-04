@@ -1,5 +1,5 @@
-Class: entities.Meat
-Parent class: entities.Food
+Class: entities.food.Meat
+Parent class: entities.food.Food
 Subclasses: None
 Type: Entity
 

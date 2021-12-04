@@ -1,7 +1,7 @@
 package entities;
 
-import entities.Axe;
-import entities.Weapon;
+import entities.weapons.Axe;
+import entities.weapons.Weapon;
 import org.junit.Test;
 
 

@@ -2,8 +2,10 @@ package interfaceadapters;
 
 import entities.*;
 import entities.Interactable;
-import entities.Player;
+import entities.characters.*;
+import entities.food.*;
 import entities.interfaces.Consumable;
+import entities.weapons.*;
 import usecases.Encounter;
 
 import java.util.*;

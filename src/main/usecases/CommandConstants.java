@@ -1,5 +1,10 @@
 package usecases;
 
+import interfaceadapters.ShootCommand;
+import interfaceadapters.TalkToCommand;
+import interfaceadapters.ThrowCommand;
+import interfaceadapters.UnlockCommand;
+
 import java.util.HashMap;
 
 /*
@@ -11,13 +16,13 @@ public class CommandConstants {
 
     // Load all normal commands into the COMMANDS hashmap
     static {
-        COMMANDS.put("talk_to", new TalkTo());
-        COMMANDS.put("throw", new Throw());
+        COMMANDS.put("talk_to", new TalkToCommand());
+        COMMANDS.put("throw", new ThrowCommand());
         COMMANDS.put("chop", new Chop());
         COMMANDS.put("consume", new Consume());
-        COMMANDS.put("unlock", new Unlock());
+        COMMANDS.put("unlock", new UnlockCommand());
         COMMANDS.put("spin", new Spin());
-        COMMANDS.put("shoot", new Shoot());
+        COMMANDS.put("shoot", new ShootCommand());
         COMMANDS.put("hint", new Hint());
     }
     public Command getCommand(String input) {return COMMANDS.get(input);}

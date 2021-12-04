@@ -1,5 +1,5 @@
-Class: entities.Goblin
-Parent class: entities.Enemy
+Class: entities.characters.Goblin
+Parent class: entities.characters.Enemy
 Subclasses: None
 Type: Entity
 
@@ -8,5 +8,5 @@ Responsibilities:
 * Return what the Goblin says either in response or spontaneously
 
 Collaborators:
-* entities.Player
+* entities.characters.Player
 * entities.interfaces.Talkable

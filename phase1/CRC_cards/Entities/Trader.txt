@@ -1,4 +1,4 @@
-Class: entities.Trader
+Class: entities.characters.Trader
 Parent class: entities.Item
 Subclasses: None
 Type: Entity
@@ -12,4 +12,4 @@ Collaborators:
 * entities.Variable
 * entities.interfaces.Harvestable
 * entities.InteractableProperties
-* entities.Player
+* entities.characters.Player

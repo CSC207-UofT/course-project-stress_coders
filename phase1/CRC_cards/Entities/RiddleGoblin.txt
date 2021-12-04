@@ -1,5 +1,5 @@
-Class: entities.RiddleGoblin
-Parent class: entities.Goblin
+Class: entities.characters.RiddleGoblin
+Parent class: entities.characters.Goblin
 Subclasses: None
 Type: Entity
 
@@ -13,5 +13,5 @@ Responsibilities:
 the magic message needed to start playing the riddle
 
 Collaborators:
-* entities.Player
+* entities.characters.Player
 * entities.interfaces.Talkable

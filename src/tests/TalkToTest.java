@@ -2,7 +2,7 @@
 import entities.Interactable;
 import entities.Tree;
 import org.junit.Test;
-import usecases.TalkTo;
+import interfaceadapters.TalkToCommand;
 
 import java.util.HashMap;
 
@@ -16,7 +16,7 @@ public class TalkToTest {
         Tree treeTest = new Tree("id");
         testArgs.put("receiver", treeTest);
 
-        TalkTo talkToCommand = new TalkTo();
+        TalkToCommand talkToCommand = new TalkToCommand();
 
         assertEquals("They cannot talk!", talkToCommand.execute(testArgs));
 

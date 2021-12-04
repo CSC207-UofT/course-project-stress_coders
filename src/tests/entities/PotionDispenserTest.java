@@ -1,9 +1,8 @@
 package entities;
 
-import entities.Player;
-import entities.Potion;
-import entities.PotionDispenser;
-import entities.UnusablePotion;
+import entities.characters.Player;
+import entities.food.Potion;
+import entities.food.UnusablePotion;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

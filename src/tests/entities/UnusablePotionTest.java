@@ -1,7 +1,6 @@
 package entities;
 
-import entities.InteractableProperties;
-import entities.UnusablePotion;
+import entities.food.UnusablePotion;
 import org.junit.Test;
 
 import java.util.HashMap;

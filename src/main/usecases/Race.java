@@ -2,7 +2,7 @@ package usecases;
 
 import entities.Interactable;
 import entities.HorseRace;
-import entities.Player;
+import entities.characters.Player;
 
 import java.util.HashMap;
 import java.util.Scanner;

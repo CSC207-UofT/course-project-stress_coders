@@ -1,6 +1,6 @@
-Class: entities.Character
+Class: entities.characters.Character
 Parent class: entities.Interactable
-Subclasses: entities.Animal, entities.Enemy, entities.Player
+Subclasses: entities.characters.Animal, entities.characters.Enemy, entities.characters.Player
 Type: Entity
 
 Responsibilities:

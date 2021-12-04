@@ -1,5 +1,7 @@
 package entities;
 
+import entities.weapons.HandCannon;
+import entities.weapons.ShootableWeapon;
 import org.junit.Test;
 
 import java.util.HashMap;

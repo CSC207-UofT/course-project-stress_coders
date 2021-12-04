@@ -1,11 +1,10 @@
 package usecases;
 
 import entities.*;
+import entities.characters.Player;
 import entities.interfaces.CanChop;
 import entities.interfaces.Harvestable;
-import entities.interfaces.Talkable;
 
-import java.beans.IntrospectionException;
 import java.util.*;
 
 /**

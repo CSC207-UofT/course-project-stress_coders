@@ -1,5 +1,7 @@
 package entities;
 
+import entities.characters.Enemy;
+import entities.characters.Player;
 import entities.interfaces.Throwable;
 
 import java.util.Random;

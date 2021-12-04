@@ -11,4 +11,4 @@ Responsibilities:
 * Dictate when a player has completed the right action to win the encounter’
 * Update quest-log if the encounter was required
 
-Collaborators: QuestLog, entities.Character, entities.Weapon, entities.Item
+Collaborators: QuestLog, entities.characters.Character, entities.weapons.Weapon, entities.Item

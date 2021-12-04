@@ -1,8 +1,7 @@
 package entities;
 
-import entities.Axe;
-import entities.Item;
-import entities.Player;
+import entities.characters.Player;
+import entities.weapons.Axe;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

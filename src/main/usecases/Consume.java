@@ -1,7 +1,7 @@
 package usecases;
 
 import entities.Interactable;
-import entities.UnusablePotion;
+import entities.food.UnusablePotion;
 import entities.interfaces.Consumable;
 
 import java.util.HashMap;

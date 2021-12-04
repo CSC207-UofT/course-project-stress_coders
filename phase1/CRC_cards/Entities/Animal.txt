@@ -1,5 +1,5 @@
-Class: entities.Animal
-Parent class: entities.Character
+Class: entities.characters.Animal
+Parent class: entities.characters.Character
 Subclasses:
 Type: Entity
 

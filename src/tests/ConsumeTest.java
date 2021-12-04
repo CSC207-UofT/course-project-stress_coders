@@ -1,6 +1,6 @@
 import entities.Interactable;
-import entities.Player;
-import entities.Potion;
+import entities.characters.Player;
+import entities.food.Potion;
 import entities.Tree;
 import org.junit.Test;
 import usecases.Consume;

@@ -1,6 +1,6 @@
-import entities.Axe;
+import entities.weapons.Axe;
 import entities.Interactable;
-import entities.Potion;
+import entities.food.Potion;
 import org.junit.Test;
 import usecases.Encounter;
 import usecases.IDreader;

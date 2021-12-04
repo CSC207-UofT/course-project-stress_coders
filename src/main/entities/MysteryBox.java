@@ -1,6 +1,8 @@
 package entities;
 
+import entities.characters.Player;
 import entities.interfaces.Spinnable;
+import entities.weapons.Weapon;
 
 import java.util.ArrayList;
 import java.util.List;

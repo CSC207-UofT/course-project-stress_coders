@@ -1,5 +1,6 @@
 package entities;
 
+import entities.characters.Player;
 import entities.interfaces.Harvestable;
 
 /**

@@ -1,5 +1,6 @@
 package entities;
 
+import entities.weapons.Spear;
 import org.junit.Test;
 
 import java.util.HashMap;

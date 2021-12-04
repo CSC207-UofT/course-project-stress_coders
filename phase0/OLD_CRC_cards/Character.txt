@@ -1,6 +1,6 @@
-Class entities.interfaces: entities.Character
+Class entities.interfaces: entities.characters.Character
 Parent class: None
-Subclasses: entities.Enemy, NPC, entities.Player
+Subclasses: entities.characters.Enemy, NPC, entities.characters.Player
 Type: Entity
 
 Responsibilities:
@@ -8,4 +8,4 @@ Responsibilities:
 * getters for instance variables
 * setters for instance variables
 * constructor sets character attributes
-Collaborators: entities.Item, entities.Weapon
+Collaborators: entities.Item, entities.weapons.Weapon

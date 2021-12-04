@@ -1,8 +1,9 @@
 package usecases;
 
 import entities.*;
-import entities.Character;
-import entities.Enemy;
+import entities.characters.Character;
+import entities.characters.Enemy;
+import entities.characters.Player;
 
 import java.util.HashMap;
 import java.util.Objects;

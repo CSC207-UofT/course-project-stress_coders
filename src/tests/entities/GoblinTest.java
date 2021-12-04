@@ -1,8 +1,8 @@
 package entities;
 
-import entities.Goblin;
-import entities.Player;
-import entities.RiddleGoblin;
+import entities.characters.Goblin;
+import entities.characters.Player;
+import entities.characters.RiddleGoblin;
 import org.junit.Test;
 
 import java.util.ArrayList;

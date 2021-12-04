@@ -1,13 +1,13 @@
-Class entities.interfaces: entities.Axe
-Parent class: entities.Weapon
+Class entities.interfaces: entities.weapons.Axe
+Parent class: entities.weapons.Weapon
 Subclasses: None
 Type: Entity
 
 Responsibilities:
-* Enforce that the axe instance of entities.Axe has the given attribute, hit probability
+* Enforce that the axe instance of entities.weapons.Axe has the given attribute, hit probability
 * getter for hit probability
 * throw axe using ThrowableObject interface method
 * swing axe using Swingable interface method
 
 
-Collaborators: entities.Character
+Collaborators: entities.characters.Character

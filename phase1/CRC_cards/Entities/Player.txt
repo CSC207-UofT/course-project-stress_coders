@@ -1,5 +1,5 @@
-Class entities.interfaces: entities.Player
-Parent class: entities.Character
+Class entities.interfaces: entities.characters.Player
+Parent class: entities.characters.Character
 Subclasses: None
 Type: Entity
 
@@ -15,7 +15,7 @@ Responsibilities:
 
 Collaborators:
 * entities.Item
-* entities.Weapon
+* entities.weapons.Weapon
 * entities.interactable
 * entities.interfaces.Consumable
 * entities.interfaces.ThrowableTarget

@@ -8,5 +8,5 @@ Allows for swingable objects to be shot, handles the result of the action and th
 
 Collaborators:
 swingable interface
-entities.Player
-entities.Weapon
+entities.characters.Player
+entities.weapons.Weapon

@@ -1,5 +1,7 @@
 package entities.interfaces;
 
+import entities.weapons.Axe;
+
 /**
  * Enforce the existence of the appropriate instance variables for all throwable objects
  *
@@ -13,7 +15,7 @@ package entities.interfaces;
  * All methods in the throwable class must be called once to add the required properties to the objects properties map:
  * @see entities.Interactable
  * For the map
- * @see entities.Axe
+ * @see Axe
  * For an example
  *
  * The properties can be accessed later from the objects properties map using the standard variable names defined by:

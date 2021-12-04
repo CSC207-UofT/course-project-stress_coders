@@ -1,6 +1,7 @@
 package entities;
 
-import entities.interfaces.Consumable;
+import entities.food.Food;
+import entities.food.Nuts;
 import org.junit.Test;
 
 import java.util.HashMap;

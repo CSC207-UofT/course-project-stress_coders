@@ -1,9 +1,7 @@
 package entities;
 
-import entities.InteractableProperties;
-import entities.Player;
-import entities.Potion;
-import entities.Variable;
+import entities.characters.Player;
+import entities.food.Potion;
 import org.junit.Test;
 
 import java.util.HashMap;

@@ -1,5 +1,5 @@
-Class: entities.Crossbow
-Parent class: entities.Weapon
+Class: entities.weapons.Crossbow
+Parent class: entities.weapons.Weapon
 Subclasses: None
 Type: Entity
 

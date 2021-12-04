@@ -1,10 +1,9 @@
 package entities;
 
-import entities.Axe;
-import entities.Item;
-import entities.Player;
-import entities.Potion;
+import entities.characters.Player;
+import entities.food.Potion;
 import entities.interfaces.Consumable;
+import entities.weapons.Axe;
 import org.junit.Test;
 
 import java.util.HashMap;

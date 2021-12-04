@@ -1,9 +1,9 @@
 Class entities.interfaces: Action
 Parent class: none
-Subclasses: usecases.Throw, Swing, Block, Shoot (I.E. any action that the user can do)
+Subclasses: interfaceadapters.ThrowCommand, Swing, Block, Shoot (I.E. any action that the user can do)
 Type: Use Case
 
 Responsibilities:
 * Abstract class that defines appropriate instance variables and methods for action subclasses.
 
-Collaborators: entities.Player, entities.Weapon
+Collaborators: entities.characters.Player, entities.weapons.Weapon

@@ -1,5 +1,5 @@
-Class: entities.ShootableWeapon
-Parent class: entities.Weapon
+Class: entities.weapons.ShootableWeapon
+Parent class: entities.weapons.Weapon
 Subclasses: None
 Type: Entity
 

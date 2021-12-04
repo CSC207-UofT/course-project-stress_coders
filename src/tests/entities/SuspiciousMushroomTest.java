@@ -1,11 +1,7 @@
 package entities;
 
-import entities.SuspiciousMushroom;
-import entities.InteractableProperties;
-import entities.Variable;
+import entities.food.SuspiciousMushroom;
 import org.junit.Test;
-
-import java.util.HashMap;
 
 import static org.junit.Assert.assertTrue;
 

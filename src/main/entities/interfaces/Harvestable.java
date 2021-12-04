@@ -1,5 +1,5 @@
 package entities.interfaces;
-import entities.Player;
+import entities.characters.Player;
 
 /**
  * Interface for an interactable you can harvest

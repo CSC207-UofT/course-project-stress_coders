@@ -183,7 +183,7 @@ public class CommandLine {
     Argument name is a param that the given command requires
     Both values are Strings
     The input must be in the following format: "command: arg1=value1, arg2=value2..., argN = valueN"
-    @see usecases.Throw
+    @see ThrowCommand
     for an example.
     The expected return value is:
     {"arg1": "value1", "arg2": "value2", ..., "argN": "valueN"}

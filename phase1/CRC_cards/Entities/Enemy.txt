@@ -1,6 +1,6 @@
-Class: entities.Enemy
-Parent class: entities.Character
-Subclasses: entities.Goblin, entities.RiddleGoblin
+Class: entities.characters.Enemy
+Parent class: entities.characters.Character
+Subclasses: entities.characters.Goblin, entities.characters.RiddleGoblin
 Type: Entity
 
 Responsibilities:
@@ -11,8 +11,8 @@ Responsibilities:
 *
 
 Collaborators:
-* entities.Player
-* entities.Weapon
+* entities.characters.Player
+* entities.weapons.Weapon
 * entities.interfaces.Throwable
 * entities.interfaces.ThrowableTarget
 * usecases.Command

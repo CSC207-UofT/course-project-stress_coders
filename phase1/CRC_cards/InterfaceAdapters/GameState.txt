@@ -12,4 +12,4 @@ completed encounters and the required encounters.
 
 Collaborators:
 Consumable interface
-entities.Player
+entities.characters.Player

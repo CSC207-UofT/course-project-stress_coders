@@ -1,6 +1,9 @@
 package usecases;
 
 import entities.*;
+import entities.food.Potion;
+import entities.food.UnusablePotion;
+import entities.weapons.Weapon;
 
 import java.util.HashMap;
 import java.util.Scanner;

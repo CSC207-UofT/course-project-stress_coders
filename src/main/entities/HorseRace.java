@@ -1,9 +1,11 @@
 package entities;
 
+import entities.characters.Character;
+import entities.characters.Enemy;
+import entities.characters.Player;
 import entities.interfaces.Raceable;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Random;
 
 public class HorseRace extends Interactable implements Raceable {

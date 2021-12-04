@@ -4,6 +4,7 @@ public class Timer {
 
     private double currentTime;
     private double maxTime;
+    private double startingTime;
 
     /**
      * Construct a new Timer object
@@ -14,6 +15,9 @@ public class Timer {
     public Timer(double current, double max){
         this.currentTime = current;
         this.maxTime = max;
+
+        //TODO: move out of entity layer
+        this.startingTime = System.currentTimeMillis();
     }
 
     /**
@@ -59,6 +63,10 @@ public class Timer {
      */
     public boolean hasTimeElapsed(){
         return this.currentTime < this.maxTime;
+    }
+
+    public void updateTime(){
+        this.currentTime = System.currentTimeMillis() - this.startingTime;
     }
 
 

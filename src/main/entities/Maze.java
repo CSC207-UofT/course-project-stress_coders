@@ -1,25 +1,25 @@
 package entities;
 
+import entities.interfaces.Moveable;
+
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Maze extends Interactable{
+public class Maze extends Interactable implements Moveable {
 
     private final int mazeLength;
     private int moveNum;
-    private String solutionPath;
+    private final String solutionPath;
     private String traveledPath;
-    private Timer timer;
-    private Player player;
+    private final Timer timer;
 
     /**
      * Construct a new Maze which is randomized
      *
      * @param id the Maze's name ID
-     * @param p the Player
      */
-    public Maze(String id, Player p){
+    public Maze(String id){
         super(id, "move: next=[direction(left, right, up, down)]");
         Random r = new Random();
         this.mazeLength = r.nextInt(6) + 5;
@@ -27,44 +27,37 @@ public class Maze extends Interactable{
         this.solutionPath = createPathRegex(this.mazeLength);
         this.traveledPath = "";
         this.timer = new Timer(0, mazeLength * 30000);
-        this.player = p;
     }
 
     /**
      * Construct a new Maze whose length is set
      *
      * @param id the Maze's name ID
-     * @param p the Player
      * @param length the length of the maze which must be at least 5
      */
-    public Maze(String id, Player p, int length){
+    public Maze(String id, int length){
         super(id, "move: next=[direction(left, right, up, down)]");
-        Random r = new Random();
         this.mazeLength = length;
         this.moveNum = 0;
         this.solutionPath = createPathRegex(this.mazeLength);
         this.traveledPath = "";
-        this.timer = new Timer(0, mazeLength * 20);
-        this.player = p;
+        this.timer = new Timer(0, mazeLength * 30000);
     }
 
     /**
      * Construct a new Maze whose length and path is set
      *
      * @param id the Maze's name ID
-     * @param p the Player
      * @param length the length of the maze, which must be at least 5
      * @param solutionPath the path to escape the maze, which must be a regex
      */
-    public Maze(String id, Player p, int length, String solutionPath){
+    public Maze(String id, int length, String solutionPath){
         super(id, "move: next=[direction(left, right, up, down)]");
-        Random r = new Random();
         this.mazeLength = length;
         this.moveNum = 0;
         this.solutionPath = solutionPath;
         this.traveledPath = "";
-        this.timer = new Timer(0, mazeLength * 20);
-        this.player = p;
+        this.timer = new Timer(0, mazeLength * 30000);
     }
 
     private String createPathRegex(int mazeLength){
@@ -94,5 +87,17 @@ public class Maze extends Interactable{
         return this.moveNum == this.mazeLength;
     }
 
+    public String move(char nextMove){
+        this.traveledPath = this.traveledPath + nextMove;
+        timer.updateTime();
+        this.moveNum ++;
+        if (this.timer.hasTimeElapsed()){
+            return "time";
+        } else if(hasPathFailed()){
+            this.moveNum = 0;
+            return "path";
+        }
+        return Boolean.toString(hasTravelledDistance());
+    }
 
 }

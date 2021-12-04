@@ -2,7 +2,7 @@
 import entities.Interactable;
 import entities.Tree;
 import org.junit.Test;
-import interfaceadapters.TalkToCommand;
+import interfaceadapters.commands.TalkToCommand;
 
 import java.util.HashMap;
 

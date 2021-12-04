@@ -1,11 +1,8 @@
 import entities.*;
 import org.junit.Test;
-import usecases.Hint;
-import usecases.Spin;
+import interfaceadapters.commands.HintCommand;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,7 +13,7 @@ public class HintTest {
         Door testDoor = new VaultDoor("vd", new String[]{"First digit 1", "Second digit 2", "Third digit 3"}, "123");
         testArgs.put("shi", testDoor);
 
-        Hint hintCommand = new Hint();
+        HintCommand hintCommand = new HintCommand();
         assertEquals( "Not a valid door! Try again.", hintCommand.execute(testArgs));
 
         testArgs.put("door", testDoor);

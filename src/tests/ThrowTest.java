@@ -4,7 +4,7 @@ import entities.characters.Enemy;
 import entities.Interactable;
 import entities.characters.Player;
 import org.junit.Test;
-import interfaceadapters.ThrowCommand;
+import interfaceadapters.commands.ThrowCommand;
 
 import java.util.HashMap;
 import java.util.List;

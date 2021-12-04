@@ -1,4 +1,4 @@
-Class entities.interfaces: interfaceadapters.ThrowCommand
+Class entities.interfaces: interfaceadapters.commands.ThrowCommand
 Parent class: Action
 Subclasses: None 
 Type: Use case

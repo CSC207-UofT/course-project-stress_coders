@@ -1,24 +1,21 @@
 package usecases;
 
-import entities.Interactable;
 import entities.HorseRace;
+import entities.Interactable;
 import entities.characters.Player;
 
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Race extends Command {
+public class Race {
+    private Player player;
     /**
-     * Execute the following to play the HorseRace or other Race interactables.
+     * plays the HorseRace or other Race interactables.
      *
      * @return a valid output string depending on the result of the user input or joust.
      */
-    private Player player;
 
-    @Override
-    public String execute(HashMap<String, Interactable> args) {
-
-
+    public String playInRace(HashMap<String, Interactable> args) {
         if (args.get("HorceRace") instanceof HorseRace) {
             HorseRace hr = ((HorseRace) args.get("HorseRace"));
 
@@ -56,11 +53,10 @@ public class Race extends Command {
             }
 
 
-    }
+        }
 
 
         return "Invalid horse race, please pass in a valid horse race.";
     }
-
 
 }

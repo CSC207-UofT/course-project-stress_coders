@@ -1,28 +1,26 @@
 package usecases;
 
-import entities.*;
+import entities.Interactable;
+import entities.InteractableProperties;
+import entities.Item;
 import entities.characters.Player;
 import entities.interfaces.CanChop;
 import entities.interfaces.Harvestable;
 
-import java.util.*;
+import java.util.HashMap;
 
-/**
- * Chop command. Uses a tool to chop the target, assuming all is possible. Only for harvesting.
- */
-public class Chop extends Command{
+public class Chop {
     /**
      * args["tool"] is the tool you chop with
      * args["target"] is the object you are chopping
-     * execute: the axe doesn't chop the tree, but it is used to 'harvest' (chopping) and the tree delegates what happens
+     * the axe doesn't chop the tree, but it is used to 'harvest' (chopping) and the tree delegates what happens
      *          this way, we don't use an unnecessary method in Axe and keep it simple.
      * NOTE: we did not use interfaces for objects that "can chop" because this would be an empty interface, as there is
      *       no method it needs to enforce.
      * @param args described above
      * @return The result of chopping varies based on the target, one example is a tree adds wood to a players inventory
      */
-    @Override
-    public String execute(HashMap<String, Interactable> args) {
+    public String chopHarvestable(HashMap<String, Interactable> args) {
         String tool = "tool"; String target = "target";
         if(args.get(target) instanceof Harvestable && args.get(tool) instanceof CanChop && args.get(tool) instanceof Item) {
             if(!(((Item) args.get(tool)).getHeldBy() == null)){

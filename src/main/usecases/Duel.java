@@ -1,27 +1,26 @@
 package usecases;
 
-import entities.*;
+import entities.Interactable;
+import entities.Joust;
 import entities.characters.Character;
 import entities.characters.Enemy;
 import entities.characters.Player;
 
 import java.util.HashMap;
 import java.util.Objects;
-import java.util.Scanner;
 import java.util.Optional;
+import java.util.Scanner;
 
-public class Duel extends Command {
-
+public class Duel {
     private Player player;
+    /**
+     * Execute the following to play the Joust or other Duel interactables.
+     *
+     * @return a valid output string depending on the result of the user input or joust.
+     */
+    public String DuelCharacter(HashMap<String, Interactable> args) {
 
-    @Override
-    public String execute(HashMap<String, Interactable> args) {
 
-        /**
-         * Execute the following to play the Joust or other Duel interactables.
-         *
-         * @return a valid output string depending on the result of the user input or joust.
-         */
 
         if (args.get("joust") instanceof Joust) {
             Joust j = ((Joust) args.get("joust"));
@@ -55,7 +54,6 @@ public class Duel extends Command {
         }
 
         return "Invalid joust, please pass in a valid joust.";
-
 
     }
 }

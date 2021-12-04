@@ -1,6 +1,6 @@
 Class: usecases.Command
 Parent class: None
-Subclasses: usecases.Chop, Swing, Block, Shoot (I.E. any action that the user can do)
+Subclasses: interfaceadapters.commands.ChopCommand, Swing, Block, Shoot (I.E. any action that the user can do)
 Type: Use Case
 
 Responsibilities:

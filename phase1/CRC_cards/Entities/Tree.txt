@@ -11,4 +11,4 @@ Collaborators:
 * entities.Variable
 * entities.interfaces.Harvestable
 * entities.InteractableProperties
-* entities.Player
+* entities.characters.Player

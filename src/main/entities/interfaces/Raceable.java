@@ -1,7 +1,7 @@
 package entities.interfaces;
 
 
-import entities.Character;
+import entities.characters.Character;
 
 import java.util.ArrayList;
 

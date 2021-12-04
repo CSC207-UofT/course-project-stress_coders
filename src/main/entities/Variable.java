@@ -1,5 +1,8 @@
 package entities;
 
+import entities.weapons.Axe;
+import interfaceadapters.ThrowCommand;
+
 /**
 params of commands require variables to be executed. I.e. a throwable object that is the thrown_obj parameter
  of the thrown command needs a weight and hitProbability. Interactables can have multiple qualities
@@ -16,7 +19,7 @@ I.e. a throwable interactable.properties would contain {"weight": VarObj1, "hitP
  for how varaible existence is enforced
  @see Axe
  for an implementation example of how variables are added to interactables
- @see usecases.Throw
+ @see ThrowCommand
  For how these properties are accessed
 
 VarObjs only hold one of bool, str, integer representing the value of the property.

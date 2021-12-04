@@ -1,5 +1,4 @@
 
-import entities.Player;
 import org.junit.Test;
 import usecases.PlayerManager;
 

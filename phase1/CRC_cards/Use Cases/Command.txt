@@ -6,4 +6,4 @@ Type: Use Case
 Responsibilities:
 * Abstract class that defines appropriate instance variables and methods for action subclasses.
 
-Collaborators: entities.Player, entities.Weapon
+Collaborators: entities.characters.Player, entities.weapons.Weapon

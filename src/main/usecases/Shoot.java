@@ -1,25 +1,18 @@
 package usecases;
 
-import entities.*;
+import entities.Interactable;
+import entities.InteractableProperties;
+import entities.Variable;
 import entities.interfaces.ThrowableTarget;
+import entities.weapons.ShootableWeapon;
 
 import java.util.HashMap;
 
 /**
-Shoot command, shoot an obj to a given target.
- Ensure there's enough ammo and reduce ammo
-The chance of hitting should be dictated by hitProbability property.
-Shot objs must have a weight property.
-
-If the shot obj hits:
-An enemy should be damaged by the weight of the shootableWeapon
-
- **/
-
-public class Shoot extends Command{
-
-    @Override
-    public String execute(HashMap<String, Interactable> args) {
+ * Use case to shoot an entity
+ */
+public class Shoot {
+    public String shootAction(HashMap<String, Interactable> args) {
         String shotObject = "shoot_obj"; String target = "target";
         if(args.get(shotObject) instanceof ShootableWeapon && args.get(target) instanceof ThrowableTarget) {
             ThrowableTarget throwTarget = (ThrowableTarget) args.get(target);

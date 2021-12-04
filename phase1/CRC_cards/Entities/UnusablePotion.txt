@@ -1,5 +1,5 @@
-Class: entities.UnusablePotion
-Parent class: entities.Potion
+Class: entities.food.UnusablePotion
+Parent class: entities.food.Potion
 Subclasses: None
 Type: Entity
 

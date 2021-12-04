@@ -1,5 +1,8 @@
 
 import entities.*;
+import entities.characters.Player;
+import entities.weapons.Axe;
+import entities.weapons.Weapon;
 import org.junit.Test;
 import usecases.Spin;
 

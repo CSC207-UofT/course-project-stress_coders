@@ -9,12 +9,12 @@ CRC model:
 Our CRC model is based on an encounter based system. Each event in the game, such as picking up a weapon, or fighting an enemy is represented in an usecases.Encounter. These Encounters are connected, and in certain paths form Quests. Game Characters can be Players, Enemies, or NPCs. Throughout each encounter, a player will find different things such as Items or Weapons on the ground. Interacting with these is how the game is played and completed. The controls for this textual input through a CLI and these commands are defined by our usecases.Command classes, that represents an Action. These commands are then processed by our GameCompiler which handles the encounters and connects the player’s input to the game state.
 
 A Scenario walk-through:
-A simple scenario can be summarized as follows. The user has an axe (assumption). They type in the “throw axe” commands into the CLI. The compiler then uses usecases.Throw.java to throw the axe. The result is then returned back to the GameCompiler and printed back to the user. This is all done within the instantiated encounter in the game compiler.
+A simple scenario can be summarized as follows. The user has an axe (assumption). They type in the “throw axe” commands into the CLI. The compiler then uses interfaceadapters.ThrowCommand.java to throw the axe. The result is then returned back to the GameCompiler and printed back to the user. This is all done within the instantiated encounter in the game compiler.
 
 Skeletal program:
 Note: Our skeletal program is currently a simplified (more specific) codebase for our overall project. Not everything is fully abstract and hierarchical as it will be when we start developing. We decided as a team it was best to develop the simplified version as a prototype for phase 0, then undergo some restructuring to begin the real project itself. Had we done this from the beginning given our other commitments and the complexity of this project, we feared we wouldn’t have enough to show for phase 0 submission. So we will use a cleaner control flow system that expands on what we have but in a more general, effective manner. With that, we can present our skeletal program with the following components:
 
-We have a commands usecases.Throw that throws a throwable object. We have the ThrowableObject interface that ensures an item is throwable. We have an usecases.Encounter that stores this event. We have a player that exists in the encounter where the axe lies. Lastly, we have the CLI up and running which allows the user to execute their commands, then see the results. We also have preliminary error handling to validate the commands and ensure it can execute. This is the program that comprises our Phase0 demo.
+We have a commands interfaceadapters.ThrowCommand that throws a throwable object. We have the ThrowableObject interface that ensures an item is throwable. We have an usecases.Encounter that stores this event. We have a player that exists in the encounter where the axe lies. Lastly, we have the CLI up and running which allows the user to execute their commands, then see the results. We also have preliminary error handling to validate the commands and ensure it can execute. This is the program that comprises our Phase0 demo.
 
 Question for TAs:
 How can we easily identify different clean architecture layers when the classes and objects in our project don’t seem to be easily confined to one layer?
@@ -33,20 +33,20 @@ Spec document
 Progress Report document
 Structuring of the CRC model (Code Design)
 Scenario walk-through with Michelle
-Minor code restructuring in usecases.Encounter, usecases.Throw, entities.Player, entities.Character, entities.Weapon, entities.Axe
+Minor code restructuring in usecases.Encounter, interfaceadapters.ThrowCommand, entities.characters.Player, entities.characters.Character, entities.weapons.Weapon, entities.weapons.Axe
 Next Step: adding more interfaceadapters for weapons and other game objects
 Riyan Ahmed:
-entities.Weapon and entities.Axe classes and their documentation
-Implementing the ThrowableObject interface in the entities.Axe class
-Reworking the throwObj method in entities.Axe and how Weapons are thrown
-entities.Enemy Class
-Minor bug fixes in ThrowableObject Interface, entities.Character
+entities.weapons.Weapon and entities.weapons.Axe classes and their documentation
+Implementing the ThrowableObject interface in the entities.weapons.Axe class
+Reworking the throwObj method in entities.weapons.Axe and how Weapons are thrown
+entities.characters.Enemy Class
+Minor bug fixes in ThrowableObject Interface, entities.characters.Character
 Next Step: adding more weapons
 
 Tomas Harrington:
 Action and its subclasses CRC cards
 Action.java coded as an abstract class
-usecases.Throw.java coded and then fixed after testing
+interfaceadapters.ThrowCommand.java coded and then fixed after testing
 ThrowTest.java coded
 Organization of code
 Wrote TODO’s in code for necessary code expansion post-demo
@@ -54,7 +54,7 @@ Worked on figuring out how the demo would work with group members
 Next Step: adding more commands and tests
 
 Michal Chernyi:
-entities.Character, entities.Player, and entities.Item classes and documentation
+entities.characters.Character, entities.characters.Player, and entities.Item classes and documentation
 CRC cards
 Scenario walk through with Devan
 Code clean up

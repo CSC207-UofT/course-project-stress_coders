@@ -9,7 +9,7 @@ Responsibilities:
 * Randomly give the player a potion if they can afford it. Otherwise, they get an unusable potion
 
 Collaborators:
-* entities.Player
+* entities.characters.Player
 * entities.interfaces.Consumable
 * entities.interfaces.Throwable
 * entities.Variable

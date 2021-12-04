@@ -8,5 +8,5 @@ Allows for blockable objects to block, handles the result of the action and the 
 
 Collaborators:
 Blockable interface
-entities.Player
-entities.Weapon
+entities.characters.Player
+entities.weapons.Weapon

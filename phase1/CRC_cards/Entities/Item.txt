@@ -1,6 +1,6 @@
 Class: entities.Item
 Parent class: entities.Interactable
-Subclasses: entities.Food, entities.Potion, entities.Trader, entities.Weapon
+Subclasses: entities.food.Food, entities.food.Potion, entities.characters.Trader, entities.weapons.Weapon
 Type: Entity
 
 Responsibilities:

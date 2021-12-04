@@ -11,5 +11,5 @@ Responsibilities:
 
 Collaborators:
 * entities.interfaces.Spinnable
-* entities.Weapon
-* entities.Player
+* entities.weapons.Weapon
+* entities.characters.Player

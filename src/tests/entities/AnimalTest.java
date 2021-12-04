@@ -1,8 +1,12 @@
 package entities;
 
+import entities.characters.Animal;
+import entities.characters.Player;
+import entities.food.Meat;
 import entities.interfaces.Consumable;
+import entities.weapons.Axe;
 import org.junit.Test;
-import usecases.Throw;
+import interfaceadapters.ThrowCommand;
 
 import java.util.HashMap;
 
@@ -24,7 +28,7 @@ public class AnimalTest {
         Animal animal = new Animal("id", 10, dummy);
         Axe axe = new Axe("axe");
         axe.setHeldBy(dummy);
-        Throw throwCmd = new Throw();
+        ThrowCommand throwCmd = new ThrowCommand();
         HashMap<String, Interactable> args = new HashMap<>();
         args.put("throw_obj", axe);
         args.put("target", animal);

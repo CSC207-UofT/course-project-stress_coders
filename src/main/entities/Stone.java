@@ -2,6 +2,7 @@ package entities;
 
 import entities.interfaces.CanChop;
 import entities.interfaces.Throwable;
+import entities.weapons.Weapon;
 
 /*
 A rock that serves as a basic tool that can be found very commonly. High hitProb, low weight and chopDamage

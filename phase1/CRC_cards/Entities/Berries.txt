@@ -1,5 +1,5 @@
-Class: entities.Berries
-Parent class: entities.Food
+Class: entities.food.Berries
+Parent class: entities.food.Food
 Subclasses: None
 Type: Entity
 

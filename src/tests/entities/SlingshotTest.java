@@ -1,5 +1,6 @@
 package entities;
 
+import entities.weapons.Slingshot;
 import org.junit.Test;
 
 import java.util.HashMap;

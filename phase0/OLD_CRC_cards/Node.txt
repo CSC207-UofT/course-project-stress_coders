@@ -9,4 +9,4 @@ Responsibilities
 * Specify whether it is part of a quest or not
 * Mark quest as cleared when encounter is cleared
 
-Collaborator: usecases.Encounter, entities.Player, QuestLog
+Collaborator: usecases.Encounter, entities.characters.Player, QuestLog

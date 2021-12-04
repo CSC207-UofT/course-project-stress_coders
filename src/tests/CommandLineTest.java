@@ -1,4 +1,4 @@
-import entities.Axe;
+import entities.weapons.Axe;
 import entities.Interactable;
 import frameworks.CommandLine;
 import interfaceadapters.GameState;

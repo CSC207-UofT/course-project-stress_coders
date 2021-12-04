@@ -1,7 +1,7 @@
 package entities;
 
-import entities.Character;
-import entities.Player;
+import entities.characters.Character;
+import entities.characters.Player;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

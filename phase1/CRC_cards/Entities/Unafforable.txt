@@ -1,5 +1,5 @@
 Class: entities.Unaffordable
-Parent class: entities.Weapon
+Parent class: entities.weapons.Weapon
 Subclasses: None
 Type: Entity
 

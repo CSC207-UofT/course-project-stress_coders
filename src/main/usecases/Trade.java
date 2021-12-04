@@ -1,22 +1,15 @@
 package usecases;
 
 import entities.Interactable;
-import entities.InteractableProperties;
-import entities.Trader;
-import entities.Variable;
-import entities.interfaces.Consumable;
-import entities.interfaces.Throwable;
-import entities.interfaces.ThrowableTarget;
+import entities.characters.Trader;
 
 import java.util.HashMap;
 
 /**
- * Trade with a trader command
+ * Use case to trade an object
  */
-public class Trade extends Command{
-
-    @Override
-    public String execute(HashMap<String, Interactable> args) {
+public class Trade {
+    public String tradeAction(HashMap<String, Interactable> args) {
         String traderString = "trader";
         if (args.get(traderString) instanceof Trader){
             return ((Trader) args.get(traderString)).trade();

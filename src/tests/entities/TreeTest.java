@@ -1,8 +1,6 @@
 package entities;
 
-import entities.InteractableProperties;
-import entities.Player;
-import entities.Tree;
+import entities.characters.Player;
 import org.junit.Test;
 
 import java.util.HashMap;

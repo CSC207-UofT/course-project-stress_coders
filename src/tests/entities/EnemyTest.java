@@ -1,8 +1,8 @@
 package entities;
 
-import entities.Axe;
-import entities.Enemy;
-import entities.Player;
+import entities.characters.Enemy;
+import entities.characters.Player;
+import entities.weapons.Axe;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

@@ -1,10 +1,10 @@
 
-import entities.Axe;
-import entities.Enemy;
+import entities.weapons.Axe;
+import entities.characters.Enemy;
 import entities.Interactable;
-import entities.Player;
+import entities.characters.Player;
 import org.junit.Test;
-import usecases.Throw;
+import interfaceadapters.ThrowCommand;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,7 +20,7 @@ public class ThrowTest {
         testEnemy.setHealthPoints(10);
         Axe testAxe = new Axe("axe");
         p.setWeapon(testAxe);
-        Throw throwCommand = new Throw();
+        ThrowCommand throwCommand = new ThrowCommand();
         HashMap<String, Interactable> args = new HashMap<>();
         args.put("throw_obj", testAxe);
         args.put("target", testEnemy);

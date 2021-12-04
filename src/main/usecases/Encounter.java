@@ -2,7 +2,8 @@ package usecases;
 
 import Style.ColorConstants;
 import entities.*;
-import entities.Character;
+import entities.characters.Character;
+import entities.characters.Player;
 import entities.interfaces.Spinnable;
 import entities.interfaces.Target;
 

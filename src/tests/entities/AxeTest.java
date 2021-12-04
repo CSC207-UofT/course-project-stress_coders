@@ -1,7 +1,6 @@
 package entities;
 
-import entities.Axe;
-import entities.InteractableProperties;
+import entities.weapons.Axe;
 import org.junit.Test;
 
 import java.util.HashMap;

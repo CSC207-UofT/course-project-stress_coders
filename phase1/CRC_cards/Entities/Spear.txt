@@ -1,5 +1,5 @@
-Class: entities.Spear
-Parent class: entities.Weapon
+Class: entities.weapons.Spear
+Parent class: entities.weapons.Weapon
 Subclasses: None
 Type: Entity
 

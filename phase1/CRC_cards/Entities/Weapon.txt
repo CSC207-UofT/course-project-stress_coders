@@ -1,6 +1,6 @@
-Class: entities.Weapon
+Class: entities.weapons.Weapon
 Parent class: None 
-Subclasses: entities.Axe, entities.Crossbow, entities.HandCanon, entities.ShootableWeapon, entities.Spear
+Subclasses: entities.weapons.Axe, entities.weapons.Crossbow, entities.HandCanon, entities.weapons.ShootableWeapon, entities.weapons.Spear
 Type: Entity
 
 Responsibilities:
@@ -8,4 +8,4 @@ Responsibilities:
 * Setter and Getter for the Damage
 
 Collaborators:
-* entities.Character
+* entities.characters.Character

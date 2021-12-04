@@ -1,5 +1,5 @@
-Class: entities.Slingshot
-Parent class: entities.ShootableWeapon
+Class: entities.weapons.Slingshot
+Parent class: entities.weapons.ShootableWeapon
 Subclasses: None
 Type: Entity
 

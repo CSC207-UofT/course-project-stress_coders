@@ -1,6 +1,6 @@
-Class: entities.Food
+Class: entities.food.Food
 Parent class: entities.Item
-Subclasses: entities.Berries, entities.Meat, entities.Nuts, entities.Potato,
+Subclasses: entities.food.Berries, entities.food.Meat, entities.food.Nuts, entities.food.Potato,
 Type: Entity
 
 Responsibilities:
@@ -9,5 +9,5 @@ Responsibilities:
 * Process and Return what happens when it is consumed
 
 Collaborators:
-* entities.Player
+* entities.characters.Player
 * entities.interfaces.Consumable

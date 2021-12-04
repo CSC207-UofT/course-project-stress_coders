@@ -1,4 +1,4 @@
-Class: entities.Potion
+Class: entities.food.Potion
 Parent class: entities.Item
 Subclasses: None
 Type: Entity

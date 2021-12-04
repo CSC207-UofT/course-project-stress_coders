@@ -2,7 +2,7 @@
 import entities.Interactable;
 import entities.Tree;
 import org.junit.Test;
-import usecases.Unlock;
+import interfaceadapters.UnlockCommand;
 
 import java.util.HashMap;
 
@@ -16,7 +16,7 @@ public class UnlockTest {
         Tree treeTest = new Tree("id");
         testArgs.put("door", treeTest);
 
-        Unlock unlockCommand = new Unlock();
+        UnlockCommand unlockCommand = new UnlockCommand();
 
         assertEquals("Invalid door, please pass in a valid door.", unlockCommand.execute(testArgs));
 

@@ -1,6 +1,6 @@
-import entities.Axe;
+import entities.weapons.Axe;
 import entities.Interactable;
-import entities.Player;
+import entities.characters.Player;
 import entities.Tree;
 import org.junit.Test;
 import usecases.Chop;

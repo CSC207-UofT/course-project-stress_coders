@@ -1,5 +1,5 @@
-Class: entities.Axe
-Parent class: entities.Weapon
+Class: entities.weapons.Axe
+Parent class: entities.weapons.Weapon
 Subclasses: None
 Type: Entity
 

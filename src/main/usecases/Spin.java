@@ -3,6 +3,8 @@ package usecases;
 import entities.*;
 import entities.food.Potion;
 import entities.food.UnusablePotion;
+import entities.minigames.MysteryBox;
+import entities.minigames.PotionDispenser;
 import entities.weapons.Weapon;
 
 import java.util.HashMap;

@@ -4,6 +4,7 @@ import entities.*;
 import entities.characters.Character;
 import entities.characters.Enemy;
 import entities.characters.Player;
+import entities.minigames.Joust;
 
 import java.util.HashMap;
 import java.util.Objects;

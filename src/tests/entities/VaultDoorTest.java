@@ -1,6 +1,6 @@
 package entities;
 
-import entities.VaultDoor;
+import entities.minigames.VaultDoor;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

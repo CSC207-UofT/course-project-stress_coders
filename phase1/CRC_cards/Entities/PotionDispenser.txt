@@ -1,4 +1,4 @@
-Class: entities.PotionDispenser
+Class: entities.minigames.PotionDispenser
 Parent class: entities.Interactable
 Subclasses: None
 Type: Entity

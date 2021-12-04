@@ -3,6 +3,7 @@ package entities;
 import entities.characters.Player;
 import entities.food.Potion;
 import entities.food.UnusablePotion;
+import entities.minigames.PotionDispenser;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

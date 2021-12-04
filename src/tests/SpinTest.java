@@ -1,6 +1,7 @@
 
 import entities.*;
 import entities.characters.Player;
+import entities.minigames.MysteryBox;
 import entities.weapons.Axe;
 import entities.weapons.Weapon;
 import org.junit.Test;

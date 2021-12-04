@@ -1,4 +1,4 @@
-Class: entities.VaultDoor
+Class: entities.minigames.VaultDoor
 Parent class: entities.Door
 Subclasses: None
 Type: Entity

@@ -1,11 +1,9 @@
 import entities.*;
+import entities.minigames.VaultDoor;
 import org.junit.Test;
 import usecases.Hint;
-import usecases.Spin;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 

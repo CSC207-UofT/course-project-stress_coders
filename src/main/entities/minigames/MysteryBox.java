@@ -1,5 +1,7 @@
-package entities;
+package entities.minigames;
 
+import entities.Interactable;
+import entities.Unafforable;
 import entities.characters.Player;
 import entities.interfaces.Spinnable;
 import entities.weapons.Weapon;

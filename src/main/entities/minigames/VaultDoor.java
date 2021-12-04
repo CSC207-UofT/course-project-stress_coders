@@ -1,4 +1,6 @@
-package entities;
+package entities.minigames;
+
+import entities.Door;
 
 public class VaultDoor extends Door {
     public VaultDoor(String id, String[] hints, String answer) {

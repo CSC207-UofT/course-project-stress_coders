@@ -1,7 +1,7 @@
 package usecases;
 
 import entities.Interactable;
-import entities.HorseRace;
+import entities.minigames.HorseRace;
 import entities.characters.Player;
 
 import java.util.HashMap;

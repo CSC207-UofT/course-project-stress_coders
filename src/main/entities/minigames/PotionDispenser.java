@@ -1,5 +1,6 @@
-package entities;
+package entities.minigames;
 
+import entities.Interactable;
 import entities.characters.Player;
 import entities.food.Potion;
 import entities.food.UnusablePotion;

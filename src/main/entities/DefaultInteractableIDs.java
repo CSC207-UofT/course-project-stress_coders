@@ -5,9 +5,10 @@ public enum DefaultInteractableIDs {
     ANIMAL("Animal"),
     CROSSBOW("Crossbow"),
     HANDCANNON("Hand cannon"),
+    MAZE("Maze"),
     MYSTERYBOX("Mystery Box"),
     POTIONDISPENSER("Potion Dispenser"),
-    RIDDLEGOBLIN("Riddle Goblin.txt"),
+    RIDDLEGOBLIN("Riddle Goblin"),
     TREE("Tree"),
     POTION("Potion"),
     VAULTDOOR("Vault door"); // should be changed to , if JOUST used

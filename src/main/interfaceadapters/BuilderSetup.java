@@ -96,6 +96,7 @@ public class BuilderSetup {
         this.allPossibleInteractables.add(new HandCannon(DefaultInteractableIDs.HANDCANNON.getDefaultID(), r.nextInt(30)));
         this.allPossibleInteractables.add(new Potion(DefaultInteractableIDs.POTION.getDefaultID()));
         this.allPossibleInteractables.add(new Tree(DefaultInteractableIDs.TREE.getDefaultID()));
+        this.allPossibleInteractables.add(new Maze(DefaultInteractableIDs.MAZE.getDefaultID(), player));
         VaultDoor v = generateVaultDoor();
         MysteryBox m = generateMysteryBox();
         PotionDispenser p = generatePotionDispenser();

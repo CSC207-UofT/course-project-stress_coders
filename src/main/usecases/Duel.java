@@ -1,7 +1,7 @@
 package usecases;
 
 import entities.Interactable;
-import entities.Joust;
+import entities.minigames.Joust;
 import entities.characters.Character;
 import entities.characters.Enemy;
 import entities.characters.Player;

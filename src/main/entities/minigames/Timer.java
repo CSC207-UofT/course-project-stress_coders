@@ -1,4 +1,4 @@
-package entities;
+package entities.minigames;
 
 public class Timer {
 

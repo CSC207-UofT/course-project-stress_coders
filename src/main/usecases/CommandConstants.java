@@ -18,7 +18,7 @@ public class CommandConstants {
         COMMANDS.put("chop", new ChopCommand());
         COMMANDS.put("consume", new ConsumeCommand());
         COMMANDS.put("unlock", new UnlockCommand());
-        COMMANDS.put("spin", new Spin());
+        COMMANDS.put("spin", new SpinCommand());
         COMMANDS.put("shoot", new ShootCommand());
         COMMANDS.put("hint", new HintCommand());
     }

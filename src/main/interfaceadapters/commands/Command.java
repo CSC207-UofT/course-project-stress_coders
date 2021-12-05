@@ -1,4 +1,4 @@
-package usecases;
+package interfaceadapters.commands;
 
 import java.util.HashMap;
 import entities.*;

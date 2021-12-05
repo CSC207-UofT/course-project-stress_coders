@@ -8,10 +8,12 @@ import entities.weapons.Weapon;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Spin extends Command {
+/**
+ * Usecase to spin a box!
+ */
+public class Spin{
 
-    @Override
-    public String execute(HashMap<String, Interactable> args) {
+    public String action(HashMap<String, Interactable> args) {
         if (args.get("box") instanceof MysteryBox) {
             MysteryBox m = ((MysteryBox) args.get("box"));
             Weapon w = m.spin();

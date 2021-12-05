@@ -1,5 +1,6 @@
-package entities;
+package entities.minigames;
 
+import entities.Interactable;
 import entities.interfaces.Unlockable;
 
 public abstract class Door extends Interactable implements Unlockable {

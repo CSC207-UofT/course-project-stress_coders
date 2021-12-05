@@ -67,6 +67,12 @@ public class Maze extends Interactable implements Moveable {
         this.player = p;
     }
 
+    /**
+     * Generate a regex based on the length of the maze
+     *
+     * @param mazeLength the length of the maze
+     * @return the path regex of the same length
+     */
     private String createPathRegex(int mazeLength){
         if (mazeLength == 5) {
             return "rrullu";
@@ -83,6 +89,11 @@ public class Maze extends Interactable implements Moveable {
         }
     }
 
+    /**
+     * Determine if the player's path no longer follows the maze's path
+     *
+     * @return true if the user's path fails
+     */
     private boolean hasPathFailed(){
         String currRegex = this.solutionPath.substring(0, this.moveNum);
         Pattern pattern = Pattern.compile(currRegex, Pattern.CASE_INSENSITIVE);
@@ -90,11 +101,24 @@ public class Maze extends Interactable implements Moveable {
         return !matcher.find();
     }
 
+    /**
+     * Determine if the user has made it to the end of the maze
+     *
+     * @return true if the number of moves the user made is the same as the maze length
+     */
     private boolean hasTravelledDistance() {
         this.setCompleted(true);
         return this.moveNum == this.mazeLength;
     }
 
+    /**
+     * Process the move made
+     *
+     * @param nextMove the next direction moved
+     * @return "time" if time runs out, "path" if the path fails,
+     * "false" if the path hasn't failed yet isn't complete and
+     * "true" if the path is the solution
+     */
     public String move(char nextMove){
         this.traveledPath = this.traveledPath + nextMove;
         timer.updateTime();
@@ -108,13 +132,28 @@ public class Maze extends Interactable implements Moveable {
         return Boolean.toString(hasTravelledDistance());
     }
 
+    /**
+     * Make the player lose his current weapon by replacing it with an Unaffordable one
+     */
     public void playerLossesWeapon(){
         Weapon w = new Unafforable();
         this.player.setWeapon(w);
     }
 
-    public void playerGainsMoney(){
+    /**
+     * Reward the player 1000 currency
+     */
+    public void playerReward(){
         this.player.addCurrency(1000);
+    }
+
+    /**
+     * Get the timer
+     *
+     * @return this maze's timer
+     */
+    public Timer getTimer(){
+        return this.timer;
     }
 
 }

@@ -13,13 +13,13 @@ public class Move extends Command{
 
         Maze m = ((Maze) args.get("maze"));
         char currMove = 'x';
-        System.out.println("What is you move?");
+        System.out.println("What is your move?");
         Scanner lineIn = new Scanner(System.in);
         String choice = lineIn.nextLine();
         currMove = getMove(currMove, choice);
         String currMoveResult = m.move(currMove);
         while(!currMoveResult.equals("true")){
-            System.out.println("What is you move?");
+            System.out.println("What is your next move?");
             choice = lineIn.nextLine();
 
             currMove = getMove(currMove, choice);
@@ -28,9 +28,14 @@ public class Move extends Command{
             if(currMoveResult.equals("time")){
                 m.playerLossesWeapon();
                 return "You ran out of time and got lost. Your weapon was broken hacking your way out.";
+            } else if (currMoveResult.equals("path")) {
+                m.getTimer().updateMaxTime(-120000);
+                double current_time_remaining = (m.getTimer().getMaxTime() - m.getTimer().getCurrentTime())/1000;
+                System.out.println("You strayed from the path, and find yourself back at the start. " +
+                        "You wasted 2 minutes and only have " + current_time_remaining + " seconds left!");
             }
         }
-        m.playerGainsMoney();
+        m.playerReward();
         return "You made it! You got 1000 currency!";
     }
 

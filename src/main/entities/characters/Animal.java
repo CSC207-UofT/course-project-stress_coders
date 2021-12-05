@@ -48,5 +48,7 @@ public class Animal extends Character implements ThrowableTarget {
         }
     }
 
-
+    public Animal(){
+        player = new Player();
+    }
 }

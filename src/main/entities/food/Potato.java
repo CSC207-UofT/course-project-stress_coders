@@ -22,6 +22,7 @@ public class Potato extends Food implements Consumable {
         super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(10));
     }
 
+    public Potato(){}
 }
 
 

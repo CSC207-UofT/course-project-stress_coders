@@ -13,7 +13,7 @@ import entities.interfaces.Throwable;
 
 public class Potion extends Item implements Throwable, Consumable {
 
-    public String id;
+//    public String id;
     public int strength;
 
     public Potion(String id, int strength) {
@@ -43,9 +43,9 @@ public class Potion extends Item implements Throwable, Consumable {
         super.addProperty(InteractableProperties.WEIGHT.name(), new Variable(0));
     }
 
-    public String getID() {
-        return this.id;
-    }
+//    public String getID() {
+//        return this.id;
+//    }
 
     public int restorationValue() {
         return this.strength;
@@ -67,4 +67,6 @@ public class Potion extends Item implements Throwable, Consumable {
             return "You don't hold this!";
         }
     }
+
+    public Potion() {}
 }

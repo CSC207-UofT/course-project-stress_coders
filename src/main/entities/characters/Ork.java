@@ -82,4 +82,8 @@ public class Ork extends Enemy{
         }
     }
 
+    public Ork(){
+        this.enrage_hp = 69.0;
+    }
+
 }

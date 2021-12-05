@@ -5,7 +5,7 @@ import java.util.HashMap;
 /*
 An object in an encounter that can be used as an argument for a command
  */
-public abstract class Interactable implements Cloneable{
+public class Interactable implements Cloneable{
     // ID/name of the obj, Must be unique among encounters
     private String id;
     private boolean completed;
@@ -31,6 +31,12 @@ public abstract class Interactable implements Cloneable{
         this.id = id;
         this.initialText = "";
         this.commandUse = howToUse;
+    }
+
+
+    public Interactable(){
+        // For deserialization
+        this.commandUse = "";
     }
 
     /**

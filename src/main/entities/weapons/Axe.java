@@ -49,4 +49,6 @@ public class Axe extends Weapon implements Throwable, CanChop {
     public void addChopDamage() {
         super.addProperty(InteractableProperties.CHOP_DMG_NAME.name(), new Variable(20));
     }
+
+    public Axe(){}
 }

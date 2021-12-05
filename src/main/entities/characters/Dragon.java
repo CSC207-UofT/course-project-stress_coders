@@ -78,4 +78,10 @@ public class Dragon extends Enemy {
         this.defaultDamage = r.nextInt(14) + 29;
     }
 
+    public Dragon(){
+        player = new Player();
+        valueDefeated = 0;
+        skin_piercing_threshold = 69;
+    }
+
 }

@@ -64,4 +64,10 @@ public class PheonixHatchling extends Enemy {
             return super.defaultHitBack();
         }
     }
+
+    public PheonixHatchling(){
+        valueDefeated = 0;
+        player = new Player();
+        max_hit_points = 69;
+    }
 }

@@ -9,4 +9,6 @@ public class VaultDoor extends Door {
     public String userAttempt(String input) {
         return super.userAttempt(input);
     }
+
+    public VaultDoor(){}
 }

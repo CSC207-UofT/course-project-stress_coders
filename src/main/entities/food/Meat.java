@@ -23,4 +23,6 @@ public class Meat extends Food implements Consumable {
     @Override
     public void addRestorationValue() { super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(20)); }
 
+
+    public Meat(){}
 }

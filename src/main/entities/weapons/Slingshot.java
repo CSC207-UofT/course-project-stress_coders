@@ -35,6 +35,8 @@ public class Slingshot extends ShootableWeapon {
         super.addProperty(InteractableProperties.WEIGHT.name(), new Variable(weight));
     }
 
+    public Slingshot(){}
+
 }
 
 

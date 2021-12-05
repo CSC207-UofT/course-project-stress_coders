@@ -151,4 +151,8 @@ public class RiddleGoblin extends Goblin {
     public String getRiddle(){
         return riddle;
     }
+
+    public RiddleGoblin(){
+        this.player = new Player();
+    }
 }

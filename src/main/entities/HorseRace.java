@@ -129,5 +129,6 @@ public class HorseRace extends Interactable implements Raceable {
         return false;
     }
 
+    public HorseRace(){}
 
 }

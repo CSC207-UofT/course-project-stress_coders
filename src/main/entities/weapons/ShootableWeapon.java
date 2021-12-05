@@ -5,7 +5,7 @@ import entities.weapons.Weapon;
 public abstract class ShootableWeapon extends Weapon {
 
     private int ammoCount = 0;
-    public String id;
+//    public String id;
     public int ammoPerShot = 1;
 
     /**
@@ -69,4 +69,6 @@ public abstract class ShootableWeapon extends Weapon {
     public void setAmmoPerShot(int cost) {
         this.ammoPerShot = cost;
     }
+
+    public ShootableWeapon(){}
 }

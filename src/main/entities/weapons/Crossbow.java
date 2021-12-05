@@ -40,4 +40,6 @@ public class Crossbow extends ShootableWeapon {
         super.addProperty(InteractableProperties.WEIGHT.name(), new Variable(weight));
     }
 
+    public Crossbow(){}
+
 }

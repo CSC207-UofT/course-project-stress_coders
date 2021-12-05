@@ -43,4 +43,6 @@ public class Tree extends Interactable implements Harvestable {
         }
     }
 
+    public Tree(){}
+
 }

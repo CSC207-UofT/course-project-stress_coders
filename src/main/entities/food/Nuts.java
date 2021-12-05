@@ -21,5 +21,6 @@ public class Nuts extends Food implements Consumable {
      */
     public void addRestorationValue() { super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(10)); }
 
+    public Nuts(){}
 }
 

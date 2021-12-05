@@ -38,5 +38,6 @@ public class Spear extends Weapon implements Throwable {
         super.addProperty(InteractableProperties.WEIGHT.name(), new Variable(30));
     }
 
+    public Spear(){}
 }
 

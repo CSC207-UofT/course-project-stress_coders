@@ -104,4 +104,6 @@ public class Joust extends Interactable implements Duelable {
 
         return  -1;
     }
+
+    public Joust(){}
 }

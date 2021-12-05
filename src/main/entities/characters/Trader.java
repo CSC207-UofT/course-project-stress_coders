@@ -30,7 +30,7 @@ public class Trader extends Item implements CanTradeWith {
         if (this.inventory.containsKey(item)) {
             int price = Math.abs(((Interactable) this.inventory.get(item)).getProperty(InteractableProperties.CONSUMABLE_REST_NAME.name()).getInteger());
             if (price <= this.player.getWallet()) {
-                this.player.addConsumable(this.inventory.get(item));
+                this.player.addConsumable((Item) this.inventory.get(item));
                 this.player.subCurrency(price);
                 this.setCompleted(true);
                 return "Bought " + item + " for " + price + " geld";
@@ -54,4 +54,7 @@ public class Trader extends Item implements CanTradeWith {
     public HashMap<String, Consumable> getInventory() {
         return this.inventory;
     }
+
+
+    public Trader(){}
 }

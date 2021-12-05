@@ -38,7 +38,7 @@ public class AnimalTest {
         } else {
             assertTrue(animal.isDead());
             boolean meatFound = false;
-            for (Consumable item : dummy.getConsumables()) {
+            for (Item item : dummy.getConsumables()) {
                 if (item instanceof Meat) { meatFound = true; }
             }
             assertTrue(meatFound);

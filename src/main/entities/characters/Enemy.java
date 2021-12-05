@@ -137,4 +137,8 @@ public class Enemy extends Character implements ThrowableTarget {
      */
     public Player getPlayer(){ return this.player; }
 
+    public Enemy(){
+        valueDefeated = 0;
+        player = new Player();
+    }
 }

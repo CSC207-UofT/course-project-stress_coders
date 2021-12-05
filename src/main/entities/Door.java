@@ -93,4 +93,6 @@ public abstract class Door extends Interactable implements Unlockable {
         }
         return "Oops! Incorrect code..try again.";
     }
+
+    public Door(){}
 }

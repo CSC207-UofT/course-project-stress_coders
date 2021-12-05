@@ -30,6 +30,8 @@ public class ElvenSharpshooter extends Enemy {
         getPlayer().setHealthPoints(getPlayer().getHealthPoints() - defaultDamage);
         return throwingBack;
     }
+
+    public ElvenSharpshooter(){}
 }
 
 

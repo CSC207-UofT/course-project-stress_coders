@@ -73,7 +73,7 @@ public class PlayerTest {
 
     @Test
     public void addConsumable() {
-        Consumable potion = new Potion("Im listening to daft punk - harder better faster stronger as i write this");
+        Item potion = new Potion("Im listening to daft punk - harder better faster stronger as i write this");
         Player testPlayer = new Player("id");
         testPlayer.addConsumable(potion);
 
@@ -83,7 +83,7 @@ public class PlayerTest {
 
     @Test
     public void subConsumable() {
-        Consumable potion = new Potion("Im listening to daft punk - harder better faster stronger as i write this");
+        Item potion = new Potion("Im listening to daft punk - harder better faster stronger as i write this");
         Player testPlayer = new Player("id");
         testPlayer.addConsumable(potion);
         testPlayer.addConsumable(potion);
@@ -103,13 +103,13 @@ public class PlayerTest {
 
     @Test
     public void itemAmount() {
-        Consumable potion = new Potion("OOP OOP OOP");
+        Item potion = new Potion("OOP OOP OOP");
         Player testPlayer = new Player("id");
         testPlayer.addConsumable(potion);
         testPlayer.addConsumable(potion);
         testPlayer.addConsumable(potion);
 
-        assertEquals(3, testPlayer.itemAmount(potion));
+        assertEquals(3, testPlayer.itemAmount((Consumable) potion));
     }
 
     @Test
@@ -132,9 +132,9 @@ public class PlayerTest {
     @Test
     public void getItems(){
         Player testPlayer = new Player("id");
-        Consumable potion = new Potion("OOP OOP OOP");
+        Item potion = new Potion("OOP OOP OOP");
         testPlayer.addConsumable(potion);
-        HashMap<Consumable, Integer> testMap = new HashMap<>();
+        HashMap<Item, Integer> testMap = new HashMap<>();
 
         testMap.put(potion, 1);
         assertEquals(testMap, testPlayer.getItems());

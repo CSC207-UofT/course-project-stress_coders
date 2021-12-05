@@ -38,4 +38,6 @@ public class Goblin extends Interactable implements Talkable {
 
     public String listenAndRespond(){return "hehe";}
 
+    public Goblin(){}
+
 }

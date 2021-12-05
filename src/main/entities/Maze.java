@@ -94,7 +94,7 @@ public class Maze extends Interactable implements Moveable {
     /**
      * Determine if the player's path no longer follows the maze's path
      *
-     * @return true if the user's path fails
+     * @return true if the user's travelled path fails
      */
     private boolean hasPathFailed(){
         String currRegex = this.solutionPath.substring(0, this.moveNum);

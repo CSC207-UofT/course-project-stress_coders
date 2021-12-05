@@ -22,16 +22,20 @@ public class Chop {
      */
     public String chopHarvestable(HashMap<String, Interactable> args) {
         String tool = "tool"; String target = "target";
-        if(args.get(target) instanceof Harvestable && args.get(tool) instanceof CanChop && args.get(tool) instanceof Item) {
-            if(!(((Item) args.get(tool)).getHeldBy() == null)){
-                // harvest the tree using the player that's holding the axe
-                return ((Harvestable) args.get(target)).harvest((Player) ((Item) args.get(tool)).getHeldBy(),
-                        args.get(tool).getProperty(InteractableProperties.CHOP_DMG_NAME.name()).getInteger());
+        if(args.get(tool) != null) {
+            if(args.get(target) instanceof Harvestable && args.get(tool) instanceof CanChop && args.get(tool) instanceof Item) {
+                if(!(((Item) args.get(tool)).getHeldBy() == null)){
+                    // harvest the tree using the player that's holding the axe
+                    return ((Harvestable) args.get(target)).harvest((Player) ((Item) args.get(tool)).getHeldBy(),
+                            args.get(tool).getProperty(InteractableProperties.CHOP_DMG_NAME.name()).getInteger());
+                } else {
+                    return "You don't hold that";
+                }
             } else {
-                return "You don't hold that";
+                return "You cannot harvest that!";
             }
         } else {
-            return "You cannot harvest that!";
+            return "That tool does not seem to exist";
         }
     }
 }

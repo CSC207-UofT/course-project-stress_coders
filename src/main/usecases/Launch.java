@@ -3,6 +3,7 @@ package usecases;
 import entities.Interactable;
 import entities.characters.Player;
 import entities.minigames.Catapult;
+import entities.minigames.Fishing;
 import entities.minigames.PebbleSkip;
 
 import java.util.HashMap;
@@ -69,6 +70,36 @@ public class Launch {
             }
 
             return "You forfeited the pebble skip!";
+        } else if (args.get("launchable") instanceof Fishing) {
+            Fishing fh = ((Fishing) args.get("launchable"));
+
+
+            String message = "Are you sure you want to participate in fishing?";
+
+            System.out.println(message);
+
+            System.out.println("Enter 'yes' to continue and anything else to forfeit fishing");
+            Scanner lineIn = new Scanner(System.in);
+            String choice = lineIn.nextLine();
+
+            if (choice.equals("yes")) {
+
+                System.out.println("The pebble skip has begun!");
+                System.out.println("Enter the distance of the fishing rod in the water, between 0 and 9");
+                Scanner distanceLineIn = new Scanner(System.in);
+                String distanceChoice = lineIn.nextLine();
+
+                fh.setPullBackDistance(Integer.parseInt(distanceChoice));
+
+                // now hr.raceOver();
+                if (fh.launch()) {
+                    return "Nice, you succesfully caught a fish in the water!";
+                } else {
+                    return "You failed to catch a fish in the water!";
+                }
+            }
+
+            return "You forfeited from fishing!";
         }
 
         return "Invalid launchable, please pass in a valid launchable.";

@@ -9,7 +9,7 @@ Encounters with enemies and friendlies, as well as events are randomly generated
 
 **Dependency**: \
 Note, to run the game we use Gson, a google JAR package to save and load state. \
-You can download it here: https://search.maven.org/artifact/com.google.code.gson/gson/2.8.9/jar \
+You can download it [here](https://search.maven.org/artifact/com.google.code.gson/gson/2.8.9/jar) \
 The Download button is at the top righthand corner. Download the JAR file, not any other. When you run it in IntelliJ, the IDE should automatically recognize your download and use it as source for this dependency. If not, try the following:
 - Click File from the toolbar
 - Select Project Structure option (CTRL + SHIFT + ALT + S on Windows/Linux, ⌘ + ; on Mac OS X)

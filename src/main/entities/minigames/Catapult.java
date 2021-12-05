@@ -1,6 +1,7 @@
 package entities.minigames;
 
 import entities.Interactable;
+import entities.interfaces.Launchable;
 
 import java.util.Random;
 
@@ -13,7 +14,7 @@ import java.util.Random;
  */
 
 
-public class Catapult extends Interactable {
+public class Catapult extends Interactable implements Launchable {
 
     private final int enemyDistance;
     private int pullBackDistance;

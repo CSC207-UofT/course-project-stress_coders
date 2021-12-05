@@ -1,6 +1,8 @@
 package entities;
 
 import entities.interfaces.Moveable;
+import entities.characters.*;
+import entities.weapons.*;
 
 import java.util.Random;
 import java.util.regex.Matcher;

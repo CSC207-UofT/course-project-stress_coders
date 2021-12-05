@@ -27,6 +27,7 @@ public class Tree extends Interactable implements Harvestable {
      * @param player the harvesting player
      * @return the harvested resources
      */
+    @Override
     public String harvest(Player player, int toolDamage){
         if (!(this.isCompleted())) {
             int remaining = this.getProperty(InteractableProperties.RES_STORE_NAME.name()).getInteger();

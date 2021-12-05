@@ -73,9 +73,9 @@ public class PebbleSkip extends Interactable implements Launchable {
     }
 
     private void calculateNumSkips() {
-        if (this.angle >= 0 && this.angle <= 20) {
+        if (this.angle >= 0 && this.angle < 20) {
             this.numSkips = 0 * this.skipWeight;
-        } else if (this.angle >= 20 && this.angle <= 30) {
+        } else if (this.angle >= 20 && this.angle < 30) {
             this.numSkips = this.skipWeight / 2;
         } else if (this.angle >= 30 && this.angle <= 90) {
             this.numSkips = this.skipWeight / 4;

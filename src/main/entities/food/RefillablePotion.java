@@ -41,4 +41,6 @@ public class RefillablePotion extends Potion {
             return "You don't hold this!";
         }
     }
+
+    public RefillablePotion(){}
 }

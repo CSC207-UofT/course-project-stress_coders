@@ -21,7 +21,7 @@ public class CommandLine {
     private final GameState gameState;
     private PlayerManager playerState;
     private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "progress",
-            "display_objects", "consumeItem", "pick_up"));
+            "display_objects", "consumeItem", "pick_up", "save 1", "save 2", "save 3"));
     private static final Set<String> GAME_LENGTH_OPTIONS = new HashSet<>(List.of(new String[]{"short", "medium",
             "long", "test"}));
 
@@ -57,30 +57,33 @@ public class CommandLine {
     /**
      Loop for retrieving user inputs and displaying the results, this is the user command line
      **/
-    public void start() throws CloneNotSupportedException {
+    public void start() throws CloneNotSupportedException, IOException {
+        startUpPrompt();
+        firstRunSequence();
+        run();
+    }
+
+    public void run() throws IOException, CloneNotSupportedException {
         boolean running = true;
-        boolean firstRun = true;
-        // fixed player death sequence bug and added defificulty
         while(running) {
-            if (firstRun) {
-                firstRun = false;
-                firstRunSequence();
-            } else {
-                Scanner input = new Scanner(System.in);
-                System.out.print("$ ");
-                String nextInput = input.nextLine();
-                if (nextInput.equals("exit")) {
-                    running = false;
-                }
-                else if (SPECIAL_INPUTS.contains(nextInput)) {
-                    System.out.println(specialCommand(nextInput));
-                }
-                else {
-                    System.out.println(callCommand(nextInput));
-                    if (playerState.getPlayer().isDead()) {
-                        boolean result = playerDeathSeqence();
-                        if (result) {firstRun=true;}
-                        else {running=false;}
+            Scanner input = new Scanner(System.in);
+            System.out.print("$ ");
+            String nextInput = input.nextLine();
+            if (nextInput.equals("exit")) {
+                running = false;
+            }
+            else if (SPECIAL_INPUTS.contains(nextInput)) {
+                System.out.println(specialCommand(nextInput));
+            }
+            else {
+                System.out.println(callCommand(nextInput));
+                if (playerState.getPlayer().isDead()) {
+                    boolean result = playerDeathSeqence();
+                    if (result) {
+                        firstRunSequence();
+                    }
+                    else {
+                        running=false;
                     }
                 }
             }
@@ -133,7 +136,7 @@ public class CommandLine {
      * @return String indicating the command executed by user
      */
 
-    public String specialCommand(String nextInput) {
+    public String specialCommand(String nextInput) throws IOException, CloneNotSupportedException {
         if (nextInput.equals("progress")) {
             for (String s : this.gameState().completedEncounters()) {
                 System.out.println(s);
@@ -153,6 +156,9 @@ public class CommandLine {
         else if (nextInput.equals("consumeItem")) {
             return specialConsumeCall();
         }
+        else if (nextInput.contains("save")) {
+            gameState.save(nextInput);
+        }
         return "";
     }
     /**
@@ -166,7 +172,7 @@ public class CommandLine {
         String itemString = "item";
         if (this.gameState.getCurrent_encounter().containsObj(args.get(itemString))) {
             if (args.get(itemString) instanceof Consumable && !(args.get(itemString).isCompleted())) {
-                this.playerState.getPlayer().addConsumable((Consumable) args.get(itemString));
+                this.playerState.getPlayer().addConsumable((Item) args.get(itemString));
                 return "Added " + args.get(itemString).getId() + " to your items";
             } else if (args.get(itemString) instanceof Item) {
                 ((Item) args.get(itemString)).setHeldBy(this.playerState.getPlayer());
@@ -255,7 +261,7 @@ public class CommandLine {
     public String specialConsumeCall() {
         System.out.println(ColorConstants.getColorCode("CYAN")+"Please enter the consumable of your choice from the given consumables in the format" +
                 " consume: consumable= [consumable_id]"+ ColorConstants.getColorCode("RESET"));
-        for (Consumable c: playerState.getAllConsumables()) {
+        for (Item c: playerState.getAllConsumables()) {
             System.out.println(c.getId());
         }
         Scanner input = new Scanner(System.in);
@@ -273,5 +279,28 @@ public class CommandLine {
         HashMap<String, Interactable> hh = getInteractablesFromID(argToID);
 
         return c.execute(hh);
+    }
+
+    public void startUpPrompt() throws CloneNotSupportedException, IOException {
+        System.out.println("New Game/Continue? (enter New Game for a new game, enter a save file (1, 2, 3) to load an existing save):");
+        System.out.print("$ ");
+
+        Scanner scanner = new Scanner(System.in);
+        String userInput = scanner.nextLine();
+
+        while(!(userInput.equals("New Game") || gameState.validSave(userInput))){
+            System.out.println("Either enter New Game for a new game or a valid save file: (1, 2, 3)!");
+            System.out.print("$ ");
+
+            userInput = scanner.nextLine();
+        }
+
+        if(userInput.equals("New Game")){
+            return;
+        }
+
+        if (gameState.validSave(userInput)){
+            gameState.loadSaveData(userInput);
+        }
     }
 }

@@ -69,4 +69,6 @@ public abstract class Character extends Interactable {
     public void addModifier(float weight){
         this.healthPoints *= weight;
     }
+
+    public Character(){}
 }

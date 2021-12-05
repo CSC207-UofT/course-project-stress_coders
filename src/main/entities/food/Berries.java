@@ -21,5 +21,6 @@ public class Berries extends Food implements Consumable {
      */
     public void addRestorationValue() { super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(5)); }
 
+    public Berries(){}
 }
 

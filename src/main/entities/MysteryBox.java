@@ -42,4 +42,6 @@ public class MysteryBox extends Interactable implements Spinnable {
     public void changePlayerWeapon(Weapon w) {
         player.setWeapon(w);
     }
+
+    public MysteryBox(){}
 }

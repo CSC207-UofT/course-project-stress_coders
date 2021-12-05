@@ -33,4 +33,6 @@ public class MadAcrobat extends Enemy {
             return super.handleHit(weapon);
         }
     }
+
+    public MadAcrobat(){}
 }

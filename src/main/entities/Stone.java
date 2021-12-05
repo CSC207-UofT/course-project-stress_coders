@@ -15,6 +15,8 @@ public class Stone extends Weapon implements Throwable, CanChop {
         addWeight();
     }
 
+    public Stone(){}
+
     @Override
     public void addHitProbability() {
         super.addProperty(InteractableProperties.HIT_PROB.name(), new Variable(100));

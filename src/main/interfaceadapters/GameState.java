@@ -4,6 +4,7 @@ import Style.ColorConstants;
 import entities.Interactable;
 import usecases.*;
 
+import java.io.IOException;
 import java.util.*;
 
 /*
@@ -22,10 +23,16 @@ public class GameState {
     private final List<Encounter> completedEncounters = new ArrayList<>();
     private PlayerManager playerState;
 
+    private transient GameStateSaver gameStateSaver = new GameStateSaver();
+
 
     public GameState(Encounter[] encounters){
         loadEncounters(encounters);
         // will need to populate encounters
+    }
+
+    public GameState(){
+        // For deserialization
     }
 
     public void setPlayerManager(PlayerManager p) {
@@ -144,5 +151,35 @@ public class GameState {
             return playerState.getPlayer().getCurrentWeapon();
         }
         return this.encounters.get(current_encounter).getFromID(s);
+    }
+
+    public void save(String saveCommand){
+        String[] saves = saveCommand.split(" ");
+        String saveFile = saves[1].trim();
+        gameStateSaver.saveToFile(saveFile, this);
+    }
+
+    public ArrayList<Encounter> getEncounters(){
+        return this.encounters;
+    }
+
+    public List<Encounter> getCompletedEncounters(){
+        return this.completedEncounters;
+    }
+
+    public HashMap<String, Encounter> getEncounterConversion(){
+        return this.EncounterConversion;
+    }
+
+    public PlayerManager getPlayerState(){
+        return this.playerState;
+    }
+
+    public void loadSaveData(String saveFile) throws IOException, CloneNotSupportedException {
+        gameStateSaver.loadGame(saveFile);
+    }
+
+    public boolean validSave(String fileNum) throws IOException {
+        return gameStateSaver.validSaveFile(fileNum);
     }
 }

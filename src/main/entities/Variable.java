@@ -67,4 +67,6 @@ public class Variable {
     public int getInteger(){
         return this.integer;
     }
+
+    public Variable(){}
 }

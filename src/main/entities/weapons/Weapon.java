@@ -5,7 +5,7 @@ import entities.Item;
 /*
 Generic weapon class all weapons extend
  */
-public abstract class Weapon extends Item {
+public class Weapon extends Item {
 
     private int damage = 0;
 
@@ -17,6 +17,10 @@ public abstract class Weapon extends Item {
         super(id, howToUse);
         this.damage = damage;
     }
+
+    public Weapon(){
+    }
+
 
     public int getDamage() {return this.damage;}
 

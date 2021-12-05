@@ -38,4 +38,6 @@ public abstract class Food extends Item implements Consumable {
             return "You don't have this!";
         }
     }
+
+    public Food(){}
 }

@@ -21,7 +21,7 @@ public class Encounter {
     //Maps Interactable ID to the object itself, 'key 1': KeyObject
     private final String encounterName;
     private final String description;
-    private final HashMap<String, Interactable> objIDs = new HashMap<>();
+    public final HashMap<String, Interactable> objIDs = new HashMap<>();
     private boolean isCompleted;
     private final ArrayList<Interactable> progression = new ArrayList<>();
     private int currInteractableIndex = -1;

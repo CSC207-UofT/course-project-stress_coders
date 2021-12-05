@@ -26,4 +26,5 @@ public class ThrowingKnife extends Weapon implements Throwable {
         super.addProperty(InteractableProperties.WEIGHT.name(), new Variable(12));
     }
 
+    public ThrowingKnife(){}
 }

@@ -63,5 +63,9 @@ public class HauntedArmor extends Enemy {
         }
     }
 
-
+    public HauntedArmor(){
+        valueDefeated = 0;
+        player = new Player();
+        skin_piercing_threshold = 69;
+    }
 }

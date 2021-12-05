@@ -14,7 +14,7 @@ The player character hold their inventory and their stats and handle how those c
  */
 public class Player extends Character implements ThrowableTarget {
     private final HashMap<String, Integer> inventory = new HashMap<>();
-    private final HashMap<Consumable, Integer> items = new HashMap<>();
+    private final HashMap<Item, Integer> items = new HashMap<>();
     private int wallet;
     private Weapon currentWeapon;
     /**
@@ -33,7 +33,7 @@ public class Player extends Character implements ThrowableTarget {
      *
      * @return list of consumables the player has
      */
-    public List<Consumable> getConsumables() {
+    public List<Item> getConsumables() {
         return new ArrayList<>(this.items.keySet());
     }
 
@@ -44,7 +44,7 @@ public class Player extends Character implements ThrowableTarget {
      * @return the consumable if found, and an UnusablePotion otherwise
      */
     public Interactable findConsumable(String input) {
-        for (Consumable c: items.keySet()) {
+        for (Item c: items.keySet()) {
             if (c.getId().equals(input)) {
                 return ((Interactable) c);
             }
@@ -116,7 +116,7 @@ public class Player extends Character implements ThrowableTarget {
         }
     }
 
-    public void addConsumable(Consumable item) {
+    public void addConsumable(Item item) {
         int i;
         if (this.items.get(item) != null) {
             i = this.items.get(item);
@@ -128,12 +128,12 @@ public class Player extends Character implements ThrowableTarget {
         ((Item) item).setHeldBy(this);
     }
 
-    public void subConsumable(Consumable item, int quantity) {
+    public void subConsumable(Item item, int quantity) {
         ((Item) item).setHeldBy(null);
         this.items.put(item, this.items.get(item)-quantity);
     }
 
-    public void subConsumable(Consumable item, int quantity, boolean dontChangeHeldBy) {
+    public void subConsumable(Item item, int quantity, boolean dontChangeHeldBy) {
         if (!dontChangeHeldBy) { ((Item) item).setHeldBy(null); }
         this.items.put(item, this.items.get(item)-quantity);
     }
@@ -149,5 +149,7 @@ public class Player extends Character implements ThrowableTarget {
 
     public void subCurrency(int quantity){ this.wallet = this.wallet - quantity;}
 
-    public HashMap<Consumable, Integer> getItems(){return this.items;}
+    public HashMap<Item, Integer> getItems(){return this.items;}
+
+    public Player(){}
 }

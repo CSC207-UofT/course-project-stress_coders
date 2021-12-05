@@ -65,4 +65,6 @@ public class FeralGhoul extends Enemy{
         Random r = new Random();
         this.defaultDamage = r.nextInt(25) + 24;
     }
+
+    public FeralGhoul(){}
 }

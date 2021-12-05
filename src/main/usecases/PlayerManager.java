@@ -1,6 +1,7 @@
 package usecases;
 
 import entities.Interactable;
+import entities.Item;
 import entities.characters.Player;
 import entities.interfaces.Consumable;
 
@@ -19,11 +20,21 @@ public class PlayerManager {
 
     public Player getPlayer() {return this.player;}
 
-    public List<Consumable> getAllConsumables() {
+    public List<Item> getAllConsumables() {
         return player.getConsumables();
     }
 
     public Interactable findConsumable(String userInput) {
         return player.findConsumable(userInput);
+    }
+
+    public String getPlayerInfo(){
+        String playerInfo = "Player Info: ";
+        playerInfo += "Name: " + player.getId() + ", ";
+        playerInfo += "Health: " + player.getHealthPoints() + ", ";
+        playerInfo += "Wallet: " + player.getWallet() + ", ";
+        playerInfo += "Weapon: " + player.getCurrentWeapon().getId() + ", ";
+        playerInfo += "Items: " + player.getItems() + ", ";
+        return playerInfo;
     }
 }

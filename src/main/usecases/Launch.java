@@ -3,6 +3,7 @@ package usecases;
 import entities.Interactable;
 import entities.characters.Player;
 import entities.minigames.Catapult;
+import entities.minigames.PebbleSkip;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -18,8 +19,8 @@ public class Launch {
      */
 
     public String playInLaunch(HashMap<String, Interactable> args) {
-        if (args.get("catapult") instanceof Catapult) {
-            Catapult ct = ((Catapult) args.get("catapult"));
+        if (args.get("launchable") instanceof Catapult) {
+            Catapult ct = ((Catapult) args.get("launchable"));
 
 
             String message = "Are you sure you want to participate in the catapult launch?";
@@ -43,9 +44,34 @@ public class Launch {
             }
 
             return "You forfeited the catapult!";
+        } else if (args.get("launchable") instanceof PebbleSkip) {
+            PebbleSkip pb = ((PebbleSkip) args.get("launchable"));
+
+
+            String message = "Are you sure you want to participate in the pebble skipping minigame?";
+
+            System.out.println(message);
+
+            System.out.println("Enter 'yes' to continue and anything else to forfeit the pebble skip");
+            Scanner lineIn = new Scanner(System.in);
+            String choice = lineIn.nextLine();
+
+            if (choice.equals("yes")) {
+
+                System.out.println("The pebble skip has begun!");
+
+                // now hr.raceOver();
+                if (pb.launch()) {
+                    return "Nice, you succesfully skipped the pebble on top of the water" + pb.getNumSkips() + "!";
+                } else {
+                    return "You failed to skip the pebble on top of the water!";
+                }
+            }
+
+            return "You forfeited the pebble skip!";
         }
 
-        return "Invalid catipult, please pass in a valid catapult.";
+        return "Invalid launchable, please pass in a valid launchable.";
 
     }
 }

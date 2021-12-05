@@ -28,7 +28,7 @@ public class Catapult extends Interactable implements Launchable {
 
 
     public Catapult(String id) {
-        super(id, "launch: catapult=[catapult_id]");
+        super(id, "launch: launchable=[catapult_id]");
         Random r = new Random();
 
         this.enemyDistance = r.nextInt(6) + 5;
@@ -42,7 +42,7 @@ public class Catapult extends Interactable implements Launchable {
      * @param distance the distance of the enemy we want to catapult the rock on top of, which must be at least 5.
      */
     public Catapult(String id, int distance){
-        super(id, "launch: catapult=[catapult_id]");
+        super(id, "launch: launchable=[catapult_id]");
         this.enemyDistance = distance;
         this.pullBackDistance = 0;
     }
@@ -56,6 +56,7 @@ public class Catapult extends Interactable implements Launchable {
      * Launch the object from the catapault and return whether the object release
      * was successful in going on top of the enemy or not.
      **/
+    @Override
     public boolean launch() {
         launched = true;
         this.setCompleted(true);

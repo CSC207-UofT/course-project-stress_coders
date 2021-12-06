@@ -82,8 +82,8 @@ public class BuilderSetup {
                 newMain = generateVaultDoor();
             }
             Interactable newGeneric = (Interactable) genericChoice.clone();
-            e.addGeneric(newGeneric);
-            e.addObj(newMain);
+            e.getInteractablesManager().addGeneric(newGeneric);
+            e.getInteractablesManager().addObj(newMain);
         }
         allGeneratedEncounters.add(e);
     }

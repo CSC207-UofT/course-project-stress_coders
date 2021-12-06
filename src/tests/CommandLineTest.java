@@ -40,7 +40,7 @@ public class CommandLineTest {
         PlayerManager pl = new PlayerManager("player", "easy");
         Axe testAxe = new Axe("axe ah ah ah ah ah");
         pl.getPlayer().setWeapon(testAxe);
-        testEncounter[0].addObj(testAxe);
+        testEncounter[0].getInteractablesManager().addObj(testAxe);
 
         HashMap<String, String> testHM = new HashMap<>();
         testHM.put("weapon", "axe ah ah ah ah ah");
@@ -63,7 +63,7 @@ public class CommandLineTest {
         Axe testAxe = new Axe("axe ah ah ah ah ah");
         PlayerManager p = new PlayerManager("player", "easy");
         p.getPlayer().setWeapon(testAxe);
-        testEncounter[0].addObj(testAxe);
+        testEncounter[0].getInteractablesManager().addObj(testAxe);
 
         CommandLine CLTest = new CommandLine(testGS);
         testGS.setPlayerManager(playerManager);

@@ -156,7 +156,7 @@ public class CommandLine {
         }
         else if (nextInput.equals("display_objects")) {
             // List the interactables available
-            return this.gameState.getCurrent_encounter().listInteractables();
+            return this.gameState.getCurrent_encounter().getInteractablesManager().listInteractables();
         } else if (nextInput.contains("pick_up")) {
             return specialPickUpCall(nextInput);
         }
@@ -177,7 +177,7 @@ public class CommandLine {
         if(splitString.length != 2){ return "Unrecognized input"; }
         HashMap<String, Interactable> args = getInteractablesFromID(parseCommand(splitString[1]));
         String itemString = "item";
-        if (this.gameState.getCurrent_encounter().containsObj(args.get(itemString))) {
+        if (this.gameState.getCurrent_encounter().getInteractablesManager().containsObj(args.get(itemString))) {
             if (args.get(itemString) instanceof Consumable && !(args.get(itemString).isCompleted())) {
                 this.playerState.getPlayer().addConsumable((Item) args.get(itemString));
                 return "Added " + args.get(itemString).getId() + " to your items";

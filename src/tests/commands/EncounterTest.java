@@ -35,7 +35,7 @@ public class EncounterTest {
         Encounter testEncounter = new Encounter("init_text", "name", "description");
         Interactable tree = new Tree("Oak");
 
-        testEncounter.addGeneric(tree);
+        testEncounter.getInteractablesManager().addGeneric(tree);
 
         assertTrue(testEncounter.getGenericPool().contains(tree));
     }
@@ -50,8 +50,8 @@ public class EncounterTest {
     public void addObj() {
         Encounter testEncounter = new Encounter("init_text", "name", "description");
         Interactable axe = new Axe("id22");
-        testEncounter.addObj(axe);
-        assertNull(testEncounter.getFromID("id22"));
+        testEncounter.getInteractablesManager().addObj(axe);
+        assertNull(testEncounter.getInteractablesManager().getFromID("id22"));
     }
 
     @Test
@@ -61,8 +61,8 @@ public class EncounterTest {
         Encounter testEncounter = new Encounter("init_text", "name", "description");
         Interactable axe = new Axe("id");
         Interactable axe2 = new Axe("id");
-        testEncounter.addObj(axe);
-        testEncounter.addObj(axe2);
+        testEncounter.getInteractablesManager().addObj(axe);
+        testEncounter.getInteractablesManager().addObj(axe2);
         assertNotEquals("id", axe2.getId());
     }
 
@@ -72,13 +72,13 @@ public class EncounterTest {
         Interactable potion = new Potion("id22");
         Interactable axe = new Axe("id3333");
         Tree treeTest = new Tree("ah");
-        testEncounter.addObj(potion);
-        testEncounter.addObj(axe);
-        testEncounter.addObj(treeTest);
+        testEncounter.getInteractablesManager().addObj(potion);
+        testEncounter.getInteractablesManager().addObj(axe);
+        testEncounter.getInteractablesManager().addObj(treeTest);
         //Both are items
-        assertNull(testEncounter.getFromID("id22"));
-        assertNull(testEncounter.getFromID("id3333"));
-        assertEquals(treeTest, testEncounter.getFromID("ah"));
+        assertNull(testEncounter.getInteractablesManager().getFromID("id22"));
+        assertNull(testEncounter.getInteractablesManager().getFromID("id3333"));
+        assertEquals(treeTest, testEncounter.getInteractablesManager().getFromID("ah"));
     }
 
     @Test
@@ -93,7 +93,7 @@ public class EncounterTest {
         Encounter testEncounter = new Encounter("init_text", "name", "description");
         Interactable axe = new Axe("id");
 
-        testEncounter.addGeneric(axe);
+        testEncounter.getInteractablesManager().addGeneric(axe);
         ArrayList<Interactable> testPool = new ArrayList<>();
         testPool.add(axe);
 

@@ -159,7 +159,7 @@ public class GameState {
         if (playerState.getPlayer().getCurrentWeapon().getId().equals(s)) {
             return playerState.getPlayer().getCurrentWeapon();
         }
-        return this.encounters.get(current_encounter).getFromID(s);
+        return this.encounters.get(current_encounter).getInteractablesManager().getFromID(s);
     }
 
     public void save(String saveCommand){

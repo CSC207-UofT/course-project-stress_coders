@@ -1,7 +1,7 @@
 package interfaceadapters.commands;
 
 import entities.Interactable;
-import usecases.Command;
+import interfaceadapters.commands.Command;
 import usecases.Launch;
 
 import java.util.HashMap;

@@ -1,5 +1,7 @@
-package entities;
+package entities.characters;
 
+import entities.Interactable;
+import entities.InteractableProperties;
 import entities.characters.Enemy;
 import entities.characters.Player;
 import entities.interfaces.Throwable;

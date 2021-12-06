@@ -8,6 +8,7 @@ import entities.food.*;
 import entities.minigames.HorseRace;
 import entities.minigames.Joust;
 import entities.minigames.Maze;
+import entities.minigames.VaultDoor;
 import entities.weapons.*;
 import usecases.Encounter;
 

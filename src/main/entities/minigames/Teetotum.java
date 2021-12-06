@@ -8,7 +8,7 @@ public class Teetotum extends Interactable implements DiceRollable {
 
     private int total;
 
-    public Teetotum(String id, String howToUse) {
+    public Teetotum(String id) {
         super(id, "role: dice=[teetotum_id]");
         this.total = 0;
     }

@@ -5,9 +5,7 @@ import entities.Interactable;
 import entities.characters.*;
 import entities.food.*;
 import entities.interfaces.Consumable;
-import entities.minigames.Door;
-import entities.minigames.Maze;
-import entities.minigames.VaultDoor;
+import entities.minigames.*;
 import entities.weapons.*;
 import usecases.Encounter;
 
@@ -117,6 +115,21 @@ public class BuilderSetup {
         this.allPossibleInteractables.add(m);
         this.allPossibleInteractables.add(p);
         this.allPossibleInteractables.add(enemy);
+        Catapult cata = new Catapult("BIG CHUNGUS LAUNCH");
+        this.allPossibleInteractables.add(cata);
+        allMain.add(cata);
+        Fishing fish = new Fishing("Minecraft Fishing go BRR!");
+        this.allPossibleInteractables.add(fish);
+        allMain.add(fish);
+        HorseRace hr = new HorseRace("Crackhead Horse Racing",player , 5);
+        this.allPossibleInteractables.add(hr);
+        allMain.add(hr);
+        this.allPossibleInteractables.add(new HorseShoe("Horse Shoe"));
+        Joust j = new Joust("Joust", player);
+        this.allPossibleInteractables.add(j);
+        allMain.add(j);
+        PebbleSkip ps = new PebbleSkip("Pebble Skip", 20);
+        allPossibleInteractables.add(ps);
 
         allMain.add(v);
         allMain.add(riddleGoblin);

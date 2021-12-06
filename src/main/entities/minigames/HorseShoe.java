@@ -34,7 +34,7 @@ public class HorseShoe extends Interactable implements Launchable {
      *
      * @param id the HorseShoe's name ID
      */
-    public HorseShoe(String id, String howToUse) {
+    public HorseShoe(String id) {
         super(id, "launch: launchable=[horseShoe_id]");
 
         this.nailDistance = 10;

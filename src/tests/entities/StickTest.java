@@ -3,6 +3,8 @@ package entities;
 import entities.weapons.Stick;
 
 import java.util.HashMap;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class StickTest {
     @Test

@@ -35,7 +35,7 @@ public class PebbleSkip extends Interactable implements Launchable {
      *
      * @param id the PebbleSkip's name ID
      */
-    public PebbleSkip(String id, String howToUse, int playerAngle) {
+    public PebbleSkip(String id,  int playerAngle) {
         super(id, "launch: pebble=[pebble_id]");
         Random r = new Random();
 

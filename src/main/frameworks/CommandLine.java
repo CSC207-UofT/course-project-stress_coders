@@ -32,7 +32,11 @@ public class CommandLine {
             "progress : returns your completed encounters\n"+
             "display_objects : list all the interactables in your current encounter\n"+
             "consumeItem : brings up your inventory to let you consume consumables\n"+
-            "pick_up : starts pick up prompt to pick up a weapon";
+            "pick_up : starts pick up prompt to pick up a weapon\n"+
+            "exit: exits the game (make sure to save before exiting)\n"+
+            "save 1: saves current game to save game slot 1\n"+
+                    "save 2: saves current game to save game slot 2\n"+
+                    "save 3: saves current game to save game slot 3\n";
     public CommandLine() throws IOException {
         IDreader idReader = new IDreader();
         idReader.initAdjectives();

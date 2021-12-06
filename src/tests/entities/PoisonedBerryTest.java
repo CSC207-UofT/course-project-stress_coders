@@ -3,6 +3,8 @@ package entities;
 import entities.food.PoisonedBerry;
 
 import java.util.HashMap;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class PoisonedBerryTest {
     @Test

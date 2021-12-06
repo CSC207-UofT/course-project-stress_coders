@@ -33,9 +33,17 @@ public abstract class Food extends Item implements Consumable {
         if (p != null) {
             p.subConsumable(this, 1);
             p.setHealthPoints(p.getHealthPoints() + (this.getProperty(InteractableProperties.CONSUMABLE_REST_NAME.name()).getInteger()));
-            return "You consumed 1 " + this.getId();
+            return "You consumed 1 " + this.getId() + "\n" + this.getStringMessage();
         } else {
             return "You don't have this!";
+        }
+    }
+
+    private String getStringMessage() {
+        if ((this.getProperty(InteractableProperties.CONSUMABLE_REST_NAME.name()).getInteger()) >= 0){
+            return "You were healed for " + (this.getProperty(InteractableProperties.CONSUMABLE_REST_NAME.name()).getInteger()) + " HP!";
+        } else {
+            return "Oh no! You lost " + (-(this.getProperty(InteractableProperties.CONSUMABLE_REST_NAME.name()).getInteger())) + " HP!";
         }
     }
 

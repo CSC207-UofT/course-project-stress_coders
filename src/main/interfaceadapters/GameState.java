@@ -19,9 +19,9 @@ Potentially handle saving encounters
 public class GameState {
 
     private int current_encounter;
-    private final ArrayList<Encounter> encounters = new ArrayList<>();
-    private final HashMap<String, Encounter> EncounterConversion = new HashMap<>();
-    private final List<Encounter> completedEncounters = new ArrayList<>();
+    private ArrayList<Encounter> encounters = new ArrayList<>();
+    private HashMap<String, Encounter> EncounterConversion = new HashMap<>();
+    private List<Encounter> completedEncounters = new ArrayList<>();
     private PlayerManager playerState;
 
     private transient GameStateSaver gameStateSaver = new GameStateSaver();
@@ -187,5 +187,25 @@ public class GameState {
 
     public boolean validSave(String fileNum) throws IOException {
         return gameStateSaver.validSaveFile(fileNum);
+    }
+
+    public int encounterNumber(){
+        return this.current_encounter;
+    }
+
+    public void setCompletedEncounters(ArrayList<Encounter> encounters){
+        this.completedEncounters = encounters;
+    }
+
+    public void setEncounterConversion(HashMap<String, Encounter> encounterConversion) {
+        EncounterConversion = encounterConversion;
+    }
+
+    public void setCurrent_encounter(int current_encounter) {
+        this.current_encounter = current_encounter;
+    }
+
+    public void setEncounters(ArrayList<Encounter> encounters) {
+        this.encounters = encounters;
     }
 }

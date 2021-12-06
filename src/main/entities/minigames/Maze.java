@@ -1,7 +1,8 @@
 package entities.minigames;
 
 import entities.Interactable;
-import entities.Unaffordable;
+import entities.Timer;
+import entities.Unafforable;
 import entities.interfaces.Moveable;
 import entities.characters.*;
 import entities.weapons.*;
@@ -17,7 +18,7 @@ public class Maze extends Interactable implements Moveable {
     private final String solutionPath;
     private String traveledPath;
     private final Timer timer;
-    private final Player player;
+    private Player player;
 
     /**
      * Construct a new Maze which is randomized
@@ -140,7 +141,7 @@ public class Maze extends Interactable implements Moveable {
      * Make the player lose his current weapon by replacing it with an Unaffordable one
      */
     public void playerLossesWeapon(){
-        Weapon w = new Unaffordable();
+        Weapon w = new Unafforable();
         this.player.setWeapon(w);
     }
 
@@ -160,4 +161,7 @@ public class Maze extends Interactable implements Moveable {
         return this.timer;
     }
 
+    public void setPlayer(Player p) {
+        this.player = p;
+    }
 }

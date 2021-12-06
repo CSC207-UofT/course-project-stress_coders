@@ -54,4 +54,8 @@ public class Trader extends Item implements CanTradeWith {
 
 
     public Trader(){}
+
+    public void setPlayer(Player p) {
+        this.player = p;
+    }
 }

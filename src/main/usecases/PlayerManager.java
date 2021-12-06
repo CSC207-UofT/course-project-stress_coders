@@ -18,6 +18,10 @@ public class PlayerManager {
 
     }
 
+    public PlayerManager(Player p){
+        this.player = p;
+    }
+
     public Player getPlayer() {return this.player;}
 
     public List<Item> getAllConsumables() {

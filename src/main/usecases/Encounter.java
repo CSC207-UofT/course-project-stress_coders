@@ -22,12 +22,12 @@ public class Encounter {
     //Maps Interactable ID to the object itself, 'key 1': KeyObject
     private final String encounterName;
     private final String description;
-    public final HashMap<String, Interactable> objIDs = new HashMap<>();
+    public HashMap<String, Interactable> objIDs = new HashMap<>();
     private boolean isCompleted;
-    private final ArrayList<Interactable> progression = new ArrayList<>();
+    private ArrayList<Interactable> progression = new ArrayList<>();
     private int currInteractableIndex = -1;
     private final String initialText;
-    private final ArrayList<Interactable> genericPool = new ArrayList<>();
+    private  ArrayList<Interactable> genericPool = new ArrayList<>();
     private boolean doingGeneric = false;
     private int currGenericIndex = -1;
 
@@ -49,6 +49,10 @@ public class Encounter {
         }
     }
 
+    public String getDescription(){
+        return this.description;
+    }
+
     /**
      * Returns a list of interactables that can be done in this encounter
      * @returns a list of the interactables as a string of their id's split by \n
@@ -60,6 +64,27 @@ public class Encounter {
         }
         return out.toString();
     }
+
+    public ArrayList<Interactable> getProgression(){
+        return this.progression;
+    }
+
+    public String getInitialText(){
+        return this.initialText;
+    }
+
+    public boolean isDoingGeneric() {
+        return doingGeneric;
+    }
+
+    public int getCurrGenericIndex() {
+        return currGenericIndex;
+    }
+
+    public int getCurrInteractableIndex(){
+        return this.currInteractableIndex;
+    }
+
 
     public String getDetails() {
         return ColorConstants.getColorCode("BLUE") + this.encounterName + ColorConstants.getColorCode("RESET")+ " : " +
@@ -294,4 +319,27 @@ public class Encounter {
         return this.genericPool;
     }
 
+    public void setCompleted(Boolean completed){
+        this.isCompleted = completed;
+    }
+
+    public void setCurrInteractableIndex(int index){
+        this.currInteractableIndex = index;
+    }
+
+    public void setDoingGeneric(boolean doingGeneric){
+        this.doingGeneric = doingGeneric;
+    }
+
+    public void setCurrGenericIndex(int index){
+        this.currGenericIndex = index;
+    }
+
+    public void setProgression(ArrayList<Interactable> progression){
+        this.progression = progression;
+    }
+
+    public void setGenericPool(ArrayList<Interactable> genericPool) {
+        this.genericPool = genericPool;
+    }
 }

@@ -9,7 +9,7 @@ import java.util.Random;
 public class Ork extends Enemy{
     //an ork that enrages at 30% hp
     private final double enrage_hp;
-    private int defaultDamage;
+//    private int defaultDamage;
 
     public Ork(String id, int health, Player player, int valueDefeated) {
         super(id, health, player, valueDefeated);

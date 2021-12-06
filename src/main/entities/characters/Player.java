@@ -13,8 +13,8 @@ import java.util.*;
 The player character hold their inventory and their stats and handle how those change
  */
 public class Player extends Character implements ThrowableTarget {
-    private final HashMap<String, Integer> inventory = new HashMap<>();
-    private final HashMap<Item, Integer> items = new HashMap<>();
+    private  HashMap<String, Integer> inventory = new HashMap<>();
+    private  HashMap<Item, Integer> items = new HashMap<>();
     private int wallet;
     private Weapon currentWeapon;
     /**
@@ -152,4 +152,20 @@ public class Player extends Character implements ThrowableTarget {
     public HashMap<Item, Integer> getItems(){return this.items;}
 
     public Player(){}
+
+    public HashMap<String, Integer> getInventory() {
+        return inventory;
+    }
+
+    public void setWallet(int wallet) {
+        this.wallet = wallet;
+    }
+
+    public void setInventory(HashMap<String, Integer> inventory) {
+        this.inventory = inventory;
+    }
+
+    public void setItems(HashMap<Item, Integer> items) {
+        this.items = items;
+    }
 }

@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class FeralGhoul extends Enemy{
     //An enemy that heals for 50% of the damage it deals
-    private int defaultDamage;
+//    private int defaultDamage;
 
     public FeralGhoul(String id, Player player, int valueDefeated) {
         super(id, player, valueDefeated);

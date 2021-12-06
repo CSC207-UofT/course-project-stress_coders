@@ -151,4 +151,8 @@ public class Interactable implements Cloneable{
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
+
+    public boolean equals(Interactable interactable){
+        return interactable.id.equals(this.id);
+    }
 }

@@ -8,6 +8,9 @@ import entities.weapons.Weapon;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * Usecase to spin a box!
+ */
 public class Spin{
 
     public String action(HashMap<String, Interactable> args) {

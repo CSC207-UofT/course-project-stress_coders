@@ -2,6 +2,7 @@ package interfaceadapters;
 
 import Style.ColorConstants;
 import entities.Interactable;
+import interfaceadapters.commands.Command;
 import usecases.*;
 
 import java.io.IOException;
@@ -109,10 +110,15 @@ public class GameState {
 
     /**
      * getter method for the current encounter
+     * @param input This is the inputted command key (the name)
+     * @param args This is the command arguments
      * @return Encounter Object (current encounter)
      */
     public String callCommand(String input, HashMap<String, Interactable> args) {
-        String s = encounters.get(current_encounter).progress(args, input) ;
+        CommandConstants c = new CommandConstants();
+        Command needed = c.getCommand(input);
+        String commandRes = needed.execute(args);
+        String s = encounters.get(current_encounter).progress(commandRes) ;
         if (encounters.get(current_encounter).isCompleted()) {
             this.completedEncounters.add(encounters.get(current_encounter));
             System.out.println(s);

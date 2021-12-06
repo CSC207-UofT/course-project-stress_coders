@@ -30,7 +30,7 @@ public class MysteryBox extends Interactable implements Spinnable {
     public Weapon spin() {
         if (player.getWallet() < 950) {
             this.setCompleted(true);
-            return new Unafforable();
+            return new Unaffordable();
         }
         player.subCurrency(950);
         Random r = new Random();

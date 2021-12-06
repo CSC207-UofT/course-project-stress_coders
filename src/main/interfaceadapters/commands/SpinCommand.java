@@ -18,7 +18,7 @@ public class SpinCommand extends Command {
 
     @Override
     public String execute(HashMap<String, Interactable> args) {
-        return spinAction.action(args);
+        return spinAction.spinAction(args);
     }
 
 }

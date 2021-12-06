@@ -9,7 +9,6 @@ import entities.interfaces.Consumable;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 /**
  * This is a gameobject that allows the user to trade currency for consumables (like an apple or potion)

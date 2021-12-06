@@ -3,7 +3,6 @@ package usecases;
 import entities.Interactable;
 import entities.minigames.Joust;
 import entities.characters.Character;
-import entities.characters.Enemy;
 import entities.characters.Player;
 
 import java.util.HashMap;

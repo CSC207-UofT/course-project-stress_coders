@@ -3,7 +3,6 @@ package usecases;
 import entities.Interactable;
 import entities.Item;
 import entities.characters.Player;
-import entities.interfaces.Consumable;
 
 import java.util.List;
 

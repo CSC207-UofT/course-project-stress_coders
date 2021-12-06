@@ -1,7 +1,5 @@
 package entities.interfaces;
 
-import entities.weapons.Axe;
-
 /**
  * Interface for a launchable interactable.
  *

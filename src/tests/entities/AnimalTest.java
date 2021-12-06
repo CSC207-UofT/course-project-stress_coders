@@ -3,7 +3,6 @@ package entities;
 import entities.characters.Animal;
 import entities.characters.Player;
 import entities.food.Meat;
-import entities.interfaces.Consumable;
 import entities.weapons.Axe;
 import org.junit.Test;
 import interfaceadapters.commands.ThrowCommand;

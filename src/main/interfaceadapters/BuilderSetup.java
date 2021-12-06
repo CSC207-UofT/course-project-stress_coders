@@ -1,7 +1,6 @@
 package interfaceadapters;
 
 import entities.*;
-import entities.Interactable;
 import entities.characters.*;
 import entities.food.*;
 import entities.interfaces.Consumable;

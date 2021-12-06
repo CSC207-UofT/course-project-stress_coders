@@ -3,6 +3,7 @@ package entities.weapons;
 import entities.InteractableProperties;
 import entities.Variable;
 
+@SuppressWarnings("ALL")
 public class Bow extends ShootableWeapon {
 
     /**

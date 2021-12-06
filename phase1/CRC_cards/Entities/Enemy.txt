@@ -15,5 +15,5 @@ Collaborators:
 * entities.weapons.Weapon
 * entities.interfaces.Throwable
 * entities.interfaces.ThrowableTarget
-* usecases.Command
+* interfaceadapters.commands.Command
 * usecases.CommandConstants

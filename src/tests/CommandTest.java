@@ -4,7 +4,7 @@ import entities.characters.Player;
 import entities.Tree;
 import interfaceadapters.commands.ChopCommand;
 import org.junit.Test;
-import usecases.Command;
+import interfaceadapters.commands.Command;
 
 import java.util.HashMap;
 

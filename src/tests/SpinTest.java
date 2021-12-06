@@ -4,7 +4,7 @@ import entities.characters.Player;
 import entities.weapons.Axe;
 import entities.weapons.Weapon;
 import org.junit.Test;
-import usecases.Spin;
+import interfaceadapters.commands.SpinCommand;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +20,7 @@ public class SpinTest {
         Tree testTree = new Tree("id");
         testArgs.put("box", testTree);
 
-        Spin spinCommand = new Spin();
+        SpinCommand spinCommand = new SpinCommand();
         assertEquals("Invalid box, please pass in a valid box.", spinCommand.execute(testArgs));
 
         Player player = new Player("id");

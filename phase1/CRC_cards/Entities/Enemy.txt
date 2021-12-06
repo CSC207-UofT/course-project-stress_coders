@@ -16,4 +16,4 @@ Collaborators:
 * entities.interfaces.Throwable
 * entities.interfaces.ThrowableTarget
 * interfaceadapters.commands.Command
-* usecases.CommandConstants
+* interfaceadapters.commands.CommandConstants

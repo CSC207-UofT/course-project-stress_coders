@@ -23,7 +23,7 @@ public class CommandLine {
     private final GameState gameState;
     private PlayerManager playerState;
     private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "progress",
-            "display_objects", "consumeItem", "pick_up", "save 1", "save 2", "save 3"));
+            "consumeItem", "pick_up", "save 1", "save 2", "save 3"));
     private static final Set<String> GAME_LENGTH_OPTIONS = new HashSet<>(List.of(new String[]{"short", "medium",
             "long", "test"}));
 
@@ -31,7 +31,6 @@ public class CommandLine {
             "Some special commands you can call :\n" +
                     "help : get help for your current situation\n"+
                     "progress : returns your completed encounters\n"+
-                    "display_objects : list all the interactables in your current encounter\n"+
                     "consumeItem : brings up your inventory to let you consume consumables\n"+
                     "pick_up : starts pick up prompt to pick up a weapon\n"+
                     "exit: exits the game (make sure to save before exiting)\n"+
@@ -153,10 +152,6 @@ public class CommandLine {
             return ColorConstants.getColorCode("PURPLE") + genericHelp +ColorConstants.getColorCode("RESET")+ '\n'
                     + ColorConstants.getColorCode("GREEN") + "Current encounter help: \n"+ this.gameState.getHelp()
                     + ColorConstants.getColorCode("RESET");
-        }
-        else if (nextInput.equals("display_objects")) {
-            // List the interactables available
-            return this.gameState.getCurrent_encounter().getInteractablesManager().listInteractables();
         } else if (nextInput.contains("pick_up")) {
             return specialPickUpCall(nextInput);
         }

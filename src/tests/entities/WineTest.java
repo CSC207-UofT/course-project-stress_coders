@@ -3,6 +3,8 @@ package entities;
 import entities.food.WineBottle;
 
 import java.util.HashMap;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class WineTest {
     @Test

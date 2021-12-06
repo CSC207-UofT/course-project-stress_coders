@@ -1,7 +1,8 @@
 package entities;
 
 import entities.weapons.Club;
-
+import org.junit.Test;
+import static org.junit.Assert.*;
 import java.util.HashMap;
 
 public class ClubTest {
@@ -24,4 +25,4 @@ public class ClubTest {
         assertTrue(clubTest.getProperties().containsKey(InteractableProperties.WEIGHT.name()));
     }
 }
-}
+

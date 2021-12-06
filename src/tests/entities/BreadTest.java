@@ -3,6 +3,8 @@ package entities;
 import entities.food.Bread;
 
 import java.util.HashMap;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class BreadTest {
     @Test

@@ -70,7 +70,7 @@ public class CommandLine {
         run();
     }
 
-    public void run() throws IOException, CloneNotSupportedException {
+    public void run() throws CloneNotSupportedException {
         boolean running = true;
         while(running) {
             Scanner input = new Scanner(System.in);
@@ -143,7 +143,7 @@ public class CommandLine {
      * @return String indicating the command executed by user
      */
 
-    public String specialCommand(String nextInput) throws IOException, CloneNotSupportedException {
+    public String specialCommand(String nextInput) {
         if (nextInput.equals("progress")) {
             for (String s : this.gameState().completedEncounters()) {
                 System.out.println(s);

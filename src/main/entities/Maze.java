@@ -3,7 +3,6 @@ package entities;
 import entities.interfaces.Moveable;
 import entities.characters.*;
 import entities.weapons.*;
-import interfaceadapters.SystemTimeable;
 import usecases.Timing;
 
 import java.util.Random;

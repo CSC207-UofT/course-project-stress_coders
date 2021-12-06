@@ -96,21 +96,26 @@ public class Maze extends Interactable implements Moveable {
      *
      * @return true if the user's travelled path fails
      */
-    private boolean hasPathFailed(){
-        String currRegex = this.solutionPath.substring(0, this.moveNum);
+    private boolean hasPathFailed(String solutionPath, String traveledPath, int moveNum){
+        String currRegex = solutionPath.substring(0, moveNum);
         Pattern pattern = Pattern.compile(currRegex, Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(this.traveledPath);
+        Matcher matcher = pattern.matcher(traveledPath);
         return !matcher.find();
     }
 
     /**
-     * Determine if the user has made it to the end of the maze
+     * Determine if the user has made it to the end of the maze and set the Maze to be completed if so
      *
+     * @param mazeLength the length of the maze
+     * @param moveNum the number of moves made
      * @return true if the number of moves the user made is the same as the maze length
      */
-    private boolean hasTravelledDistance() {
-        this.setCompleted(true);
-        return this.moveNum == this.mazeLength;
+    private boolean hasTravelledDistance(int moveNum, int mazeLength) {
+        if(moveNum == mazeLength){
+            this.setCompleted(true);
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -127,11 +132,11 @@ public class Maze extends Interactable implements Moveable {
         this.moveNum ++;
         if (this.timer.hasTimeElapsed()){
             return "time";
-        } else if(hasPathFailed()){
+        } else if(hasPathFailed(this.solutionPath, this.traveledPath, this.moveNum)){
             this.moveNum = 0;
             return "path";
         }
-        return Boolean.toString(hasTravelledDistance());
+        return Boolean.toString(hasTravelledDistance(this.moveNum, this.mazeLength));
     }
 
     /**

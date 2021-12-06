@@ -1,6 +1,6 @@
 Class: entities.Interactable
 Parent class: None
-Subclasses: entities.characters.Character, entities.Door, entities.food.Food, entities.Item,
+Subclasses: entities.characters.Character, entities.minigames.Door, entities.food.Food, entities.Item,
 entities.MysteryBox, entities.PotionDispenser, entities.Tree
 Type: Entity
 

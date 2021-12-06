@@ -1,4 +1,4 @@
-Class: entities.Door
+Class: entities.minigames.Door
 Parent class: entities.Interactable
 Subclasses: None
 Type: Entity

@@ -1,5 +1,6 @@
-package entities;
+package entities.minigames;
 
+import entities.Interactable;
 import entities.characters.Character;
 import entities.characters.Enemy;
 import entities.characters.Player;

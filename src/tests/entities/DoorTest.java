@@ -1,10 +1,9 @@
 package entities;
 
-import entities.Door;
-import entities.VaultDoor;
+import entities.minigames.Door;
+import entities.minigames.VaultDoor;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 public class DoorTest {

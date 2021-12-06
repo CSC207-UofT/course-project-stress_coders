@@ -1,6 +1,8 @@
 package commands;
 
 import entities.*;
+import entities.minigames.Door;
+import entities.minigames.VaultDoor;
 import org.junit.Test;
 import interfaceadapters.commands.HintCommand;
 

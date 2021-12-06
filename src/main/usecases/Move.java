@@ -1,6 +1,7 @@
 package usecases;
 
 import entities.*;
+import entities.minigames.Maze;
 import interfaceadapters.commands.Command;
 
 import java.util.HashMap;

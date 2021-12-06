@@ -1,6 +1,6 @@
 package usecases;
 
-import entities.HorseRace;
+import entities.minigames.HorseRace;
 import entities.Interactable;
 import entities.characters.Player;
 

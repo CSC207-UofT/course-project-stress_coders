@@ -1,3 +1,5 @@
+package commands;
+
 import entities.*;
 import org.junit.Test;
 import interfaceadapters.commands.HintCommand;

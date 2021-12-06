@@ -1,3 +1,4 @@
+package commands;
 
 import entities.weapons.Axe;
 import entities.characters.Enemy;

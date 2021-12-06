@@ -1,3 +1,4 @@
+package commands;
 
 import entities.*;
 import entities.characters.Player;

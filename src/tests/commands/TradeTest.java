@@ -1,3 +1,5 @@
+package commands;
+
 import entities.Interactable;
 import entities.food.Nuts;
 import entities.characters.Player;

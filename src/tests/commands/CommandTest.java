@@ -1,3 +1,5 @@
+package commands;
+
 import entities.weapons.Axe;
 import entities.Interactable;
 import entities.characters.Player;

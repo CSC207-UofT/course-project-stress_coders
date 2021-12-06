@@ -47,7 +47,7 @@ Tomas Harrington:
 Action and its subclasses CRC cards
 Action.java coded as an abstract class
 interfaceadapters.commands.ThrowCommand.java coded and then fixed after testing
-ThrowTest.java coded
+commands.ThrowTest.java coded
 Organization of code
 Wrote TODO’s in code for necessary code expansion post-demo
 Worked on figuring out how the demo would work with group members

@@ -1,3 +1,5 @@
+package commands;
+
 import entities.Interactable;
 import entities.characters.Player;
 import entities.food.Potion;

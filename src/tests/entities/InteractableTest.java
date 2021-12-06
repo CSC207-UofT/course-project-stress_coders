@@ -13,7 +13,7 @@ public class InteractableTest {
     public void getHelp() {
         Interactable testAxe = new Axe("the rapidly dwindling sanity of CSC207 " +
                 "students viewed through test strings");
-        assertEquals("to throw use throw: throw_obj:[weapon_id], target=[enemy_id] and to chop use " +
+        assertEquals("to throw use throw: throw_obj=[weapon_id], target=[enemy_id] and to chop use " +
                 "chop: tool=[weapon_id], target=[resource_id]", testAxe.getHelp());
     }
 

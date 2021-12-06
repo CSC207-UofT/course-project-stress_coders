@@ -1,9 +1,10 @@
 package entities;
 
 import entities.weapons.Sword;
+import org.junit.Test;
 
 import java.util.HashMap;
-
+import static org.junit.Assert.*;
 public class SwordTest {
     @Test
     public void addHitProbability() {

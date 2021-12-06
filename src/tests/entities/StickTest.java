@@ -1,9 +1,10 @@
 package entities;
 
 import entities.weapons.Stick;
+import org.junit.Test;
 
 import java.util.HashMap;
-
+import static org.junit.Assert.*;
 public class StickTest {
     @Test
     public void addHitProbability() {

@@ -2,9 +2,10 @@ package entities;
 
 import entities.weapons.Sword;
 import entities.weapons.SwingableWeapon;
+import org.junit.Test;
 
 import java.util.HashMap;
-
+import static org.junit.Assert.*;
 public class SwingableWeaponTest {
 
     @Test

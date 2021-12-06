@@ -1,7 +1,6 @@
 package interfaceadapters;
 
 import Style.ColorConstants;
-import entities.VaultDoor;
 import entities.characters.Player;
 import frameworks.CommandLine;
 import com.google.gson.Gson;

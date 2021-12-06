@@ -1,7 +1,9 @@
 package entities;
 
 import entities.food.WineBottle;
+import org.junit.Test;
 
+import static org.junit.Assert.*;
 import java.util.HashMap;
 
 public class WineTest {

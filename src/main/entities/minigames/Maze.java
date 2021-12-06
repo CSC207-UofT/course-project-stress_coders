@@ -1,12 +1,10 @@
 package entities.minigames;
 
 import entities.Interactable;
-import entities.Timer;
-import entities.Unafforable;
 import entities.interfaces.Moveable;
 import entities.characters.*;
 import entities.weapons.*;
-
+import entities.Unaffordable;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -141,7 +139,7 @@ public class Maze extends Interactable implements Moveable {
      * Make the player lose his current weapon by replacing it with an Unaffordable one
      */
     public void playerLossesWeapon(){
-        Weapon w = new Unafforable();
+        Weapon w = new Unaffordable();
         this.player.setWeapon(w);
     }
 

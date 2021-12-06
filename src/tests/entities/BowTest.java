@@ -1,7 +1,8 @@
 package entities;
 
 import entities.weapons.Bow;
-
+import org.junit.Test;
+import static org.junit.Assert.*;
 import java.util.HashMap;
 
 public class BowTest {

@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 import entities.*;
 import entities.characters.*;
 import entities.food.*;
-import entities.minigames.HorseRace;
+import entities.minigames.*;
 import entities.minigames.Joust;
 import entities.minigames.Maze;
 import entities.weapons.*;

@@ -29,15 +29,6 @@ public class Timer {
         return this.currentTime;
     }
 
-    /**
-     * Set the current time elapsed
-     *
-     * @param current the new amount of time elapsed
-     */
-    public void setCurrentTime(double current){
-        this.currentTime = current;
-    }
-
 
     /**
      * Get the max time allowed elapsed
@@ -62,7 +53,7 @@ public class Timer {
      * @return whether there is no more time left or not
      */
     public boolean hasTimeElapsed(){
-        return this.currentTime < this.maxTime;
+        return this.currentTime > this.maxTime;
     }
 
     public void updateTime(){

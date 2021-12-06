@@ -35,37 +35,20 @@ public class Maze extends Interactable implements Moveable {
     }
 
     /**
-     * Construct a new Maze whose length is set
-     *
-     * @param id the Maze's name ID
-     * @param p the Player
-     * @param length the length of the maze which must be at least 5
-     */
-    public Maze(String id, Player p, int length){
-        super(id, "move: next=[direction(left, right, up, down)]");
-        this.mazeLength = length;
-        this.moveNum = 0;
-        this.solutionPath = createPathRegex(this.mazeLength);
-        this.traveledPath = "";
-        this.timer = new Timer(0, mazeLength * 30000);
-        this.player = p;
-    }
-
-    /**
      * Construct a new Maze whose length and path is set
      *
      * @param id the Maze's name ID
      * @param p the Player
-     * @param length the length of the maze, which must be at least 5
      * @param solutionPath the path to escape the maze, which must be a regex
+     * @param time the amount of time given
      */
-    public Maze(String id, Player p, int length, String solutionPath){
+    public Maze(String id, Player p, String solutionPath, double time){
         super(id, "move: maze=[maze_id]");
-        this.mazeLength = length;
+        this.mazeLength = solutionPath.length();
         this.moveNum = 0;
         this.solutionPath = solutionPath;
         this.traveledPath = "";
-        this.timer = new Timer(0, mazeLength * 30000);
+        this.timer = new Timer(0, time);
         this.player = p;
     }
 
@@ -96,7 +79,7 @@ public class Maze extends Interactable implements Moveable {
      *
      * @return true if the user's travelled path fails
      */
-    private boolean hasPathFailed(String solutionPath, String traveledPath, int moveNum){
+    public boolean hasPathFailed(String solutionPath, String traveledPath, int moveNum){
         String currRegex = solutionPath.substring(0, moveNum);
         Pattern pattern = Pattern.compile(currRegex, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(traveledPath);
@@ -110,7 +93,7 @@ public class Maze extends Interactable implements Moveable {
      * @param moveNum the number of moves made
      * @return true if the number of moves the user made is the same as the maze length
      */
-    private boolean hasTravelledDistance(int moveNum, int mazeLength) {
+    public boolean hasTravelledDistance(int moveNum, int mazeLength) {
         if(moveNum == mazeLength){
             this.setCompleted(true);
             return true;

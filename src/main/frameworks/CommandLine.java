@@ -29,13 +29,13 @@ public class CommandLine {
 
     private static final String genericHelp =
             "Some special commands you can call :\n" +
-            "help : get help for your current situation\n"+
-            "progress : returns your completed encounters\n"+
-            "display_objects : list all the interactables in your current encounter\n"+
-            "consumeItem : brings up your inventory to let you consume consumables\n"+
-            "pick_up : starts pick up prompt to pick up a weapon\n"+
-            "exit: exits the game (make sure to save before exiting)\n"+
-            "save 1: saves current game to save game slot 1\n"+
+                    "help : get help for your current situation\n"+
+                    "progress : returns your completed encounters\n"+
+                    "display_objects : list all the interactables in your current encounter\n"+
+                    "consumeItem : brings up your inventory to let you consume consumables\n"+
+                    "pick_up : starts pick up prompt to pick up a weapon\n"+
+                    "exit: exits the game (make sure to save before exiting)\n"+
+                    "save 1: saves current game to save game slot 1\n"+
                     "save 2: saves current game to save game slot 2\n"+
                     "save 3: saves current game to save game slot 3\n";
     public CommandLine() throws IOException {
@@ -43,6 +43,7 @@ public class CommandLine {
         idReader.initAdjectives();
         Encounter[] e = new Encounter[0];
         this.gameState = new GameState(e);
+        this.gameState.setCC(new CommandConstants());
     }
 
     public CommandLine(GameState gs) throws IOException{
@@ -192,15 +193,15 @@ public class CommandLine {
     }
 
     /**
-    Parses the given @param: input by creating a mapping from argument name to argument value.
-    Argument value is an ID of an interactable in the encounter
-    Argument name is a param that the given command requires
-    Both values are Strings
-    The input must be in the following format: "command: arg1=value1, arg2=value2..., argN = valueN"
-    @see ThrowCommand
-    for an example.
-    The expected return value is:
-    {"arg1": "value1", "arg2": "value2", ..., "argN": "valueN"}
+     Parses the given @param: input by creating a mapping from argument name to argument value.
+     Argument value is an ID of an interactable in the encounter
+     Argument name is a param that the given command requires
+     Both values are Strings
+     The input must be in the following format: "command: arg1=value1, arg2=value2..., argN = valueN"
+     @see ThrowCommand
+     for an example.
+     The expected return value is:
+     {"arg1": "value1", "arg2": "value2", ..., "argN": "valueN"}
      **/
     public HashMap<String, String> parseCommand(String input){
         String regexParam = ",";
@@ -221,10 +222,10 @@ public class CommandLine {
     }
 
     /**
-    Take the @param: argToID string to string mapping from parseCommand and
-    return the corresponding string to interactable mapping.
-    I.e  {"weapon": "axe1"} returns {"weapon": AxeObj} provided there is an axe in the current encounter,
-    return {"weapon": null} otherwise.
+     Take the @param: argToID string to string mapping from parseCommand and
+     return the corresponding string to interactable mapping.
+     I.e  {"weapon": "axe1"} returns {"weapon": AxeObj} provided there is an axe in the current encounter,
+     return {"weapon": null} otherwise.
      **/
     public HashMap<String, Interactable> getInteractablesFromID(HashMap<String, String> argToID){
         HashMap<String, Interactable> idToInteractable = new HashMap<>();
@@ -239,9 +240,9 @@ public class CommandLine {
     }
 
     /**
-    Call the command dictated by the @param: user input. Command must be in format described above
-    return a textual representation of the result of the command or an appropriate error message if the command
-    call was invalid.
+     Call the command dictated by the @param: user input. Command must be in format described above
+     return a textual representation of the result of the command or an appropriate error message if the command
+     call was invalid.
      **/
     public String callCommand(String input) {
         String regex = ":";

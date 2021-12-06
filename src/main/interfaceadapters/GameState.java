@@ -24,6 +24,7 @@ public class GameState {
     private HashMap<String, Encounter> EncounterConversion = new HashMap<>();
     private List<Encounter> completedEncounters = new ArrayList<>();
     private PlayerManager playerState;
+    private CommandConstants commandConstants;
 
     private transient GameStateSaver gameStateSaver = new GameStateSaver();
 
@@ -36,6 +37,8 @@ public class GameState {
     public GameState(){
         // For deserialization
     }
+
+    public void setCC(CommandConstants cmdConst) { this.commandConstants = cmdConst; }
 
     public void setPlayerManager(PlayerManager p) {
         this.playerState = p;
@@ -116,8 +119,7 @@ public class GameState {
      * @return Encounter Object (current encounter)
      */
     public String callCommand(String input, HashMap<String, Interactable> args) {
-        CommandConstants c = new CommandConstants();
-        Command needed = c.getCommand(input);
+        Command needed = this.commandConstants.getCommand(input);
         String commandRes = needed.execute(args);
         String s = encounters.get(current_encounter).progress(commandRes) ;
         if (encounters.get(current_encounter).isCompleted()) {

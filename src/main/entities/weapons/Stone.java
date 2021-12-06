@@ -1,5 +1,7 @@
-package entities;
+package entities.weapons;
 
+import entities.InteractableProperties;
+import entities.Variable;
 import entities.interfaces.CanChop;
 import entities.interfaces.Throwable;
 import entities.weapons.Weapon;

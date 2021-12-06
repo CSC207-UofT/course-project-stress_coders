@@ -1,11 +1,11 @@
 package entities.minigames;
 
 import entities.Interactable;
-import entities.minigames.Timer;
 import entities.Unaffordable;
 import entities.interfaces.Moveable;
 import entities.characters.*;
 import entities.weapons.*;
+import usecases.Timing;
 
 import java.util.Random;
 import java.util.regex.Matcher;
@@ -26,31 +26,14 @@ public class Maze extends Interactable implements Moveable {
      * @param id the Maze's name ID
      * @param p the Player
      */
-    public Maze(String id, Player p){
-        super(id, "move: next=[direction(left, right, up, down)]");
+    public Maze(String id, Player p, Timing time){
+        super(id, "move: maze=[maze_id]");
         Random r = new Random();
         this.mazeLength = r.nextInt(6) + 5;
         this.moveNum = 0;
         this.solutionPath = createPathRegex(this.mazeLength);
         this.traveledPath = "";
-        this.timer = new Timer(0, mazeLength * 30000);
-        this.player = p;
-    }
-
-    /**
-     * Construct a new Maze whose length is set
-     *
-     * @param id the Maze's name ID
-     * @param p the Player
-     * @param length the length of the maze which must be at least 5
-     */
-    public Maze(String id, Player p, int length){
-        super(id, "move: next=[direction(left, right, up, down)]");
-        this.mazeLength = length;
-        this.moveNum = 0;
-        this.solutionPath = createPathRegex(this.mazeLength);
-        this.traveledPath = "";
-        this.timer = new Timer(0, mazeLength * 30000);
+        this.timer = new Timer(0, this.mazeLength * 60000, time);
         this.player = p;
     }
 
@@ -59,16 +42,16 @@ public class Maze extends Interactable implements Moveable {
      *
      * @param id the Maze's name ID
      * @param p the Player
-     * @param length the length of the maze, which must be at least 5
      * @param solutionPath the path to escape the maze, which must be a regex
+     * @param time the amount of time given
      */
-    public Maze(String id, Player p, int length, String solutionPath){
+    public Maze(String id, Player p, String solutionPath, double maxTime, Timing time){
         super(id, "move: maze=[maze_id]");
-        this.mazeLength = length;
+        this.mazeLength = solutionPath.length();
         this.moveNum = 0;
         this.solutionPath = solutionPath;
         this.traveledPath = "";
-        this.timer = new Timer(0, mazeLength * 30000);
+        this.timer = new Timer(0, maxTime, time);
         this.player = p;
     }
 
@@ -99,21 +82,26 @@ public class Maze extends Interactable implements Moveable {
      *
      * @return true if the user's travelled path fails
      */
-    private boolean hasPathFailed(){
-        String currRegex = this.solutionPath.substring(0, this.moveNum);
+    public boolean hasPathFailed(String solutionPath, String traveledPath, int moveNum){
+        String currRegex = solutionPath.substring(0, moveNum);
         Pattern pattern = Pattern.compile(currRegex, Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(this.traveledPath);
+        Matcher matcher = pattern.matcher(traveledPath);
         return !matcher.find();
     }
 
     /**
-     * Determine if the user has made it to the end of the maze
+     * Determine if the user has made it to the end of the maze and set the Maze to be completed if so
      *
+     * @param mazeLength the length of the maze
+     * @param moveNum the number of moves made
      * @return true if the number of moves the user made is the same as the maze length
      */
-    private boolean hasTravelledDistance() {
-        this.setCompleted(true);
-        return this.moveNum == this.mazeLength;
+    public boolean hasTravelledDistance(int moveNum, int mazeLength) {
+        if(moveNum == mazeLength){
+            this.setCompleted(true);
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -130,11 +118,11 @@ public class Maze extends Interactable implements Moveable {
         this.moveNum ++;
         if (this.timer.hasTimeElapsed()){
             return "time";
-        } else if(hasPathFailed()){
+        } else if(hasPathFailed(this.solutionPath, this.traveledPath, this.moveNum)){
             this.moveNum = 0;
             return "path";
         }
-        return Boolean.toString(hasTravelledDistance());
+        return Boolean.toString(hasTravelledDistance(this.moveNum, this.mazeLength));
     }
 
     /**
@@ -157,9 +145,10 @@ public class Maze extends Interactable implements Moveable {
      *
      * @return this maze's timer
      */
-    public Timer getTimer(){
+    public Timer getTimer() {
         return this.timer;
     }
+
 
     public void setPlayer(Player p) {
         this.player = p;

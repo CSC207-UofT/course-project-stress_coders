@@ -1,6 +1,7 @@
 package interfaceadapters.commands;
 
 import entities.Interactable;
+
 import usecases.DiceRoll;
 
 import java.util.HashMap;

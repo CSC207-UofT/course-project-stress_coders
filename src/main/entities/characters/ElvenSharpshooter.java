@@ -1,4 +1,4 @@
-package entities.weapons;
+package entities.characters;
 
 import entities.characters.Enemy;
 import entities.characters.Player;

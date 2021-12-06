@@ -1,4 +1,4 @@
-package entities;
+package entities.minigames;
 
 import interfaceadapters.SystemTimeable;
 import usecases.Time;

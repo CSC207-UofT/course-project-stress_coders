@@ -1,8 +1,8 @@
 package usecases;
 
 import entities.*;
+import entities.minigames.Maze;
 
-import java.lang.Character;
 import java.util.HashMap;
 import java.util.Scanner;
 

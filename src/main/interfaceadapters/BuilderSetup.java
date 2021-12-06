@@ -2,10 +2,10 @@ package interfaceadapters;
 
 import entities.*;
 import entities.Interactable;
-import entities.Timer;
 import entities.characters.*;
 import entities.food.*;
 import entities.interfaces.Consumable;
+import entities.minigames.Maze;
 import entities.weapons.*;
 import usecases.Encounter;
 import usecases.Timing;

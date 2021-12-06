@@ -1,5 +1,6 @@
 package entities;
 
+import entities.minigames.Maze;
 import interfaceadapters.SystemTimeable;
 import interfaceadapters.TimeSystem;
 import org.junit.Test;

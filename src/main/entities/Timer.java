@@ -1,23 +1,29 @@
 package entities;
 
+import interfaceadapters.SystemTimeable;
+import usecases.Time;
+import usecases.Timing;
+
 public class Timer {
 
     private double currentTime;
     private double maxTime;
     private double startingTime;
+    private Timing time;
+
 
     /**
      * Construct a new Timer object
      *
      * @param current the current time elapsed
      * @param max the max time for the time to fail
+     * @param time the time getter
      */
-    public Timer(double current, double max){
+    public Timer(double current, double max, Timing time){
         this.currentTime = current;
         this.maxTime = max;
-
-        //TODO: move out of entity layer
-        this.startingTime = System.currentTimeMillis();
+        this.time = time;
+        this.startingTime = time.returnTime();
     }
 
     /**
@@ -57,7 +63,7 @@ public class Timer {
     }
 
     public void updateTime(){
-        this.currentTime = System.currentTimeMillis() - this.startingTime;
+        this.currentTime = this.time.returnTime() - this.startingTime;
     }
 
 

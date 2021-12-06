@@ -3,6 +3,8 @@ package entities;
 import entities.interfaces.Moveable;
 import entities.characters.*;
 import entities.weapons.*;
+import interfaceadapters.SystemTimeable;
+import usecases.Timing;
 
 import java.util.Random;
 import java.util.regex.Matcher;
@@ -23,14 +25,14 @@ public class Maze extends Interactable implements Moveable {
      * @param id the Maze's name ID
      * @param p the Player
      */
-    public Maze(String id, Player p){
+    public Maze(String id, Player p, Timing time){
         super(id, "move: maze=[maze_id]");
         Random r = new Random();
         this.mazeLength = r.nextInt(6) + 5;
         this.moveNum = 0;
         this.solutionPath = createPathRegex(this.mazeLength);
         this.traveledPath = "";
-        this.timer = new Timer(0, mazeLength * 30000);
+        this.timer = new Timer(0, this.mazeLength * 60000, time);
         this.player = p;
     }
 
@@ -42,13 +44,13 @@ public class Maze extends Interactable implements Moveable {
      * @param solutionPath the path to escape the maze, which must be a regex
      * @param time the amount of time given
      */
-    public Maze(String id, Player p, String solutionPath, double time){
+    public Maze(String id, Player p, String solutionPath, double maxTime, Timing time){
         super(id, "move: maze=[maze_id]");
         this.mazeLength = solutionPath.length();
         this.moveNum = 0;
         this.solutionPath = solutionPath;
         this.traveledPath = "";
-        this.timer = new Timer(0, time);
+        this.timer = new Timer(0, maxTime, time);
         this.player = p;
     }
 

@@ -1,5 +1,6 @@
 package commands;
 
+import Style.ColorConstants;
 import entities.weapons.Axe;
 import entities.Interactable;
 import entities.food.Potion;
@@ -18,7 +19,9 @@ public class EncounterTest {
     @Test
     public void getDetails() {
         Encounter testEncounter = new Encounter("init_text", "name", "description");
-        assertEquals("name : description", testEncounter.getDetails());
+        assertEquals(ColorConstants.getColorCode("BLUE") + "name" + ColorConstants.getColorCode("RESET") +
+                        " : " + ColorConstants.getColorCode("GREEN") + "description" + ColorConstants.getColorCode("RESET"),
+                testEncounter.getDetails());
     }
 
     @Test

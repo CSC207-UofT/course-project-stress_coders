@@ -14,7 +14,7 @@ public class Joust extends Interactable implements Duelable {
 
     Player player;
     boolean defeatedEnemy;
-    int defeatedAmount = 50;
+    final int defeatedAmount = 50;
     /**
      * Construct a Joust
      *
@@ -59,28 +59,22 @@ public class Joust extends Interactable implements Duelable {
             Random r = new Random();
             int chosen = r.nextInt(2);
 
-            if (chosen == 0 && enemyOptional.isPresent()) {
-                this.setCompleted(true);
+            this.setCompleted(true);
+            if (chosen == 0) {
                 // we know enemyOptional is not empty, so it must be enemy.
                 // we do this to turn it into an Optional of character for return purposes
                 // since in other parts its possible to return an empty optional
-                Character enemyCharacter = (Character) enemyOptional.get();
-                Optional<Character> result = Optional.of(enemyCharacter);
-                return result;  // player lost the Joust to enemy
+                Character enemyCharacter = enemyOptional.get();
+                return Optional.of(enemyCharacter);  // player lost the Joust to enemy
 
-            } else if (chosen == 1 && playerOptional.isPresent()) {
-                this.setCompleted(true);
+            } else {
                 defeatedEnemy = true;
 
-                Character playerCharacter = (Character) playerOptional.get();
-                Optional<Character> result = Optional.of(playerCharacter);
+                Character playerCharacter = playerOptional.get();
 
-                return result;
+                return Optional.of(playerCharacter);
             }
 
-            this.setCompleted(true);
-            defeatedEnemy = true;
-            return Optional.empty();
             // player won the Joust and defeated enemy, getting valueDefeated defeatedAmount
         }
 

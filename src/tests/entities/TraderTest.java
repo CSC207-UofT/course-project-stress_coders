@@ -18,7 +18,7 @@ public class TraderTest {
         p.addCurrency(100);
         Trader t = new Trader("id", p);
         Nuts nut = new Nuts("nutty");
-        HashMap<String, Consumable> inventoryToAdd = new HashMap<String, Consumable>();
+        HashMap<String, Consumable> inventoryToAdd = new HashMap<>();
         inventoryToAdd.put(nut.getId(), nut);
         t.addConsumablesToStore(inventoryToAdd);
         // t.trade();
@@ -34,7 +34,7 @@ public class TraderTest {
         Player p = new Player("devanRocks");
         Trader t = new Trader("id", p);
         Nuts nut = new Nuts("nutty");
-        HashMap<String, Consumable> inventoryToAdd = new HashMap<String, Consumable>();
+        HashMap<String, Consumable> inventoryToAdd = new HashMap<>();
         inventoryToAdd.put(nut.getId(), nut);
         t.addConsumablesToStore(inventoryToAdd);
         assertTrue(t.getInventory().containsKey(nut.getId()));

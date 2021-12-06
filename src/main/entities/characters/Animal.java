@@ -3,10 +3,11 @@ package entities.characters;
 import entities.Interactable;
 import entities.InteractableProperties;
 import entities.food.Meat;
+import entities.interfaces.Target;
 import entities.interfaces.ThrowableTarget;
 
 
-public class Animal extends Character implements ThrowableTarget {
+public class Animal extends Character implements Target {
 
     private Player player;
 
@@ -31,7 +32,6 @@ public class Animal extends Character implements ThrowableTarget {
      return "your {weapon} hits {animal name} for {weight} damage"
      if you killed the animals also return "You killed the beast and received {id} meat!"
      **/
-    @Override
     public String handleHit(Interactable throwable) {
         int weight = throwable.getProperty(InteractableProperties.WEIGHT.name()).getInteger();
         setHealthPoints(getHealthPoints() - weight);

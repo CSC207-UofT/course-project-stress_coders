@@ -9,7 +9,7 @@ public class HintCommand extends Command {
     /**
      * gives hint to help open door
      */
-    Hint hint;
+    final Hint hint;
 
     public HintCommand(){
         this.hint = new Hint();

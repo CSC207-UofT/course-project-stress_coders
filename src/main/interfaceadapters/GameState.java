@@ -25,7 +25,7 @@ public class GameState {
     private List<Encounter> completedEncounters = new ArrayList<>();
     private PlayerManager playerState;
 
-    private transient GameStateSaver gameStateSaver = new GameStateSaver();
+    private final transient GameStateSaver gameStateSaver = new GameStateSaver();
 
 
     public GameState(Encounter[] encounters){

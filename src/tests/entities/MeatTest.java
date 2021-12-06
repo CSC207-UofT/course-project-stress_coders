@@ -18,7 +18,7 @@ public class MeatTest {
     @Test
     public void addRestorationValue() {
         Meat meatTest = new Meat("id");
-        meatTest.setProperties(new HashMap<String, Variable>());
+        meatTest.setProperties(new HashMap<>());
         meatTest.addRestorationValue();
 
         assertTrue(meatTest.getProperties().containsKey(InteractableProperties.CONSUMABLE_REST_NAME.name()));

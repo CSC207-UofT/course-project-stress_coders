@@ -33,7 +33,7 @@ public class EncounterSerializer {
         DOING_GENERIC(8),
         CURR_GENERIC_INDEX(9);
 
-        private int index;
+        private final int index;
 
         Components(int index){
             this.index = index;
@@ -54,7 +54,7 @@ public class EncounterSerializer {
                 .registerSubtype(ElvenSharpshooter.class).registerSubtype(HandCannon.class).registerSubtype(Slingshot.class)
                 .registerSubtype(Spear.class).registerSubtype(ThrowingKnife.class).registerSubtype(HauntedArmor.class)
                 .registerSubtype(HorseRace.class).registerSubtype(Joust.class).registerSubtype(Maze.class)
-                .registerSubtype(PheonixHatchling.class).registerSubtype(PotionDispenser.class).registerSubtype(Stone.class)
+                .registerSubtype(PhoenixHatchling.class).registerSubtype(PotionDispenser.class).registerSubtype(Stone.class)
                 .registerSubtype(Tree.class).registerSubtype(Enemy.class);
 
         interactableSerializer = new GsonBuilder().registerTypeAdapterFactory(interactableAdapterFactory).create();

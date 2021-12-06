@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class SwingCommand extends Command {
 
-    Swing swingAction;
+    final Swing swingAction;
 
     public SwingCommand() {
         this.swingAction = new Swing();

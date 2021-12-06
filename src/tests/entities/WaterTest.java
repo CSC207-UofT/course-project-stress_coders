@@ -16,7 +16,7 @@ public class WaterTest {
     @Test
     public void addRestorationValue() {
         WaterBottle waterTest = new WaterBottle("id");
-        waterTest.setProperties(new HashMap<String, Variable>());
+        waterTest.setProperties(new HashMap<>());
         waterTest.addRestorationValue();
 
         assertTrue(waterTest.getProperties().containsKey(InteractableProperties.CONSUMABLE_REST_NAME.name()));

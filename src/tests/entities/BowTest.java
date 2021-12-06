@@ -10,7 +10,7 @@ public class BowTest {
     @Test
     public void addHitProbability() {
         Bow bowTest = new Bow("id", 900000);
-        bowTest.setProperties(new HashMap<String, Variable>());
+        bowTest.setProperties(new HashMap<>());
         bowTest.addHitProbability();
 
         assertTrue(bowTest.getProperties().containsKey(InteractableProperties.HIT_PROB.name()));
@@ -19,7 +19,7 @@ public class BowTest {
     @Test
     public void addWeight() {
         Bow bowTest = new Bow("id", 900000);
-        bowTest.setProperties(new HashMap<String, Variable>());
+        bowTest.setProperties(new HashMap<>());
         bowTest.addWeight();
 
         assertTrue(bowTest.getProperties().containsKey(InteractableProperties.WEIGHT.name()));

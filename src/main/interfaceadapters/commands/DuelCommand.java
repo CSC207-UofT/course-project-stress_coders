@@ -11,7 +11,7 @@ public class DuelCommand extends Command {
      * allows to play the Joust or other Duel interactables.
      *
      */
-    Duel duel;
+    final Duel duel;
 
     public DuelCommand() {
         this.duel = new Duel();

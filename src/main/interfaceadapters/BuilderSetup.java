@@ -12,15 +12,15 @@ import usecases.Encounter;
 import java.util.*;
 
 public class BuilderSetup {
-    List<Encounter> allGeneratedEncounters;
-    List<Interactable> allPossibleInteractables; // WILL ADD userGenre input later
-    List<Interactable> allGenerics = new ArrayList<>();
-    List<Interactable> allMain = new ArrayList<>();
-    HashMap<String, Integer> usedEncounterTypes= new HashMap<>();
-    HashMap<String, String[]> encounterTypeDetails = new HashMap<>(); // Each value is stored as a list of
+    final List<Encounter> allGeneratedEncounters;
+    final List<Interactable> allPossibleInteractables; // WILL ADD userGenre input later
+    final List<Interactable> allGenerics = new ArrayList<>();
+    final List<Interactable> allMain = new ArrayList<>();
+    final HashMap<String, Integer> usedEncounterTypes= new HashMap<>();
+    final HashMap<String, String[]> encounterTypeDetails = new HashMap<>(); // Each value is stored as a list of
     // {description, initial_text}
-    Player player;
-    int questLengthBound;
+    final Player player;
+    final int questLengthBound;
 
     // First we create an instance of each interactable, possibly set certain ones by genre, then from valid ones
     // randomly choose some premade MAIN interactions and some generics using randint and asking user to choose from
@@ -97,7 +97,7 @@ public class BuilderSetup {
         this.allPossibleInteractables.add(new HandCannon(DefaultInteractableIDs.HANDCANNON.getDefaultID(), r.nextInt(30)));
         this.allPossibleInteractables.add(new Potion(DefaultInteractableIDs.POTION.getDefaultID()));
         this.allPossibleInteractables.add(new Tree(DefaultInteractableIDs.TREE.getDefaultID()));
-        this.allPossibleInteractables.add(new Maze(DefaultInteractableIDs.MAZE.getDefaultID(), player));
+
         VaultDoor v = generateVaultDoor();
         MysteryBox m = generateMysteryBox();
         PotionDispenser p = generatePotionDispenser();
@@ -115,21 +115,6 @@ public class BuilderSetup {
         this.allPossibleInteractables.add(m);
         this.allPossibleInteractables.add(p);
         this.allPossibleInteractables.add(enemy);
-        Catapult cata = new Catapult("BIG CHUNGUS LAUNCH");
-        this.allPossibleInteractables.add(cata);
-        allMain.add(cata);
-        Fishing fish = new Fishing("Minecraft Fishing go BRR!");
-        this.allPossibleInteractables.add(fish);
-        allMain.add(fish);
-        HorseRace hr = new HorseRace("Crackhead Horse Racing",player , 5);
-        this.allPossibleInteractables.add(hr);
-        allMain.add(hr);
-        this.allPossibleInteractables.add(new HorseShoe("Horse Shoe"));
-        Joust j = new Joust("Joust", player);
-        this.allPossibleInteractables.add(j);
-        allMain.add(j);
-        PebbleSkip ps = new PebbleSkip("Pebble Skip", 20);
-        allPossibleInteractables.add(ps);
 
         allMain.add(v);
         allMain.add(riddleGoblin);

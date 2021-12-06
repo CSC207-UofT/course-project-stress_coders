@@ -21,12 +21,10 @@ public class Shoot {
                 shot.spendAmmo(1);
                 Variable hitProbVar = shot.getProperty(InteractableProperties.HIT_PROB.name());
                 int hitProb = hitProbVar.getInteger();
-
                 if(hitProb / 100.0 > Math.random()){
                     return throwTarget.handleHit(args.get(shotObject));
                 }
-
-                return "It missed";
+                return "Your shot missed";
             }
         }
 

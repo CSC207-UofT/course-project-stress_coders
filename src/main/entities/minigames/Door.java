@@ -64,9 +64,9 @@ public abstract class Door extends Interactable implements Unlockable {
     }
 
     /**
-     * Return a String of all of the hints
+     * Return a String of all the hints
      *
-     * @return all of the hints
+     * @return all the hints
      */
     public String viewAllHints() {
         String accum = "";

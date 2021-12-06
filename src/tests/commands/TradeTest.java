@@ -17,14 +17,12 @@ public class TradeTest {
         p.addCurrency(100);
         Trader t = new Trader("id", p);
         Nuts nut = new Nuts("nutty");
-        HashMap<String, Consumable> inventoryToAdd = new HashMap<String, Consumable>();
+        HashMap<String, Consumable> inventoryToAdd = new HashMap<>();
         inventoryToAdd.put(nut.getId(), nut);
         t.addConsumablesToStore(inventoryToAdd);
 
         TradeCommand tradeCmd = new TradeCommand();
         HashMap<String, Interactable> args = new HashMap<>();
         args.put("trader", t);
-        // String res = tradeCmd.execute(args);
-        // assertEquals("Bought nutty for 10 geld", res);
     }
 }

@@ -43,7 +43,7 @@ public class Duel {
                     return "Nice, you won the joust and got " + (j.getValueDefeated()) + " !";
                 }
                 else { // otherwise it must be the Enemy, since its not Optional.empty
-                    return "You lost the joust to " + ((Enemy) result.get()).getId() +" and died!!";
+                    return "You lost the joust to " + result.get().getId() +" and died!!";
 
                 }
 

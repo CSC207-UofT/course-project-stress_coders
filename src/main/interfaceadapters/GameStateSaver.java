@@ -113,13 +113,13 @@ public class GameStateSaver {
     }
 
     private void fillGameState(GameState gs){
-        gs.setCompletedEncounters(new ArrayList<Encounter>());
+        gs.setCompletedEncounters(new ArrayList<>());
         for(Encounter e : gs.getEncounters()){
             if (e.isCompleted()){
                 gs.getCompletedEncounters().add(e);
             }
         }
-        gs.setEncounterConversion(new HashMap<String, Encounter>());
+        gs.setEncounterConversion(new HashMap<>());
         for(Encounter e : gs.getEncounters()){
             gs.getEncounterConversion().put(e.getName(), e);
         }

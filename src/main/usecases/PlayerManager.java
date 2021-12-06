@@ -8,7 +8,7 @@ import entities.interfaces.Consumable;
 import java.util.List;
 
 public class PlayerManager {
-    Player player;
+    final Player player;
     public PlayerManager(String p, String difficulty) {
         player = new Player(p);
         if (difficulty.equals("hard")) {player.setHealthPoints(300);}

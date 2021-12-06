@@ -12,9 +12,9 @@ import java.util.HashMap;
 
 public class GamestateSerializer {
 
-    Gson serializer = new Gson();
-    Gson itemSerializer;
-    Gson weaponSerializer;
+    final Gson serializer = new Gson();
+    final Gson itemSerializer;
+    final Gson weaponSerializer;
 
     private enum PlayerComponents{
         PLAYER_ID(0),
@@ -25,7 +25,7 @@ public class GamestateSerializer {
         WALLET(5),
         WEAPON(6);
 
-        private int index;
+        private final int index;
 
         PlayerComponents(int index){
             this.index = index;

@@ -23,7 +23,7 @@ public class FeralGhoul extends Enemy{
     }
 
     private int getHeal(int damage) {
-        return ((int) (damage / 2));
+        return damage / 2;
     }
 
     public String hitBack(Throwable throwable) {

@@ -16,7 +16,7 @@ public class BreadTest {
     @Test
     public void addRestorationValue() {
         Bread breadTest = new Bread("id");
-        breadTest.setProperties(new HashMap<String, Variable>());
+        breadTest.setProperties(new HashMap<>());
         breadTest.addRestorationValue();
 
         assertTrue(breadTest.getProperties().containsKey(InteractableProperties.CONSUMABLE_REST_NAME.name()));

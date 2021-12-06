@@ -10,7 +10,7 @@ public class SwordTest {
     @Test
     public void addHitProbability() {
         Sword swordTest = new Sword("id");
-        swordTest.setProperties(new HashMap<String, Variable>());
+        swordTest.setProperties(new HashMap<>());
         swordTest.addHitProbability();
 
         assertTrue(swordTest.getProperties().containsKey(InteractableProperties.HIT_PROB.name()));
@@ -20,7 +20,7 @@ public class SwordTest {
     @Test
     public void addWeight() {
         Sword swordTest = new Sword("id");
-        swordTest.setProperties(new HashMap<String, Variable>());
+        swordTest.setProperties(new HashMap<>());
         swordTest.addWeight();
 
         assertTrue(swordTest.getProperties().containsKey(InteractableProperties.WEIGHT.name()));

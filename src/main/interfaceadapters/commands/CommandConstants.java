@@ -1,4 +1,4 @@
-package usecases;
+package interfaceadapters.commands;
 
 import interfaceadapters.commands.*;
 
@@ -21,6 +21,12 @@ public class CommandConstants {
         COMMANDS.put("spin", new SpinCommand());
         COMMANDS.put("shoot", new ShootCommand());
         COMMANDS.put("hint", new HintCommand());
+        COMMANDS.put("roll", new DiceRollCommand());
+        COMMANDS.put("launch", new LaunchCommand());
+        COMMANDS.put("Swing", new SwingCommand());
+        COMMANDS.put("duel", new DuelCommand());
+        COMMANDS.put("race", new RaceCommand());
+
     }
     public Command getCommand(String input) {return COMMANDS.get(input);}
 }

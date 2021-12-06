@@ -5,6 +5,7 @@ import entities.*;
 import entities.interfaces.Consumable;
 import interfaceadapters.*;
 import interfaceadapters.commands.Command;
+import interfaceadapters.commands.CommandConstants;
 import interfaceadapters.commands.ConsumeCommand;
 import interfaceadapters.commands.ThrowCommand;
 import usecases.*;

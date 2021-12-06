@@ -3,6 +3,7 @@ package interfaceadapters;
 import Style.ColorConstants;
 import entities.Interactable;
 import interfaceadapters.commands.Command;
+import interfaceadapters.commands.CommandConstants;
 import usecases.*;
 
 import java.io.IOException;

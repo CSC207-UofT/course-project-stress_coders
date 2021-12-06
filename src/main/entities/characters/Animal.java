@@ -3,10 +3,11 @@ package entities.characters;
 import entities.Interactable;
 import entities.InteractableProperties;
 import entities.food.Meat;
+import entities.interfaces.Target;
 import entities.interfaces.ThrowableTarget;
 
 
-public class Animal extends Character implements ThrowableTarget {
+public class Animal extends Character implements ThrowableTarget, Target {
 
     private Player player;
 
@@ -45,6 +46,27 @@ public class Animal extends Character implements ThrowableTarget {
         }
         else {
             return  "Your "+ throwable.getId() + " hits " + getId() + " for " + weight + " damage!\n";
+        }
+    }
+
+    /**
+     * The result of getting shot.
+     * Damage is based on weight of the shootable object.
+     */
+    @Override
+    public String shotAt(Interactable shootable) {
+        int weight = shootable.getProperty(InteractableProperties.WEIGHT.name()).getInteger();
+        setHealthPoints(getHealthPoints() - weight);
+        if (isDead()) {
+            Meat meat = new Meat(getId() + " meat");
+            meat.addRestorationValue();
+            player.addConsumable(meat);
+            this.setCompleted(true);
+            return "Your "+ shootable.getId() + " hits " + getId() + " for " + weight + " damage! You killed the beast " +
+                    "and received " + getId() + " meat";
+        }
+        else {
+            return  "Your "+ shootable.getId() + " hits " + getId() + " for " + weight + " damage!\n";
         }
     }
 

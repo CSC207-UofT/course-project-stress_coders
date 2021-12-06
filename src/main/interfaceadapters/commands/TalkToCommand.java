@@ -10,7 +10,7 @@ TalkTo command talks to a given interactable, that can be spoken to.
  */
 
 public class TalkToCommand extends Command {
-    TalkTo talkToAction;
+    final TalkTo talkToAction;
 
     public TalkToCommand(){ this.talkToAction = new TalkTo(); }
 

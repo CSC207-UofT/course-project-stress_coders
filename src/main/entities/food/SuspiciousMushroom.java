@@ -23,8 +23,8 @@ public class SuspiciousMushroom extends Food implements Consumable {
      * Adds property CONSUMABLE_REST_NAME with a restoration value between -5 and 10
      */
 
-    Random r = new Random();
-    int chosen = (r.nextInt(15) - 5);
+    final Random r = new Random();
+    final int chosen = (r.nextInt(15) - 5);
 
     public void addRestorationValue() {
         super.addProperty(InteractableProperties.CONSUMABLE_REST_NAME.name(), new Variable(chosen));

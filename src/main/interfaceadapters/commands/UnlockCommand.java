@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class UnlockCommand extends Command {
 
-    Unlock unlockAction;
+    final Unlock unlockAction;
 
     public UnlockCommand() {
         this.unlockAction = new Unlock();

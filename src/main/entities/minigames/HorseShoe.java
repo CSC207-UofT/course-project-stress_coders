@@ -82,17 +82,17 @@ public class HorseShoe extends Interactable implements Launchable {
     public void newToss() {
         Random r = new Random();
         int tossLength = r.nextInt(nailDistance);
-        int pointsToAdd = 0;
+        int pointsToAdd;
 
         setHorseShoeTossedDistance(tossLength);
 
-        if (tossLength >= 0 && tossLength < 3) {
+        if (tossLength < 3) {
             pointsToAdd = 3;
-        } else if (tossLength >= 3 && tossLength < 6) {
+        } else if (tossLength < 6) {
             pointsToAdd = 5;
-        } else if (tossLength >= 6 && tossLength < 8) {
+        } else if (tossLength < 8) {
             pointsToAdd = 7;
-        } else if (tossLength >= 8 && tossLength < 9) {
+        } else if (tossLength < 9) {
             pointsToAdd = 9;
         } else {
             // tossLength = 9
@@ -118,11 +118,7 @@ public class HorseShoe extends Interactable implements Launchable {
 
         this.setCompleted(true);
 
-        if (this.getPoints() >= 30) {
-            return true;
-        }
-
-        return false;
+        return this.getPoints() >= 30;
     }
 
 

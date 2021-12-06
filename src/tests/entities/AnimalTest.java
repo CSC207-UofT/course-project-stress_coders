@@ -3,15 +3,13 @@ package entities;
 import entities.characters.Animal;
 import entities.characters.Player;
 import entities.food.Meat;
-import entities.interfaces.Consumable;
 import entities.weapons.Axe;
 import org.junit.Test;
 import interfaceadapters.commands.ThrowCommand;
 
 import java.util.HashMap;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class AnimalTest {
 
@@ -34,7 +32,7 @@ public class AnimalTest {
         args.put("target", animal);
         String result = throwCmd.execute(args);
         if (result == "It missed") {
-            assertTrue(!animal.isDead());
+            assertFalse(animal.isDead());
         } else {
             assertTrue(animal.isDead());
             boolean meatFound = false;

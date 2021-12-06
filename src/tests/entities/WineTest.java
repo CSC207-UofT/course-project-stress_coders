@@ -16,7 +16,7 @@ public class WineTest {
     @Test
     public void addRestorationValue() {
         WineBottle wineTest = new WineBottle("id");
-        wineTest.setProperties(new HashMap<String, Variable>());
+        wineTest.setProperties(new HashMap<>());
         wineTest.addRestorationValue();
 
         assertTrue(wineTest.getProperties().containsKey(InteractableProperties.CONSUMABLE_REST_NAME.name()));

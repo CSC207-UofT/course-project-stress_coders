@@ -18,7 +18,7 @@ An enemy should be damaged by the weight of the shootableWeapon
 
 public class ShootCommand extends Command {
 
-    Shoot shootAction;
+    final Shoot shootAction;
 
     public ShootCommand() {
         this.shootAction = new Shoot();

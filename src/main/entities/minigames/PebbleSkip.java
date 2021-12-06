@@ -19,9 +19,9 @@ import java.util.Random;
 
 public class PebbleSkip extends Interactable implements Launchable {
 
-    private int angle;
+    private final int angle;
     private int numSkips;
-    private int skipWeight;
+    private final int skipWeight;
 
     /**
      * Construct a new PebbleSkip minigame.
@@ -40,7 +40,6 @@ public class PebbleSkip extends Interactable implements Launchable {
         Random r = new Random();
 
         this.skipWeight = r.nextInt(10) + 1;
-
         this.angle = playerAngle;
         this.calculateNumSkips();
     }
@@ -59,22 +58,18 @@ public class PebbleSkip extends Interactable implements Launchable {
     @Override
     public boolean launch() {
 
-        /** if the number of skips > 0, then it succeeded return true
-         *  else if it equals 0, return false
+        /* if the number of skips > 0, then it succeeded return true
+           else if it equals 0, return false
          */
 
         this.setCompleted(true);
 
-        if (this.getNumSkips() > 0) {
-            return true;
-        }
-
-        return false;
+        return this.getNumSkips() > 0;
     }
 
     private void calculateNumSkips() {
         if (this.angle >= 0 && this.angle < 20) {
-            this.numSkips = 0 * this.skipWeight;
+            this.numSkips = 0;
         } else if (this.angle >= 20 && this.angle < 30) {
             this.numSkips = this.skipWeight / 2;
         } else if (this.angle >= 30 && this.angle <= 90) {

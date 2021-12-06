@@ -12,7 +12,7 @@ public class CrossbowTest {
     @Test
     public void addHitProbability() {
         Crossbow crossbowTest = new Crossbow("id", 900000);
-        crossbowTest.setProperties(new HashMap<String, Variable>());
+        crossbowTest.setProperties(new HashMap<>());
         crossbowTest.addHitProbability();
 
         assertTrue(crossbowTest.getProperties().containsKey(InteractableProperties.HIT_PROB.name()));
@@ -21,7 +21,7 @@ public class CrossbowTest {
     @Test
     public void addWeight() {
         Crossbow crossbowTest = new Crossbow("id", 900000);
-        crossbowTest.setProperties(new HashMap<String, Variable>());
+        crossbowTest.setProperties(new HashMap<>());
         crossbowTest.addWeight();
 
         assertTrue(crossbowTest.getProperties().containsKey(InteractableProperties.WEIGHT.name()));

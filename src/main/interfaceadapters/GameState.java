@@ -26,7 +26,7 @@ public class GameState {
     private PlayerManager playerState;
     private CommandConstants commandConstants;
 
-    private transient GameStateSaver gameStateSaver = new GameStateSaver();
+    private final transient GameStateSaver gameStateSaver = new GameStateSaver();
 
 
     public GameState(Encounter[] encounters){

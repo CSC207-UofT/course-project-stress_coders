@@ -9,7 +9,7 @@ public class ClubTest {
     @Test
     public void addHitProbability() {
         Club clubTest = new Club("id");
-        clubTest.setProperties(new HashMap<String, Variable>());
+        clubTest.setProperties(new HashMap<>());
         clubTest.addHitProbability();
 
         assertTrue(clubTest.getProperties().containsKey(InteractableProperties.HIT_PROB.name()));
@@ -19,7 +19,7 @@ public class ClubTest {
     @Test
     public void addWeight() {
         Club clubTest = new Club("id");
-        clubTest.setProperties(new HashMap<String, Variable>());
+        clubTest.setProperties(new HashMap<>());
         clubTest.addWeight();
 
         assertTrue(clubTest.getProperties().containsKey(InteractableProperties.WEIGHT.name()));

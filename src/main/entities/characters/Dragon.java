@@ -7,10 +7,6 @@ import entities.interfaces.Throwable;
 import java.util.Random;
 
 public class Dragon extends Enemy {
-    //An enemy that takes reduced damage until his thick skin is damaged enough (at 60% health)
-//    private int defaultDamage;
-//    private final int valueDefeated;
-//    private final Player player;
     private final double skin_piercing_threshold;
 
     public Dragon(String id, int health, Player player, int valueDefeated) {

@@ -4,7 +4,7 @@ public class Timer {
 
     private double currentTime;
     private double maxTime;
-    private double startingTime;
+    private final double startingTime;
 
     /**
      * Construct a new Timer object

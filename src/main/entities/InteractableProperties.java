@@ -14,9 +14,6 @@ public enum InteractableProperties {
     CHOP_DMG_NAME("chop_damage"),
     CONSUMABLE_REST_NAME("restoration_value");
 
-    private final String name;
-
     InteractableProperties(String s){
-        this.name = s;
     }
 }

@@ -29,7 +29,7 @@ public class ThrowCommand extends Command {
     throw: thrown_obj=axe1, target=enemy1
     for example
      */
-    Throw throwAction;
+    final Throw throwAction;
 
     public ThrowCommand() {
         this.throwAction = new Throw();

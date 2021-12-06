@@ -10,7 +10,7 @@ public class RaceCommand extends Command {
      * Execute the following to play the HorseRace or other Race interactables.
      *
      **/
-    Race race;
+    final Race race;
 
     public RaceCommand(){
         this.race = new Race();

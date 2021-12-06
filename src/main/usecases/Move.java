@@ -44,15 +44,12 @@ public class Move extends Command {
         switch (choice) {
             case "right":
                 System.out.println("You moved right.");
-                move = 'r';
 
             case "left":
                 System.out.println("You moved left.");
-                move = 'l';
 
             case "up":
                 System.out.println("You moved up.");
-                move = 'u';
 
             case "down":
                 System.out.println("You moved down.");

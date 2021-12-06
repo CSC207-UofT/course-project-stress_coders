@@ -47,11 +47,6 @@ public class EncounterTest {
     }
 
     @Test
-    public void progress() {
-        // Add test here Im not sure how to test this
-    }
-
-    @Test
     public void addObj() {
         Encounter testEncounter = new Encounter("init_text", "name", "description");
         Interactable axe = new Axe("id22");
@@ -91,11 +86,6 @@ public class EncounterTest {
         Encounter testEncounter = new Encounter("init_text", "name", "description");
         assertFalse(testEncounter.isCompleted());
         // Add test here, this is can be done better
-    }
-
-    @Test
-    public void getHelp() {
-        // Add test here, im not sure what to do here
     }
 
     @Test

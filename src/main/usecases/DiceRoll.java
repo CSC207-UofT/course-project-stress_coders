@@ -1,7 +1,6 @@
 package usecases;
 
 import entities.Interactable;
-import entities.minigames.Catapult;
 import entities.minigames.Teetotum;
 
 import java.util.HashMap;

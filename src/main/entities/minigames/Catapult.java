@@ -18,7 +18,6 @@ public class Catapult extends Interactable implements Launchable {
 
     private final int enemyDistance;
     private int pullBackDistance;
-    private boolean launched;
 
     /**
      * Construct a new Catapult which is randomized
@@ -58,20 +57,14 @@ public class Catapult extends Interactable implements Launchable {
      **/
     @Override
     public boolean launch() {
-        launched = true;
         this.setCompleted(true);
 
-        if(this.distanceWithinPlusMinusOne(this.pullBackDistance, (this.enemyDistance - 5))) {
-            return true;
-        }
-        return false;
+        return this.distanceWithinPlusMinusOne(this.pullBackDistance, (this.enemyDistance - 5));
     }
 
 
     /** Helper method to see whether the distance between a and b is within one.
      *
-     * @param a
-     * @param b
      * @return whether the distance between a and b is within one.
      */
     private boolean distanceWithinPlusMinusOne(int a, int b) {

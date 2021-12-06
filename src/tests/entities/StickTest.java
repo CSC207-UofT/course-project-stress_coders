@@ -10,7 +10,7 @@ public class StickTest {
     @Test
     public void addHitProbability() {
         Stick stickTest = new Stick("id");
-        stickTest.setProperties(new HashMap<String, Variable>());
+        stickTest.setProperties(new HashMap<>());
         stickTest.addHitProbability();
 
         assertTrue(stickTest.getProperties().containsKey(InteractableProperties.HIT_PROB.name()));
@@ -20,7 +20,7 @@ public class StickTest {
     @Test
     public void addWeight() {
         Stick stickTest = new Stick("id");
-        stickTest.setProperties(new HashMap<String, Variable>());
+        stickTest.setProperties(new HashMap<>());
         stickTest.addWeight();
 
         assertTrue(stickTest.getProperties().containsKey(InteractableProperties.WEIGHT.name()));

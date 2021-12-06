@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class LaunchCommand extends Command {
 
-    Launch launch;
+    final Launch launch;
 
     public LaunchCommand() {this.launch = new Launch(); }
 

@@ -24,7 +24,7 @@ public class Maze extends Interactable implements Moveable {
      * @param p the Player
      */
     public Maze(String id, Player p){
-        super(id, "move: next=[direction(left, right, up, down)]");
+        super(id, "move: maze=[maze_id]");
         Random r = new Random();
         this.mazeLength = r.nextInt(6) + 5;
         this.moveNum = 0;

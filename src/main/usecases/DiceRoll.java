@@ -26,18 +26,18 @@ public class DiceRoll {
 
             if (choice.equals("yes")) {
                 tm.roll();
-                System.out.println("The catapult launch has begun!");
+                System.out.println("The teetotum game has begun!");
 
                 // now hr.raceOver();
                 if (tm.rollOver()) {
-                    return "Nice, you succesfully launched the rock on top of the enemy and won the catapult mini-game!";
+                    return "Nice, you won the teetotum mini-game!";
                 } else {
-                    return "You lost the catapult game";
+                    return "You lost the teetotum mini-game";
                 }
             }
 
 
-            return "You forfeitted the joust!";
+            return "You forfeitted the mini-game!";
         }
 
         return "Invalid diceRollable, please pass in a valid dice.";

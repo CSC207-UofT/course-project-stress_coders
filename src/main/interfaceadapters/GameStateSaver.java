@@ -103,10 +103,12 @@ public class GameStateSaver {
         CommandLine commandLine = new CommandLine(gs);
         System.out.println("Save File Loaded!");
 
-        System.out.println("Current Encounter: " + gs.getCurrent_encounter().getDetails());
+        System.out.println("Current Quest: " + gs.getCurrent_encounter().getDetails());
+        System.out.println("Your current mission: " + ColorConstants.getColorCode("RED") +
+                gs.getCurrent_encounter().getProgression().get(gs.getCurrent_encounter().getCurrInteractableIndex()).getId() +
+                ColorConstants.getColorCode("RESET"));
         System.out.println(ColorConstants.getColorCode("PURPLE") + gs.getHelp());
         System.out.println(ColorConstants.getColorCode("RESET") + gs.getPlayerState().getPlayerInfo());
-
         commandLine.setPlayerState(gs.getPlayerState());
         commandLine.run();
     }

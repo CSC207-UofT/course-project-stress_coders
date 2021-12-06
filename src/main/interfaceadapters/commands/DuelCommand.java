@@ -1,7 +1,6 @@
 package interfaceadapters.commands;
 
 import entities.*;
-import usecases.Command;
 import usecases.Duel;
 
 import java.util.HashMap;

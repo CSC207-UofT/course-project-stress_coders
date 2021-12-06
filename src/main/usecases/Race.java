@@ -49,7 +49,7 @@ public class Race {
                 }
 
             } else {
-                return "You forfeitted the joust!";
+                return "You forfeitted the race!";
             }
 
 

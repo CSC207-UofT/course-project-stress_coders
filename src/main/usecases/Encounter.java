@@ -6,6 +6,7 @@ import entities.characters.Character;
 import entities.characters.Player;
 import entities.interfaces.Spinnable;
 import entities.interfaces.Target;
+import interfaceadapters.commands.Command;
 
 import java.util.*;
 
@@ -200,28 +201,22 @@ public class Encounter {
      * This method is the one used by game state, it directly uses user input to progress through an interactable and
      * the entire encounter and marks the encounter as completed when needed, it also handles when to request
      * interactables
-     * @param userInput This is the format for commands and their related objects in this program
-     * @param userCommand the command that the user has chosen to be executed, this method will call on the command
-     *                    execution which will check if it's a valid interaction too
      * @return A string representing what the command execution returns (fail or not fail) and the progression of this
      * encounter
      */
-    public String progress(HashMap<String, Interactable> userInput, String userCommand) {
+    public String progress(String commandResult) {
         // WE may need to add some sort of checking to see if the interactable is valid for this encounter
         // as of now, this method doesn't do this so the command will run but no progress will be made
-        CommandConstants c = new CommandConstants();
-        Command needed = c.getCommand(userCommand);
-        String s = needed.execute(userInput);
         if (doingGeneric) {
             if (objIDs.get(genericPool.get(currGenericIndex).getId()).isCompleted()) {
                 doingGeneric = false;
                 currGenericIndex = -1;
                 requestInteractable();
             }
-            return s;
+            return commandResult;
         }
         if (progression.get(currInteractableIndex).isCompleted()) {
-            System.out.println(s);
+            System.out.println(commandResult);
             if (currInteractableIndex == progression.size()-1) {
                 this.isCompleted = true;
                 return "Encounter completed, well done!";
@@ -229,7 +224,7 @@ public class Encounter {
             requestInteractable();
             return progression.get(currInteractableIndex).getInitialText();
         }
-        return s;
+        return commandResult;
     }
 
     // If object has identical ID either add a number to the end or add some adjective at the beginning

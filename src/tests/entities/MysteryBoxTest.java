@@ -45,7 +45,7 @@ public class MysteryBoxTest {
         weapons.add(testAxe);
         MysteryBox mysteryBoxTest = new MysteryBox("I once knew a man named J calv", weapons, player);
         player.addCurrency(100);
-        assertTrue(mysteryBoxTest.spin() instanceof Unafforable);
+        assertTrue(mysteryBoxTest.spin() instanceof Unaffordable);
         player.addCurrency(900);
         assertEquals(testAxe, mysteryBoxTest.spin());
     }

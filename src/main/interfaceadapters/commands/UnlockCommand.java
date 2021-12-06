@@ -1,8 +1,6 @@
 package interfaceadapters.commands;
 
-import entities.Door;
 import entities.Interactable;
-import usecases.Command;
 import usecases.Unlock;
 
 import java.util.HashMap;

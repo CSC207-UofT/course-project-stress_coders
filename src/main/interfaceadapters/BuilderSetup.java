@@ -5,7 +5,9 @@ import entities.Interactable;
 import entities.characters.*;
 import entities.food.*;
 import entities.interfaces.Consumable;
+import entities.minigames.Door;
 import entities.minigames.Maze;
+import entities.minigames.VaultDoor;
 import entities.weapons.*;
 import usecases.Encounter;
 

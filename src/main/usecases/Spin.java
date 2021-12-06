@@ -8,15 +8,16 @@ import entities.weapons.Weapon;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Spin extends Command {
-
-    @Override
-    public String execute(HashMap<String, Interactable> args) {
+/**
+ * Usecase to spin a box!
+ */
+public class Spin{
+    public String spinAction(HashMap<String, Interactable> args) {
         if (args.get("box") instanceof MysteryBox) {
             MysteryBox m = ((MysteryBox) args.get("box"));
             Weapon w = m.spin();
 
-            if (w instanceof Unafforable) {
+            if (w instanceof Unaffordable) {
                 return "Sorry, you cannot afford to hit the mystery box, come back later!";
             }
             String message = "Do you want to switch your current weapon to weapon " + w.getId() +

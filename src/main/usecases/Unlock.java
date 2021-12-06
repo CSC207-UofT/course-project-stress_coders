@@ -1,6 +1,6 @@
 package usecases;
 
-import entities.Door;
+import entities.minigames.Door;
 import entities.Interactable;
 
 import java.util.HashMap;

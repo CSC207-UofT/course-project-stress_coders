@@ -2,11 +2,12 @@ package usecases;
 
 import entities.*;
 import entities.minigames.Maze;
+import interfaceadapters.commands.Command;
 
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Move extends Command{
+public class Move extends Command {
 
     @Override
     public String execute(HashMap<String, Interactable> args){

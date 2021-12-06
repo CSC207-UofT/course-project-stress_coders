@@ -6,7 +6,7 @@ Specification:
 Our program is a text-based game that is controlled through a commands line interface, which processes unique custom commands through our own interpreter. The spectacle of this is that our interpreter validates commands based on our organized game structure so new commands and game objects can be added with ease and our interpreter will incorporate it into the game smoothly (nothing needs to be hardcoded or changed, simply just added as expansion). The user starts the project and is shown a commands line. They then input valid commands that pertain to the context of the game (throwing a weapon if you have a weapon and somewhere to throw it). Their commands is then processed and the game state is changed (an enemy defeated perhaps) and these results are printed back to the user in the CLI so they can make their next decision. Through this cyclical interfacing, the user can complete quests, and do independent activities (not quests). Moreover, if they choose to develop their own game entities, as long as it follows our simple structure, they can play the game with their game objects inside, and if they choose to do so, play a completely new game entirely by making their own quests, game objects, etc.
 
 CRC model:
-Our CRC model is based on an encounter based system. Each event in the game, such as picking up a weapon, or fighting an enemy is represented in an usecases.Encounter. These Encounters are connected, and in certain paths form Quests. Game Characters can be Players, Enemies, or NPCs. Throughout each encounter, a player will find different things such as Items or Weapons on the ground. Interacting with these is how the game is played and completed. The controls for this textual input through a CLI and these commands are defined by our usecases.Command classes, that represents an Action. These commands are then processed by our GameCompiler which handles the encounters and connects the player’s input to the game state.
+Our CRC model is based on an encounter based system. Each event in the game, such as picking up a weapon, or fighting an enemy is represented in an usecases.Encounter. These Encounters are connected, and in certain paths form Quests. Game Characters can be Players, Enemies, or NPCs. Throughout each encounter, a player will find different things such as Items or Weapons on the ground. Interacting with these is how the game is played and completed. The controls for this textual input through a CLI and these commands are defined by our interfaceadapters.commands.Command classes, that represents an Action. These commands are then processed by our GameCompiler which handles the encounters and connects the player’s input to the game state.
 
 A Scenario walk-through:
 A simple scenario can be summarized as follows. The user has an axe (assumption). They type in the “throw axe” commands into the CLI. The compiler then uses interfaceadapters.commands.ThrowCommand.java to throw the axe. The result is then returned back to the GameCompiler and printed back to the user. This is all done within the instantiated encounter in the game compiler.
@@ -47,7 +47,7 @@ Tomas Harrington:
 Action and its subclasses CRC cards
 Action.java coded as an abstract class
 interfaceadapters.commands.ThrowCommand.java coded and then fixed after testing
-ThrowTest.java coded
+commands.ThrowTest.java coded
 Organization of code
 Wrote TODO’s in code for necessary code expansion post-demo
 Worked on figuring out how the demo would work with group members
@@ -82,9 +82,9 @@ Next Step: creating a map that visualizes quest and encounter location and progr
 
 Shehzaad Daureeawoo:
 Game compiler and its connectivity
-usecases.Command line
+interfaceadapters.commands.Command line
 Demo code (events and interactions)
-usecases.Command constants
+interfaceadapters.commands.Command constants
 restructuring
 Next Step: reimplementing the compiler and commands line under our new model
 

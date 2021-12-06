@@ -1,11 +1,7 @@
 package interfaceadapters.commands;
 
 import entities.*;
-import entities.characters.Player;
-import entities.interfaces.CanChop;
-import entities.interfaces.Harvestable;
 import usecases.Chop;
-import usecases.Command;
 
 import java.util.*;
 

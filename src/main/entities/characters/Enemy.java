@@ -13,7 +13,7 @@ Interactable that can damage the player
  **/
 public class Enemy extends Character implements ThrowableTarget {
 
-    public final Player player;
+    public Player player;
     public final int valueDefeated;
     public int defaultDamage;
 

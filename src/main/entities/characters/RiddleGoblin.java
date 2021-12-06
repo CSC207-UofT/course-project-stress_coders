@@ -15,7 +15,7 @@ public class RiddleGoblin extends Goblin {
     private String magic_message;
     private String riddle;
     private String answer;
-    private final Player player;
+    private Player player;
     private List<String> hints = new ArrayList<>();
     private int currHint = 0;
 
@@ -154,5 +154,9 @@ public class RiddleGoblin extends Goblin {
 
     public RiddleGoblin(){
         this.player = new Player();
+    }
+
+    public void setPlayer(Player p) {
+        this.player = p;
     }
 }

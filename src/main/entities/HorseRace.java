@@ -131,4 +131,7 @@ public class HorseRace extends Interactable implements Raceable {
 
     public HorseRace(){}
 
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 }

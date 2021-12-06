@@ -15,7 +15,7 @@ public class Maze extends Interactable implements Moveable {
     private final String solutionPath;
     private String traveledPath;
     private final Timer timer;
-    private final Player player;
+    private Player player;
 
     /**
      * Construct a new Maze which is randomized
@@ -158,4 +158,7 @@ public class Maze extends Interactable implements Moveable {
         return this.timer;
     }
 
+    public void setPlayer(Player p) {
+        this.player = p;
+    }
 }

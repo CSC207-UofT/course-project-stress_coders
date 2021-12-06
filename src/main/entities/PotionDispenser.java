@@ -44,4 +44,8 @@ public class PotionDispenser extends Interactable implements Spinnable {
     }
 
     public PotionDispenser(){}
+
+    public void setPlayer(Player p) {
+        this.player = p;
+    }
 }

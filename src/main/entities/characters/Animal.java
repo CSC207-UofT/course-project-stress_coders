@@ -8,7 +8,7 @@ import entities.interfaces.ThrowableTarget;
 
 public class Animal extends Character implements ThrowableTarget {
 
-    private final Player player;
+    private Player player;
 
     /**
      * Constructs a new Animal object
@@ -50,5 +50,9 @@ public class Animal extends Character implements ThrowableTarget {
 
     public Animal(){
         player = new Player();
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 }

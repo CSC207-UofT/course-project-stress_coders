@@ -2,10 +2,15 @@ package interfaceadapters;
 
 import Style.ColorConstants;
 import entities.VaultDoor;
+import entities.characters.Player;
 import frameworks.CommandLine;
 import com.google.gson.Gson;
+import usecases.Encounter;
+import usecases.PlayerManager;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /*
 Save and load gameState
@@ -13,14 +18,11 @@ Save and load gameState
 public class GameStateSaver {
 
     private final Gson gson = new Gson();
-
-    private String gameStateToJSON(GameState gs){
-        return gson.toJson(gs);
-    }
+    private final EncounterSerializer ES = new EncounterSerializer();
+    private final GamestateSerializer GS = new GamestateSerializer();
 
     public void saveToFile(String FileName, GameState gs){
         try {
-            String gsSave = gameStateToJSON(gs);
             File file = new File("saves/save" + FileName + ".txt");
 
             if (!file.exists()){
@@ -30,7 +32,23 @@ public class GameStateSaver {
 
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(gsSave);
+
+            bufferedWriter.write("Encounter Number:");
+            bufferedWriter.newLine();
+            bufferedWriter.write("" + gs.encounterNumber());
+            bufferedWriter.newLine();
+            bufferedWriter.write("Player Data:");
+            bufferedWriter.newLine();
+            bufferedWriter.write(GS.serializePlayer(gs.getPlayerState().getPlayer()));
+            bufferedWriter.newLine();
+            bufferedWriter.write("Encounter Data:");
+            bufferedWriter.newLine();
+
+            for(Encounter encounter : gs.getEncounters()){
+                bufferedWriter.write(ES.serializeEncounter(encounter));
+                bufferedWriter.newLine();
+            }
+
             bufferedWriter.close();
 
             System.out.println("Data saved to file " + FileName);
@@ -49,7 +67,39 @@ public class GameStateSaver {
             return;
         }
 
-        GameState gs = jsonToGameState(line);
+        GameState gs = new GameState();
+        Player p;
+        if(!line.equals("Encounter Number:")){
+            System.out.println("corrupted save, could not load");
+            return;
+        } else {
+            line = in.readLine();
+            gs.setCurrent_encounter(Integer.parseInt(line));
+        }
+        line = in.readLine();
+        if(!line.equals("Player Data:")){
+            System.out.println("corrupted save, could not load");
+            return;
+        } else {
+            line = in.readLine();
+            p = GS.deserializePlayer(line);
+            gs.setPlayerManager(new PlayerManager(p));
+        }
+        line = in.readLine();
+        if(!line.equals("Encounter Data:")){
+            System.out.println("corrupted save, could not load");
+            return;
+        } else {
+            line = in.readLine();
+            ArrayList<Encounter> encounters = new ArrayList<>();
+            while(line != null && !line.isBlank() && !line.isEmpty()){
+                encounters.add(ES.deserializeEncounter(p, line));
+                line = in.readLine();
+            }
+            gs.setEncounters(encounters);
+        }
+        fillGameState(gs);
+
         in.close();
         CommandLine commandLine = new CommandLine(gs);
         System.out.println("Save File Loaded!");
@@ -59,9 +109,22 @@ public class GameStateSaver {
         System.out.println(ColorConstants.getColorCode("RESET") + gs.getPlayerState().getPlayerInfo());
 
         commandLine.setPlayerState(gs.getPlayerState());
-        System.out.println(gs.getCurrent_encounter().objIDs.get("Vault door"));
         commandLine.run();
     }
+
+    private void fillGameState(GameState gs){
+        gs.setCompletedEncounters(new ArrayList<Encounter>());
+        for(Encounter e : gs.getEncounters()){
+            if (e.isCompleted()){
+                gs.getCompletedEncounters().add(e);
+            }
+        }
+        gs.setEncounterConversion(new HashMap<String, Encounter>());
+        for(Encounter e : gs.getEncounters()){
+            gs.getEncounterConversion().put(e.getName(), e);
+        }
+    }
+
 
     private GameState jsonToGameState(String JSON){
         return gson.fromJson(JSON, GameState.class);

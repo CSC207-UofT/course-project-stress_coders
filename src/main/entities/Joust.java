@@ -106,4 +106,8 @@ public class Joust extends Interactable implements Duelable {
     }
 
     public Joust(){}
+
+    public void setPlayer(Player p) {
+        this.player = p;
+    }
 }

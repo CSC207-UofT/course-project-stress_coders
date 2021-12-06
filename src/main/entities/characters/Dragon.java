@@ -8,15 +8,14 @@ import java.util.Random;
 
 public class Dragon extends Enemy {
     //An enemy that takes reduced damage until his thick skin is damaged enough (at 60% health)
-    private int defaultDamage;
-    private final int valueDefeated;
-    private final Player player;
+//    private int defaultDamage;
+//    private final int valueDefeated;
+//    private final Player player;
     private final double skin_piercing_threshold;
 
     public Dragon(String id, int health, Player player, int valueDefeated) {
         super(id, health, player, valueDefeated);
-        this.valueDefeated = valueDefeated;
-        this.player = player;
+//        this.valueDefeated = valueDefeated;
         this.skin_piercing_threshold = health*0.6;
     }
 
@@ -24,8 +23,7 @@ public class Dragon extends Enemy {
         super(id, player, valueDefeated);
         Random r = new Random();
         int hp = r.nextInt(11) + 59;
-        this.valueDefeated = valueDefeated;
-        this.player = player;
+//        this.valueDefeated = valueDefeated;
         this.skin_piercing_threshold = hp*0.6;
     }
 
@@ -33,8 +31,7 @@ public class Dragon extends Enemy {
         super(id, player, valueDefeated, howTo);
         Random r = new Random();
         int hp = r.nextInt(71) + 24;
-        this.valueDefeated = valueDefeated;
-        this.player = player;
+//        this.valueDefeated = valueDefeated;
         this.skin_piercing_threshold = hp*0.6;
     }
 
@@ -79,8 +76,7 @@ public class Dragon extends Enemy {
     }
 
     public Dragon(){
-        player = new Player();
-        valueDefeated = 0;
+//        valueDefeated = 0;
         skin_piercing_threshold = 69;
     }
 

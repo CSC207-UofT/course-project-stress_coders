@@ -44,4 +44,8 @@ public class MysteryBox extends Interactable implements Spinnable {
     }
 
     public MysteryBox(){}
+
+    public void setPlayer(Player p) {
+        this.player = p;
+    }
 }

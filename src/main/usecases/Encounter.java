@@ -19,16 +19,12 @@ Also handle when the encounter is completed and how to add new objects into the 
  */
 public class Encounter {
 
-    //Maps Interactable ID to the object itself, 'key 1': KeyObject
     InteractablesManager interactablesManager = new InteractablesManager();
     private final String encounterName;
     private final String description;
-    //    public HashMap<String, Interactable> objIDs = new HashMap<>();
     private boolean isCompleted;
-    //    private ArrayList<Interactable> progression = new ArrayList<>();
     private int currInteractableIndex = -1;
     private final String initialText;
-    //    private  ArrayList<Interactable> genericPool = new ArrayList<>();
     private boolean doingGeneric = false;
     private int currGenericIndex = -1;
 
@@ -39,32 +35,10 @@ public class Encounter {
         this.initialText = initialText;
     }
 
-//    /**
-//     * Loads a list of interactables into the encounter
-//     * @param interactables the list of interactables to add to this encounter, should be ordered and only main
-//     * interactions should be included
-//     */
-//    public void loadInteractables(List<Interactable> interactables) {
-//        for (Interactable interactable : interactables){
-//            addObj(interactable);
-//        }
-//    }
-
     public String getDescription(){
         return this.description;
     }
 
-//    /**
-//     * Returns a list of interactables that can be done in this encounter
-//     * @returns a list of the interactables as a string of their id's split by \n
-//     */
-//    public String listInteractables() {
-//        StringBuilder out = new StringBuilder();
-//        for (String key : this.interactablesManager.objIDs.keySet()) {
-//            out.append(interactablesManager.objIDs.get(key).getId()).append("\n");
-//        }
-//        return out.toString();
-//    }
 
     public ArrayList<Interactable> getProgression(){
         return this.interactablesManager.progression;
@@ -98,19 +72,6 @@ public class Encounter {
     public String getName() {
         return this.encounterName;
     }
-
-//    public void addGeneric(Interactable generic) {
-//        if (generic instanceof Item) {
-//            addAdjective(generic);
-//            return;
-//        }
-//
-//        if(this.objIDs.containsKey(generic.getId())){
-//            addAdjective(generic);
-//        }
-//        this.genericPool.add(generic);
-//        this.objIDs.put(generic.getId() ,generic);
-//    }
 
     /**
      * Loads the initial text for this encounter
@@ -230,66 +191,6 @@ public class Encounter {
         }
         return commandResult;
     }
-
-    // If object has identical ID either add a number to the end or add some adjective at the beginning
-    // We can have a list of ObjectAdjectives.txt, so like Big, red etc. So if there are 2 keys, one can be Big the other red etc.
-    // This method only adds main interactables
-//    public void addObj(Interactable interactable){
-//        if (interactable instanceof Item) {
-//            addAdjective(interactable);
-//            return;
-//        }
-//
-//        if (this.objIDs.containsKey(interactable.getId())){
-//            addAdjective(interactable);
-//        }
-//        this.objIDs.put(interactable.getId(), interactable);
-//        this.progression.add(interactable);
-//    }
-
-//    public boolean containsObj(Interactable item) {
-//        return this.objIDs.containsKey(item.getId());
-//    }
-
-//    public void addAdjective(Interactable interactable){
-//        String id = interactable.getId();
-//        String originalId = interactable.getId();
-//
-//        Random random = new Random();
-//
-//        String[] charKeySet = IDreader.CharAdjectives.keySet().toArray(new String[0]);
-//        String[] objKeySet = IDreader.ObjAdjectives.keySet().toArray(new String[0]);
-//        int index = 0;
-//        while(this.objIDs.containsKey(id)){
-//            if(interactable instanceof Character) {
-//                index = random.nextInt(charKeySet.length);
-//                id = charKeySet[index] + " " + originalId;
-//            } else {
-//                index = random.nextInt(objKeySet.length);
-//                id = objKeySet[index] + " " + originalId;
-//            }
-//        }
-//
-//        if(interactable instanceof Item){
-//            index = random.nextInt(objKeySet.length);
-//            id = objKeySet[index] + " " + originalId;
-//        }
-//
-//        if(interactable instanceof Character){
-//            ((Character) interactable).addModifier(IDreader.CharAdjectives.get(charKeySet[index]));
-//        } else {
-//            for(Variable var : interactable.getProperties().values()){
-//                float modified_value = var.getInteger() * IDreader.ObjAdjectives.get(objKeySet[index]);
-//                var.setInteger((int) modified_value);
-//            }
-//        }
-//
-//        interactable.setId(id);
-//    }
-
-//    public Interactable getFromID(String ID){
-//        return objIDs.get(ID);
-//    }
 
     public boolean isCompleted() {
         return isCompleted;

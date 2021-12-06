@@ -21,5 +21,6 @@ public abstract class SwingableWeapon extends Weapon{
      * Must be implemented in child classes.
      */
     public abstract void addWeight();
+    public SwingableWeapon(){}
 
 }

@@ -14,9 +14,9 @@ public class Swing {
         if(args.get(swungObject) instanceof SwingableWeapon && args.get(target) instanceof ThrowableTarget) {
 
             ThrowableTarget throwTarget = (ThrowableTarget) args.get(target);
-            SwingableWeapon shot = (SwingableWeapon) args.get(swungObject);
+            SwingableWeapon swung = (SwingableWeapon) args.get(swungObject);
 
-                Variable hitProbVar = shot.getProperty(InteractableProperties.HIT_PROB.name());
+                Variable hitProbVar = swung.getProperty(InteractableProperties.HIT_PROB.name());
                 int hitProb = hitProbVar.getInteger();
 
                 if(hitProb / 100.0 > Math.random()){

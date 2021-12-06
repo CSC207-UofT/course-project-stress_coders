@@ -24,6 +24,7 @@ public class StickTest {
         stickTest.addWeight();
 
         assertTrue(stickTest.getProperties().containsKey(InteractableProperties.WEIGHT.name()));
-        assertEquals(12, stickTest.getProperty(InteractableProperties.WEIGHT.name()).getInteger());
+        assertTrue(10 <= stickTest.getProperty(InteractableProperties.WEIGHT.name()).getInteger() &&
+                stickTest.getProperty(InteractableProperties.WEIGHT.name()).getInteger() <= 15);
     }
 }

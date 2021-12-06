@@ -14,13 +14,13 @@ public class Move extends Command {
 
         Maze m = ((Maze) args.get("maze"));
         char currMove = 'x';
-        System.out.println("What is your move?");
+        System.out.println("What is your move? [input 'right', 'left', 'up', or 'down']");
         Scanner lineIn = new Scanner(System.in);
         String choice = lineIn.nextLine();
         currMove = getMove(currMove, choice);
         String currMoveResult = m.move(currMove);
         while(!currMoveResult.equals("true")){
-            System.out.println("What is your next move?");
+            System.out.println("What is your next move? [input 'right', 'left', 'up', or 'down']");
             choice = lineIn.nextLine();
 
             currMove = getMove(currMove, choice);

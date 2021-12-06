@@ -7,7 +7,7 @@ import entities.interfaces.Target;
 import entities.interfaces.ThrowableTarget;
 
 
-public class Animal extends Character implements Target {
+public class Animal extends Character implements ThrowableTarget, Target {
 
     private Player player;
 
@@ -32,6 +32,7 @@ public class Animal extends Character implements Target {
      return "your {weapon} hits {animal name} for {weight} damage"
      if you killed the animals also return "You killed the beast and received {id} meat!"
      **/
+    @Override
     public String handleHit(Interactable throwable) {
         int weight = throwable.getProperty(InteractableProperties.WEIGHT.name()).getInteger();
         setHealthPoints(getHealthPoints() - weight);
@@ -45,6 +46,27 @@ public class Animal extends Character implements Target {
         }
         else {
             return  "Your "+ throwable.getId() + " hits " + getId() + " for " + weight + " damage!\n";
+        }
+    }
+
+    /**
+     * The result of getting shot.
+     * Damage is based on weight of the shootable object.
+     */
+    @Override
+    public String shotAt(Interactable shootable) {
+        int weight = shootable.getProperty(InteractableProperties.WEIGHT.name()).getInteger();
+        setHealthPoints(getHealthPoints() - weight);
+        if (isDead()) {
+            Meat meat = new Meat(getId() + " meat");
+            meat.addRestorationValue();
+            player.addConsumable(meat);
+            this.setCompleted(true);
+            return "Your "+ shootable.getId() + " hits " + getId() + " for " + weight + " damage! You killed the beast " +
+                    "and received " + getId() + " meat";
+        }
+        else {
+            return  "Your "+ shootable.getId() + " hits " + getId() + " for " + weight + " damage!\n";
         }
     }
 

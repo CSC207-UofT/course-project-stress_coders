@@ -12,13 +12,12 @@ import java.util.Scanner;
  * Usecase to spin a box!
  */
 public class Spin{
-
-    public String action(HashMap<String, Interactable> args) {
+    public String spinAction(HashMap<String, Interactable> args) {
         if (args.get("box") instanceof MysteryBox) {
             MysteryBox m = ((MysteryBox) args.get("box"));
             Weapon w = m.spin();
 
-            if (w instanceof Unafforable) {
+            if (w instanceof Unaffordable) {
                 return "Sorry, you cannot afford to hit the mystery box, come back later!";
             }
             String message = "Do you want to switch your current weapon to weapon " + w.getId() +

@@ -1,7 +1,7 @@
 package entities.minigames;
 
 import entities.Interactable;
-import entities.Unafforable;
+import entities.Unaffordable;
 import entities.interfaces.Moveable;
 import entities.characters.*;
 import entities.weapons.*;
@@ -140,7 +140,7 @@ public class Maze extends Interactable implements Moveable {
      * Make the player lose his current weapon by replacing it with an Unaffordable one
      */
     public void playerLossesWeapon(){
-        Weapon w = new Unafforable();
+        Weapon w = new Unaffordable();
         this.player.setWeapon(w);
     }
 

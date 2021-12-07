@@ -8,21 +8,19 @@ import entities.interfaces.Throwable;
 
 import java.util.Random;
 
-public class PheonixHatchling extends Enemy {
+public class PhoenixHatchling extends Enemy {
     //An enemy type that is healed to full hp once upon "death"
     private int lives_remaining = 1;
-//    private final int valueDefeated;
-//    private final Player player;
     private final int max_hit_points;
 
-    public PheonixHatchling(String id, int health, Player player, int valueDefeated) {
+    public PhoenixHatchling(String id, int health, Player player, int valueDefeated) {
         super(id, health, player, valueDefeated);
 //        this.valueDefeated = valueDefeated;
         this.player = player;
         this.max_hit_points = health;
     }
 
-    public PheonixHatchling(String id, Player player, int valueDefeated) {
+    public PhoenixHatchling(String id, Player player, int valueDefeated) {
         super(id, player, valueDefeated);
         Random r = new Random();
         int hp = r.nextInt(31)+19;
@@ -31,7 +29,7 @@ public class PheonixHatchling extends Enemy {
         this.max_hit_points = hp;
     }
 
-    public PheonixHatchling(String id, Player player, int valueDefeated, String howTo) {
+    public PhoenixHatchling(String id, Player player, int valueDefeated, String howTo) {
         super(id, player, valueDefeated, howTo);
         Random r = new Random();
         int hp = r.nextInt(71)+24;
@@ -67,7 +65,7 @@ public class PheonixHatchling extends Enemy {
         }
     }
 
-    public PheonixHatchling(){
+    public PhoenixHatchling(){
 //        valueDefeated = 0;
         player = new Player();
         max_hit_points = 69;

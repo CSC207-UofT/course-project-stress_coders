@@ -26,7 +26,7 @@ public class GameState {
     private PlayerManager playerState;
     private CommandConstants commandConstants;
 
-    private transient GameStateSaver gameStateSaver = new GameStateSaver();
+    private final transient GameStateSaver gameStateSaver = new GameStateSaver();
 
 
     public GameState(Encounter[] encounters){
@@ -159,7 +159,7 @@ public class GameState {
         if (playerState.getPlayer().getCurrentWeapon().getId().equals(s)) {
             return playerState.getPlayer().getCurrentWeapon();
         }
-        return this.encounters.get(current_encounter).getFromID(s);
+        return this.encounters.get(current_encounter).getInteractablesManager().getFromID(s);
     }
 
     public void save(String saveCommand){

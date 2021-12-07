@@ -9,7 +9,7 @@ import java.util.HashMap;
  * Consume a consumable. This is a special command.
  */
 public class ConsumeCommand extends Command {
-    Consume consume;
+    final Consume consume;
 
     public ConsumeCommand(){
         this.consume = new Consume();

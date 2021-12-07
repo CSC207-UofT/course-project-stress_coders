@@ -46,7 +46,7 @@ public class Player extends Character implements ThrowableTarget {
     public Interactable findConsumable(String input) {
         for (Item c: items.keySet()) {
             if (c.getId().equals(input)) {
-                return ((Interactable) c);
+                return c;
             }
         }
         return new UnusablePotion();
@@ -125,16 +125,16 @@ public class Player extends Character implements ThrowableTarget {
             i = 0;
         }
         this.items.put(item, i+1);
-        ((Item) item).setHeldBy(this);
+        item.setHeldBy(this);
     }
 
     public void subConsumable(Item item, int quantity) {
-        ((Item) item).setHeldBy(null);
+        item.setHeldBy(null);
         this.items.put(item, this.items.get(item)-quantity);
     }
 
     public void subConsumable(Item item, int quantity, boolean dontChangeHeldBy) {
-        if (!dontChangeHeldBy) { ((Item) item).setHeldBy(null); }
+        if (!dontChangeHeldBy) { item.setHeldBy(null); }
         this.items.put(item, this.items.get(item)-quantity);
     }
 

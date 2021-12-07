@@ -12,7 +12,7 @@ public class ThrowingKnifeTest {
     @Test
     public void addHitProbability() {
         ThrowingKnife knifeTest = new ThrowingKnife("id");
-        knifeTest.setProperties(new HashMap<String, Variable>());
+        knifeTest.setProperties(new HashMap<>());
         knifeTest.addHitProbability();
 
         assertTrue(knifeTest.getProperties().containsKey(InteractableProperties.HIT_PROB.name()));
@@ -22,7 +22,7 @@ public class ThrowingKnifeTest {
     @Test
     public void addWeight() {
         ThrowingKnife knifeTest = new ThrowingKnife("id");
-        knifeTest.setProperties(new HashMap<String, Variable>());
+        knifeTest.setProperties(new HashMap<>());
         knifeTest.addWeight();
 
         assertTrue(knifeTest.getProperties().containsKey(InteractableProperties.WEIGHT.name()));

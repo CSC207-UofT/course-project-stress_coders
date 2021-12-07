@@ -8,8 +8,6 @@ import java.util.Random;
 
 public class HauntedArmor extends Enemy {
     //An enemy that takes reduced damage until his thick skin is damaged enough (at 60% health)
-//    private final int valueDefeated;
-//    private final Player player;
     private final double skin_piercing_threshold;
 
     public HauntedArmor(String id, int health, Player player, int valueDefeated) {

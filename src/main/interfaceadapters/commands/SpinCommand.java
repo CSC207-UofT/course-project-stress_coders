@@ -10,7 +10,7 @@ import java.util.HashMap;
  */
 public class SpinCommand extends Command {
 
-    Spin spinAction;
+    final Spin spinAction;
 
     public SpinCommand() {
         this.spinAction = new Spin();

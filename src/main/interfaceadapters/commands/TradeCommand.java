@@ -10,7 +10,7 @@ import java.util.HashMap;
  */
 public class TradeCommand extends Command {
 
-    Trade tradeAction;
+    final Trade tradeAction;
 
     public TradeCommand() {
         this.tradeAction = new Trade();

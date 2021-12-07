@@ -9,7 +9,7 @@ import java.util.*;
  * Chop command. Uses a tool to chop the target, assuming all is possible. Only for harvesting.
  */
 public class ChopCommand extends Command {
-    Chop chop;
+    final Chop chop;
 
    public ChopCommand(){
        this.chop = new Chop();

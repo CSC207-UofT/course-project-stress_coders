@@ -33,7 +33,7 @@ public class EncounterSerializer {
         DOING_GENERIC(8),
         CURR_GENERIC_INDEX(9);
 
-        private int index;
+        private final int index;
 
         Components(int index){
             this.index = index;
@@ -54,7 +54,7 @@ public class EncounterSerializer {
                 .registerSubtype(ElvenSharpshooter.class).registerSubtype(HandCannon.class).registerSubtype(Slingshot.class)
                 .registerSubtype(Spear.class).registerSubtype(ThrowingKnife.class).registerSubtype(HauntedArmor.class)
                 .registerSubtype(HorseRace.class).registerSubtype(Joust.class).registerSubtype(Maze.class)
-                .registerSubtype(PheonixHatchling.class).registerSubtype(PotionDispenser.class).registerSubtype(Stone.class)
+                .registerSubtype(PhoenixHatchling.class).registerSubtype(PotionDispenser.class).registerSubtype(Stone.class)
                 .registerSubtype(Tree.class).registerSubtype(Enemy.class);
 
         interactableSerializer = new GsonBuilder().registerTypeAdapterFactory(interactableAdapterFactory).create();
@@ -78,9 +78,9 @@ public class EncounterSerializer {
 
     public String serializeObjIds(Encounter e){
         StringBuilder serialization = new StringBuilder();
-        for (String key : e.objIDs.keySet()){
-            e.objIDs.put(key, removePlayer(e.objIDs.get(key)));
-            serialization.append(key).append("::").append(interactableSerializer.toJson(e.objIDs.get(key), Interactable.class)).append(",,");
+        for (String key : e.getInteractablesManager().objIDs.keySet()){
+            e.getInteractablesManager().objIDs.put(key, removePlayer(e.getInteractablesManager().objIDs.get(key)));
+            serialization.append(key).append("::").append(interactableSerializer.toJson(e.getInteractablesManager().objIDs.get(key), Interactable.class)).append(",,");
         }
         if(serialization.length() > 2) {
             return serialization.substring(0, serialization.length() - 2);
@@ -112,17 +112,17 @@ public class EncounterSerializer {
         encounter.setCurrGenericIndex(Integer.parseInt(components[Components.CURR_GENERIC_INDEX.index]));
 
         String serializedHashMap = components[Components.OBJ_IDS.index];
-        encounter.objIDs = deSerializeObjIds(serializedHashMap, player);
+        encounter.getInteractablesManager().objIDs = deSerializeObjIds(serializedHashMap, player);
 
         String serializedProgression = components[Components.PROGRESSION.index];
         ArrayList<Interactable> progressionNonRef = deSerializeArrayList(serializedProgression, player);
-        ArrayList<Interactable> progression = fixReferences(progressionNonRef, encounter.objIDs);
+        ArrayList<Interactable> progression = fixReferences(progressionNonRef, encounter.getInteractablesManager().objIDs);
 
         encounter.setProgression(progression);
 
         String serializedGenericPool = components[Components.GENERIC_POOL.index];
         ArrayList<Interactable> genericPoolNonRef = deSerializeArrayList(serializedGenericPool, player);
-        ArrayList<Interactable> genericPool = fixReferences(genericPoolNonRef, encounter.objIDs);
+        ArrayList<Interactable> genericPool = fixReferences(genericPoolNonRef, encounter.getInteractablesManager().objIDs);
 
         encounter.setGenericPool(genericPool);
 

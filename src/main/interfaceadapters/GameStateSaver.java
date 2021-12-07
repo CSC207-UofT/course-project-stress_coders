@@ -1,7 +1,6 @@
 package interfaceadapters;
 
 import Style.ColorConstants;
-import entities.minigames.VaultDoor;
 import entities.characters.Player;
 import frameworks.CommandLine;
 import com.google.gson.Gson;
@@ -104,22 +103,24 @@ public class GameStateSaver {
         CommandLine commandLine = new CommandLine(gs);
         System.out.println("Save File Loaded!");
 
-        System.out.println("Current Encounter: " + gs.getCurrent_encounter().getDetails());
+        System.out.println("Current Quest: " + gs.getCurrent_encounter().getDetails());
+        System.out.println("Your current mission: " + ColorConstants.getColorCode("RED") +
+                gs.getCurrent_encounter().getProgression().get(gs.getCurrent_encounter().getCurrInteractableIndex()).getId() +
+                ColorConstants.getColorCode("RESET"));
         System.out.println(ColorConstants.getColorCode("PURPLE") + gs.getHelp());
         System.out.println(ColorConstants.getColorCode("RESET") + gs.getPlayerState().getPlayerInfo());
-
         commandLine.setPlayerState(gs.getPlayerState());
         commandLine.run();
     }
 
     private void fillGameState(GameState gs){
-        gs.setCompletedEncounters(new ArrayList<Encounter>());
+        gs.setCompletedEncounters(new ArrayList<>());
         for(Encounter e : gs.getEncounters()){
             if (e.isCompleted()){
                 gs.getCompletedEncounters().add(e);
             }
         }
-        gs.setEncounterConversion(new HashMap<String, Encounter>());
+        gs.setEncounterConversion(new HashMap<>());
         for(Encounter e : gs.getEncounters()){
             gs.getEncounterConversion().put(e.getName(), e);
         }

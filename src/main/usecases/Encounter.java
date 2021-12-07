@@ -19,15 +19,12 @@ Also handle when the encounter is completed and how to add new objects into the 
  */
 public class Encounter {
 
-    //Maps Interactable ID to the object itself, 'key 1': KeyObject
+    InteractablesManager interactablesManager = new InteractablesManager();
     private final String encounterName;
     private final String description;
-    public HashMap<String, Interactable> objIDs = new HashMap<>();
     private boolean isCompleted;
-    private ArrayList<Interactable> progression = new ArrayList<>();
     private int currInteractableIndex = -1;
     private final String initialText;
-    private  ArrayList<Interactable> genericPool = new ArrayList<>();
     private boolean doingGeneric = false;
     private int currGenericIndex = -1;
 
@@ -38,35 +35,16 @@ public class Encounter {
         this.initialText = initialText;
     }
 
-    /**
-     * Loads a list of interactables into the encounter
-     * @param interactables the list of interactables to add to this encounter, should be ordered and only main
-     * interactions should be included
-     */
-    public void loadInteractables(List<Interactable> interactables) {
-        for (Interactable interactable : interactables){
-            addObj(interactable);
-        }
-    }
-
     public String getDescription(){
         return this.description;
     }
 
-    /**
-     * Returns a list of interactables that can be done in this encounter
-     * @returns a list of the interactables as a string of their id's split by \n
-     */
-    public String listInteractables() {
-        StringBuilder out = new StringBuilder();
-        for (String key : this.objIDs.keySet()) {
-            out.append(objIDs.get(key).getId()).append("\n");
-        }
-        return out.toString();
-    }
 
     public ArrayList<Interactable> getProgression(){
-        return this.progression;
+        return this.interactablesManager.progression;
+    }
+    public InteractablesManager getInteractablesManager(){
+        return this.interactablesManager;
     }
 
     public String getInitialText(){
@@ -95,19 +73,6 @@ public class Encounter {
         return this.encounterName;
     }
 
-    public void addGeneric(Interactable generic) {
-        if (generic instanceof Item) {
-            addAdjective(generic);
-            return;
-        }
-
-        if(this.objIDs.containsKey(generic.getId())){
-            addAdjective(generic);
-        }
-        this.genericPool.add(generic);
-        this.objIDs.put(generic.getId() ,generic);
-    }
-
     /**
      * Loads the initial text for this encounter
      * @return String which is this encounter's initial text
@@ -126,28 +91,28 @@ public class Encounter {
         boolean found = false;
         interactionDisplay();
         while (!found) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("$ ");
-        String nextInput = input.nextLine();
+            Scanner input = new Scanner(System.in);
+            System.out.print("$ ");
+            String nextInput = input.nextLine();
 
-        if (progression.contains(objIDs.get(nextInput)) && progression.get(currInteractableIndex+1).getId().equals(nextInput)) {
-            found = true;
-            System.out.println(mainMissionSelect());
-        } else if (genericPool.contains(objIDs.get(nextInput))) {
-            currGenericIndex = genericPool.indexOf(objIDs.get(nextInput));
-            doingGeneric = true;
-            System.out.println("Side Interaction started!");
-            found = true;
-            if (!objIDs.get(nextInput).getInitialText().equals("")) {
-                System.out.println(objIDs.get(nextInput).getInitialText());
+            if (interactablesManager.progression.contains(interactablesManager.objIDs.get(nextInput)) && interactablesManager.progression.get(currInteractableIndex+1).getId().equals(nextInput)) {
+                found = true;
+                System.out.println(mainMissionSelect());
+            } else if (interactablesManager.genericPool.contains(interactablesManager.objIDs.get(nextInput))) {
+                currGenericIndex = interactablesManager.genericPool.indexOf(interactablesManager.objIDs.get(nextInput));
+                doingGeneric = true;
+                System.out.println("Side Interaction started!");
+                found = true;
+                if (!interactablesManager.objIDs.get(nextInput).getInitialText().equals("")) {
+                    System.out.println(interactablesManager.objIDs.get(nextInput).getInitialText());
+                }
             }
-        }
-        else if (progression.contains(objIDs.get(nextInput))) {
-            System.out.println("When selecting Main mission, please select the next available one!");
-        }
-        else {
-            System.out.println("Invalid selection, please choose another interaction");
-        }
+            else if (interactablesManager.progression.contains(interactablesManager.objIDs.get(nextInput))) {
+                System.out.println("When selecting Main mission, please select the next available one!");
+            }
+            else {
+                System.out.println("Invalid selection, please choose another interaction");
+            }
         }
     }
 
@@ -160,8 +125,8 @@ public class Encounter {
         int correctDisplay;
         if (currInteractableIndex == -1) {correctDisplay = 0;}
         else {correctDisplay = currInteractableIndex + 1;}
-        for (int i = correctDisplay; i < progression.size(); i++) {
-            Interactable s = progression.get(i);
+        for (int i = correctDisplay; i < interactablesManager.progression.size(); i++) {
+            Interactable s = interactablesManager.progression.get(i);
             if (s.getInitialText().equals("")) {
                 System.out.println(ColorConstants.getColorCode("BLUE") + s.getId() + ColorConstants.getColorCode("RESET"));
             }
@@ -171,7 +136,7 @@ public class Encounter {
             }
         }
         System.out.println("=====Side Interactions:=====");
-        for (Interactable g: genericPool) {
+        for (Interactable g: interactablesManager.genericPool) {
             if (g.getInitialText().equals("")) {
                 System.out.println(ColorConstants.getColorCode("BLUE")+g.getId()+ColorConstants.getColorCode("RESET"));
             }
@@ -208,83 +173,23 @@ public class Encounter {
         // WE may need to add some sort of checking to see if the interactable is valid for this encounter
         // as of now, this method doesn't do this so the command will run but no progress will be made
         if (doingGeneric) {
-            if (objIDs.get(genericPool.get(currGenericIndex).getId()).isCompleted()) {
+            if (interactablesManager.objIDs.get(interactablesManager.genericPool.get(currGenericIndex).getId()).isCompleted()) {
                 doingGeneric = false;
                 currGenericIndex = -1;
                 requestInteractable();
             }
             return commandResult;
         }
-        if (progression.get(currInteractableIndex).isCompleted()) {
+        if (interactablesManager.progression.get(currInteractableIndex).isCompleted()) {
             System.out.println(commandResult);
-            if (currInteractableIndex == progression.size()-1) {
+            if (currInteractableIndex == interactablesManager.progression.size()-1) {
                 this.isCompleted = true;
                 return "Encounter completed, well done!";
             }
             requestInteractable();
-            return progression.get(currInteractableIndex).getInitialText();
+            return interactablesManager.progression.get(currInteractableIndex).getInitialText();
         }
         return commandResult;
-    }
-
-    // If object has identical ID either add a number to the end or add some adjective at the beginning
-    // We can have a list of ObjectAdjectives.txt, so like Big, red etc. So if there are 2 keys, one can be Big the other red etc.
-    // This method only adds main interactables
-    public void addObj(Interactable interactable){
-        if (interactable instanceof Item) {
-            addAdjective(interactable);
-            return;
-        }
-
-        if (this.objIDs.containsKey(interactable.getId())){
-            addAdjective(interactable);
-        }
-        this.objIDs.put(interactable.getId(), interactable);
-        this.progression.add(interactable);
-    }
-
-    public boolean containsObj(Interactable item) {
-        return this.objIDs.containsKey(item.getId());
-    }
-
-    public void addAdjective(Interactable interactable){
-        String id = interactable.getId();
-        String originalId = interactable.getId();
-
-        Random random = new Random();
-
-        String[] charKeySet = IDreader.CharAdjectives.keySet().toArray(new String[0]);
-        String[] objKeySet = IDreader.ObjAdjectives.keySet().toArray(new String[0]);
-        int index = 0;
-        while(this.objIDs.containsKey(id)){
-            if(interactable instanceof Character) {
-                index = random.nextInt(charKeySet.length);
-                id = charKeySet[index] + " " + originalId;
-            } else {
-                index = random.nextInt(objKeySet.length);
-                id = objKeySet[index] + " " + originalId;
-            }
-        }
-
-        if(interactable instanceof Item){
-            index = random.nextInt(objKeySet.length);
-            id = objKeySet[index] + " " + originalId;
-        }
-
-        if(interactable instanceof Character){
-            ((Character) interactable).addModifier(IDreader.CharAdjectives.get(charKeySet[index]));
-        } else {
-            for(Variable var : interactable.getProperties().values()){
-                float modified_value = var.getInteger() * IDreader.ObjAdjectives.get(objKeySet[index]);
-                var.setInteger((int) modified_value);
-            }
-        }
-
-        interactable.setId(id);
-    }
-
-    public Interactable getFromID(String ID){
-        return objIDs.get(ID);
     }
 
     public boolean isCompleted() {
@@ -299,24 +204,24 @@ public class Encounter {
     public String getHelp(Player player) {
         System.out.println("All commands will be of the form -- command: [param_type]=[param_name]");
         if (doingGeneric) {
-            if (this.genericPool.get(currGenericIndex) instanceof Spinnable) {
+            if (this.interactablesManager.genericPool.get(currGenericIndex) instanceof Spinnable) {
                 System.out.println("You currently have " + player.getWallet() + " geld");
             }
-            else if (this.genericPool.get(currGenericIndex) instanceof Target) {
+            else if (this.interactablesManager.genericPool.get(currGenericIndex) instanceof Target) {
                 String s = "Your current weapon is " + player.getCurrentWeapon().getId() + "\n";
                 return s+ "Current command(s) - " + player.getCurrentWeapon().getHelp();
             }
-            return "Current command(s) - " + this.genericPool.get(currGenericIndex).getHelp();
+            return "Current command(s) - " + this.interactablesManager.genericPool.get(currGenericIndex).getHelp();
         }
-        if (this.progression.get(currInteractableIndex) instanceof Target) {
+        if (this.interactablesManager.progression.get(currInteractableIndex) instanceof Target) {
             String s = "Your current weapon is " + player.getCurrentWeapon().getId() + "\n";
             return s+ "Current command(s) - " + player.getCurrentWeapon().getHelp();
         }
-        return "Current command(s) - " + this.progression.get(currInteractableIndex).getHelp();
+        return "Current command(s) - " + this.interactablesManager.progression.get(currInteractableIndex).getHelp();
     }
 
     public ArrayList<Interactable> getGenericPool(){
-        return this.genericPool;
+        return this.interactablesManager.genericPool;
     }
 
     public void setCompleted(Boolean completed){
@@ -336,10 +241,10 @@ public class Encounter {
     }
 
     public void setProgression(ArrayList<Interactable> progression){
-        this.progression = progression;
+        this.interactablesManager.progression = progression;
     }
 
     public void setGenericPool(ArrayList<Interactable> genericPool) {
-        this.genericPool = genericPool;
+        this.interactablesManager.genericPool = genericPool;
     }
 }

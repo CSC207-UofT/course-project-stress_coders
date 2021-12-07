@@ -43,9 +43,6 @@ public class Potion extends Item implements Throwable, Consumable {
         super.addProperty(InteractableProperties.WEIGHT.name(), new Variable(0));
     }
 
-//    public String getID() {
-//        return this.id;
-//    }
 
     public int restorationValue() {
         return this.strength;

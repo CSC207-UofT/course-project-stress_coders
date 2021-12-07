@@ -23,7 +23,7 @@ public class CommandLine {
     private final GameState gameState;
     private PlayerManager playerState;
     private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "progress",
-            "display_objects", "consumeItem", "pick_up", "save 1", "save 2", "save 3"));
+            "consumeItem", "pick_up", "save 1", "save 2", "save 3"));
     private static final Set<String> GAME_LENGTH_OPTIONS = new HashSet<>(List.of(new String[]{"short", "medium",
             "long", "test"}));
 
@@ -31,7 +31,6 @@ public class CommandLine {
             "Some special commands you can call :\n" +
                     "help : get help for your current situation\n"+
                     "progress : returns your completed encounters\n"+
-                    "display_objects : list all the interactables in your current encounter\n"+
                     "consumeItem : brings up your inventory to let you consume consumables\n"+
                     "pick_up : starts pick up prompt to pick up a weapon\n"+
                     "exit: exits the game (make sure to save before exiting)\n"+
@@ -70,7 +69,7 @@ public class CommandLine {
         run();
     }
 
-    public void run() throws IOException, CloneNotSupportedException {
+    public void run() throws CloneNotSupportedException {
         boolean running = true;
         while(running) {
             Scanner input = new Scanner(System.in);
@@ -143,7 +142,7 @@ public class CommandLine {
      * @return String indicating the command executed by user
      */
 
-    public String specialCommand(String nextInput) throws IOException, CloneNotSupportedException {
+    public String specialCommand(String nextInput) {
         if (nextInput.equals("progress")) {
             for (String s : this.gameState().completedEncounters()) {
                 System.out.println(s);
@@ -153,14 +152,10 @@ public class CommandLine {
             return ColorConstants.getColorCode("PURPLE") + genericHelp +ColorConstants.getColorCode("RESET")+ '\n'
                     + ColorConstants.getColorCode("GREEN") + "Current encounter help: \n"+ this.gameState.getHelp()
                     + ColorConstants.getColorCode("RESET");
-        }
-        else if (nextInput.equals("display_objects")) {
-            // List the interactables available
-            return this.gameState.getCurrent_encounter().listInteractables();
         } else if (nextInput.contains("pick_up")) {
             return specialPickUpCall(nextInput);
         }
-        else if (nextInput.equals("consumeItem")) {
+        else if (nextInput.equals("consume_item")) {
             return specialConsumeCall();
         }
         else if (nextInput.contains("save")) {
@@ -177,7 +172,7 @@ public class CommandLine {
         if(splitString.length != 2){ return "Unrecognized input"; }
         HashMap<String, Interactable> args = getInteractablesFromID(parseCommand(splitString[1]));
         String itemString = "item";
-        if (this.gameState.getCurrent_encounter().containsObj(args.get(itemString))) {
+        if (this.gameState.getCurrent_encounter().getInteractablesManager().containsObj(args.get(itemString))) {
             if (args.get(itemString) instanceof Consumable && !(args.get(itemString).isCompleted())) {
                 this.playerState.getPlayer().addConsumable((Item) args.get(itemString));
                 return "Added " + args.get(itemString).getId() + " to your items";

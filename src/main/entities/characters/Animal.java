@@ -3,10 +3,11 @@ package entities.characters;
 import entities.Interactable;
 import entities.InteractableProperties;
 import entities.food.Meat;
+import entities.interfaces.Target;
 import entities.interfaces.ThrowableTarget;
 
 
-public class Animal extends Character implements ThrowableTarget {
+public class Animal extends Character implements ThrowableTarget, Target {
 
     private Player player;
 
@@ -47,6 +48,12 @@ public class Animal extends Character implements ThrowableTarget {
             return  "Your "+ throwable.getId() + " hits " + getId() + " for " + weight + " damage!\n";
         }
     }
+
+    /**
+     * The result of getting shot.
+     * Damage is based on weight of the shootable object.
+     */
+
 
     public Animal(){
         player = new Player();

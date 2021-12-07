@@ -54,10 +54,7 @@ public class Fishing extends Interactable implements Launchable {
     public boolean launch() {
         this.setCompleted(true);
 
-        if(this.distanceWithinPlusMinusTwo(this.pullBackDistance, (this.fishDistance))) {
-            return true;
-        }
-        return false;
+        return this.distanceWithinPlusMinusTwo(this.pullBackDistance, (this.fishDistance));
 
     }
 

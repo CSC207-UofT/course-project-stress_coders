@@ -12,7 +12,7 @@ public class SpearTest {
     @Test
     public void addHitProbability() {
         Spear spearTest = new Spear("id");
-        spearTest.setProperties(new HashMap<String, Variable>());
+        spearTest.setProperties(new HashMap<>());
         spearTest.addHitProbability();
 
         assertTrue(spearTest.getProperties().containsKey(InteractableProperties.HIT_PROB.name()));
@@ -21,7 +21,7 @@ public class SpearTest {
     @Test
     public void addWeight() {
         Spear spearTest = new Spear("id");
-        spearTest.setProperties(new HashMap<String, Variable>());
+        spearTest.setProperties(new HashMap<>());
         spearTest.addWeight();
 
         assertTrue(spearTest.getProperties().containsKey(InteractableProperties.WEIGHT.name()));

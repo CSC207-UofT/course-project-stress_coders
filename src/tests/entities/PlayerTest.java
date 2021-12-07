@@ -77,7 +77,7 @@ public class PlayerTest {
         Player testPlayer = new Player("id");
         testPlayer.addConsumable(potion);
 
-        assertEquals(testPlayer, ((Item) potion).getHeldBy());
+        assertEquals(testPlayer, potion.getHeldBy());
         assertTrue(testPlayer.getItems().containsKey(potion));
     }
 

@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class DiceRollCommand extends Command {
 
-    DiceRoll diceRoll;
+    final DiceRoll diceRoll;
 
     public DiceRollCommand() {
         this.diceRoll = new DiceRoll();

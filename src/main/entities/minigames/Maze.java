@@ -115,7 +115,6 @@ public class Maze extends Interactable implements Moveable {
      * "true" if the path is the solution
      */
     public String move(char nextMove){
-        System.out.println(this.solutionPath);
         this.traveledPath = this.traveledPath + nextMove;
         timer.updateTime();
         this.moveNum ++;

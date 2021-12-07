@@ -1,5 +1,6 @@
 # Specification / Functionality 
-First we will summarize our original specification. We originally sought out to have a program that did the following:
+First we will summarize our original specification. 
+We originally sought out to have a program that did the following:
 1. Process a command
 2. Execute the command (if you can)
 3. Return the result

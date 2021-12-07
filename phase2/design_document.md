@@ -19,15 +19,15 @@ Unfortunately, there are some clean architecture violations, which we could not 
 
 From our Phase 1 revision, we were not able to resolve the fact that higher layers use Interactable (and a few others) for type checking and casting, as we feared this would be too major a change for our time frame. However, we did do our best to resolve the issue of handling UI elements (interacting with System console) from lower layers (the entities). Warning: We were not able to successfully complete this. We had two main ideas. Our first was to make mirror UI commands on a higher level that interacted with CommandLine (legally) and handled all UI elements, such as printing and inputting. However, this required us to type-check to navigate logic structures, and print certain things, which would require us to import entities on the UI layer, a clear violation. Below is a snip of this
 
-![](/phase2/MDRes/pic1.png)
+![](/phase2/MdRes/firstpic.png)
 
 This is in frameworks. Then the information get passed on from layer to layer, for instance here is the call in the interface adapter's layer:
 
-![](/phase2/MDRes/pic2.png)
+![](/phase2/MdRes/secondpic.png)
 
 And then it finally ends up here:
 
-![](/phase2/MDRes/pic3.png)
+![](/phase2/MdRes/lastpic.png)
 
 Our second idea was to use callbacks, this was more complicated though. We never bothered implementing it because the only feasible solution we thought of required multiple return types. Our idea was to use an Inputtable interface that had entities (and other classes that needed input) to implement a getInput() method. This method would return an InputCallback object (that we would make) that had a wrapper of text we wanted to print before and after input. Then the CLI would receive this object, instead of the return string it was expecting and handle it accordingly. Once it received input at the UI layer, it would send it back down to the command that originally sent the InputCallback object. Then the command, depending on what stage in its inputting progress (indicated in the InputCallback object) can decide what to do next. An example is the vault door asking for a password. It would return a callback object asking for a password. When it is called with this updated object it will respond accordingly. This was more theoretical. We note these two ideas to demonstrate we worked diligently in phase 2 trying to solve this issue, but ultimately couldn’t, and hope our efforts are recognized by the marking team.
 

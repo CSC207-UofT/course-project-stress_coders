@@ -1,5 +1,4 @@
 #ACCESSIBILITY DOCUMENT
-
 ##Principle 1: Equitable Use
 ####1a. Provide the same means of use for all users: identical whenever possible; equivalent when not.
 

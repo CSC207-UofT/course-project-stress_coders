@@ -12,7 +12,6 @@ https://github.com/CSC207-UofT/course-project-stress_coders/pull/15
 This PR was neat from Phase 1. It was a part of adding diverse interactables and game interactions. Previously, we had just enemies and weapons, so I decided to be creative and added resource harvesting.
 
 
-
 ### Shehzaad
 #### Worked on:
 1. Game Logic, allowing missions to progress and creating a runnable game.

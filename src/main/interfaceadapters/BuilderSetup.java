@@ -7,6 +7,8 @@ import entities.interfaces.Consumable;
 import entities.minigames.*;
 import entities.weapons.*;
 import usecases.Encounter;
+import usecases.Timing;
+import usecases.Time;
 
 import java.util.*;
 
@@ -96,7 +98,6 @@ public class BuilderSetup {
         this.allPossibleInteractables.add(new HandCannon(DefaultInteractableIDs.HANDCANNON.getDefaultID(), r.nextInt(30)));
         this.allPossibleInteractables.add(new Potion(DefaultInteractableIDs.POTION.getDefaultID()));
         this.allPossibleInteractables.add(new Tree(DefaultInteractableIDs.TREE.getDefaultID()));
-
         VaultDoor v = generateVaultDoor();
         MysteryBox m = generateMysteryBox();
         PotionDispenser p = generatePotionDispenser();
@@ -152,6 +153,12 @@ public class BuilderSetup {
         weapons.add(new Slingshot("pew pew", 30));
         int chosenWeapon = r.nextInt(weapons.size());
         player.setWeapon(weapons.get(chosenWeapon));
+    }
+
+    public Maze generateMaze(){
+        SystemTimeable st = new TimeSystem();
+        Timing time = new Time(st);
+        return new Maze(DefaultInteractableIDs.MAZE.getDefaultID(), player, time);
     }
 
     public VaultDoor generateVaultDoor() {

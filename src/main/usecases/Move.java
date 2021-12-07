@@ -2,59 +2,71 @@ package usecases;
 
 import entities.*;
 import entities.minigames.Maze;
-import interfaceadapters.commands.Command;
 
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Move extends Command {
+public class Move {
 
-    @Override
-    public String execute(HashMap<String, Interactable> args){
+    public String moveAction(HashMap<String, Interactable> args){
 
         Maze m = ((Maze) args.get("maze"));
-        char currMove = 'x';
-        System.out.println("What is your move?");
         Scanner lineIn = new Scanner(System.in);
-        String choice = lineIn.nextLine();
-        currMove = getMove(currMove, choice);
-        String currMoveResult = m.move(currMove);
-        while(!currMoveResult.equals("true")){
-            System.out.println("What is your next move?");
-            choice = lineIn.nextLine();
 
-            currMove = getMove(currMove, choice);
+        //Initialize the While loop's variables
+        String choice;
+        char currMove;
+        double current_time_remaining;
+        String currMoveResult = "false";
+        while(!currMoveResult.equals("true")){
+            current_time_remaining = (m.getTimer().getMaxTime() - m.getTimer().getCurrentTime())/1000;
+            System.out.println("You currently have " + current_time_remaining + " seconds left.");
+            System.out.println("Your path is " + m.getTraveledPath());
+            System.out.println("What is your move? [input 'right', 'left', 'up', or 'down'] \n" +
+                    "Type quit to flee, but you will lose your weapon");
+
+            choice = lineIn.nextLine();
+            if(choice.equals("quit")){
+                currMove = 'x';
+                m.getTimer().updateMaxTime(-m.getTimer().getMaxTime());
+            } else {
+                currMove = getMove(choice);
+            }
             currMoveResult = m.move(currMove);
 
             if(currMoveResult.equals("time")){
-                m.playerLossesWeapon();
                 return "You ran out of time and got lost. Your weapon was broken hacking your way out.";
             } else if (currMoveResult.equals("path")) {
-                m.getTimer().updateMaxTime(-120000);
-                double current_time_remaining = (m.getTimer().getMaxTime() - m.getTimer().getCurrentTime())/1000;
-                System.out.println("You strayed from the path, and find yourself back at the start. " +
-                        "You wasted 2 minutes and only have " + current_time_remaining + " seconds left!");
+                m.getTimer().updateMaxTime(-30000);
+                current_time_remaining = (m.getTimer().getMaxTime() - m.getTimer().getCurrentTime())/1000;
+                System.out.println("You strayed from the path, and find yourself back where you were. \n" +
+                        "You wasted 30 seconds and only have " + current_time_remaining + " seconds left!");
             }
         }
-        m.playerReward();
         return "You made it! You got 1000 currency!";
     }
 
-    private char getMove(char move, String choice) {
+    private char getMove(String choice) {
         switch (choice) {
             case "right":
                 System.out.println("You moved right.");
+                return 'r';
 
             case "left":
                 System.out.println("You moved left.");
+                return 'l';
 
             case "up":
                 System.out.println("You moved up.");
+                return 'u';
 
             case "down":
                 System.out.println("You moved down.");
-                move = 'd';
+                return 'd';
+
+            default:
+                System.out.println("You moved in no direction!");
+                return 'x';
         }
-        return move;
     }
 }

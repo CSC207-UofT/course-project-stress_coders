@@ -1,23 +1,26 @@
 package entities.minigames;
+import usecases.Timing;
 
 public class Timer {
 
     private double currentTime;
     private double maxTime;
     private final double startingTime;
+    private final Timing time;
+
 
     /**
      * Construct a new Timer object
      *
      * @param current the current time elapsed
      * @param max the max time for the time to fail
+     * @param time the time getter
      */
-    public Timer(double current, double max){
+    public Timer(double current, double max, Timing time){
         this.currentTime = current;
         this.maxTime = max;
-
-        //TODO: move out of entity layer
-        this.startingTime = System.currentTimeMillis();
+        this.time = time;
+        this.startingTime = time.returnTime();
     }
 
     /**
@@ -27,15 +30,6 @@ public class Timer {
      */
     public double getCurrentTime(){
         return this.currentTime;
-    }
-
-    /**
-     * Set the current time elapsed
-     *
-     * @param current the new amount of time elapsed
-     */
-    public void setCurrentTime(double current){
-        this.currentTime = current;
     }
 
 
@@ -62,11 +56,11 @@ public class Timer {
      * @return whether there is no more time left or not
      */
     public boolean hasTimeElapsed(){
-        return this.currentTime < this.maxTime;
+        return this.currentTime > this.maxTime;
     }
 
     public void updateTime(){
-        this.currentTime = System.currentTimeMillis() - this.startingTime;
+        this.currentTime = this.time.returnTime() - this.startingTime;
     }
 
 

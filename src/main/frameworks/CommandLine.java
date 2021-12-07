@@ -23,7 +23,7 @@ public class CommandLine {
     private final GameState gameState;
     private PlayerManager playerState;
     private static final Set<String> SPECIAL_INPUTS = new HashSet<>(Arrays.asList("help", "progress",
-            "consumeItem", "pick_up", "save 1", "save 2", "save 3"));
+            "consume_item", "pick_up", "save 1", "save 2", "save 3"));
     private static final Set<String> GAME_LENGTH_OPTIONS = new HashSet<>(List.of(new String[]{"short", "medium",
             "long", "test"}));
 

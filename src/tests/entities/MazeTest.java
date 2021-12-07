@@ -23,7 +23,7 @@ public class MazeTest {
     }
 
     @Test
-    public void hasPathFailedTrue(){
+    public void hasPathFailedTrue() {
         Player p = new Player();
         SystemTimeable st = new TimeSystem();
         Timing time = new Time(st);
@@ -59,21 +59,33 @@ public class MazeTest {
     }
 
     @Test
-    public void moveComplete(){
+    public void moveFail(){
         Player p = new Player();
         SystemTimeable st = new TimeSystem();
         Timing time = new Time(st);
         Maze m = new Maze("Test Maze", p, "lrud", 100000000, time);
         String moveFail = m.move('r');
         assertEquals("path", moveFail);
-        String move1 = m.move('l');
-        assertEquals("false", move1);
-        String move2 = m.move('r');
-        assertEquals("false", move2);
-        String move3 = m.move('u');
-        assertEquals("false", move3);
-        String move4 = m.move('d');
-        assertEquals("true", move4);
+    }
+
+    @Test
+    public void movePassFalse(){
+        Player p = new Player();
+        SystemTimeable st = new TimeSystem();
+        Timing time = new Time(st);
+        Maze m = new Maze("Test Maze", p, "lrud", 100000000, time);
+        String moveFail = m.move('l');
+        assertEquals("false", moveFail);
+    }
+
+    @Test
+    public void movePassTrue(){
+        Player p = new Player();
+        SystemTimeable st = new TimeSystem();
+        Timing time = new Time(st);
+        Maze m = new Maze("Test Maze", p, "l", 100000000, time);
+        String moveFail = m.move('l');
+        assertEquals("true", moveFail);
     }
 
     @Test

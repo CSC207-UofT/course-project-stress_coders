@@ -26,6 +26,7 @@ public class CommandConstants {
         COMMANDS.put("Swing", new SwingCommand());
         COMMANDS.put("duel", new DuelCommand());
         COMMANDS.put("race", new RaceCommand());
+        COMMANDS.put("move", new MoveCommand());
 
     }
     public Command getCommand(String input) {return COMMANDS.get(input);}

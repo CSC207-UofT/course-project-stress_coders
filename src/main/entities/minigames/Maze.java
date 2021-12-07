@@ -28,6 +28,7 @@ public class Maze extends Interactable implements Moveable {
      */
     public Maze(String id, Player p, Timing time){
         super(id, "move: maze=[maze_id]");
+        super.setCompleted(false);
         Random r = new Random();
         this.mazeLength = r.nextInt(6) + 5;
         this.moveNum = 0;
@@ -47,6 +48,7 @@ public class Maze extends Interactable implements Moveable {
      */
     public Maze(String id, Player p, String solutionPath, double maxTime, Timing time){
         super(id, "move: maze=[maze_id]");
+        super.setCompleted(false);
         this.mazeLength = solutionPath.length();
         this.moveNum = 0;
         this.solutionPath = solutionPath;
@@ -98,7 +100,7 @@ public class Maze extends Interactable implements Moveable {
      */
     public boolean hasTravelledDistance(int moveNum, int mazeLength) {
         if(moveNum == mazeLength){
-            this.setCompleted(true);
+            super.setCompleted(true);
             return true;
         }
         return false;
@@ -113,16 +115,29 @@ public class Maze extends Interactable implements Moveable {
      * "true" if the path is the solution
      */
     public String move(char nextMove){
+        System.out.println(this.solutionPath);
         this.traveledPath = this.traveledPath + nextMove;
         timer.updateTime();
         this.moveNum ++;
+
         if (this.timer.hasTimeElapsed()){
+            super.setCompleted(true);
+            this.playerLossesWeapon();
             return "time";
+
         } else if(hasPathFailed(this.solutionPath, this.traveledPath, this.moveNum)){
+            this.traveledPath = this.traveledPath.substring(0,this.moveNum-1);
             this.moveNum = 0;
+            System.out.println(this.traveledPath);
             return "path";
         }
-        return Boolean.toString(hasTravelledDistance(this.moveNum, this.mazeLength));
+
+        String result =  Boolean.toString(hasTravelledDistance(this.moveNum, this.mazeLength));
+        if(result.equals("true")){
+            this.playerReward();
+            return result;
+        }
+        return result;
     }
 
     /**
@@ -147,6 +162,15 @@ public class Maze extends Interactable implements Moveable {
      */
     public Timer getTimer() {
         return this.timer;
+    }
+
+    /**
+     * Get the user's traveled path
+     *
+     * @return the traveled path
+     */
+    public String getTraveledPath(){
+        return this.traveledPath;
     }
 
 

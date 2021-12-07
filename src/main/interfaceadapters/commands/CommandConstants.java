@@ -23,7 +23,7 @@ public class CommandConstants {
         COMMANDS.put("hint", new HintCommand());
         COMMANDS.put("roll", new DiceRollCommand());
         COMMANDS.put("launch", new LaunchCommand());
-        COMMANDS.put("Swing", new SwingCommand());
+        COMMANDS.put("swing", new SwingCommand());
         COMMANDS.put("duel", new DuelCommand());
         COMMANDS.put("race", new RaceCommand());
 

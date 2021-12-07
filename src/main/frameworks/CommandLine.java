@@ -155,7 +155,7 @@ public class CommandLine {
         } else if (nextInput.contains("pick_up")) {
             return specialPickUpCall(nextInput);
         }
-        else if (nextInput.equals("consumeItem")) {
+        else if (nextInput.equals("consume_item")) {
             return specialConsumeCall();
         }
         else if (nextInput.contains("save")) {

@@ -119,6 +119,7 @@ public class GameState {
      * @return Encounter Object (current encounter)
      */
     public String callCommand(String input, HashMap<String, Interactable> args) {
+        setCC(new CommandConstants());
         Command needed = this.commandConstants.getCommand(input);
         String commandRes = needed.execute(args);
         String s = encounters.get(current_encounter).progress(commandRes) ;

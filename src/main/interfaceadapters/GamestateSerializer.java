@@ -10,12 +10,22 @@ import entities.weapons.*;
 
 import java.util.HashMap;
 
+/*
+Serialize and deserialize the Gamestate class.
+
+Save the 3 important instance variables
+ */
 public class GamestateSerializer {
 
     final Gson serializer = new Gson();
     final Gson itemSerializer;
     final Gson weaponSerializer;
 
+    /*
+    Instance variables of the player and the index they correspond to based on the way the player is stored.
+
+    See the encounter serializer class for more info on something similar.
+     */
     private enum PlayerComponents{
         PLAYER_ID(0),
         HP(1),
@@ -33,6 +43,11 @@ public class GamestateSerializer {
     }
 
     public GamestateSerializer(){
+        /**
+        This is to correctly save the players items. This serves the same purpose as the interactable serializer
+        in the ecnounterSerializer so check there for more info.
+         @see EncounterSerializer
+         **/
         RuntimeTypeAdapterFactory<Item> itemRuntimeTypeAdapterFactory = RuntimeTypeAdapterFactory.of(Item.class)
                 .registerSubtype(Weapon.class).registerSubtype(Axe.class).registerSubtype(Crossbow.class).registerSubtype(HandCannon.class)
                 .registerSubtype(Slingshot.class).registerSubtype(Spear.class).registerSubtype(ThrowingKnife.class).registerSubtype(Berries.class)
@@ -40,6 +55,9 @@ public class GamestateSerializer {
                 .registerSubtype(Potato.class).registerSubtype(RefillablePotion.class).registerSubtype(SuspiciousMushroom.class)
                 .registerSubtype(UnusablePotion.class);
 
+        /*
+        Same thing but with weapons.
+         */
         RuntimeTypeAdapterFactory<Weapon> weaponRuntimeTypeAdapterFactory = RuntimeTypeAdapterFactory.of(Weapon.class).registerSubtype(Axe.class).registerSubtype(Crossbow.class).registerSubtype(HandCannon.class)
                 .registerSubtype(Slingshot.class).registerSubtype(Spear.class).registerSubtype(ThrowingKnife.class);
 
@@ -47,6 +65,10 @@ public class GamestateSerializer {
         weaponSerializer = new GsonBuilder().registerTypeAdapterFactory(weaponRuntimeTypeAdapterFactory).create();
     }
 
+    /**
+    Same idea as deserializeEncounter
+     @see EncounterSerializer
+     **/
     public Player deserializePlayer(String serialization){
         String[] components = serialization.split(";");
 
@@ -66,6 +88,10 @@ public class GamestateSerializer {
         return p;
     }
 
+    /**
+    Same idea as serializeEncounter
+    @see EncounterSerializer
+    **/
     public String serializePlayer(Player p){
         String serialization = "";
 
@@ -80,6 +106,10 @@ public class GamestateSerializer {
         return serialization;
     }
 
+    /**
+    Same idea as deserializeObjIds,
+     @see EncounterSerializer
+    **/
     public HashMap<Item, Integer> deserializeItems(String items){
         String[] keyValuePairs = items.split(",,");
         HashMap<Item, Integer> itemsMap = new HashMap<>();
@@ -94,6 +124,10 @@ public class GamestateSerializer {
         return itemsMap;
     }
 
+    /**
+     Same idea as serializeObjIds,
+     @see EncounterSerializer
+     **/
     public String serializeItems(HashMap<Item, Integer> items){
         StringBuilder serialization = new StringBuilder();
 

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /*
-Save and load gameState
+Save and load gameState to one of the files
  */
 public class GameStateSaver {
 
@@ -20,6 +20,21 @@ public class GameStateSaver {
     private final EncounterSerializer ES = new EncounterSerializer();
     private final GamestateSerializer GS = new GamestateSerializer();
 
+   /*
+   Standard method to write to a file.
+
+   This specifically saves a gamester object in a useful format:
+
+   Encounter Number:
+   ---- Value ---
+   Player Data:
+   --- Data ---
+   Encounters:
+   encounter data 1
+   encounter data 2
+   ...
+   encounter data n
+    */
     public void saveToFile(String FileName, GameState gs){
         try {
             File file = new File("saves/save" + FileName + ".txt");
@@ -57,6 +72,25 @@ public class GameStateSaver {
         }
     }
 
+    /*
+    Read saved data from one of the files and reconstruct the game state object and then restart the command line
+    with the new gameState object.
+
+    Assuming the file is in the format above.
+
+    IF not print an error.
+
+    If the save is empty print an error.
+
+    Game state is reconstructed by first getting the encounter number (it's an int, so we can save it as a string
+    and use parseInt )
+
+    Deserialize the player this is needed for an instance variable of gamestate and needs to be done before
+    deserializing the encounters as outlined in the encounterSerializer class
+
+    Deserialize all the encounters put them in a list assign it to the correct instance variable and then
+    construct the last 2 remaining instance vars.
+     */
     public void loadGame(String saveFile) throws IOException, CloneNotSupportedException {
         BufferedReader in = new BufferedReader(new FileReader("saves/save" + saveFile + ".txt"));
         String line = in.readLine();
@@ -113,6 +147,13 @@ public class GameStateSaver {
         commandLine.run();
     }
 
+
+    /*
+    We don't save all the variables of gamestate since some of them can be constructed from the other 3.
+
+    Here we construct the other 2 varies and assign them to a game state object assuming the other 3
+    variables are already assigned.
+     */
     private void fillGameState(GameState gs){
         gs.setCompletedEncounters(new ArrayList<>());
         for(Encounter e : gs.getEncounters()){
@@ -126,11 +167,9 @@ public class GameStateSaver {
         }
     }
 
-
-    private GameState jsonToGameState(String JSON){
-        return gson.fromJson(JSON, GameState.class);
-    }
-
+    /*
+    This checks to make sure a save is valid
+     */
     public boolean validSaveFile(String fileName) throws IOException {
         File file = new File("saves/save" + fileName + ".txt");
 
